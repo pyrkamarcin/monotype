@@ -1,6 +1,6 @@
 <?php
 
-namespace Monotype\HalBundle\Tests\Controller;
+namespace Monotype\Bundle\HalBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 

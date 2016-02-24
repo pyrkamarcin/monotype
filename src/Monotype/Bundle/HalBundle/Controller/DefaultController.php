@@ -1,6 +1,6 @@
 <?php
 
-namespace Monotype\HalBundle\Controller;
+namespace Monotype\Bundle\HalBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;

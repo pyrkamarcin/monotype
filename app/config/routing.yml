@@ -1,5 +1,5 @@
 monotype_hal:
-    resource: "@MonotypeHalBundle/Controller/"
+    resource: "@Monotype/Bundle/HalBundle/Controller/"
     type:     annotation
     prefix:   /
 

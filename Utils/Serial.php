@@ -60,6 +60,27 @@ class Serial
     // OPEN/CLOSE DEVICE SECTION -- {START}
     //
 
+    public function _exec($cmd, &$out = null)
+    {
+        $desc = array(
+            1 => array("pipe", "w"),
+            2 => array("pipe", "w")
+        );
+
+        $proc = proc_open($cmd, $desc, $pipes);
+
+        $ret = stream_get_contents($pipes[1]);
+        $err = stream_get_contents($pipes[2]);
+
+        fclose($pipes[1]);
+        fclose($pipes[2]);
+
+        $retVal = proc_close($proc);
+
+        if (func_num_args() == 2) $out = array($ret, $err);
+        return $retVal;
+    }
+
     /**
      * Device set function : used to set the device name/address.
      * -> linux : use the device address, like /dev/ttyS0
@@ -163,6 +184,14 @@ class Serial
         return false;
     }
 
+    //
+    // OPEN/CLOSE DEVICE SECTION -- {STOP}
+    //
+
+    //
+    // CONFIGURE SECTION -- {START}
+    //
+
     /**
      * Closes the device
      *
@@ -185,14 +214,6 @@ class Serial
 
         return false;
     }
-
-    //
-    // OPEN/CLOSE DEVICE SECTION -- {STOP}
-    //
-
-    //
-    // CONFIGURE SECTION -- {START}
-    //
 
     /**
      * Configure the Baud Rate
@@ -493,6 +514,14 @@ class Serial
         }
     }
 
+    //
+    // CONFIGURE SECTION -- {STOP}
+    //
+
+    //
+    // I/O SECTION -- {START}
+    //
+
     /**
      * Sets a setserial parameter (cf man setserial)
      * NO MORE USEFUL !
@@ -526,13 +555,16 @@ class Serial
         }
     }
 
-    //
-    // CONFIGURE SECTION -- {STOP}
-    //
+    public function _ckOpened()
+    {
+        if ($this->_dState !== SERIAL_DEVICE_OPENED) {
+            trigger_error("Device must be opened", E_USER_WARNING);
 
-    //
-    // I/O SECTION -- {START}
-    //
+            return false;
+        }
+
+        return true;
+    }
 
     /**
      * Sends a string to the device
@@ -549,6 +581,38 @@ class Serial
         }
 
         usleep((int)($waitForReply * 1000000));
+    }
+
+    //
+    // I/O SECTION -- {STOP}
+    //
+
+    //
+    // INTERNAL TOOLKIT -- {START}
+    //
+
+    /**
+     * Flushes the output buffer
+     * Renamed from flush for osx compat. issues
+     *
+     * @return bool
+     */
+    public function serialflush()
+    {
+        if (!$this->_ckOpened()) {
+            return false;
+        }
+
+        if (fwrite($this->_dHandle, $this->_buffer) !== false) {
+            $this->_buffer = "";
+
+            return true;
+        } else {
+            $this->_buffer = "";
+            trigger_error("Error while sending message", E_USER_WARNING);
+
+            return false;
+        }
     }
 
     /**
@@ -613,49 +677,6 @@ class Serial
         return false;
     }
 
-    /**
-     * Flushes the output buffer
-     * Renamed from flush for osx compat. issues
-     *
-     * @return bool
-     */
-    public function serialflush()
-    {
-        if (!$this->_ckOpened()) {
-            return false;
-        }
-
-        if (fwrite($this->_dHandle, $this->_buffer) !== false) {
-            $this->_buffer = "";
-
-            return true;
-        } else {
-            $this->_buffer = "";
-            trigger_error("Error while sending message", E_USER_WARNING);
-
-            return false;
-        }
-    }
-
-    //
-    // I/O SECTION -- {STOP}
-    //
-
-    //
-    // INTERNAL TOOLKIT -- {START}
-    //
-
-    public function _ckOpened()
-    {
-        if ($this->_dState !== SERIAL_DEVICE_OPENED) {
-            trigger_error("Device must be opened", E_USER_WARNING);
-
-            return false;
-        }
-
-        return true;
-    }
-
     public function _ckClosed()
     {
         if ($this->_dState === SERIAL_DEVICE_OPENED) {
@@ -665,27 +686,6 @@ class Serial
         }
 
         return true;
-    }
-
-    public function _exec($cmd, &$out = null)
-    {
-        $desc = array(
-            1 => array("pipe", "w"),
-            2 => array("pipe", "w")
-        );
-
-        $proc = proc_open($cmd, $desc, $pipes);
-
-        $ret = stream_get_contents($pipes[1]);
-        $err = stream_get_contents($pipes[2]);
-
-        fclose($pipes[1]);
-        fclose($pipes[2]);
-
-        $retVal = proc_close($proc);
-
-        if (func_num_args() == 2) $out = array($ret, $err);
-        return $retVal;
     }
 
 }

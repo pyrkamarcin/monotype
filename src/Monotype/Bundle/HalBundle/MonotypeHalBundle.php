@@ -1,6 +1,6 @@
 <?php
 
-namespace Monotype\HalBundle;
+namespace Monotype\Bundle\HalBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

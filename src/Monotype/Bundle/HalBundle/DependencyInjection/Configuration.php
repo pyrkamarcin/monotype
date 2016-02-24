@@ -1,6 +1,6 @@
 <?php
 
-namespace Monotype\HalBundle\DependencyInjection;
+namespace Monotype\Bundle\HalBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;

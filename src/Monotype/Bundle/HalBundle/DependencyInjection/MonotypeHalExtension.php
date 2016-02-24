@@ -1,6 +1,6 @@
 <?php
 
-namespace Monotype\HalBundle\DependencyInjection;
+namespace Monotype\Bundle\HalBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
