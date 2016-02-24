@@ -1,0 +1,8 @@
+monotype_hal:
+    resource: "@MonotypeHalBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation

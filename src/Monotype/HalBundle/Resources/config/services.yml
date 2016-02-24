@@ -1,0 +1,4 @@
+services:
+#    monotype_hal.example:
+#        class: Monotype\HalBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]
