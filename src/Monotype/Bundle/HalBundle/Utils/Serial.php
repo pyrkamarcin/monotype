@@ -1,6 +1,10 @@
 <?php
 
-namespace Monotype\HalBundle\Utils;
+namespace Monotype\Bundle\HalBundle\Utils;
+
+define("SERIAL_DEVICE_NOTSET", 0);
+define("SERIAL_DEVICE_SET", 1);
+define("SERIAL_DEVICE_OPENED", 2);
 
 class Serial
 {
@@ -96,7 +100,7 @@ class Serial
         if ($this->_dState !== SERIAL_DEVICE_OPENED) {
             if ($this->_os === "linux") {
                 if (preg_match("@^COM(\\d+):?$@i", $device, $matches)) {
-                    $device = "/dev/ttyS" . ($matches[1] - 1);
+                    $device = "/dev/tty" . ($matches[1] - 1);
                 }
 
                 if ($this->_exec("stty -F " . $device) === 0) {

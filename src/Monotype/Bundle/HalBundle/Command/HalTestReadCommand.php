@@ -2,6 +2,7 @@
 
 namespace Monotype\Bundle\HalBundle\Command;
 
+use Monotype\Bundle\HalBundle\Utils\Serial;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -26,6 +27,10 @@ class HalTestReadCommand extends ContainerAwareCommand
         if ($input->getOption('option')) {
             // ...
         }
+
+
+        $serial = new Serial();
+        $serial->deviceSet("COM1");
 
         $output->writeln('Command result.');
     }
