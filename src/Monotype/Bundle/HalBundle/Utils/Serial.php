@@ -26,7 +26,7 @@ class Serial
      *
      * @return Serial
      */
-    public function PhpSerial()
+    public function Serial()
     {
         setlocale(LC_ALL, "en_US");
 
