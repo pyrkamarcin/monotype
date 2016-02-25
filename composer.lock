@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "31e9c95bb9a8f027d17deda4b7dbe5a7",
-    "content-hash": "adcea4b5fa98bd5cd0fef19845850f6d",
+    "hash": "b420e558364152335f0631f16a32b13a",
+    "content-hash": "5ed32a6c49bca7e634fe61d90c16c1b6",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1773,6 +1773,69 @@
                 "framework"
             ],
             "time": "2016-02-03 12:42:23"
+        },
+        {
+            "name": "symfony/var-dumper",
+            "version": "v2.8.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/var-dumper.git",
+                "reference": "ab94426d127ad9e95433778a3a451fe9d18f3d6b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/ab94426d127ad9e95433778a3a451fe9d18f3d6b",
+                "reference": "ab94426d127ad9e95433778a3a451fe9d18f3d6b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.9",
+                "symfony/polyfill-mbstring": "~1.0"
+            },
+            "require-dev": {
+                "twig/twig": "~1.20|~2.0"
+            },
+            "suggest": {
+                "ext-symfony_debug": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.8-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "Resources/functions/dump.php"
+                ],
+                "psr-4": {
+                    "Symfony\\Component\\VarDumper\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony mechanism for exploring and dumping PHP variables",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "debug",
+                "dump"
+            ],
+            "time": "2016-01-07 13:38:40"
         },
         {
             "name": "twig/twig",

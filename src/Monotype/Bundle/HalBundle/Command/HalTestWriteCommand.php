@@ -2,6 +2,7 @@
 
 namespace Monotype\Bundle\HalBundle\Command;
 
+use Monotype\Bundle\HalBundle\Utils\Serial;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -27,7 +28,20 @@ class HalTestWriteCommand extends ContainerAwareCommand
             // ...
         }
 
+        $serial = new Serial();
+        $serial->deviceSet("COM1");
+        $serial->confBaudRate(9600);
+        $serial->confParity("none");
+        $serial->confCharacterLength(8);
+        $serial->confStopBits(1);
+        $serial->confFlowControl("rts/cts");
+
+        $serial->deviceClose();
+        $serial->deviceOpen();
+        $serial->sendMessage("Hello !");
+
+        $serial->deviceClose();
+
         $output->writeln('Command result.');
     }
-
 }

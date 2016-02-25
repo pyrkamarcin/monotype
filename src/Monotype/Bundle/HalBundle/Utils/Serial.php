@@ -15,7 +15,7 @@ class Serial
     public $_dHandle = null;
     public $_dState = SERIAL_DEVICE_NOTSET;
     public $_buffer = "";
-    public $_os = "";
+    public $_os = "windows";
 
     /**
      * This var says if buffer should be flushed by sendMessage (true) or
@@ -173,7 +173,7 @@ class Serial
             return false;
         }
 
-        $this->_dHandle = @fopen($this->_device, $mode);
+        $this->_dHandle = fopen($this->_winDevice, $mode);
 
         if ($this->_dHandle !== false) {
             stream_set_blocking($this->_dHandle, 0);
