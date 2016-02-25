@@ -9,8 +9,15 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
+/**
+ * Class HalTestWriteCommand
+ * @package Monotype\Bundle\HalBundle\Command
+ */
 class HalTestWriteCommand extends ContainerAwareCommand
 {
+    /**
+     *
+     */
     protected function configure()
     {
         $this
@@ -21,6 +28,10 @@ class HalTestWriteCommand extends ContainerAwareCommand
             ->addOption('option', null, InputOption::VALUE_NONE, 'Option description');
     }
 
+    /**
+     * @param InputInterface $input
+     * @param OutputInterface $output
+     */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $device = $input->getArgument('device');
