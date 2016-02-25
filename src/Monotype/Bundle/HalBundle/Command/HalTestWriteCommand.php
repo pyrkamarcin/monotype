@@ -16,29 +16,30 @@ class HalTestWriteCommand extends ContainerAwareCommand
         $this
             ->setName('hal:test:write')
             ->setDescription('...')
-            ->addArgument('argument', InputArgument::OPTIONAL, 'Argument description')
+            ->addArgument('device', InputArgument::REQUIRED, 'Device address')
+            ->addArgument('baudRate', InputArgument::OPTIONAL, 'BaudRate')
             ->addOption('option', null, InputOption::VALUE_NONE, 'Option description');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $argument = $input->getArgument('argument');
+        $device = $input->getArgument('device');
+        $baudRate = $input->getArgument('baudRate');
 
         if ($input->getOption('option')) {
             // ...
         }
 
         $serial = new Serial();
-        $serial->deviceSet("COM1");
-        $serial->confBaudRate(9600);
+        $serial->deviceSet($device);
+        $serial->confBaudRate($baudRate ? $baudRate : 9600);
         $serial->confParity("none");
         $serial->confCharacterLength(8);
         $serial->confStopBits(1);
-        $serial->confFlowControl("rts/cts");
+        $serial->confFlowControl("none");
 
-        $serial->deviceClose();
         $serial->deviceOpen();
-        $serial->sendMessage("Hello !");
+        $serial->sendMessage("Hello World!");
 
         $serial->deviceClose();
 
