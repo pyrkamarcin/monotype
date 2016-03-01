@@ -122,6 +122,7 @@ class Serial
                         exec("mode " . $device . " xon=on BAUD=9600")
                     ) === 0
                 ) {
+
                     $this->_winDevice = "COM" . $matches[1];
                     $this->_device = "\\.com" . $matches[1];
                     $this->_dState = SERIAL_DEVICE_SET;
@@ -662,14 +663,20 @@ class Serial
             $i = 0;
 
             if ($count !== 0) {
+                echo $content . "a";
                 do {
                     if ($i > $count) {
+                        echo $content . "b";
                         $content .= fread($this->_dHandle, ($count - $i));
                     } else {
+                        echo $content . "c";
                         $content .= fread($this->_dHandle, 128);
+
+                        echo $content . "e";
                     }
                 } while (($i += 128) === strlen($content));
             } else {
+                echo $content . "d";
                 do {
                     $content .= fread($this->_dHandle, 128);
                 } while (($i += 128) === strlen($content));
