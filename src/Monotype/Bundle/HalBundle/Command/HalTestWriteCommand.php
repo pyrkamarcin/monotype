@@ -41,22 +41,23 @@ class HalTestWriteCommand extends ContainerAwareCommand
             // ...
         }
 
-        $serial = new Serial();
-        $serial->deviceSet($device);
-        $serial->confBaudRate($baudRate ? $baudRate : 9600);
 
-        $serial->confParity("none");
-        $serial->confCharacterLength(8);
-        $serial->confStopBits(1);
-        $serial->confFlowControl("none");
-
-//        dump($serial);
-
-        $serial->deviceOpen();
-
-        $serial->sendMessage("Hello World!");
-
-        $serial->deviceClose();
+//        $serial = new Serial();
+//        $serial->deviceSet($device);
+//        $serial->confBaudRate($baudRate ? $baudRate : 9600);
+//
+//        $serial->confParity("none");
+//        $serial->confCharacterLength(8);
+//        $serial->confStopBits(1);
+//        $serial->confFlowControl("none");
+//
+////        dump($serial);
+//
+//        $serial->deviceOpen();
+//
+//        $serial->sendMessage("Hello World!");
+//
+//        $serial->deviceClose();
 
         $output->writeln('Command result.');
     }
