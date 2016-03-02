@@ -18,7 +18,6 @@ class AppKernel extends Kernel
             new AppBundle\AppBundle(),
             new Monotype\Bundle\HalBundle\MonotypeHalBundle(),
             new MEF\SocketBundle\MEFSocketBundle(),
-            new Monotype\Bundle\DeamonBundle\DeamonBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
