@@ -1,13 +1,3 @@
-deamon:
-    resource: "@DeamonBundle/Controller/"
-    type:     annotation
-    prefix:   /
-
-monotype_hal:
-    resource: "@Monotype/Bundle/HalBundle/Controller/"
-    type:     annotation
-    prefix:   /
-
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
