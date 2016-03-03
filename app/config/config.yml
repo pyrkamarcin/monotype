@@ -67,9 +67,3 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
-
-
-mef_socket:
-    tcp:
-        port: 4001
-        host: 192.168.100.101
