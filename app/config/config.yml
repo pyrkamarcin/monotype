@@ -67,13 +67,3 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
-
-yz_supervisor:
-    default_environment: dev
-    servers:
-        dev:
-            locahost:
-                host: 127.0.0.1
-                username: guest
-                password: password
-                port: 9001
