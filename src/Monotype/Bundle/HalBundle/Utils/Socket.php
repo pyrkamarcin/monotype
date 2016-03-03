@@ -101,18 +101,28 @@ class Socket
         $this->port = $port;
     }
 
+    /**
+     * @throws \Exception
+     */
     public function openStream()
     {
         $socket = stream_socket_client($this->remote_socket, $errno, $errstr);
         if (!$socket) {
-            echo "$errstr ($errno)<br />\n";
+            throw new \Exception("Can't open socket.");
         } else {
+            $this->socket = $socket;
         }
     }
 
+    /**
+     * @throws \Exception
+     */
     public function closeStream()
     {
-        fclose($this->socket);
+        if ($this->socket) {
+            fclose($this->socket);
+        } else {
+            throw new \Exception("Can't closed socket. There have been opened.");
+        }
     }
-
 }

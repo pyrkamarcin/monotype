@@ -12,48 +12,37 @@ ob_implicit_flush();
 $address = '192.168.100.101';
 $port = 4001;
 
-if (($sock = socket_create(AF_INET, SOCK_STREAM, SOL_TCP)) === false) {
-    echo "socket_create() failed: reason: " . socket_strerror(socket_last_error()) . "\n";
-}
+require_once "app/autoload.php";
 
-if (socket_bind($sock, $address, $port) === false) {
-    echo "socket_bind() failed: reason: " . socket_strerror(socket_last_error($sock)) . "\n";
-}
+//$socket = new \MEF\SocketBundle\Socket\SocketClient();
+//$socket->setPort(4001);
+//$socket->setProtocol('tcp');
+//$socket->setHost('192.168.100.101');
+//
+//
+//dump($socket);
 
-if (socket_listen($sock, 5) === false) {
-    echo "socket_listen() failed: reason: " . socket_strerror(socket_last_error($sock)) . "\n";
-}
 
-do {
-    if (($msgsock = socket_accept($sock)) === false) {
-        echo "socket_accept() failed: reason: " . socket_strerror(socket_last_error($sock)) . "\n";
-        break;
-    }
-    /* Send instructions. */
-    $msg = "\nWelcome to the PHP Test Server. \n" .
-        "To quit, type 'quit'. To shut down the server type 'shutdown'.\n";
-    socket_write($msgsock, $msg, strlen($msg));
+//$socketStream = new \MEF\SocketBundle\Socket\SocketStream(
+////    stream_socket_client("tcp://192.168.100.101:4001", $errno, $errstr, 4001),
+//new \React\Stream\Stream("tcp://192.168.100.101:4001"),
+//    null
+//);
+////$socketStream->write("test");
+//
+//$socketStream->read();
+//
+//dump($socketStream);
 
-    do {
-        if (false === ($buf = socket_read($msgsock, 2048, PHP_NORMAL_READ))) {
-            echo "socket_read() failed: reason: " . socket_strerror(socket_last_error($msgsock)) . "\n";
-            break 2;
-        }
-        if (!$buf = trim($buf)) {
-            continue;
-        }
-        if ($buf == 'quit') {
-            break;
-        }
-        if ($buf == 'shutdown') {
-            socket_close($msgsock);
-            break 2;
-        }
-        $talkback = "PHP: You said '$buf'.\n";
-        socket_write($msgsock, $talkback, strlen($talkback));
-        echo "$buf\n";
-    } while (true);
-    socket_close($msgsock);
-} while (true);
 
-socket_close($sock);
+//$loop = React\EventLoop\Factory::create();
+//
+//$client = stream_socket_client('tcp://192.168.100.101:4001');
+//$conn = new React\Stream\Stream($client, $loop);
+//$conn->pipe(new React\Stream\Stream(STDOUT, $loop));
+//$conn->write("Hello World!\r\n");
+//
+//$loop->run();
+
+
+$deferred = new React\Promise\Deferred();
