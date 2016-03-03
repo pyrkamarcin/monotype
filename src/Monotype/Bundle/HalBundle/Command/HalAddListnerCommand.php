@@ -29,9 +29,8 @@ class HalAddListnerCommand extends ContainerAwareCommand
         }
 
         $listner = new Deamon;
-        $listner_pid = $listner->addListner();
+        $listner->addListner();
 
-        $output->writeln('result.:' . $listner_pid);
+//        $output->writeln('result:');
     }
-
 }
