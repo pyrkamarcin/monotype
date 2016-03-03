@@ -6,7 +6,7 @@ namespace Monotype\Domain\Hal;
  * Class Machine
  * @package Monotype\Domain\Hal
  */
-class Machine extends Device
+class Machine
 {
     /**
      * Machine constructor.
@@ -14,6 +14,5 @@ class Machine extends Device
      */
     public function __construct($id)
     {
-        parent::__construct($id);
     }
 }
