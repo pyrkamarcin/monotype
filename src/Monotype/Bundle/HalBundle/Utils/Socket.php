@@ -46,9 +46,33 @@ class Socket
     }
 
     /**
+     * @param mixed $protocol
+     */
+    private function setProtocol($protocol)
+    {
+        $this->protocol = $protocol;
+    }
+
+    /**
+     * @param mixed $address
+     */
+    private function setAddress($address)
+    {
+        $this->address = $address;
+    }
+
+    /**
+     * @param mixed $port
+     */
+    private function setPort($port)
+    {
+        $this->port = $port;
+    }
+
+    /**
      * @return string
      */
-    public function composeSocket()
+    private function composeSocket()
     {
         return $this->getProtocol() . "://" . $this->getAddress() . ":" . $this->getPort();
     }
@@ -56,49 +80,42 @@ class Socket
     /**
      * @return mixed
      */
-    public function getProtocol()
+    private function getProtocol()
     {
         return $this->protocol;
     }
 
     /**
-     * @param mixed $protocol
-     */
-    public function setProtocol($protocol)
-    {
-        $this->protocol = $protocol;
-    }
-
-    /**
      * @return mixed
      */
-    public function getAddress()
+    private function getAddress()
     {
         return $this->address;
     }
 
     /**
-     * @param mixed $address
-     */
-    public function setAddress($address)
-    {
-        $this->address = $address;
-    }
-
-    /**
      * @return mixed
      */
-    public function getPort()
+    private function getPort()
     {
         return $this->port;
     }
 
     /**
-     * @param mixed $port
+     * @param $message
      */
-    public function setPort($port)
+    public function write($message)
     {
-        $this->port = $port;
+        fwrite($this->socket, $message);
+    }
+
+    /**
+     * @param $buffor
+     * @return mixed
+     */
+    public function read($buffor)
+    {
+        return fread($this->socket, $buffor);
     }
 
     /**

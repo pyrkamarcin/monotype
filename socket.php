@@ -14,15 +14,6 @@ $port = 4001;
 
 require_once "app/autoload.php";
 
-//$socket = new \MEF\SocketBundle\Socket\SocketClient();
-//$socket->setPort(4001);
-//$socket->setProtocol('tcp');
-//$socket->setHost('192.168.100.101');
-//
-//
-//dump($socket);
-
-
 //$socketStream = new \MEF\SocketBundle\Socket\SocketStream(
 ////    stream_socket_client("tcp://192.168.100.101:4001", $errno, $errstr, 4001),
 //new \React\Stream\Stream("tcp://192.168.100.101:4001"),
@@ -44,5 +35,15 @@ require_once "app/autoload.php";
 //
 //$loop->run();
 
+$socket = new \Monotype\Bundle\HalBundle\Utils\Socket('tcp', '192.168.100.101', '4001');
+$socket->openStream();
 
-$deferred = new React\Promise\Deferred();
+$socket->write("test\r\n");
+
+//while (!feof($socket->socket)) {
+//    $contents = $socket->read(4);
+//    $all .= $contents;
+//    echo $contents;
+//}
+
+$socket->closeStream();
