@@ -9,14 +9,14 @@ set_time_limit(0);
  * as it comes in. */
 ob_implicit_flush();
 
-$address = '192.168.100.101';
+$address = '192.168.100.102';
 $port = 4001;
 
 require_once "app/autoload.php";
 
 //$socketStream = new \MEF\SocketBundle\Socket\SocketStream(
 ////    stream_socket_client("tcp://192.168.100.101:4001", $errno, $errstr, 4001),
-//new \React\Stream\Stream("tcp://192.168.100.101:4001"),
+//    new \React\Stream\Stream("tcp://192.168.100.101:4001"),
 //    null
 //);
 ////$socketStream->write("test");
@@ -28,23 +28,22 @@ require_once "app/autoload.php";
 
 //$loop = React\EventLoop\Factory::create();
 //
-//$client = stream_socket_client('tcp://192.168.100.101:4001');
+//$client = stream_socket_client('tcp://192.168.100.102:4001');
 //$conn = new React\Stream\Stream($client, $loop);
 //$conn->pipe(new React\Stream\Stream(STDOUT, $loop));
-//$conn->write("Hello World!\r\n");
+//
+//$file = file_get_contents('program');
+//
+//$conn->write($file);
 //
 //$loop->run();
 
 $socket = new \Monotype\Bundle\HalBundle\Utils\Socket('tcp', '192.168.100.102', '4001');
 $socket->openStream();
 
-//$socket->write("test\r\n");
+$file = file_get_contents('program');
 
-while (!feof($socket->socket)) {
-    $contents = $socket->read(4);
-    $all .= $contents;
-    file_put_contents("dump.txt", $contents, FILE_APPEND | LOCK_EX);
-    echo $contents;
-}
+$socket->write($file, filesize('program'));
 
+echo "ok!\r\n";
 $socket->closeStream();

@@ -103,10 +103,12 @@ class Socket
 
     /**
      * @param $message
+     * @param $length
      */
-    public function write($message)
+    public function write($message, $length)
     {
-        fwrite($this->socket, $message);
+        fputs($this->socket, $message, $length);
+//        fwrite($this->socket, $message, $length);
     }
 
     /**
