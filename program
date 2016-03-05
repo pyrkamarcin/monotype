@@ -1,5 +1,5 @@
-%_N_P1700_DYSTANS_MPF
-;$PATH=/_N_WKS_DIR/_N_ROLMECH_WPD
+%_N_TEST_2_MPF
+;$PATH=/_N_WKS_DIR/_N_DTT_WPD
 N5 F_HEAD(365953023,31.75,5.,26.,-70.,2.,2.,24.,-71.,135.8953,466.8714,0.5,2800.,0.,71,1,799,0,-70.,-50.,7,1,6,20.,38.73,20.,1);*RO*
 N20 F_TS("Przecinak_3mm","",1,85.,2,1,4,0.,0.,0);*RO*
 N25 G26 S350
@@ -114,3 +114,5 @@ RET ;*GP*
 ;LL,EX:-2;*GP*;*RO*;*HD*
 ;#End contour definition end - Don't change!;*GP*;*RO*;*HD*
 E_LAB_E_WEW2:
+M17
+%

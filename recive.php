@@ -40,10 +40,11 @@ $socket->openStream();
 
 //$socket->write("test\r\n");
 
+$hash = rand(1, 99999);
 while (!feof($socket->socket)) {
     $contents = $socket->read(4);
     $all .= $contents;
-    file_put_contents("dump.txt", $contents, FILE_APPEND | LOCK_EX);
+    file_put_contents("tmp/dump$hash.txt", $contents, FILE_APPEND | LOCK_EX);
     echo $contents;
 }
 
