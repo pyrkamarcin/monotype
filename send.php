@@ -44,6 +44,7 @@ $socket->openStream();
 $file = file_get_contents('program');
 
 $socket->write($file, filesize('program'));
+$socket->write("");
 
 echo "ok!\r\n";
 $socket->closeStream();
