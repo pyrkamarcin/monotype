@@ -9,9 +9,6 @@ set_time_limit(0);
  * as it comes in. */
 ob_implicit_flush();
 
-$address = '192.168.100.101';
-$port = 4001;
-
 require_once "app/autoload.php";
 
 //$socketStream = new \MEF\SocketBundle\Socket\SocketStream(
