@@ -16,7 +16,7 @@ class Stock implements StockInterface
     public function push($path, $data = null)
     {
         $hash = uniqid() . "_" . sha1($data);
-        file_put_contents($path . "/" . $hash, $data);
+        file_put_contents($path . DIRECTORY_SEPARATOR . $hash, $data);
 
         return true;
     }
