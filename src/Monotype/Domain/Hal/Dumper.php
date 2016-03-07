@@ -10,10 +10,16 @@ use Monotype\Domain\Hal\Dumper\Stock;
  */
 class Dumper
 {
-    protected $stock;
+    public $stock;
+    private $defaultPath = 'var/temp/';
 
     public function __construct(Stock $stock)
     {
         $this->stock = $stock;
+    }
+
+    public function stockize($data)
+    {
+        return $this->stock->push($this->defaultPath, $data);
     }
 }
