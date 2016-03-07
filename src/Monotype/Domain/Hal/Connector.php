@@ -2,21 +2,15 @@
 
 namespace Monotype\Domain\Hal;
 
-/**
- * Class Connector
- * @package Monotype\Domain\Hal
- */
+use Monotype\Domain\Hal\Machine;
+
 class Connector
 {
-    public $socket;
+    protected $machine;
+    protected $socket;
 
-    public function getSocket()
+    public function __construct(Machine $machine)
     {
-        return $this->socket;
-    }
-
-    public function setSocket($socket)
-    {
-        $this->socket = $socket;
+        $this->machine = $machine;
     }
 }

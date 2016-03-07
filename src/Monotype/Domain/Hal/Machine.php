@@ -2,16 +2,10 @@
 
 namespace Monotype\Domain\Hal;
 
-/**
- * Class Machine
- * @package Monotype\Domain\Hal
- */
 class Machine
 {
-    /**
-     * Machine constructor.
-     * @param $id
-     */
+    public $parametrs;
+
     public function __construct($id)
     {
     }
