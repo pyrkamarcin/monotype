@@ -6,7 +6,7 @@ imports:
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-    locale: en
+    locale: pl
 
 framework:
     #esi:             ~
@@ -18,7 +18,7 @@ framework:
     form:            ~
     csrf_protection: ~
     validation:      { enable_annotations: true }
-    #serializer:      { enable_annotations: true }
+    serializer:      { enable_annotations: true }
     templating:
         engines: ['twig']
         #assets_version: SomeVersionScheme
@@ -32,6 +32,8 @@ framework:
     fragments:       ~
     http_method_override: true
     assets: ~
+    serializer:
+        enabled: true
 
 # Twig Configuration
 twig:
@@ -41,7 +43,7 @@ twig:
 # Doctrine Configuration
 doctrine:
     dbal:
-        driver:   pdo_mysql
+        driver:   pdo_sqlite
         host:     "%database_host%"
         port:     "%database_port%"
         dbname:   "%database_name%"
@@ -53,7 +55,7 @@ doctrine:
         #     e.g. database_path: "%kernel.root_dir%/data/data.db3"
         #   2. Uncomment database_path in parameters.yml.dist
         #   3. Uncomment next line:
-        #     path:     "%database_path%"
+        path:     "%database_path%"
 
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
@@ -67,3 +69,10 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+sensio_framework_extra:
+    router:      { annotations: true }
+    request:     { converters: true, auto_convert: true }
+    view:        { annotations: true }
+    cache:       { annotations: true }
+    security:    { annotations: true }
