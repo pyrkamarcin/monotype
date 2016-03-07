@@ -19,5 +19,5 @@ interface StockInterface
      * @param $path
      * @return mixed
      */
-    public function get($path);
+    public function pull($path);
 }

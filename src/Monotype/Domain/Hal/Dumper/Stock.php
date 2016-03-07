@@ -23,7 +23,7 @@ class Stock implements StockInterface
      * @param $path
      * @return bool
      */
-    public function get($path)
+    public function pull($path)
     {
         // TODO: Implement get() method.
         return true;
