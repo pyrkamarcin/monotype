@@ -14,10 +14,6 @@ class Connector
      * @var \Monotype\Domain\Hal\Machine
      */
     protected $machine;
-    /**
-     * @var
-     */
-    protected $socket;
 
     /**
      * Connector constructor.
