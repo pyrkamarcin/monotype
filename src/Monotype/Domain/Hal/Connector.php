@@ -50,4 +50,15 @@ class Connector
             return true;
         }
     }
+
+    public function open()
+    {
+        return $this->socket->openStream();
+    }
+
+    public function close()
+    {
+        return $this->socket->closeStream();
+
+    }
 }
