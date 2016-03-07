@@ -13,7 +13,7 @@ class StockTest extends \PHPUnit_Framework_TestCase
     public function testPush()
     {
         $stock = new Stock();
-        $result = $stock->push('/var/temp/', '1234567890abcdefghijklmnoprstuwvxyz');
+        $result = $stock->push('var/temp/', '1234567890abcdefghijklmnoprstuwvxyz');
 
         $this->assertEquals(true, $result);
     }
