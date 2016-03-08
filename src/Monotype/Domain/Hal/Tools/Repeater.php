@@ -8,32 +8,19 @@ namespace Monotype\Domain\Hal\Tools;
  */
 class Repeater
 {
-
     /**
-     * Coś takiego dobrze działa:
-     *
-     *
-     *
-     * $clients = array();
-     * $socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
-     * socket_bind($socket, '127.0.0.1', 4001);
-     * socket_listen($socket);
-     * socket_set_nonblock($socket);
-     *
-     * while (true) {
-     * if (($newc = socket_accept($socket)) !== false) {
-     * echo "Client $newc has connected\n";
-     * $clients[] = $newc;
-     * }
-     * }
-     *
-     * No i z tego trzeba zrobić Repeater :)
+     * @var
      */
-
     public $socket;
 
+    /**
+     * @var array
+     */
     public $clients = array();
 
+    /**
+     * Repeater constructor.
+     */
     public function __construct()
     {
 
@@ -42,8 +29,32 @@ class Repeater
             throw new \Exception ('socket_create() failed: reason:' . socket_strerror(socket_last_error()));
         }
 
-        socket_bind($this->socket, '127.0.0.1', 4001);
-        socket_listen($this->socket);
+        $this->server_loop('127.0.0.1', 4001);
+
+        return true;
+    }
+
+    /**
+     * @param $address
+     * @param $port
+     */
+    function server_loop($address, $port)
+    {
+        if (($this->socket = socket_create(AF_INET, SOCK_STREAM, 0)) < 0) {
+            echo "failed to create socket: " . socket_strerror($this->socket) . "\n";
+            exit();
+        }
+
+        if (($ret = socket_bind($this->socket, $address, $port)) < 0) {
+            echo "failed to bind socket: " . socket_strerror($ret) . "\n";
+            exit();
+        }
+
+        if (($ret = socket_listen($this->socket, 0)) < 0) {
+            echo "failed to listen to socket: " . socket_strerror($ret) . "\n";
+            exit();
+        }
+
         socket_set_nonblock($this->socket);
 
         while (true) {
@@ -52,7 +63,5 @@ class Repeater
                 $this->clients[] = $newc;
             }
         }
-
-        return true;
     }
 }
