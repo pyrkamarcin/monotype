@@ -53,7 +53,7 @@
   },
   "config": {
     "platform": {
-      "php": "5.5.9"
+      "php": "^5.5.9"
     }
   },
   "extra": {
@@ -65,9 +65,6 @@
     "symfony-assets-install": "relative",
     "incenteev-parameters": {
       "file": "app/config/parameters.yml"
-    },
-    "branch-alias": {
-      "dev-master": "3.0-dev"
     }
   }
 }
