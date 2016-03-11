@@ -18,10 +18,7 @@ class Repeater
      */
     public $clients = array();
 
-    /**
-     * Repeater constructor.
-     */
-    public function __construct()
+    public function __construct($address, $port)
     {
 
         $this->socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
@@ -29,7 +26,7 @@ class Repeater
             throw new \Exception ('socket_create() failed: reason:' . socket_strerror(socket_last_error()));
         }
 
-        $this->server_loop('127.0.0.1', 4001);
+        $this->server_loop($address, $port);
 
         return true;
     }
@@ -61,6 +58,7 @@ class Repeater
             if (($newc = socket_accept($this->socket)) !== false) {
                 echo "Client $newc has connected\n";
                 $this->clients[] = $newc;
+
             }
         }
     }
