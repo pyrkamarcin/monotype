@@ -1,8 +1,7 @@
-/composer.lock
-/composer.phar
 /app/config/parameters.yml
-/build/
-/phpunit.xml
+/phpunit.phar
+/composer.phar
+/composer.lock
 /var/*
 !/var/cache
 /var/cache/*
@@ -10,10 +9,12 @@
 !/var/logs
 /var/logs/*
 !var/logs/.gitkeep
+!/var/temp
+/var/temp/*
+!var/temp/.gitkeep
 !/var/sessions
 /var/sessions/*
 !var/sessions/.gitkeep
 !var/SymfonyRequirements.php
 /vendor/
-/web/bundles/
 .idea

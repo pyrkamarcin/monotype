@@ -32,7 +32,7 @@ require_once "app/autoload.php";
 //
 //$loop->run();
 
-$socket = new \Monotype\Bundle\HalBundle\Utils\Socket('tcp', '192.168.100.102', '4001');
+$socket = new \Monotype\Domain\Hal\Connector\Socket('tcp', '192.168.100.102', '4001');
 $socket->openStream();
 
 //$socket->write("test\r\n");

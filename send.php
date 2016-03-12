@@ -9,9 +9,6 @@ set_time_limit(0);
  * as it comes in. */
 ob_implicit_flush();
 
-$address = '192.168.100.102';
-$port = 4001;
-
 require_once "app/autoload.php";
 
 //$socketStream = new \MEF\SocketBundle\Socket\SocketStream(
@@ -28,7 +25,7 @@ require_once "app/autoload.php";
 
 //$loop = React\EventLoop\Factory::create();
 //
-//$client = stream_socket_client('tcp://192.168.100.102:4001');
+//$client = stream_socket_client('tcp://192.168.100.101:4001');
 //$conn = new React\Stream\Stream($client, $loop);
 //$conn->pipe(new React\Stream\Stream(STDOUT, $loop));
 //
@@ -38,13 +35,23 @@ require_once "app/autoload.php";
 //
 //$loop->run();
 
-$socket = new \Monotype\Bundle\HalBundle\Utils\Socket('tcp', '192.168.100.102', '4001');
-$socket->openStream();
+$socket1 = new \Monotype\Domain\Hal\Connector\Socket('tcp', '192.168.100.101', '4001');
+$socket1->openStream();
+var_dump($socket1);
+$socket1->closeStream();
 
-$file = file_get_contents('program');
+$socket2 = new \Monotype\Domain\Hal\Connector(new \Monotype\Domain\Hal\Machine('1'));
+$socket2->prepareSocket();
+$socket2->open();
+$socket2->close();
 
-$socket->write($file, filesize('program'));
-$socket->write("");
+var_dump($socket2);
 
-echo "ok!\r\n";
-$socket->closeStream();
+//$socket->openStream();
+//
+//$file = file_get_contents('program');
+//
+//$socket->write($file, filesize('program'));
+//
+//echo "ok!\r\n";
+//$socket->closeStream();

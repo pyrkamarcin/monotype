@@ -1,6 +1,6 @@
 <?php
 
-namespace Monotype\Bundle\HalBundle\Utils;
+namespace Monotype\Domain\Hal\Connector;
 
 /**
  * Class Socket

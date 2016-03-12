@@ -2,21 +2,63 @@
 
 namespace Monotype\Domain\Hal;
 
+use Monotype\Domain\Hal\Connector\Socket;
+use Monotype\Domain\Hal\Machine;
+
 /**
  * Class Connector
  * @package Monotype\Domain\Hal
  */
 class Connector
 {
-    public $socket;
+    /**
+     * @var \Monotype\Domain\Hal\Machine
+     */
+    protected $machine;
 
-    public function getSocket()
+    /**
+     * @var array
+     */
+    protected $parametrs;
+
+    /**
+     * @var resource
+     */
+    protected $socket;
+
+    /**
+     * Connector constructor.
+     * @param \Monotype\Domain\Hal\Machine $machine
+     */
+    public function __construct(Machine $machine)
     {
-        return $this->socket;
+        $this->machine = $machine;
+        $this->parametrs = $machine->getParametrs();
     }
 
-    public function setSocket($socket)
+    /**
+     * @return bool
+     */
+    public function prepareSocket()
     {
-        $this->socket = $socket;
+        $protocol = $this->parametrs['protocol'];
+        $address = $this->parametrs['address'];
+        $port = $this->parametrs['port'];
+        $this->socket = new Socket($protocol, $address, $port);
+
+        if ($this->socket) {
+            return true;
+        }
+    }
+
+    public function open()
+    {
+        return $this->socket->openStream();
+    }
+
+    public function close()
+    {
+        return $this->socket->closeStream();
+
     }
 }
