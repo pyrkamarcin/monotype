@@ -2,7 +2,7 @@
 
 namespace Monotype\Domain\Bowman;
 
-use Monotype\Domain\Bowman\ProcessManager\Process;
+use Symfony\Component\Process\Process;
 
 /**
  * Class ProcessManager
@@ -11,14 +11,9 @@ use Monotype\Domain\Bowman\ProcessManager\Process;
 class ProcessManager
 {
     /**
-     * @var
-     */
-    public $process;
-
-    /**
      * @param Process $process
      */
-    public function start(Process $process)
+    public static function init(Process $process)
     {
 
     }
@@ -26,7 +21,15 @@ class ProcessManager
     /**
      * @param Process $process
      */
-    public function stop(Process $process)
+    public static function start(Process $process)
+    {
+
+    }
+
+    /**
+     * @param Process $process
+     */
+    public static function stop(Process $process)
     {
 
     }
