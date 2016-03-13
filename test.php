@@ -18,6 +18,7 @@ if (!$fp) {
 
         $the_date_time = new DateTime('now');
         sleep(1);
+        echo $the_date_time->format("c") . "\r\n";
 
         fwrite($fp, $the_date_time->format("c") . " : " . $rand . "\r\n");
 

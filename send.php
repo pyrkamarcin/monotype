@@ -1,15 +1,6 @@
 <?php
 
-error_reporting(E_ALL);
-
-/* Allow the script to hang around waiting for connections. */
-set_time_limit(0);
-
-/* Turn on implicit output flushing so we see what we're getting
- * as it comes in. */
-ob_implicit_flush();
-
-require_once "app/autoload.php";
+require_once 'bootstrap.php';
 
 //$socketStream = new \MEF\SocketBundle\Socket\SocketStream(
 ////    stream_socket_client("tcp://192.168.100.101:4001", $errno, $errstr, 4001),
@@ -35,7 +26,7 @@ require_once "app/autoload.php";
 //
 //$loop->run();
 
-$socket1 = new \Monotype\Domain\Hal\Connector\Socket('tcp', '192.168.100.101', '4001');
+$socket1 = new \Monotype\Domain\Hal\Connector\Socket('tcp', '127.0.0.1', '4001');
 $socket1->openStream();
 var_dump($socket1);
 $socket1->closeStream();

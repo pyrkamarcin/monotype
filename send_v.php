@@ -1,9 +1,7 @@
 <?php
 
-error_reporting(E_ALL);
-ob_implicit_flush();
 
-require_once "app/autoload.php";
+require_once 'bootstrap.php';
 
 $address = '192.168.100.101';
 $service_port = '4001';
