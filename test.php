@@ -1,6 +1,6 @@
 <?php
 
-$fp = stream_socket_client("127.0.0.1:4001", $errno, $errstr, 4001);
+$fp = stream_socket_client("192.168.1.21:4001", $errno, $errstr, 4001);
 if (!$fp) {
     echo "$errstr ($errno)<br />\n";
 } else {

@@ -2,4 +2,4 @@
 
 require_once 'bootstrap.php';
 
-new \Monotype\Domain\Hal\Tools\Repeater('127.0.0.1', '4001');
+new \Monotype\Domain\Hal\Tools\Repeater('0.0.0.0', '4001');
