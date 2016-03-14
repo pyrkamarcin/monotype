@@ -28,7 +28,7 @@ class Machine
                     'id' => '1',
                     'name' => 'CTX1',
                     'protocol' => 'tcp',
-                    'address' => '192.168.100.101',
+                    'address' => '192.168.100.111',
                     'port' => '4001',
                     'location' => 'main'
                 );
@@ -38,7 +38,7 @@ class Machine
                     'id' => '2',
                     'name' => 'CTX2',
                     'protocol' => 'tcp',
-                    'address' => '192.168.100.102',
+                    'address' => '192.168.100.112',
                     'port' => '4001',
                     'location' => 'main'
                 );
