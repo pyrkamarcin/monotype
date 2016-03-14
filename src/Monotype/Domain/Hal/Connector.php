@@ -3,7 +3,6 @@
 namespace Monotype\Domain\Hal;
 
 use Monotype\Domain\Hal\Connector\Socket;
-use Monotype\Domain\Hal\Machine;
 
 /**
  * Class Connector
@@ -51,11 +50,17 @@ class Connector
         }
     }
 
+    /**
+     * @return mixed
+     */
     public function open()
     {
         return $this->socket->openStream();
     }
 
+    /**
+     * @return mixed
+     */
     public function close()
     {
         return $this->socket->closeStream();
