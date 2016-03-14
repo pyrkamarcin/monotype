@@ -1,6 +1,5 @@
 /bin/symfony_requirements
 /app/config/parameters.yml
-/phpunit.phar
 /composer.phar
 /composer.lock
 /var/*
