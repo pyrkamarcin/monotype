@@ -36,7 +36,7 @@ class ProcessManager implements \Countable
     private $timeoutStrategy;
     /** @var integer */
     private $failureStrategy;
-    /** @var ManagedProcess[] */
+    /** @var Managed[] */
     private $processes = array();
 
     /**
@@ -165,8 +165,8 @@ class ProcessManager implements \Countable
 
             if (!$process->isRunning()) {
                 if ($process->hasRun() && !$process->isSuccessful()) {
-                    $this->addFailureToProcess($process, new ProcessFailedException($process->getManagedProcess()), $this->failureStrategy);
-                    $this->log('error', sprintf('Process %s failed.', $name, $process->getFailuresCount()), array('exception' => new ProcessFailedException($process->getManagedProcess())));
+                    $this->addFailureToProcess($process, new ProcessFailedException($process->getManaged()), $this->failureStrategy);
+                    $this->log('error', sprintf('Process %s failed.', $name, $process->getFailuresCount()), array('exception' => new ProcessFailedException($process->getManaged())));
                 }
                 if (false === $this->isStopping() && $process->canRun()) {
                     $this->doExecute($process, 'start', array($callback));
@@ -198,14 +198,14 @@ class ProcessManager implements \Countable
     /**
      * Executes a method against a process.
      *
-     * @param ManagedProcess $process The managed process on which the method is called.
+     * @param Managed $process The managed process on which the method is called.
      * @param string $method The name of the method to call.
      * @param array $args The arguments to pass to the method call.
      * @param string $errorMsg The message of the exception and the logger in case of failure.
      *
      * @return Booleans True if the method call was successful, false otherwise.
      */
-    private function doExecute(ManagedProcess $process, $method, array $args)
+    private function doExecute(Managed $process, $method, array $args)
     {
         try {
             call_user_func_array(array($process, $method), $args);
@@ -223,7 +223,7 @@ class ProcessManager implements \Countable
     /**
      * Handles a managed process exception, given the current configuration.
      *
-     * @param ManagedProcess $process The process that thrown the exception.
+     * @param Managed $process The process that thrown the exception.
      * @param \Exception $e The exception to handle.
      * @param string $errorMsg The error message
      * @param integer $strategy The strategy related to the exception.
@@ -232,7 +232,7 @@ class ProcessManager implements \Countable
      *
      * @throws ProcessManagerException In case the strategy aborts the run.
      */
-    private function handleException(ManagedProcess $process, \Exception $e, $errorMsg, $strategy)
+    private function handleException(Managed $process, \Exception $e, $errorMsg, $strategy)
     {
         $this->log('error', $errorMsg, array('exception' => $e));
 
@@ -266,7 +266,7 @@ class ProcessManager implements \Countable
     /**
      * Adds a failure to a process, reincrement depending on the strategy.
      *
-     * @param ManagedProcess $process The process
+     * @param Managed $process The process
      * @param \Exception $e The failure to add
      * @param string $strategy The strategy
      */
@@ -457,7 +457,7 @@ class ProcessManager implements \Countable
             throw new \InvalidArgumentException(sprintf('A process named %s is already attached.', $name));
         }
 
-        $this->attach($name, new ManagedProcess($process, $executions));
+        $this->attach($name, new Managed($process, $executions));
 
         return $this;
     }
@@ -494,11 +494,11 @@ class ProcessManager implements \Countable
      * Attaches a managed process.
      *
      * @param string $name
-     * @param ManagedProcess $process
+     * @param Managed $process
      *
      * @return ProcessManager
      */
-    private function attach($name, ManagedProcess $process)
+    private function attach($name, Managed $process)
     {
         $this->processes[$name] = $process;
 
@@ -510,7 +510,7 @@ class ProcessManager implements \Countable
      *
      * @param string $name The name of the managed process
      *
-     * @return ManagedProcess
+     * @return Managed
      *
      * @throws \InvalidArgumentException In case the process is unknown.
      */
@@ -576,9 +576,9 @@ class ProcessManager implements \Countable
             $managed->reset();
 
             return $managed;
-        }, $process->getManagedProcesses());
+        }, $process->getManagedes());
 
-        $process->setManagedProcesses($processes);
+        $process->setManagedes($processes);
 
         return $process->start($callback);
     }
@@ -586,9 +586,9 @@ class ProcessManager implements \Countable
     /**
      * Returns the managed processes.
      *
-     * @return ManagedProcess[]
+     * @return Managed[]
      */
-    public function getManagedProcesses()
+    public function getManagedes()
     {
         return $this->processes;
     }
@@ -596,13 +596,13 @@ class ProcessManager implements \Countable
     /**
      * Sets the managed processes.
      *
-     * @param array $processes An array of ManagedProcess instances.
+     * @param array $processes An array of Managed instances.
      *
      * @return ProcessManager
      *
      * @throws ProcessManagerException
      */
-    public function setManagedProcesses(array $processes)
+    public function setManagedes(array $processes)
     {
         if ($this->isRunning()) {
             throw new ProcessManagerException('Can not set processes while running.');
@@ -626,7 +626,7 @@ class ProcessManager implements \Countable
      * @param integer $timeout If the process is still running, the timeout to wait before sending a SIGKILL signal.
      * @param integer $signal If the process is still running, the signal to send after the timeout is reached.
      *
-     * @return ManagedProcess The removed process
+     * @return Managed The removed process
      *
      * @throws \InvalidArgumentException In case no process with the given name exists.
      */

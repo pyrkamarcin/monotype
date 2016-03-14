@@ -6,7 +6,7 @@ use Symfony\Component\Process\Exception\InvalidArgumentException;
 use Symfony\Component\Process\Exception\RuntimeException;
 use Symfony\Component\Process\Process;
 
-class ManagedProcess
+class Managed
 {
     /** @var Process */
     private $process;
