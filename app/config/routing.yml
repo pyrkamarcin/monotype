@@ -1,3 +1,7 @@
+_processor:
+    resource: "@ProcessingBundle/Resources/config/routes.yml"
+    prefix: /_processing
+
 monotype_bowman_process:
     resource: "@MonotypeBowmanBundle/Controller/ProcessController.php"
     type:     annotation
