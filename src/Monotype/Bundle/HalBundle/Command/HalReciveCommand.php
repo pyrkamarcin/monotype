@@ -33,7 +33,6 @@ class HalReciveCommand extends ContainerAwareCommand
         }
 
         $machine = new Machine($input->getArgument('machine'));
-        $connector = new Connector($machine);
         $socket = new Connector\Socket($machine->getProtocol(), $machine->getAddress(), $machine->getPort());
         $socket->openStream();
 
