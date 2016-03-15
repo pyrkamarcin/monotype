@@ -28,7 +28,7 @@ class Machine
                     'id' => '0',
                     'name' => 'repeater',
                     'protocol' => 'tcp',
-                    'address' => '0.0.0.0',
+                    'address' => '127.0.0.1',
                     'port' => '4001',
                     'location' => 'none'
                 );

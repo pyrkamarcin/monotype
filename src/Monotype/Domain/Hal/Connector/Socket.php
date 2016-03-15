@@ -13,18 +13,17 @@ class Socket
      * @var
      */
     public $socket;
-    /**
-     * @var string
-     */
-    public $remote_socket;
+
     /**
      * @var
      */
     protected $protocol;
+
     /**
      * @var
      */
     protected $address;
+
     /**
      * @var
      */
@@ -42,7 +41,7 @@ class Socket
         $this->setAddress($address);
         $this->setPort($port);
 
-        $this->remote_socket = $this->composeSocket();
+        $this->socket = $this->composeSocket();
     }
 
     /**
@@ -125,7 +124,7 @@ class Socket
      */
     public function openStream()
     {
-        $socket = stream_socket_client($this->remote_socket, $errno, $errstr);
+        $socket = stream_socket_client($this->socket, $errno, $errstr);
         if (!$socket) {
             throw new \Exception("Can't open socket.");
         } else {

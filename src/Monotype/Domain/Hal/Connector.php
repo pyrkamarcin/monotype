@@ -23,7 +23,7 @@ class Connector
     /**
      * @var resource
      */
-    protected $socket;
+    public $socket;
 
     /**
      * Connector constructor.
@@ -39,7 +39,7 @@ class Connector
      */
     public function prepareSocket()
     {
-        return new Socket(
+        $this->socket = new Socket(
             $this->machine->getProtocol(),
             $this->machine->getAddress(),
             $this->machine->getPort()
