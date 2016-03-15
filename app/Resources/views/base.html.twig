@@ -11,16 +11,18 @@
 
 </head>
 <body>
-{% block navigation %}
-    <header class="bar bar-nav">
-        <h1 class="title">Tools:</h1>
-    </header>
-    <ul>
-        <li><a href="{{ path('homepage') }}">HomePage</a></li>
-        <li><a href="{{ path('process_index') }}">Process</a></li>
-    </ul>
-{% endblock %}
-{% block body %}{% endblock %}
+<div class="container">
+    {% block navigation %}
+        <header class="bar bar-nav">
+            <h1 class="title">Tools:</h1>
+        </header>
+        <ul>
+            <li><a href="{{ path('homepage') }}">HomePage</a></li>
+            <li><a href="{{ path('process_index') }}">Process</a></li>
+        </ul>
+    {% endblock %}
+    {% block body %}{% endblock %}
+</div>
 {% block javascripts %}
     <script src="{{ asset('jquery/jquery.js') }}"></script>
     <script src="{{ asset('bootstrap/js/bootstrap.js') }}"></script>
