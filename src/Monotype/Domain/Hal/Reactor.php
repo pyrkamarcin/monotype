@@ -3,6 +3,7 @@
 namespace Monotype\Domain\Hal;
 
 use Monotype\Domain\Hal\Connector\Buffer;
+use Monotype\Domain\Hal\Connector\Rod;
 use Monotype\Domain\Hal\Dumper;
 use Monotype\Domain\Hal\Dumper\Stock;
 use React\EventLoop\Factory;
@@ -36,9 +37,19 @@ class Reactor
      */
     private $stock;
 
+    /**
+     * @var mixed
+     */
     protected $address;
+    /**
+     * @var mixed
+     */
     protected $port;
 
+    /**
+     * Reactor constructor.
+     * @param Machine $machine
+     */
     public function __construct(Machine $machine)
     {
         $this->buffer = new Buffer();
@@ -51,11 +62,17 @@ class Reactor
         $this->port = $machine->getPort();
     }
 
+    /**
+     * @throws \React\Socket\ConnectionException
+     */
     public function listen()
     {
         $this->socket->listen($this->port, $this->address);
     }
 
+    /**
+     *
+     */
     public function on()
     {
 
@@ -68,6 +85,7 @@ class Reactor
 
                 $buffer->setCache($data);
 
+//                if ($row = Rod::parse($buffer->getCache())) {
                 if (strspn($buffer->getCache(), 'close')) {
                     $conn->close();
                     exit();
@@ -82,6 +100,9 @@ class Reactor
         });
     }
 
+    /**
+     *
+     */
     public function run()
     {
         $this->loop->run();
