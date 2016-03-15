@@ -28,15 +28,9 @@ require_once 'bootstrap.php';
 
 $socket1 = new \Monotype\Domain\Hal\Connector\Socket('tcp', '127.0.0.1', '4001');
 $socket1->openStream();
-var_dump($socket1);
+$socket1->write('test', 4);
 $socket1->closeStream();
 
-$socket2 = new \Monotype\Domain\Hal\Connector(new \Monotype\Domain\Hal\Machine('1'));
-$socket2->prepareSocket();
-$socket2->open();
-$socket2->close();
-
-var_dump($socket2);
 
 //$socket->openStream();
 //

@@ -23,7 +23,7 @@ require_once 'bootstrap.php';
 //
 //$loop->run();
 
-$socket = new \Monotype\Domain\Hal\Connector\Socket('tcp', '192.168.1.21', '4001');
+$socket = new \Monotype\Domain\Hal\Connector\Socket('tcp', '127.0.0.1', '4001');
 $socket->openStream();
 
 //$socket->write("test\r\n", 6);
