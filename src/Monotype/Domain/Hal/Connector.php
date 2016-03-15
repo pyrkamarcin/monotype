@@ -32,7 +32,6 @@ class Connector
     public function __construct(Machine $machine)
     {
         $this->machine = $machine;
-        $this->parametrs = $machine->getParametrs();
     }
 
     /**
@@ -40,14 +39,11 @@ class Connector
      */
     public function prepareSocket()
     {
-        $protocol = $this->parametrs['protocol'];
-        $address = $this->parametrs['address'];
-        $port = $this->parametrs['port'];
-        $this->socket = new Socket($protocol, $address, $port);
-
-        if ($this->socket) {
-            return true;
-        }
+        return new Socket(
+            $this->machine->getProtocol(),
+            $this->machine->getAddress(),
+            $this->machine->getPort()
+        );
     }
 
     /**

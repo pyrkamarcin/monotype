@@ -23,6 +23,16 @@ class Machine
          * @TODO przenieść ustawienia w zewnętrzne miejsce? może entity?
          */
         switch ($id) {
+            case '0':
+                $this->parametrs = array(
+                    'id' => '0',
+                    'name' => 'repeater',
+                    'protocol' => 'tcp',
+                    'address' => '0.0.0.0',
+                    'port' => '4001',
+                    'location' => 'none'
+                );
+                break;
             case '1':
                 $this->parametrs = array(
                     'id' => '1',
@@ -49,8 +59,48 @@ class Machine
     /**
      * @return mixed
      */
-    public function getParametrs()
+    public function getId()
     {
-        return $this->parametrs;
+        return $this->parametrs['id'];
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getName()
+    {
+        return $this->parametrs['name'];
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getProtocol()
+    {
+        return $this->parametrs['protocol'];
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAddress()
+    {
+        return $this->parametrs['address'];
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPort()
+    {
+        return $this->parametrs['port'];
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLocation()
+    {
+        return $this->parametrs['location'];
     }
 }
