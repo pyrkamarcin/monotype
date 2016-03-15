@@ -25,7 +25,7 @@ $socket->on('connection', function (\React\Socket\Connection $conn) use ($buffer
             echo $buffer;
         }
 
-        $stock->stockize($buffer);
+        $stock->stockize(__toString($buffer));
     });
 
 
