@@ -5,6 +5,7 @@ namespace Monotype\Bundle\HalBundle\Command;
 use Monotype\Domain\Hal\Connector;
 use Monotype\Domain\Hal\Dumper;
 use Monotype\Domain\Hal\Machine;
+use Monotype\Domain\Hal\Reactor;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -32,19 +33,11 @@ class HalReciveCommand extends ContainerAwareCommand
             // ...
         }
 
-        $machine = new Machine($input->getArgument('machine'));
-        $socket = new Connector\Socket($machine->getProtocol(), $machine->getAddress(), $machine->getPort());
-        $socket->openStream();
+        $output->writeln('Connection start...');
 
-        while (!feof($socket->socket)) {
-            $contents = $socket->read(16);
-
-            $dump = new Dumper(new Dumper\Stock());
-            $dump->stockize($contents);
-            echo $contents;
-        }
-
-
-        $output->writeln('...');
+        $reactor = new Reactor(new Machine($input->getArgument('machine')));
+        $reactor->listen();
+        $reactor->on();
+        $reactor->run();
     }
 }
