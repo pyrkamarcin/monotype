@@ -36,7 +36,7 @@ class HalSendCommand extends ContainerAwareCommand
         $machine = $em->getRepository('MonotypeBowmanBundle:Machines')->findBy(array('command' => $input->getArgument('machine')));
 
 
-        $reactor = new Cannon(new Machine($input->getArgument('machine')));
+        $reactor = new Cannon($machine);
         $reactor->send($input->getArgument('data'));
     }
 }
