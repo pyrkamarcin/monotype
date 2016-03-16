@@ -85,7 +85,6 @@ class Reactor
 
                 $buffer->setCache($data);
 
-//                if ($row = Rod::parse($buffer->getCache())) {
                 if (strspn($buffer->getCache(), 'close')) {
                     $conn->close();
                     exit();
