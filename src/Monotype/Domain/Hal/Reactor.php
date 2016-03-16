@@ -3,13 +3,11 @@
 namespace Monotype\Domain\Hal;
 
 use Monotype\Domain\Hal\Connector\Buffer;
-use Monotype\Domain\Hal\Connector\Rod;
 use Monotype\Domain\Hal\Dumper;
 use Monotype\Domain\Hal\Dumper\Stock;
 use React\EventLoop\Factory;
 use React\Socket\Connection;
 use React\Socket\Server;
-use Symfony\Component\Serializer\Serializer;
 
 /**
  * Class Reactor
@@ -57,7 +55,6 @@ class Reactor
 
         $this->loop = Factory::create();
         $this->socket = new Server($this->loop);
-
 
         $this->address = $machine->getAddress();
         $this->port = $machine->getPort();
