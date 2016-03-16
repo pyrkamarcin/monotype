@@ -2,12 +2,14 @@
 
 namespace Monotype\Domain\Hal;
 
+use Monotype\Bundle\BowmanBundle\Entity\Machines;
+
 class Cannon
 {
     public $address;
     public $port;
 
-    public function __construct(Machine $machine)
+    public function __construct(Machines $machine)
     {
         $this->address = $machine->getAddress();
         $this->port = $machine->getPort();
