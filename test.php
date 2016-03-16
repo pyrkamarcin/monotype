@@ -2,10 +2,29 @@
 
 require_once 'bootstrap.php';
 
-$reactor = new \Monotype\Domain\Hal\Reactor(new \Monotype\Domain\Hal\Machine('B'));
-$reactor->listen();
-$reactor->write('test');
-$reactor->on();
+$loop = React\EventLoop\Factory::create();
+$socket = new React\Socket\Server($loop);
+
+$socket->on('connection', function ($conn) {
+
+
+    $conn->on('data', function ($data, $conn) {
+        // Write data back to the connection
+        $conn->write($data);
+
+
+        echo 'test';
+    });
+});
+// Listen on port 1337
+$socket->listen(4001);
+$loop->run();
+
+
+//$reactor = new \Monotype\Domain\Hal\Reactor(new \Monotype\Domain\Hal\Machine('B'));
+//$reactor->listen();
+//$reactor->write('test');
+//$reactor->on();
 
 //$fp = stream_socket_client("192.168.1.16:4001", $errno, $errstr, 4001);
 //if (!$fp) {
