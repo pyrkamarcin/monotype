@@ -23,9 +23,9 @@ class Machine
          * @TODO przenieść ustawienia w zewnętrzne miejsce? może entity?
          */
         switch ($id) {
-            case 'A':
+            case 'repeater':
                 $this->parametrs = array(
-                    'id' => 'A',
+                    'id' => '0',
                     'name' => 'repeater',
                     'protocol' => 'tcp',
                     'address' => '0.0.0.0',
@@ -33,10 +33,10 @@ class Machine
                     'location' => 'none'
                 );
                 break;
-            case 'B':
+            case 'loopback':
                 $this->parametrs = array(
-                    'id' => 'B',
-                    'name' => 'repeater',
+                    'id' => '0',
+                    'name' => 'loopback',
                     'protocol' => 'tcp',
                     'address' => '192.168.1.16',
                     'port' => '4001',
