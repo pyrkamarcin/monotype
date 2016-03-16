@@ -71,6 +71,16 @@ class Reactor
     }
 
     /**
+     * @param $data
+     */
+    public function write($data)
+    {
+        $this->socket->on('connection', function (Connection $conn) use ($data) {
+            $conn->write($data . PHP_EOL);
+        });
+    }
+
+    /**
      *
      */
     public function on()
