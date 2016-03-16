@@ -32,6 +32,10 @@ class HalSendCommand extends ContainerAwareCommand
 
         $output->writeln('Connection start...');
 
+        $em = $this->getContainer()->get('doctrine')->getManager();
+        $machine = $em->getRepository('MonotypeBowmanBundle:Machines')->findBy(array('command' => $input->getArgument('machine')));
+
+
         $reactor = new Cannon(new Machine($input->getArgument('machine')));
         $reactor->send($input->getArgument('data'));
     }
