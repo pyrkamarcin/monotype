@@ -2,6 +2,7 @@
 
 namespace Monotype\Bundle\HalBundle\Command;
 
+use Monotype\Bundle\BowmanBundle\Repository\MachinesRepository;
 use Monotype\Domain\Hal\Cannon;
 use Monotype\Domain\Hal\Machine;
 use Monotype\Domain\Hal\Reactor;

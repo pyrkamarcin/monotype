@@ -134,7 +134,6 @@ class MachinesController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('machines_delete', array('id' => $machine->getId())))
             ->setMethod('DELETE')
-            ->getForm()
-        ;
+            ->getForm();
     }
 }
