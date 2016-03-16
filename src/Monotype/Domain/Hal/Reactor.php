@@ -58,6 +58,7 @@ class Reactor
         $this->loop = Factory::create();
         $this->socket = new Server($this->loop);
 
+
         $this->address = $machine->getAddress();
         $this->port = $machine->getPort();
     }
@@ -67,7 +68,7 @@ class Reactor
      */
     public function listen()
     {
-        $this->socket->listen($this->port, $this->address);
+
     }
 
     /**
@@ -75,6 +76,8 @@ class Reactor
      */
     public function write($data)
     {
+        $this->socket->listen($this->port);
+
         $this->socket->on('connection', function (Connection $conn) use ($data) {
             $conn->write($data . PHP_EOL);
         });
@@ -85,6 +88,7 @@ class Reactor
      */
     public function on()
     {
+        $this->socket->listen($this->port, $this->address);
 
         $stock = $this->stock;
         $buffer = $this->buffer;
@@ -115,5 +119,14 @@ class Reactor
     public function run()
     {
         $this->loop->run();
+    }
+
+
+    /**
+     *
+     */
+    public function stop()
+    {
+        $this->loop->stop();
     }
 }

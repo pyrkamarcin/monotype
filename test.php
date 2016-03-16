@@ -1,16 +1,23 @@
 <?php
 
-$fp = stream_socket_client("192.168.1.16:4001", $errno, $errstr, 4001);
-if (!$fp) {
-    echo "$errstr ($errno)<br />\n";
-} else {
+require_once 'bootstrap.php';
 
-    $contents = null;
-    $all = null;
-    fwrite($fp, "test" . rand(100000, 1000000) . PHP_EOL);
-    fclose($fp);
+$reactor = new \Monotype\Domain\Hal\Reactor(new \Monotype\Domain\Hal\Machine('B'));
+$reactor->listen();
+$reactor->write('test');
+$reactor->on();
 
-}
+//$fp = stream_socket_client("192.168.1.16:4001", $errno, $errstr, 4001);
+//if (!$fp) {
+//    echo "$errstr ($errno)<br />\n";
+//} else {
+//
+//    $contents = null;
+//    $all = null;
+//    fwrite($fp, "test" . rand(100000, 1000000) . PHP_EOL);
+//    fclose($fp);
+//
+//}
 
 
 //    while (!feof($fp)) {

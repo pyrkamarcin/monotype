@@ -36,7 +36,6 @@ class HalReciveCommand extends ContainerAwareCommand
         $output->writeln('Connection start...');
 
         $reactor = new Reactor(new Machine($input->getArgument('machine')));
-        $reactor->listen();
         $reactor->on();
         $reactor->run();
     }

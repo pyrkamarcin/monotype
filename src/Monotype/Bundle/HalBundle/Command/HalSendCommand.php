@@ -17,7 +17,7 @@ class HalSendCommand extends ContainerAwareCommand
         $this
             ->setName('hal:send')
             ->setDescription('...')
-            ->addArgument('argument', InputArgument::REQUIRED, 'Machine ID')
+            ->addArgument('machine', InputArgument::REQUIRED, 'Machine ID')
             ->addArgument('data', InputArgument::OPTIONAL, 'Data')
             ->addOption('option', null, InputOption::VALUE_NONE, 'Option description');
     }
@@ -31,7 +31,6 @@ class HalSendCommand extends ContainerAwareCommand
         $output->writeln('Connection start...');
 
         $reactor = new Reactor(new Machine($input->getArgument('machine')));
-        $reactor->listen();
         $reactor->write($input->getArgument('machine'));
         $reactor->run();
     }
