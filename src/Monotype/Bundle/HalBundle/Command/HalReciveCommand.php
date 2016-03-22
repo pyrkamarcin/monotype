@@ -19,6 +19,8 @@ use Doctrine\ORM\EntityManager;
  */
 class HalReciveCommand extends ContainerAwareCommand
 {
+    protected $em;
+
     protected function configure()
     {
         $this
@@ -33,6 +35,15 @@ class HalReciveCommand extends ContainerAwareCommand
         if ($input->getOption('option')) {
             // ...
         }
+
+        $this->em = $this->getContainer()->get('doctrine.orm.entity_manager');
+        $stocks = new Stocks();
+        $stocks->setHash("hash_test");
+        $stocks->setFile("file_test");
+        $stocks->setDatetime(new \DateTime('now'));
+
+        $this->em->persist($stocks);
+        $this->em->flush();
 
         $output->writeln('Connection start...');
 
