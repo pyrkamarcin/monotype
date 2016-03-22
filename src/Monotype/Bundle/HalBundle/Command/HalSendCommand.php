@@ -21,19 +21,21 @@ class HalSendCommand extends ContainerAwareCommand
             ->setDescription('...')
             ->addArgument('machine', InputArgument::REQUIRED, 'Machine ID')
             ->addArgument('data', InputArgument::OPTIONAL, 'Data')
-            ->addOption('option', null, InputOption::VALUE_NONE, 'Option description');
+            ->addOption('file', null, InputOption::VALUE_NONE, 'Option description');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        if ($input->getOption('option')) {
-            // ...
+        if ($input->getOption('file')) {
+            $data = file_get_contents($input->getArgument('data'));
+        } else {
+            $data = $input->getArgument('data');
         }
 
         $output->writeln('Connection start...');
 
 
         $reactor = new Cannon(new Machine($input->getArgument('machine')));
-        $reactor->send($input->getArgument('data'));
+        $reactor->send($data);
     }
 }
