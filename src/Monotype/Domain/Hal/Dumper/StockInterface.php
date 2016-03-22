@@ -13,10 +13,4 @@ interface StockInterface
      * @return mixed
      */
     public function push($data = null);
-
-    /**
-     * @param $path
-     * @return mixed
-     */
-    public function pull($path);
 }

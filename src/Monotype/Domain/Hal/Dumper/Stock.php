@@ -94,14 +94,4 @@ class Stock implements StockInterface
 
         return $this->getUniqid();
     }
-
-    /**
-     * @param $path
-     * @return bool
-     */
-    public function pull($path)
-    {
-        // TODO: Implement get() method.
-        return true;
-    }
 }
