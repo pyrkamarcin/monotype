@@ -19,8 +19,6 @@ use Doctrine\ORM\EntityManager;
  */
 class HalReciveCommand extends ContainerAwareCommand
 {
-    protected $em;
-
     protected function configure()
     {
         $this
@@ -32,11 +30,6 @@ class HalReciveCommand extends ContainerAwareCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-
-        $this->em = $this->getContainer()->get('doctrine.orm.entity_manager');
-
-        dump( $this->em);
-
         if ($input->getOption('option')) {
             // ...
         }
