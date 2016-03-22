@@ -8,11 +8,17 @@ namespace Monotype\Domain\Hal\Dumper;
  */
 class Stock implements StockInterface
 {
+
+    private $hash;
+
     /**
      * @var
      */
     public $path;
 
+    /**
+     * @var
+     */
     public $uniqid;
 
     /**
@@ -32,8 +38,8 @@ class Stock implements StockInterface
      */
     public function push($data = null)
     {
-        $hash = uniqid() . "_" . sha1($data);
-        file_put_contents($this->path . DIRECTORY_SEPARATOR . $hash, $data);
+        $this->hash = uniqid() . "_" . sha1($data);
+        file_put_contents($this->path . DIRECTORY_SEPARATOR . $this->hash, $data);
 
         return $this->uniqid;
     }
