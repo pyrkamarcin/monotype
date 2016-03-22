@@ -25,7 +25,7 @@ require_once 'app/autoload.php';
 //
 //$loop->run();
 
-$socket1 = new \Monotype\Domain\Hal\Connector\Socket('tcp', '127.0.0.1', '4001');
+$socket1 = new \Monotype\Domain\Hal\Connector\Socket('tcp', '192.168.1.20', '4001');
 $socket1->openStream();
 $socket1->write('test', 4);
 $socket1->closeStream();
