@@ -82,6 +82,7 @@ class Stock implements StockInterface
     public function __construct()
     {
         $this->setUniqId(Uuid::uuid1());
+        $this->setHash(Uuid::uuid1());
         $this->setPath('var' . DIRECTORY_SEPARATOR . 'temp' . DIRECTORY_SEPARATOR . $this->uniqId);
 
         mkdir($this->getPath());

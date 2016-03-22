@@ -42,7 +42,7 @@ class HalReciveCommand extends ContainerAwareCommand
         $reactor = new Reactor(new Machine($input->getArgument('machine')));
 
         $stocks = new Stocks();
-        $stocks->setHash($reactor->stock->stock->getHash());
+        $stocks->setHash($reactor->stock->stock->getUniqId());
 
         $stocks->setFile($reactor->stock->stock->getPath());
         $stocks->setDatetime(new \DateTime('now'));
