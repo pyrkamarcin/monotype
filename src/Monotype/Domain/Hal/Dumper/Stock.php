@@ -9,6 +9,9 @@ namespace Monotype\Domain\Hal\Dumper;
 class Stock implements StockInterface
 {
 
+    /**
+     * @var
+     */
     private $hash;
 
     /**
@@ -22,14 +25,62 @@ class Stock implements StockInterface
     public $uniqid;
 
     /**
+     * @return mixed
+     */
+    public function getHash()
+    {
+        return $this->hash;
+    }
+
+    /**
+     * @param mixed $hash
+     */
+    public function setHash($hash)
+    {
+        $this->hash = $hash;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPath()
+    {
+        return $this->path;
+    }
+
+    /**
+     * @param mixed $path
+     */
+    public function setPath($path)
+    {
+        $this->path = $path;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUniqid()
+    {
+        return $this->uniqid;
+    }
+
+    /**
+     * @param mixed $uniqid
+     */
+    public function setUniqid($uniqid)
+    {
+        $this->uniqid = $uniqid;
+    }
+
+    /**
      * Stock constructor.
      */
     public function __construct()
     {
-        $this->uniqid = uniqid();
-        $this->path = 'var' . DIRECTORY_SEPARATOR . 'temp' . DIRECTORY_SEPARATOR . $this->uniqid;
+        $this->setUniqid(uniqid());
+        $this->setPath('var' . DIRECTORY_SEPARATOR . 'temp' . DIRECTORY_SEPARATOR . $this->uniqid);
 
-        mkdir($this->path);
+        mkdir($this->getPath());
     }
 
     /**
@@ -38,10 +89,10 @@ class Stock implements StockInterface
      */
     public function push($data = null)
     {
-        $this->hash = uniqid() . "_" . sha1($data);
-        file_put_contents($this->path . DIRECTORY_SEPARATOR . $this->hash, $data);
+        $this->setHash(uniqid() . "_" . sha1($data));
+        file_put_contents($this->getPath() . DIRECTORY_SEPARATOR . $this->getHash(), $data);
 
-        return $this->uniqid;
+        return $this->getUniqid();
     }
 
     /**
