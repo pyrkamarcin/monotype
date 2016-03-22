@@ -2,6 +2,7 @@
 
 namespace Monotype\Bundle\HalBundle\Command;
 
+use Monotype\Bundle\BowmanBundle\Entity\Stocks;
 use Monotype\Domain\Hal\Connector;
 use Monotype\Domain\Hal\Dumper;
 use Monotype\Domain\Hal\Machine;
