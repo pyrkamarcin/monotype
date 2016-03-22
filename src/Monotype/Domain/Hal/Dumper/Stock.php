@@ -90,7 +90,7 @@ class Stock implements StockInterface
      */
     public function push($data = null)
     {
-        $this->setHash(uniqid() . "_" . sha1($data));
+        $this->setHash(Uuid::uuid1() . "_" . Uuid::uuid5($data));
         file_put_contents($this->getPath() . DIRECTORY_SEPARATOR . $this->getHash(), $data);
 
         return $this->getUniqId();
