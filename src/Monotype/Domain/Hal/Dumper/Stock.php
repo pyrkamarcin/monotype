@@ -2,6 +2,7 @@
 
 namespace Monotype\Domain\Hal\Dumper;
 
+use Doctrine\ORM\EntityManager;
 use Monotype\Bundle\BowmanBundle\Entity\Stocks;
 use Ramsey\Uuid\Uuid;
 
@@ -94,19 +95,7 @@ class Stock implements StockInterface
     {
         $this->setHash(Uuid::uuid1() . "_" . Uuid::uuid5(Uuid::NAMESPACE_DNS, $data));
         file_put_contents($this->getPath() . DIRECTORY_SEPARATOR . $this->getHash(), $data);
-
-
-        $stocks = new Stocks();
-        $stocks->setFile("test");
-        $stocks->setHash("test_hash");
-        $stocks->getDatetime(new \DateTime('now'));
-
-        $em = $this->getDoctrine()->getManager();
-
-        $em->persist($stocks);
-        $em->flush();
-
-
+        
         return $this->getUniqId();
     }
 }
