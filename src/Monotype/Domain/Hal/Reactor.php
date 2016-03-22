@@ -114,4 +114,12 @@ class Reactor
     {
         $this->loop->stop();
     }
+
+    /**
+     *
+     */
+    public function __destruct()
+    {
+        // TODO: Implement __destruct() method.
+    }
 }
