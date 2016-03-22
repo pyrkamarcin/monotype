@@ -1,6 +1,7 @@
 <?php
 
 namespace Monotype\Domain\Hal\Dumper;
+use Ramsey\Uuid\Uuid;
 
 /**
  * Class Stock
@@ -22,7 +23,7 @@ class Stock implements StockInterface
     /**
      * @var
      */
-    public $uniqid;
+    public $uniqId;
 
     /**
      * @return mixed
@@ -59,17 +60,17 @@ class Stock implements StockInterface
     /**
      * @return mixed
      */
-    public function getUniqid()
+    public function getUniqId()
     {
-        return $this->uniqid;
+        return $this->uniqId->toString();
     }
 
     /**
-     * @param mixed $uniqid
+     * @param Uuid $uuid
      */
-    public function setUniqid($uniqid)
+    public function setUniqId($uuid)
     {
-        $this->uniqid = $uniqid;
+        $this->uniqId = $uuid;
     }
 
     /**
@@ -77,8 +78,8 @@ class Stock implements StockInterface
      */
     public function __construct()
     {
-        $this->setUniqid(uniqid());
-        $this->setPath('var' . DIRECTORY_SEPARATOR . 'temp' . DIRECTORY_SEPARATOR . $this->uniqid);
+        $this->setUniqId(Uuid::uuid1());
+        $this->setPath('var' . DIRECTORY_SEPARATOR . 'temp' . DIRECTORY_SEPARATOR . $this->uniqId);
 
         mkdir($this->getPath());
     }
@@ -92,6 +93,6 @@ class Stock implements StockInterface
         $this->setHash(uniqid() . "_" . sha1($data));
         file_put_contents($this->getPath() . DIRECTORY_SEPARATOR . $this->getHash(), $data);
 
-        return $this->getUniqid();
+        return $this->getUniqId();
     }
 }
