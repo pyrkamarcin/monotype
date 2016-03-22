@@ -13,9 +13,6 @@ class Stock implements StockInterface
      */
     public $path;
 
-    /**
-     * @var
-     */
     public $uniqid;
 
     /**
@@ -24,10 +21,10 @@ class Stock implements StockInterface
      */
     public function __construct($uniqid)
     {
-        $this->path = 'var' . DIRECTORY_SEPARATOR . 'temp' . DIRECTORY_SEPARATOR;
         $this->uniqid = $uniqid;
+        $this->path = 'var' . DIRECTORY_SEPARATOR . 'temp' . DIRECTORY_SEPARATOR . $uniqid;
 
-        mkdir($this->path . $this->uniqid);
+        mkdir($this->path);
     }
 
     /**
@@ -37,9 +34,9 @@ class Stock implements StockInterface
     public function push($data = null)
     {
         $hash = uniqid() . "_" . sha1($data);
-        file_put_contents($this->path . $this->uniqid . DIRECTORY_SEPARATOR . $hash, $data);
+        file_put_contents($this->path . DIRECTORY_SEPARATOR . $hash, $data);
 
-        return true;
+        return $this->uniqid;
     }
 
     /**
