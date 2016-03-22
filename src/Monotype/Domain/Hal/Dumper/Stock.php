@@ -8,6 +8,9 @@ namespace Monotype\Domain\Hal\Dumper;
  */
 class Stock implements StockInterface
 {
+    /**
+     * @var
+     */
     public $path;
 
     /**
@@ -15,9 +18,13 @@ class Stock implements StockInterface
      */
     public $uniqid;
 
-    public function __construct($path, $uniqid)
+    /**
+     * Stock constructor.
+     * @param $uniqid
+     */
+    public function __construct($uniqid)
     {
-        $this->path = $path;
+        $this->path = 'var' . DIRECTORY_SEPARATOR . 'temp' . DIRECTORY_SEPARATOR;
         $this->uniqid = $uniqid;
 
         mkdir($this->path . $this->uniqid);

@@ -14,10 +14,6 @@ class Dumper
      * @var Stock
      */
     public $stock;
-    /**
-     * @var string
-     */
-    private $defaultPath = 'var' . DIRECTORY_SEPARATOR . 'temp' . DIRECTORY_SEPARATOR;
 
     /**
      * Dumper constructor.
@@ -26,7 +22,6 @@ class Dumper
     public function __construct(Stock $stock)
     {
         $this->stock = $stock;
-        $this->stock->path = $this->defaultPath;
     }
 
     /**
@@ -35,6 +30,6 @@ class Dumper
      */
     public function stockize($data)
     {
-        return $this->stock->push($this->defaultPath, $data);
+        return $this->stock->push($data);
     }
 }
