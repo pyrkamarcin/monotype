@@ -38,7 +38,7 @@ class Machine
                     'id' => '0',
                     'name' => 'loopback',
                     'protocol' => 'tcp',
-                    'address' => '192.168.1.16',
+                    'address' => '192.168.1.20',
                     'port' => '4001',
                     'location' => 'none'
                 );

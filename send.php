@@ -25,16 +25,25 @@ require_once 'app/autoload.php';
 //
 //$loop->run();
 
+//$socket1 = new \Monotype\Domain\Hal\Connector\Socket('tcp', '192.168.1.20', '4001');
+//$socket1->openStream();
+//$socket1->write('test', 4);
+//$socket1->write(rand(1111, 9999), 4);
+//$socket1->closeStream();
+
+
 $socket1 = new \Monotype\Domain\Hal\Connector\Socket('tcp', '192.168.1.20', '4001');
 $socket1->openStream();
-$socket1->write('test', 4);
-$socket1->write(rand(1111, 9999), 4);
+
+$file = file_get_contents('O5001');
+$socket1->write($file, filesize('O5001'));
+
 $socket1->closeStream();
 
 
 //$socket->openStream();
 //
-//$file = file_get_contents('program');
+//
 //
 //$socket->write($file, filesize('program'));
 //
