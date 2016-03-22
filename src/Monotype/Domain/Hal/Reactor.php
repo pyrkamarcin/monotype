@@ -33,7 +33,7 @@ class Reactor
     /**
      * @var \Monotype\Domain\Hal\Dumper
      */
-    private $stock;
+    public $stock;
 
     /**
      * @var mixed

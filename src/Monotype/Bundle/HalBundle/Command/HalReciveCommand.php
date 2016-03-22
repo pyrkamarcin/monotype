@@ -38,9 +38,13 @@ class HalReciveCommand extends ContainerAwareCommand
         }
 
         $this->em = $this->getContainer()->get('doctrine.orm.entity_manager');
+
+        $reactor = new Reactor(new Machine($input->getArgument('machine')));
+
         $stocks = new Stocks();
-        $stocks->setHash("hash_test");
-        $stocks->setFile("file_test");
+        $stocks->setHash($reactor->stock->stock->getHash());
+
+        $stocks->setFile($reactor->stock->stock->getPath());
         $stocks->setDatetime(new \DateTime('now'));
 
         $this->em->persist($stocks);
@@ -48,7 +52,6 @@ class HalReciveCommand extends ContainerAwareCommand
 
         $output->writeln('Connection start...');
 
-        $reactor = new Reactor(new Machine($input->getArgument('machine')));
         $reactor->on();
         $reactor->run();
     }

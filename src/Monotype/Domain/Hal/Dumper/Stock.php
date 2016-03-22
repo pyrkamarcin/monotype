@@ -2,15 +2,15 @@
 
 namespace Monotype\Domain\Hal\Dumper;
 
-use Doctrine\ORM\EntityManager;
-use Monotype\Bundle\BowmanBundle\Entity\Stocks;
 use Ramsey\Uuid\Uuid;
+use Symfony\Bridge\Doctrine\DataFixtures\ContainerAwareLoader;
+use Symfony\Component\DependencyInjection\Container;
 
 /**
  * Class Stock
  * @package Monotype\Domain\Hal\Dumper
  */
-class Stock implements StockInterface
+class Stock extends ContainerAwareLoader
 {
 
     /**
