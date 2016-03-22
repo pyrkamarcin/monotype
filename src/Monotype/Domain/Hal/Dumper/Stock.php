@@ -10,7 +10,7 @@ use Symfony\Component\DependencyInjection\Container;
  * Class Stock
  * @package Monotype\Domain\Hal\Dumper
  */
-class Stock extends ContainerAwareLoader
+class Stock implements StockInterface
 {
 
     /**
