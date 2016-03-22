@@ -13,7 +13,7 @@ class Stock implements StockInterface
      * @var
      */
     public $uniqid;
-    
+
     /**
      * Stock constructor.
      * @param $uniqid
@@ -31,7 +31,7 @@ class Stock implements StockInterface
     public function push($path, $data = null)
     {
         $hash = uniqid() . "_" . sha1($data);
-        file_put_contents($path . DIRECTORY_SEPARATOR . $this->uniqid . DIRECTORY_SEPARATOR . $hash, $data);
+        file_put_contents($path . $this->uniqid . DIRECTORY_SEPARATOR . $hash, $data);
 
         return true;
     }
