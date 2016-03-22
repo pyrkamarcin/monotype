@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Stocks list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Hash</th>
+                <th>File</th>
+                <th>Datetime</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for stock in stocks %}
+            <tr>
+                <td><a href="{{ path('stocks_show', { 'id': stock.id }) }}">{{ stock.id }}</a></td>
+                <td>{{ stock.hash }}</td>
+                <td>{{ stock.file }}</td>
+                <td>{% if stock.datetime %}{{ stock.datetime|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('stocks_show', { 'id': stock.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('stocks_edit', { 'id': stock.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('stocks_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

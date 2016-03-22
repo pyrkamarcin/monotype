@@ -1,3 +1,7 @@
+monotype_bowman_stocks:
+    resource: "@MonotypeBowmanBundle/Controller/StocksController.php"
+    type:     annotation
+
 monotype_bowman_machines:
     resource: "@MonotypeBowmanBundle/Controller/MachinesController.php"
     type:     annotation
