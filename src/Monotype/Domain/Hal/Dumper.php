@@ -26,6 +26,7 @@ class Dumper
     public function __construct(Stock $stock)
     {
         $this->stock = $stock;
+        $this->stock->path = $this->defaultPath;
     }
 
     /**

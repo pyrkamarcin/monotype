@@ -9,11 +9,10 @@ namespace Monotype\Domain\Hal\Dumper;
 interface StockInterface
 {
     /**
-     * @param $path
      * @param null $data
      * @return mixed
      */
-    public function push($path, $data = null);
+    public function push($data = null);
 
     /**
      * @param $path
