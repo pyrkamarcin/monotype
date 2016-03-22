@@ -17,12 +17,11 @@ class Stock implements StockInterface
 
     /**
      * Stock constructor.
-     * @param $uniqid
      */
-    public function __construct($uniqid)
+    public function __construct()
     {
-        $this->uniqid = $uniqid;
-        $this->path = 'var' . DIRECTORY_SEPARATOR . 'temp' . DIRECTORY_SEPARATOR . $uniqid;
+        $this->uniqid = uniqid();
+        $this->path = 'var' . DIRECTORY_SEPARATOR . 'temp' . DIRECTORY_SEPARATOR . $this->uniqid;
 
         mkdir($this->path);
     }

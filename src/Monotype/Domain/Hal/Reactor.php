@@ -51,7 +51,7 @@ class Reactor
     public function __construct(Machine $machine)
     {
         $this->buffer = new Buffer();
-        $this->stock = new Dumper(new Stock( uniqid()));
+        $this->stock = new Dumper(new Stock());
 
         $this->loop = Factory::create();
         $this->socket = new Server($this->loop);
