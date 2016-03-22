@@ -2,10 +2,8 @@
 
 namespace Monotype\Bundle\HalBundle\Command;
 
-use Monotype\Bundle\BowmanBundle\Repository\MachinesRepository;
 use Monotype\Domain\Hal\Cannon;
 use Monotype\Domain\Hal\Machine;
-use Monotype\Domain\Hal\Reactor;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
