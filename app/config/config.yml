@@ -42,7 +42,7 @@ twig:
     form:
         resources:
             - 'form_div_layout.html.twig'
-            - 'AcmeStoreBundle:Form:fields.html.twig'
+            - 'MonotypeBowmanBundle:Form:fields.html.twig'
     # ...
 
 # Doctrine Configuration
