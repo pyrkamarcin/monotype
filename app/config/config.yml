@@ -39,6 +39,11 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    form:
+        resources:
+            - 'form_div_layout.html.twig'
+            - 'AcmeStoreBundle:Form:fields.html.twig'
+    # ...
 
 # Doctrine Configuration
 doctrine:
