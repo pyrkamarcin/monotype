@@ -34,7 +34,8 @@
     "ramsey/uuid": "3.2.*",
     "ramsey/uuid-doctrine": "1.1.*",
     "ramsey/uuid-console": "1.1.*",
-    "moontoast/math": "1.1.*"
+    "moontoast/math": "1.1.*",
+    "whiteoctober/breadcrumbs-bundle": "^1.2"
   },
   "require-dev": {
     "sensio/generator-bundle": "3.0.*",
