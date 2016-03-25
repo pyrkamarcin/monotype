@@ -18,7 +18,7 @@ class MachinesType extends AbstractType
             ->add('command')
             ->add('protocol')
             ->add('address')
-            ->add('port', null, array('widget' => 'single_text'))
+            ->add('port', null, array('attr' => array('maxlength' => 4)))
             ->add('localtion');
     }
 
