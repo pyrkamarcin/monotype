@@ -13,4 +13,16 @@
             <a href="{{ path('stocks_index') }}">Back to the list</a>
         </li>
     </ul>
+
+
+    {% block text_widget %}
+        <div class="text_widget">
+            <input type="text" {{ block('attributes') }} value="{{ value }}" />
+        </div>
+    {% endblock %}
+
+    {% block content %}
+        {{ form_row(form.name) }}
+    {% endblock %}
+
 {% endblock %}
