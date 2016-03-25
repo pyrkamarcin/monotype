@@ -5,25 +5,10 @@
 {% block body %}
     <h1>Machines creation</h1>
 
-    {#{{ form_start(form) }}#}
-    {#{{ form_widget(form) }}#}
-    {#<input type="submit" value="Create"/>#}
-    {#{{ form_end(form) }}#}
-
-
-
-    {% block text_widget %}
-        <div class="text_widget">
-            <input type="text" {{ block('attributes') }} value="{{ value }}" />
-        </div>
-    {% endblock %}
-
-    {% block content %}
-        {# render the form #}
-
-        {{ form_row(form.name) }}
-    {% endblock %}
-
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <input type="submit" value="Create"/>
+    {{ form_end(form) }}
 
     <ul>
         <li>
