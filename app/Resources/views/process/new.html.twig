@@ -3,7 +3,11 @@
 {% block body %}
     <h1>Process creation</h1>
     {{ form_start(form) }}
-    {{ form_widget(form) }}
+    {#{{ form_widget(form) }}#}
+
+    {{ form_widget(form.pid) }}
+    {{ form_widget(form.script) }}
+    {{ form_widget(form.uid) }}
 
     <input type="submit" value="Create"/>
     {{ form_end(form) }}
