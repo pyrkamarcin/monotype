@@ -18,11 +18,10 @@ class MachinesType extends AbstractType
             ->add('command')
             ->add('protocol')
             ->add('address')
-            ->add('port')
-            ->add('localtion')
-        ;
+            ->add('port', null, array('widget' => 'single_text'))
+            ->add('localtion');
     }
-    
+
     /**
      * @param OptionsResolver $resolver
      */
