@@ -83,19 +83,19 @@ class Reactor
         $buffer = $this->buffer;
 
         $conn->on('data', function ($data) use ($conn, $buffer, $stock) {
-            echo $data;
-//                $buffer->setCache($data);
-//
-//                if (strspn($buffer->getCache(), 'close')) {
-//                    $conn->close();
-//                    exit();
-//                }
-//
-//                if (strpos($buffer->getCache(), PHP_EOL) !== false) {
-////                    echo $buffer->getCache();
-//                }
-//
-//                $stock->stockize($buffer->getCache());
+//            echo $data;
+            $buffer->setCache($data);
+
+            if (strspn($buffer->getCache(), 'close')) {
+                $conn->close();
+                exit();
+            }
+
+            if (strpos($buffer->getCache(), PHP_EOL) !== false) {
+//                    echo $buffer->getCache();
+            }
+
+            $stock->stockize($buffer->getCache());
         });
 
 //        $stock = $this->stock;
