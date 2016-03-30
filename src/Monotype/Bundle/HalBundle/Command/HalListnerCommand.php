@@ -15,17 +15,17 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Doctrine\ORM\EntityManager;
 
 /**
- * Class HalReciveCommand
+ * Class HalListnerCommand
  * @package Monotype\Bundle\HalBundle\Command
  */
-class HalReciveCommand extends ContainerAwareCommand
+class HalListnerCommand extends ContainerAwareCommand
 {
     protected $em;
 
     protected function configure()
     {
         $this
-            ->setName('hal:recive')
+            ->setName('hal:Listner')
             ->setDescription('...')
             ->addArgument('machine', InputArgument::REQUIRED, 'Machine ID')
             ->addOption('option', null, InputOption::VALUE_NONE, 'Option description');
