@@ -8,6 +8,7 @@ use Monotype\Domain\Hal\Dumper\Stock;
 use React\EventLoop\Factory;
 use React\Socket\Connection;
 use React\Socket\Server;
+use React\Stream\Stream;
 
 /**
  * Class Reactor
@@ -18,17 +19,17 @@ class Reactor
     /**
      * @var \Monotype\Domain\Hal\Connector\Buffer
      */
-    private $buffer;
+    public $buffer;
 
     /**
      * @var \React\EventLoop\ExtEventLoop|\React\EventLoop\LibEventLoop|\React\EventLoop\LibEvLoop|\React\EventLoop\StreamSelectLoop
      */
-    private $loop;
+    public $loop;
 
     /**
      * @var \React\Socket\Server
      */
-    private $socket;
+    public $socket;
 
     /**
      * @var \Monotype\Domain\Hal\Dumper
@@ -54,7 +55,6 @@ class Reactor
         $this->stock = new Dumper(new Stock());
 
         $this->loop = Factory::create();
-        $this->socket = new Server($this->loop);
 
         $this->address = $machine->getAddress();
         $this->port = $machine->getPort();
@@ -73,13 +73,16 @@ class Reactor
      */
     public function on()
     {
-        $this->socket->listen($this->port, $this->address);
+
+
+        $client = stream_socket_client('tcp://' . $this->address . ':' . $this->port);
+
+        $conn = new Stream($client, $this->loop);
 
         $stock = $this->stock;
         $buffer = $this->buffer;
 
-        $this->socket->on('connection', function (Connection $conn) use ($buffer, $stock) {
-
+        $conn->on('data', function ($data) use ($conn, $buffer, $stock) {
             $conn->on('data', function ($data) use ($conn, $buffer, $stock) {
 
                 $buffer->setCache($data);
@@ -96,6 +99,28 @@ class Reactor
                 $stock->stockize($buffer->getCache());
             });
         });
+
+//        $stock = $this->stock;
+//        $buffer = $this->buffer;
+//
+//        $this->socket->on('connection', function (Connection $conn) use ($buffer, $stock) {
+//
+//            $conn->on('data', function ($data) use ($conn, $buffer, $stock) {
+//
+//                $buffer->setCache($data);
+//
+//                if (strspn($buffer->getCache(), 'close')) {
+//                    $conn->close();
+//                    exit();
+//                }
+//
+//                if (strpos($buffer->getCache(), PHP_EOL) !== false) {
+//                    echo $buffer->getCache();
+//                }
+//
+//                $stock->stockize($buffer->getCache());
+//            });
+//        });
     }
 
     /**
