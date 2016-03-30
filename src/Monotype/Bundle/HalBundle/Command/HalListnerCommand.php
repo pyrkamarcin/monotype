@@ -37,26 +37,6 @@ class HalListnerCommand extends ContainerAwareCommand
             // ...
         }
 
-//        $this->em = $this->getContainer()->get('doctrine.orm.entity_manager');
-
-//        $reactor = new Reactor(new Machine($input->getArgument('machine')));
-
-//        $stocks = new Stocks();
-//        $stocks->setHash($reactor->stock->stock->getUniqId());
-//
-//        $stocks->setFile($reactor->stock->stock->getPath());
-//        $stocks->setDatetime(new \DateTime('now'));
-//
-//        $this->em->persist($stocks);
-//        $this->em->flush();
-
-//        $output->writeln('Connection start...');
-
-//        $reactor->on();
-//        $reactor->run();
-
-
-
         $machine = new Machine($input->getArgument('machine'));
         $socket = new Connector\Socket($machine->getProtocol(), $machine->getAddress(), $machine->getPort());
         $socket->openStream();
