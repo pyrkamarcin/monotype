@@ -54,19 +54,6 @@ class HalReciveCommand extends ContainerAwareCommand
 
 //        $reactor->on();
 //        $reactor->run();
-
-
-
-        $machine = new Machine($input->getArgument('machine'));
-        $socket = new Connector\Socket($machine->getProtocol(), $machine->getAddress(), $machine->getPort());
-        $socket->openStream();
-
-        while (!feof($socket->socket)) {
-            $contents = $socket->read(16);
-
-            $dump = new Dumper(new Dumper\Stock());
-            $dump->stockize($contents);
-            echo $contents;
-        }
+        
     }
 }
