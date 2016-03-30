@@ -83,10 +83,7 @@ class Reactor
         $buffer = $this->buffer;
 
         $conn->on('data', function ($data) use ($conn, $buffer, $stock) {
-            $conn->on('data', function ($data) use ($conn, $buffer, $stock) {
-
-
-                echo $data;
+            echo $data;
 //                $buffer->setCache($data);
 //
 //                if (strspn($buffer->getCache(), 'close')) {
@@ -99,7 +96,6 @@ class Reactor
 //                }
 //
 //                $stock->stockize($buffer->getCache());
-            });
         });
 
 //        $stock = $this->stock;
