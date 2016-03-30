@@ -2,7 +2,7 @@
 
 namespace Monotype\Bundle\HalBundle\Command;
 
-use Monotype\Domain\Hal\Cannon;
+use Monotype\Domain\Hal\Sender;
 use Monotype\Domain\Hal\Machine;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
@@ -33,7 +33,7 @@ class HalSendCommand extends ContainerAwareCommand
         $output->writeln('Connection start...');
 
 
-        $reactor = new Cannon(new Machine($input->getArgument('machine')));
+        $reactor = new Sender(new Machine($input->getArgument('machine')));
         $reactor->send($data);
     }
 }

@@ -6,7 +6,7 @@ namespace Monotype\Domain\Hal;
  * Class Cannon
  * @package Monotype\Domain\Hal
  */
-class Cannon
+class Sender
 {
     /**
      * @var mixed
