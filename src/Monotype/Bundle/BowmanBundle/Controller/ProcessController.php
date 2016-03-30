@@ -34,6 +34,9 @@ class ProcessController extends Controller
     }
 
     /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     *
      * Creates a new Process entity.
      *
      * @Route("/new", name="process_new")
@@ -60,6 +63,9 @@ class ProcessController extends Controller
     }
 
     /**
+     * @param Process $process
+     * @return \Symfony\Component\HttpFoundation\Response
+     *
      * Finds and displays a Process entity.
      *
      * @Route("/{id}", name="process_show")
@@ -91,6 +97,10 @@ class ProcessController extends Controller
     }
 
     /**
+     * @param Request $request
+     * @param Process $process
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     *
      * Displays a form to edit an existing Process entity.
      *
      * @Route("/{id}/edit", name="process_edit")
@@ -118,6 +128,10 @@ class ProcessController extends Controller
     }
 
     /**
+     * @param Request $request
+     * @param Process $process
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     *
      * Deletes a Process entity.
      *
      * @Route("/{id}", name="process_delete")

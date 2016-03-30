@@ -34,6 +34,9 @@ class MachinesController extends Controller
     }
 
     /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     *
      * Creates a new Machines entity.
      *
      * @Route("/new", name="machines_new")
@@ -60,6 +63,9 @@ class MachinesController extends Controller
     }
 
     /**
+     * @param Machines $machine
+     * @return \Symfony\Component\HttpFoundation\Response
+     *
      * Finds and displays a Machines entity.
      *
      * @Route("/{id}", name="machines_show")
@@ -76,6 +82,10 @@ class MachinesController extends Controller
     }
 
     /**
+     * @param Request $request
+     * @param Machines $machine
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     *
      * Displays a form to edit an existing Machines entity.
      *
      * @Route("/{id}/edit", name="machines_edit")
@@ -103,6 +113,11 @@ class MachinesController extends Controller
     }
 
     /**
+     * @param Request $request
+     * @param Machines $machine
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     *
+     *
      * Deletes a Machines entity.
      *
      * @Route("/{id}", name="machines_delete")
@@ -123,6 +138,9 @@ class MachinesController extends Controller
     }
 
     /**
+     * @param Machines $machine
+     * @return \Symfony\Component\Form\Form
+     *
      * Creates a form to delete a Machines entity.
      *
      * @param Machines $machine The Machines entity

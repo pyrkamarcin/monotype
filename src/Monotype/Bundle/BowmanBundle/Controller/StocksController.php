@@ -34,6 +34,9 @@ class StocksController extends Controller
     }
 
     /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     *
      * Creates a new Stocks entity.
      *
      * @Route("/new", name="stocks_new")
@@ -60,6 +63,9 @@ class StocksController extends Controller
     }
 
     /**
+     * @param Stocks $stock
+     * @return \Symfony\Component\HttpFoundation\Response
+     *
      * Finds and displays a Stocks entity.
      *
      * @Route("/{id}", name="stocks_show")
@@ -76,6 +82,10 @@ class StocksController extends Controller
     }
 
     /**
+     * @param Request $request
+     * @param Stocks $stock
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     *
      * Displays a form to edit an existing Stocks entity.
      *
      * @Route("/{id}/edit", name="stocks_edit")
@@ -103,6 +113,10 @@ class StocksController extends Controller
     }
 
     /**
+     * @param Request $request
+     * @param Stocks $stock
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     *
      * Deletes a Stocks entity.
      *
      * @Route("/{id}", name="stocks_delete")
@@ -122,7 +136,11 @@ class StocksController extends Controller
         return $this->redirectToRoute('stocks_index');
     }
 
+
     /**
+     * @param Stocks $stock
+     * @return \Symfony\Component\Form\Form
+     *
      * Creates a form to delete a Stocks entity.
      *
      * @param Stocks $stock The Stocks entity
@@ -134,7 +152,6 @@ class StocksController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('stocks_delete', array('id' => $stock->getId())))
             ->setMethod('DELETE')
-            ->getForm()
-        ;
+            ->getForm();
     }
 }
