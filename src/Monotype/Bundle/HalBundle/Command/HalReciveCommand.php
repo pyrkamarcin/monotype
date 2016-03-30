@@ -40,7 +40,7 @@ class HalReciveCommand extends ContainerAwareCommand
 //        $this->em = $this->getContainer()->get('doctrine.orm.entity_manager');
 
         $reactor = new Reactor(new Machine($input->getArgument('machine')));
-        $reactor->on();
+//        $reactor->on();
 
         dump($reactor);
 
