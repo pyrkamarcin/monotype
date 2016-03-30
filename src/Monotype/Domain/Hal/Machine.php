@@ -63,6 +63,26 @@ class Machine
                     'location' => 'main'
                 );
                 break;
+            case '3':
+                $this->parametrs = array(
+                    'id' => '3',
+                    'name' => 'CTX3',
+                    'protocol' => 'tcp',
+                    'address' => '192.168.100.113',
+                    'port' => '4001',
+                    'location' => 'main'
+                );
+                break;
+            case '4':
+                $this->parametrs = array(
+                    'id' => '4',
+                    'name' => 'CTX4',
+                    'protocol' => 'tcp',
+                    'address' => '192.168.100.114',
+                    'port' => '4001',
+                    'location' => 'main'
+                );
+                break;
         }
     }
 
