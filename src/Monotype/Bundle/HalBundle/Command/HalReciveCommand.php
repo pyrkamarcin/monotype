@@ -37,9 +37,9 @@ class HalReciveCommand extends ContainerAwareCommand
             // ...
         }
 
-        $this->em = $this->getContainer()->get('doctrine.orm.entity_manager');
+//        $this->em = $this->getContainer()->get('doctrine.orm.entity_manager');
 
-        $reactor = new Reactor(new Machine($input->getArgument('machine')));
+//        $reactor = new Reactor(new Machine($input->getArgument('machine')));
 
 //        $stocks = new Stocks();
 //        $stocks->setHash($reactor->stock->stock->getUniqId());
@@ -50,9 +50,25 @@ class HalReciveCommand extends ContainerAwareCommand
 //        $this->em->persist($stocks);
 //        $this->em->flush();
 
-        $output->writeln('Connection start...');
+//        $output->writeln('Connection start...');
 
-        $reactor->on();
-        $reactor->run();
+//        $reactor->on();
+//        $reactor->run();
+
+
+
+        $machine = new Machine($input->getArgument('machine'));
+        $socket = new Connector\Socket($machine->getProtocol(), $machine->getAddress(), $machine->getPort());
+        $socket->openStream();
+
+        while (!feof($socket->socket)) {
+            $contents = $socket->read(16);
+
+            $dump = new Dumper(new Dumper\Stock());
+            $dump->stockize($contents);
+            echo $contents;
+        }
+
+
     }
 }
