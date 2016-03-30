@@ -73,8 +73,6 @@ class Reactor
      */
     public function on()
     {
-
-
         $client = stream_socket_client('tcp://' . $this->address . ':' . $this->port);
 
         $conn = new Stream($client, $this->loop);
