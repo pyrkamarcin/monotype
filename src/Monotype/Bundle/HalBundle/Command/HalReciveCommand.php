@@ -41,6 +41,8 @@ class HalReciveCommand extends ContainerAwareCommand
 
         $reactor = new Reactor(new Machine($input->getArgument('machine')));
 
+        dump($reactor);
+
 //        $stocks = new Stocks();
 //        $stocks->setHash($reactor->stock->stock->getUniqId());
 //
