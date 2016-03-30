@@ -74,9 +74,10 @@ class Reactor
     public function on()
     {
         $client = stream_socket_client('tcp://' . $this->address . ':' . $this->port);
-
+        $buffer = $this->buffer;
         $conn = new Stream($client, $this->loop);
-        $conn->on('data', function ($data) use ($conn) {
+        $conn->on('data', function ($data) use ($conn, $buffer) {
+            $buffer->setCache($data);
             echo $data;
         });
 
