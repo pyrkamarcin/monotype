@@ -39,7 +39,7 @@ class HalReciveCommand extends ContainerAwareCommand
 
 //        $this->em = $this->getContainer()->get('doctrine.orm.entity_manager');
 
-//        $reactor = new Reactor(new Machine($input->getArgument('machine')));
+        $reactor = new Reactor(new Machine($input->getArgument('machine')));
 
 //        $stocks = new Stocks();
 //        $stocks->setHash($reactor->stock->stock->getUniqId());
@@ -54,6 +54,6 @@ class HalReciveCommand extends ContainerAwareCommand
 
 //        $reactor->on();
 //        $reactor->run();
-        
+
     }
 }
