@@ -77,13 +77,14 @@ class Reactor
         $buffer = $this->buffer;
         $stock = $this->stock;
         $conn = new Stream($client, $this->loop);
-        $conn->on('data', function ($data) use ($conn, $buffer) {
+        $conn->on('data', function ($data) use ($conn, $buffer, $stock) {
             $buffer->setCache($data);
+            $stock->stockize($buffer->getCache());
             echo $data;
         });
 
-        $stock->stockize($buffer->getCache());
-        
+//
+
 
 //        $stock = $this->stock;
 //        $buffer = $this->buffer;
