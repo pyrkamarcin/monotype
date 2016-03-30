@@ -2,7 +2,6 @@
 
 require_once 'app/autoload.php';
 
-
 $loop = React\EventLoop\Factory::create();
 
 $client = stream_socket_client('tcp://192.168.100.113:4001');
