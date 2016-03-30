@@ -25,7 +25,7 @@ class HalListnerCommand extends ContainerAwareCommand
     protected function configure()
     {
         $this
-            ->setName('hal:Listner')
+            ->setName('hal:listner')
             ->setDescription('...')
             ->addArgument('machine', InputArgument::REQUIRED, 'Machine ID')
             ->addOption('option', null, InputOption::VALUE_NONE, 'Option description');
