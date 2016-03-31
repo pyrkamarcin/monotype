@@ -42,6 +42,9 @@ class SynchroController extends Controller
 
         $finder->files()->in($path . DIRECTORY_SEPARATOR . 'var' . DIRECTORY_SEPARATOR . 'temp' . DIRECTORY_SEPARATOR . 'stock');
 
+        var_dump($processes);
+        var_dump($finder);
+
         return $this->render('MonotypeBowmanBundle:synchro:show_diff.html.twig', array());
     }
 }
