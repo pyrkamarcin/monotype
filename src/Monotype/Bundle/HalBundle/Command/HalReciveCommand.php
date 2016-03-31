@@ -38,6 +38,7 @@ class HalReciveCommand extends ContainerAwareCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         if ($input->getOption('option')) {
+            //
         }
 
         $entityManager = $this->getContainer()->get('doctrine.orm.entity_manager');
