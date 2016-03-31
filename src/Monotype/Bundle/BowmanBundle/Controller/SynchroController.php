@@ -39,7 +39,7 @@ class SynchroController extends Controller
 
         $array_stocks = array();
         foreach ($stocks as $stock) {
-            $array_stocks[] = end(explode(DIRECTORY_SEPARATOR, $stock->getFile()));
+            $array_stocks[] = $stock->getHash();
         }
 
         $finder = new Finder();
@@ -49,7 +49,7 @@ class SynchroController extends Controller
 
         $array_files = array();
         foreach ($finder as $file) {
-            $array_files[] = $file->getRealpath();
+            $array_files[] = end(explode(DIRECTORY_SEPARATOR, $file->getRealpath()));
         }
 
         var_dump($array_stocks);
