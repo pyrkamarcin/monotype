@@ -42,7 +42,6 @@ class SynchroController extends Controller
 
 
         foreach ($finder as $file) {
-            // Dump the absolute path
             var_dump($file->getRealpath());
         }
 
