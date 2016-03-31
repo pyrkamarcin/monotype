@@ -85,7 +85,7 @@ class Stock implements StockInterface
         $this->setHash(Uuid::uuid1());
         $this->setPath('var' . DIRECTORY_SEPARATOR . 'temp' . DIRECTORY_SEPARATOR . $this->uniqId);
 
-        mkdir($this->getPath());
+//        mkdir($this->getPath());
     }
 
     /**
@@ -96,7 +96,7 @@ class Stock implements StockInterface
     {
 //        $this->setHash(Uuid::uuid1() . "_" . Uuid::uuid5(Uuid::NAMESPACE_DNS, $data));
 //        $this->setHash(Uuid::uuid1());
-        file_put_contents($this->getPath() . DIRECTORY_SEPARATOR . 'stock', $data, FILE_APPEND);
+        file_put_contents($this->getPath(), $data, FILE_APPEND);
 
         return $this->getUniqId();
     }
