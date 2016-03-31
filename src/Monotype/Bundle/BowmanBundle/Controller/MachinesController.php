@@ -28,7 +28,7 @@ class MachinesController extends Controller
 
         $machines = $em->getRepository('MonotypeBowmanBundle:Machines')->findAll();
 
-        return $this->render('machines/index.html.twig', array(
+        return $this->render('MonotypeBowmanBundle:machines:index.html.twig', array(
             'machines' => $machines,
         ));
     }
@@ -56,7 +56,7 @@ class MachinesController extends Controller
             return $this->redirectToRoute('machines_show', array('id' => $machine->getId()));
         }
 
-        return $this->render('machines/new.html.twig', array(
+        return $this->render('MonotypeBowmanBundle:machines:new.html.twig', array(
             'machine' => $machine,
             'form' => $form->createView(),
         ));
@@ -75,7 +75,7 @@ class MachinesController extends Controller
     {
         $deleteForm = $this->createDeleteForm($machine);
 
-        return $this->render('machines/show.html.twig', array(
+        return $this->render('MonotypeBowmanBundle:machines:show.html.twig', array(
             'machine' => $machine,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -105,7 +105,7 @@ class MachinesController extends Controller
             return $this->redirectToRoute('machines_edit', array('id' => $machine->getId()));
         }
 
-        return $this->render('machines/edit.html.twig', array(
+        return $this->render('MonotypeBowmanBundle:machines:edit.html.twig', array(
             'machine' => $machine,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

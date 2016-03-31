@@ -28,7 +28,7 @@ class ProcessController extends Controller
 
         $processes = $em->getRepository('MonotypeBowmanBundle:Process')->findAll();
 
-        return $this->render('process/index.html.twig', array(
+        return $this->render('MonotypeBowmanBundle:process:index.html.twig', array(
             'processes' => $processes,
         ));
     }
@@ -56,7 +56,7 @@ class ProcessController extends Controller
             return $this->redirectToRoute('process_show', array('id' => $process->getId()));
         }
 
-        return $this->render('process/new.html.twig', array(
+        return $this->render('MonotypeBowmanBundle:process:new.html.twig', array(
             'process' => $process,
             'form' => $form->createView(),
         ));
@@ -75,7 +75,7 @@ class ProcessController extends Controller
     {
         $deleteForm = $this->createDeleteForm($process);
 
-        return $this->render('process/show.html.twig', array(
+        return $this->render('MonotypeBowmanBundle:process:show.html.twig', array(
             'process' => $process,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -120,7 +120,7 @@ class ProcessController extends Controller
             return $this->redirectToRoute('process_edit', array('id' => $process->getId()));
         }
 
-        return $this->render('process/edit.html.twig', array(
+        return $this->render('MonotypeBowmanBundle:process:edit.html.twig', array(
             'process' => $process,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

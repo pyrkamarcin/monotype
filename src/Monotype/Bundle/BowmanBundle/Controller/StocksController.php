@@ -28,7 +28,7 @@ class StocksController extends Controller
 
         $stocks = $em->getRepository('MonotypeBowmanBundle:Stocks')->findAll();
 
-        return $this->render('stocks/index.html.twig', array(
+        return $this->render('MonotypeBowmanBundle:stocks:index.html.twig', array(
             'stocks' => $stocks,
         ));
     }
@@ -56,7 +56,7 @@ class StocksController extends Controller
             return $this->redirectToRoute('stocks_show', array('id' => $stock->getId()));
         }
 
-        return $this->render('stocks/new.html.twig', array(
+        return $this->render('MonotypeBowmanBundle:stocks:new.html.twig', array(
             'stock' => $stock,
             'form' => $form->createView(),
         ));
@@ -75,7 +75,7 @@ class StocksController extends Controller
     {
         $deleteForm = $this->createDeleteForm($stock);
 
-        return $this->render('stocks/show.html.twig', array(
+        return $this->render('MonotypeBowmanBundle:stocks:show.html.twig', array(
             'stock' => $stock,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -105,7 +105,7 @@ class StocksController extends Controller
             return $this->redirectToRoute('stocks_edit', array('id' => $stock->getId()));
         }
 
-        return $this->render('stocks/edit.html.twig', array(
+        return $this->render('MonotypeBowmanBundle:stocks:edit.html.twig', array(
             'stock' => $stock,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
