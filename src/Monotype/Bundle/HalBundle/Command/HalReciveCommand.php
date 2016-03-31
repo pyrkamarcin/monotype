@@ -50,7 +50,7 @@ class HalReciveCommand extends ContainerAwareCommand
 
         $stocks->setDatetime(new \DateTime('now'));
 
-        $entityManager->persist($stocks);``
+        $entityManager->persist($stocks);
         $entityManager->flush();
 
         $reactor->on();
