@@ -22,7 +22,7 @@ class SynchroController extends Controller
      */
     public function indexAction()
     {
-        return $this->render('synchro/index.html.twig', array(//
+        return $this->render('MonotypeBowmanBundle:synchro:index.html.twig', array(//
         ));
     }
 
@@ -34,6 +34,6 @@ class SynchroController extends Controller
      */
     public function ShowDiffAction()
     {
-        return $this->render('synchro/show_diff.html.twig', array());
+        return $this->render('MonotypeBowmanBundle:synchro:show_diff.html.twig', array());
     }
 }
