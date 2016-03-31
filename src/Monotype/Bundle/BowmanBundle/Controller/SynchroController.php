@@ -38,7 +38,7 @@ class SynchroController extends Controller
         $processes = $em->getRepository('MonotypeBowmanBundle:Process')->findAll();
 
         $finder = new Finder();
-        $finder->files()->in(__DIR__);
+        $finder->files()->in('var' . DIRECTORY_SEPARATOR . 'temp' . DIRECTORY_SEPARATOR);
 
 
         foreach ($finder as $file) {
@@ -51,7 +51,7 @@ class SynchroController extends Controller
             // Dump the relative path to the file
             var_dump($file->getRelativePathname());
         }
-        
+
         return $this->render('MonotypeBowmanBundle:synchro:show_diff.html.twig', array());
     }
 }
