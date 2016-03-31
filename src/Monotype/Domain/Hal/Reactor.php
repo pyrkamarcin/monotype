@@ -72,8 +72,10 @@ class Reactor
     public function on()
     {
         $client = stream_socket_client('tcp://' . $this->address . ':' . $this->port);
+
         $buffer = $this->buffer;
         $stock = $this->stock;
+
         $conn = new Stream($client, $this->loop);
         $conn->on('data', function ($data) use ($conn, $buffer, $stock) {
 
@@ -90,46 +92,6 @@ class Reactor
 
             $stock->stockize($buffer->getCache());
         });
-
-//        $stock = $this->stock;
-//        $buffer = $this->buffer;
-//
-//        $conn->on('data', function ($data) use ($conn, $buffer, $stock) {
-//            $buffer->setCache($data);
-//
-//            if (strspn($buffer->getCache(), 'close')) {
-//                $conn->close();
-//                exit();
-//            }
-//
-//            if (strpos($buffer->getCache(), PHP_EOL) !== false) {
-//                echo $buffer->getCache();
-//            }
-//
-//            $stock->stockize($buffer->getCache());
-//        });
-
-//        $stock = $this->stock;
-//        $buffer = $this->buffer;
-//
-//        $this->socket->on('connection', function (Connection $conn) use ($buffer, $stock) {
-//
-//            $conn->on('data', function ($data) use ($conn, $buffer, $stock) {
-//
-//                $buffer->setCache($data);
-//
-//                if (strspn($buffer->getCache(), 'close')) {
-//                    $conn->close();
-//                    exit();
-//                }
-//
-//                if (strpos($buffer->getCache(), PHP_EOL) !== false) {
-//                    echo $buffer->getCache();
-//                }
-//
-//                $stock->stockize($buffer->getCache());
-//            });
-//        });
     }
 
     /**
