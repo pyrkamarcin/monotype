@@ -39,7 +39,7 @@ class SynchroController extends Controller
 
         $array_stocks = array();
         foreach ($stocks as $stock) {
-            $array_stocks[] = $stock->getFile();
+            $array_stocks[] = end(explode(DIRECTORY_SEPARATOR, $stock->getFile()));
         }
 
         $finder = new Finder();
