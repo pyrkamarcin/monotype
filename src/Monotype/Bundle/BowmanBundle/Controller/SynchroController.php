@@ -5,6 +5,7 @@ namespace Monotype\Bundle\BowmanBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Finder\Finder;
 
 /**
  * Class SynchroController
@@ -22,8 +23,7 @@ class SynchroController extends Controller
      */
     public function indexAction()
     {
-        return $this->render('MonotypeBowmanBundle:synchro:index.html.twig', array(//
-        ));
+        return $this->render('MonotypeBowmanBundle:synchro:index.html.twig', array());
     }
 
     /**
@@ -34,6 +34,13 @@ class SynchroController extends Controller
      */
     public function ShowDiffAction()
     {
+        $em = $this->getDoctrine()->getManager();
+        $processes = $em->getRepository('MonotypeBowmanBundle:Process')->findAll();
+
+        $finder = new Finder();
+        $finder->files()->in(__DIR__);
+
+
         return $this->render('MonotypeBowmanBundle:synchro:show_diff.html.twig', array());
     }
 }
