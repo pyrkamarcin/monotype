@@ -38,7 +38,7 @@ class SynchroController extends Controller
         $processes = $em->getRepository('MonotypeBowmanBundle:Process')->findAll();
 
         $finder = new Finder();
-        $finder->files()->in('var' . DIRECTORY_SEPARATOR . 'temp' . DIRECTORY_SEPARATOR);
+        $finder->files()->in(__DIR__);
 
 
         foreach ($finder as $file) {
