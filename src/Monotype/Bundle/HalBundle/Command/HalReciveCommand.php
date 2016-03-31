@@ -52,7 +52,6 @@ class HalReciveCommand extends ContainerAwareCommand
 
         $stocks->setHash($reactor->stock->stock->getUniqId());
         $stocks->setFile($reactor->stock->stock->getPath());
-
         $stocks->setDatetime(new \DateTime('now'));
 
         $entityManager->persist($stocks);

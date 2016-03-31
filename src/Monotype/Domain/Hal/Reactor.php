@@ -6,8 +6,6 @@ use Monotype\Domain\Hal\Connector\Buffer;
 use Monotype\Domain\Hal\Dumper;
 use Monotype\Domain\Hal\Dumper\Stock;
 use React\EventLoop\Factory;
-use React\Socket\Connection;
-use React\Socket\Server;
 use React\Stream\Stream;
 
 /**
@@ -78,9 +76,19 @@ class Reactor
         $stock = $this->stock;
         $conn = new Stream($client, $this->loop);
         $conn->on('data', function ($data) use ($conn, $buffer, $stock) {
+
             $buffer->setCache($data);
+
+            if (strspn($buffer->getCache(), 'close')) {
+                $conn->close();
+                exit();
+            }
+
+            if (strpos($buffer->getCache(), PHP_EOL) !== false) {
+                //
+            }
+
             $stock->stockize($buffer->getCache());
-            echo $data;
         });
 
 //        $stock = $this->stock;
