@@ -31,6 +31,12 @@ class HalListnerCommand extends ContainerAwareCommand
             ->addOption('option', null, InputOption::VALUE_NONE, 'Option description');
     }
 
+    /**
+     * @param InputInterface $input
+     * @param OutputInterface $output
+     * @throws \Exception
+     * @return boolean
+     */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         if ($input->getOption('option')) {
@@ -48,5 +54,7 @@ class HalListnerCommand extends ContainerAwareCommand
             $dump->stockize($contents);
             echo $contents;
         }
+
+        return true;
     }
 }

@@ -22,6 +22,11 @@ class HalSendCommand extends ContainerAwareCommand
             ->addOption('file', null, InputOption::VALUE_NONE, 'Option description');
     }
 
+    /**
+     * @param InputInterface $input
+     * @param OutputInterface $output
+     * @return boolean
+     */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         if ($input->getOption('file')) {
@@ -32,8 +37,9 @@ class HalSendCommand extends ContainerAwareCommand
 
         $output->writeln('Connection start...');
 
-
         $reactor = new Sender(new Machine($input->getArgument('machine')));
         $reactor->send($data);
+
+        return true;
     }
 }
