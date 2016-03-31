@@ -34,32 +34,25 @@ class HalReciveCommand extends ContainerAwareCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         if ($input->getOption('option')) {
-            // ...
         }
 
-//        $this->em = $this->getContainer()->get('doctrine.orm.entity_manager');
+        $entityManager = $this->getContainer()->get('doctrine.orm.entity_manager');
 
         $machine = new Machine($input->getArgument('machine'));
         $reactor = new Reactor($machine);
-        
+
+        $output->writeln('Connection start...');
+
+        $stocks = new Stocks();
+        $stocks->setHash($reactor->stock->stock->getUniqId());
+
+        $stocks->setFile($reactor->stock->stock->getPath());
+        $stocks->setDatetime(new \DateTime('now'));
+
+        $entityManager->persist($stocks);
+        $entityManager->flush();
+
         $reactor->on();
         $reactor->run();
-
-//        dump($reactor);
-
-//        $stocks = new Stocks();
-//        $stocks->setHash($reactor->stock->stock->getUniqId());
-//
-//        $stocks->setFile($reactor->stock->stock->getPath());
-//        $stocks->setDatetime(new \DateTime('now'));
-//
-//        $this->em->persist($stocks);
-//        $this->em->flush();
-
-//        $output->writeln('Connection start...');
-
-//        $reactor->on();
-//        $reactor->run();
-
     }
 }
