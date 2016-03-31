@@ -30,5 +30,4 @@ class SynchroController extends Controller
     {
         return $this->render('MonotypeBowmanBundle:Synchro:show_diff.html.twig', array());
     }
-
 }
