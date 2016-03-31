@@ -83,9 +83,6 @@ class Reactor
             echo $data;
         });
 
-//
-
-
 //        $stock = $this->stock;
 //        $buffer = $this->buffer;
 //
