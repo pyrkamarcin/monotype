@@ -37,12 +37,17 @@ class SynchroController extends Controller
         $em = $this->getDoctrine()->getManager();
         $stocks = $em->getRepository('MonotypeBowmanBundle:Stocks')->findAll();
 
+        $array_stocks = array();
+        foreach ($stocks as $stock) {
+            $array_stocks[] = $stock->getFile();
+        }
+
         $finder = new Finder();
         $path = realpath(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..');
 
         $finder->files()->in($path . DIRECTORY_SEPARATOR . 'var' . DIRECTORY_SEPARATOR . 'temp' . DIRECTORY_SEPARATOR . 'stock');
 
-        var_dump($stocks);
+        var_dump($array_stocks);
         var_dump($finder);
 
         return $this->render('MonotypeBowmanBundle:synchro:show_diff.html.twig', array());
