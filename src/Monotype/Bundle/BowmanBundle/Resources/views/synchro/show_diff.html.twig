@@ -2,7 +2,9 @@
 
 {% block body %}
     <h1>Welcome to the Synchro:ShowDiff page</h1>
-    {% for differences in difference %}
-        <li>{{ difference }}</li>
-    {% endfor %}
+    <ul>
+        {% for difference in differences %}
+            <li>{{ difference }}</li>
+        {% endfor %}
+    </ul>
 {% endblock %}
