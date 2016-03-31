@@ -44,12 +44,13 @@ class HalReciveCommand extends ContainerAwareCommand
         $output->writeln('Connection start...');
 
         $stocks = new Stocks();
-        $stocks->setHash($reactor->stock->stock->getUniqId());
 
+        $stocks->setHash($reactor->stock->stock->getUniqId());
         $stocks->setFile($reactor->stock->stock->getPath());
+
         $stocks->setDatetime(new \DateTime('now'));
 
-        $entityManager->persist($stocks);
+        $entityManager->persist($stocks);``
         $entityManager->flush();
 
         $reactor->on();
