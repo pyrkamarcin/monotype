@@ -2,17 +2,14 @@
 
 namespace Monotype\Bundle\HalBundle\Command;
 
-use Monotype\Bundle\BowmanBundle\Entity\Stocks;
 use Monotype\Domain\Hal\Connector;
 use Monotype\Domain\Hal\Dumper;
 use Monotype\Domain\Hal\Machine;
-use Monotype\Domain\Hal\Reactor;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
-use Doctrine\ORM\EntityManager;
 
 /**
  * Class HalListnerCommand
@@ -49,9 +46,6 @@ class HalListnerCommand extends ContainerAwareCommand
 
         while (!feof($socket->socket)) {
             $contents = $socket->read(16);
-
-            $dump = new Dumper(new Dumper\Stock());
-            $dump->stockize($contents);
             echo $contents;
         }
 
