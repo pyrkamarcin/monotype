@@ -40,9 +40,7 @@ class SynchroController extends Controller
         $finder = new Finder();
         $path = realpath(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..');
 
-        var_dump($path);
-
-        $finder->files()->in($path);
+        $finder->files()->in($path . DIRECTORY_SEPARATOR . 'var' . DIRECTORY_SEPARATOR . 'temp');
 
 
         foreach ($finder as $file) {
