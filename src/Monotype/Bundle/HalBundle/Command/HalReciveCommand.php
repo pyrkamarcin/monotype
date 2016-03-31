@@ -20,7 +20,6 @@ use Doctrine\ORM\EntityManager;
  */
 class HalReciveCommand extends ContainerAwareCommand
 {
-    protected $em;
 
     protected function configure()
     {
@@ -31,6 +30,11 @@ class HalReciveCommand extends ContainerAwareCommand
             ->addOption('option', null, InputOption::VALUE_NONE, 'Option description');
     }
 
+    /**
+     * @param InputInterface $input
+     * @param OutputInterface $output
+     * @return boolean
+     */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         if ($input->getOption('option')) {
@@ -55,5 +59,7 @@ class HalReciveCommand extends ContainerAwareCommand
 
         $reactor->on();
         $reactor->run();
+
+        return true;
     }
 }
