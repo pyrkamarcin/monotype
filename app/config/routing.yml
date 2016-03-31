@@ -10,6 +10,10 @@ monotype_bowman_process:
     resource: "@MonotypeBowmanBundle/Controller/ProcessController.php"
     type:     annotation
 
+monotype_bowman_synchro:
+    resource: "@MonotypeBowmanBundle/Controller/SynchroController.php"
+    type:     annotation
+
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation

@@ -11,7 +11,7 @@ use Monotype\Bundle\BowmanBundle\Form\StocksType;
 
 /**
  * Stocks controller.
- *
+ * @package Monotype\Bundle\BowmanBundle\Controller
  * @Route("/stocks")
  */
 class StocksController extends Controller
