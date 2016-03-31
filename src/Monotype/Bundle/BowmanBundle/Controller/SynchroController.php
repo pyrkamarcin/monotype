@@ -35,14 +35,14 @@ class SynchroController extends Controller
     public function ShowDiffAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $processes = $em->getRepository('MonotypeBowmanBundle:Process')->findAll();
+        $stocks = $em->getRepository('MonotypeBowmanBundle:Stocks')->findAll();
 
         $finder = new Finder();
         $path = realpath(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..');
 
         $finder->files()->in($path . DIRECTORY_SEPARATOR . 'var' . DIRECTORY_SEPARATOR . 'temp' . DIRECTORY_SEPARATOR . 'stock');
 
-        var_dump($processes);
+        var_dump($stocks);
         var_dump($finder);
 
         return $this->render('MonotypeBowmanBundle:synchro:show_diff.html.twig', array());
