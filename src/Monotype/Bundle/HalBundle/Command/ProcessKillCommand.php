@@ -7,6 +7,7 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Process\Process;
 
 class ProcessKillCommand extends ContainerAwareCommand
 {
@@ -14,21 +15,16 @@ class ProcessKillCommand extends ContainerAwareCommand
     {
         $this
             ->setName('process:kill')
-            ->setDescription('...')
-            ->addArgument('argument', InputArgument::OPTIONAL, 'Argument description')
-            ->addOption('option', null, InputOption::VALUE_NONE, 'Option description')
-        ;
+            ->setDescription('Kill process')
+            ->addArgument('pid', InputArgument::REQUIRED, 'PID')
+            ->addOption('option', null, InputOption::VALUE_NONE, 'Option description');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $argument = $input->getArgument('argument');
+        $process = new Process('kill ' . $input->getArgument('pid') . PHP_EOL);
+        $process->start();
 
-        if ($input->getOption('option')) {
-            // ...
-        }
-
-        $output->writeln('Command result.');
+        $output->writeln('Process ' . $input->getArgument('pid') . 'killed.');
     }
-
 }

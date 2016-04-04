@@ -15,19 +15,11 @@ class ProcessTestCommand extends ContainerAwareCommand
     {
         $this
             ->setName('process:test')
-            ->setDescription('...')
-            ->addArgument('argument', InputArgument::OPTIONAL, 'Argument description')
-            ->addOption('option', null, InputOption::VALUE_NONE, 'Option description');
+            ->setDescription('Run test bash process');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $argument = $input->getArgument('argument');
-
-        if ($input->getOption('option')) {
-            // ...
-        }
-
 
         $process = new Process('watch df -h');
         $process->start();
@@ -37,5 +29,4 @@ class ProcessTestCommand extends ContainerAwareCommand
         $output->writeln('Command result:');
         $output->writeln('PID: ' . $pid . PHP_EOL);
     }
-
 }
