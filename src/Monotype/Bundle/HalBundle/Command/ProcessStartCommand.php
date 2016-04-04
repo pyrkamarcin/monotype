@@ -43,5 +43,4 @@ class ProcessStartCommand extends ContainerAwareCommand
 
         return true;
     }
-
 }
