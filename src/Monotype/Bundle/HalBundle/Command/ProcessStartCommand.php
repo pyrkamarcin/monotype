@@ -7,6 +7,7 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Process\Process;
 
 class ProcessStartCommand extends ContainerAwareCommand
 {
@@ -15,20 +16,20 @@ class ProcessStartCommand extends ContainerAwareCommand
         $this
             ->setName('process:start')
             ->setDescription('...')
-            ->addArgument('argument', InputArgument::OPTIONAL, 'Argument description')
-            ->addOption('option', null, InputOption::VALUE_NONE, 'Option description')
-        ;
+            ->addArgument('command', InputArgument::REQUIRED, 'Command');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $argument = $input->getArgument('argument');
+        $process = new Process($input->getArgument('command'));
+        $process->start();
 
-        if ($input->getOption('option')) {
-            // ...
-        }
+        $pid = $process->getPid();
 
-        $output->writeln('Command result.');
+        $output->writeln('Command "' . $input->getArgument('command') . '" result:');
+        $output->writeln('PID: ' . $pid . PHP_EOL);
+
+        return true;
     }
 
 }
