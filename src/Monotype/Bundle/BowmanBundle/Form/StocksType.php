@@ -4,6 +4,7 @@ namespace Monotype\Bundle\BowmanBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -16,12 +17,11 @@ class StocksType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('hash')
-            ->add('file')
-            ->add('datetime', DateTimeType::class)
-        ;
+            ->add('hash', TextType::class)
+            ->add('file', TextType::class)
+            ->add('datetime', DateTimeType::class);
     }
-    
+
     /**
      * @param OptionsResolver $resolver
      */
