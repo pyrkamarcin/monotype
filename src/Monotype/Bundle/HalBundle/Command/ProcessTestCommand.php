@@ -17,8 +17,7 @@ class ProcessTestCommand extends ContainerAwareCommand
             ->setName('process:test')
             ->setDescription('...')
             ->addArgument('argument', InputArgument::OPTIONAL, 'Argument description')
-            ->addOption('option', null, InputOption::VALUE_NONE, 'Option description')
-        ;
+            ->addOption('option', null, InputOption::VALUE_NONE, 'Option description');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -35,7 +34,8 @@ class ProcessTestCommand extends ContainerAwareCommand
 
         $pid = $process->getPid();
 
-        $output->writeln('Command result.');
+        $output->writeln('Command result:');
+        $output->writeln('PID: ' . $pid . PHP_EOL);
     }
 
 }
