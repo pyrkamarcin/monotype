@@ -3,6 +3,7 @@
 namespace Monotype\Bundle\BowmanBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -19,7 +20,8 @@ class ProcessType extends AbstractType
         $builder
             ->add('pid', NumberType::class)
             ->add('script', TextType::class)
-            ->add('uid', NumberType::class);
+            ->add('uid', NumberType::class)
+            ->add('datetime', DateTimeType::class);
     }
 
     /**
