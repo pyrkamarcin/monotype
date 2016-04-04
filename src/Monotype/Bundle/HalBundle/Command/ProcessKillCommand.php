@@ -36,8 +36,6 @@ class ProcessKillCommand extends ContainerAwareCommand
         $find = new Process('ps -p ' . $input->getArgument('pid') . ' -o comm=');
         $find->run();
 
-        var_dump($find->getOutput());
-
         if (!empty($find->getOutput())) {
             $process = new Process('kill ' . $input->getArgument('pid') . PHP_EOL);
             $process->start();
