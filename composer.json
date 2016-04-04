@@ -31,6 +31,7 @@
     "symfony/monolog-bundle": "2.9.*",
     "symfony/swiftmailer-bundle": "2.3.*",
     "symfony/symfony": "3.0.*",
+    "symfony/process": "3.0.*",
     "ramsey/uuid": "3.2.*",
     "ramsey/uuid-doctrine": "1.1.*",
     "ramsey/uuid-console": "1.1.*",
