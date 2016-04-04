@@ -9,8 +9,15 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Process\Process;
 
+/**
+ * Class ProcessTestCommand
+ * @package Monotype\Bundle\HalBundle\Command
+ */
 class ProcessTestCommand extends ContainerAwareCommand
 {
+    /**
+     *
+     */
     protected function configure()
     {
         $this
@@ -18,6 +25,11 @@ class ProcessTestCommand extends ContainerAwareCommand
             ->setDescription('Run test bash process');
     }
 
+    /**
+     * @param InputInterface $input
+     * @param OutputInterface $output
+     * @return bool
+     */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
 
@@ -28,5 +40,7 @@ class ProcessTestCommand extends ContainerAwareCommand
 
         $output->writeln('Command result:');
         $output->writeln('PID: ' . $pid . PHP_EOL);
+
+        return true;
     }
 }

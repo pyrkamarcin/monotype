@@ -9,8 +9,15 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Process\Process;
 
+/**
+ * Class ProcessKillCommand
+ * @package Monotype\Bundle\HalBundle\Command
+ */
 class ProcessKillCommand extends ContainerAwareCommand
 {
+    /**
+     *
+     */
     protected function configure()
     {
         $this
@@ -19,11 +26,18 @@ class ProcessKillCommand extends ContainerAwareCommand
             ->addArgument('pid', InputArgument::REQUIRED, 'PID');
     }
 
+    /**
+     * @param InputInterface $input
+     * @param OutputInterface $output
+     * @return bool
+     */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $process = new Process('kill ' . $input->getArgument('pid') . PHP_EOL);
         $process->start();
 
-        $output->writeln('Process ' . $input->getArgument('pid') . 'killed.');
+        $output->writeln('Process ' . $input->getArgument('pid') . ' was killed.');
+
+        return true;
     }
 }
