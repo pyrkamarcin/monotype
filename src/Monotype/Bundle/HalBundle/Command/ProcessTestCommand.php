@@ -29,7 +29,7 @@ class ProcessTestCommand extends ContainerAwareCommand
         }
 
 
-        $process = new Process('ls -la');
+        $process = new Process('watch df -h');
         $process->start();
 
         $pid = $process->getPid();
