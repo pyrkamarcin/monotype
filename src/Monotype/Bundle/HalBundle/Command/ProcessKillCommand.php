@@ -33,7 +33,8 @@ class ProcessKillCommand extends ContainerAwareCommand
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $find = new Process('ps -p ' . $input->getArgument('pid') . ' -o comm=');
+//        $find = new Process('ps -p ' . $input->getArgument('pid') . ' -o comm=');
+        $find = new Process('ps aux');
         $find->run();
 
         $output->writeln($find->getOutput());
