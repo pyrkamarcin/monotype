@@ -18,9 +18,9 @@ class ProcessType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('pid', NumberType::class)
+            ->add('pid', TextType::class)
             ->add('script', TextType::class)
-            ->add('uid', NumberType::class)
+            ->add('uid', TextType::class)
             ->add('datetime', DateTimeType::class);
     }
 
