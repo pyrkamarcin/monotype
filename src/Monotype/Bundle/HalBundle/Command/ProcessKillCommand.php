@@ -16,8 +16,7 @@ class ProcessKillCommand extends ContainerAwareCommand
         $this
             ->setName('process:kill')
             ->setDescription('Kill process')
-            ->addArgument('pid', InputArgument::REQUIRED, 'PID')
-            ->addOption('option', null, InputOption::VALUE_NONE, 'Option description');
+            ->addArgument('pid', InputArgument::REQUIRED, 'PID');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
