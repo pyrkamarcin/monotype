@@ -32,7 +32,6 @@ class ProcessTestCommand extends ContainerAwareCommand
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-
         $process = new Process('watch df -h');
         $process->start();
 
