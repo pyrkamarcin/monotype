@@ -38,6 +38,15 @@ class ProcessStartCommand extends ContainerAwareCommand
 
         $pid = $process->getPid();
 
+        $entityManager = $this->getContainer()->get('doctrine.orm.entity_manager');
+        $entity_process = new \Monotype\Bundle\BowmanBundle\Entity\Process();
+        $entity_process->setPid($process->getPid());
+        $entity_process->setScript($input->getArgument('argument'));
+        $entity_process->setUid('manual');
+
+        $entityManager->persist($entity_process);
+        $entityManager->flush();
+
         $output->writeln('Command "' . $input->getArgument('argument') . '" result:');
         $output->writeln('PID: ' . $pid . PHP_EOL);
 
