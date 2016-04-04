@@ -21,12 +21,14 @@ class ProcessStartCommand extends ContainerAwareCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $process = new Process($input->getArgument('command'));
+
+        $command = $input->getArgument('command');
+        $process = new Process($command);
         $process->start();
 
         $pid = $process->getPid();
 
-        $output->writeln('Command "' . $input->getArgument('command') . '" result:');
+        $output->writeln('Command "' . $command . '" result:');
         $output->writeln('PID: ' . $pid . PHP_EOL);
 
         return true;
