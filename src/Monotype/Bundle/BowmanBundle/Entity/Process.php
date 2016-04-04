@@ -42,6 +42,13 @@ class Process
      */
     private $uid;
 
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="datetime", type="datetime")
+     */
+    private $datetime;
+
 
     /**
      * Get id
@@ -123,6 +130,22 @@ class Process
         $this->uid = $uid;
 
         return $this;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDatetime()
+    {
+        return $this->datetime;
+    }
+
+    /**
+     * @param \DateTime $datetime
+     */
+    public function setDatetime($datetime)
+    {
+        $this->datetime = $datetime;
     }
 }
 
