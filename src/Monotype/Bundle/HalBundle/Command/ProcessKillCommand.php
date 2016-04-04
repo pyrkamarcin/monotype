@@ -34,12 +34,11 @@ class ProcessKillCommand extends ContainerAwareCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $find = new Process('ps -p ' . $input->getArgument('pid') . ' -o comm=');
+        $find->start();
 
-        $find->run(function ($type) {
-            if (Process::OUT === $type) {
-                echo '.';
-            }
-        });
+        while ($find->isRunning()) {
+            echo $find->getIncrementalOutput();
+        }
 
         $process = new Process('kill ' . $input->getArgument('pid') . PHP_EOL);
         $process->start();
