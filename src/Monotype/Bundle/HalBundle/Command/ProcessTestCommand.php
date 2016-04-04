@@ -7,6 +7,7 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Process\Process;
 
 class ProcessTestCommand extends ContainerAwareCommand
 {
@@ -27,6 +28,12 @@ class ProcessTestCommand extends ContainerAwareCommand
         if ($input->getOption('option')) {
             // ...
         }
+
+
+        $process = new Process('ls -la');
+        $process->start();
+
+        $pid = $process->getPid();
 
         $output->writeln('Command result.');
     }
