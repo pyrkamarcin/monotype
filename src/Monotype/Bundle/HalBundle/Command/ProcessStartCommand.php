@@ -43,6 +43,7 @@ class ProcessStartCommand extends ContainerAwareCommand
         $entity_process->setPid($process->getPid());
         $entity_process->setScript($input->getArgument('argument'));
         $entity_process->setUid('manual');
+        $entity_process->setDatetime(new \DateTime('now'));
 
         $entityManager->persist($entity_process);
         $entityManager->flush();
