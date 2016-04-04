@@ -9,8 +9,15 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Process\Process;
 
+/**
+ * Class ProcessStartCommand
+ * @package Monotype\Bundle\HalBundle\Command
+ */
 class ProcessStartCommand extends ContainerAwareCommand
 {
+    /**
+     *
+     */
     protected function configure()
     {
         $this
@@ -19,6 +26,11 @@ class ProcessStartCommand extends ContainerAwareCommand
             ->addArgument('argument', InputArgument::REQUIRED, 'Command');
     }
 
+    /**
+     * @param InputInterface $input
+     * @param OutputInterface $output
+     * @return bool
+     */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $process = new Process($input->getArgument('argument'));
