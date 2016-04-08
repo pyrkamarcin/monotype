@@ -34,15 +34,15 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ path('synchro_index') }}">Sync</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('terminal_lock') }}">Zabezpiecz terminal <span
+                                class="icon-lock"></span></a>
+                </li>
             </ul>
             <form class="form-inline pull-xs-right">
                 <input class="form-control" type="text" placeholder="Search">
                 <button class="btn btn-success-outline" type="submit">Search</button>
             </form>
-            <ul class="nav navbar-nav form-inline pull-xs-right">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ path('terminal_lock') }}">Zabezpiecz terminal</a></li>
-            </ul>
         </nav>
 
     {% endblock %}
