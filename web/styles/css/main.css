@@ -1,8 +1,8 @@
 html {
     position: relative;
     min-height: 95%;
-    zoom: 1.85;
-    -moz-transform: scale(1.85);
+    zoom: 1;
+    -moz-transform: scale(1);
     -moz-transform-origin: 0 0;
 }
 
