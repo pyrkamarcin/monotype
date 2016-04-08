@@ -1,0 +1,41 @@
+#keyboard {
+}
+
+#keyboard li.number {
+    width: 50px;
+}
+
+.capslock, .tab, .left-shift {
+}
+
+#keyboard .tab, #keyboard .delete {
+    width: 100px;
+}
+
+#keyboard .capslock {
+}
+
+#keyboard .submit {
+    width: 100px;
+}
+
+#keyboard .left-shift {
+}
+
+#keyboard .right-shift {
+}
+
+.lastitem {
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+#keyboard .space {
+    clear: left;
+}
+
+.on {
+    display: none;
+}
