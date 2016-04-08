@@ -18,6 +18,13 @@ class User extends BaseUser
      */
     protected $id;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cardCode", type="string", length=255, unique=true)
+     */
+    protected $cardCode;
+
     public function __construct()
     {
         parent::__construct();
