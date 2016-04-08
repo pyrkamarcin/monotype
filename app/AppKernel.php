@@ -26,6 +26,7 @@ class AppKernel extends Kernel
             new Monotype\Bundle\BowmanBundle\MonotypeBowmanBundle(),
             new Monotype\Bundle\PosBundle\MonotypePosBundle(),
             new WhiteOctober\BreadcrumbsBundle\WhiteOctoberBreadcrumbsBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
 
         ];
 
