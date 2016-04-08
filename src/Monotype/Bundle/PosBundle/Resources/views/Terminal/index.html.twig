@@ -1,0 +1,16 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}MonotypePosBundle:Terminal:index{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <ul class="navbar navbar-dark bg-primary">
+
+            <a class="navbar-brand" href="{{ path('terminal_index') }}">Terminal MonotypeMES</a>
+            <ul class="nav navbar-nav pull-xs-right">
+                <li class="nav-item"><a class="nav-link"
+                                        href="{{ path('terminal_lock') }}">Zabezpiecz terminal</a></li>
+            </ul>
+        </ul>
+    </div>
+{% endblock %}
