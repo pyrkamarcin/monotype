@@ -2,13 +2,17 @@
 <html>
 <head>
     <meta charset="UTF-8"/>
-    <title>{% block title %}DNC Panel{% endblock %}</title>
-    {% block stylesheets %}{% endblock %}
+    <meta http-equiv="refresh" content="60; URL={{ path('terminal_lock') }}">
+
+    <title>{% block title %}Welcome!{% endblock %}</title>
+
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
 
     <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.css') }}"/>
     <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap-theme.css') }}"/>
     <link rel="stylesheet" href="{{ asset('styles/css/main.css') }}"/>
+
+    {% block stylesheets %}{% endblock %}
 
 </head>
 <body>
@@ -41,11 +45,14 @@
         </nav>
 
     {% endblock %}
+
     {% block body %}{% endblock %}
+
 </div>
-{% block javascripts %}
-    <script src="{{ asset('jquery/jquery.js') }}"></script>
-    <script src="{{ asset('bootstrap/js/bootstrap.js') }}"></script>
-{% endblock %}
+
+<script src="{{ asset('jquery/jquery.js') }}"></script>
+<script src="{{ asset('bootstrap/js/bootstrap.js') }}"></script>
+{% block javascripts %}{% endblock %}
+
 </body>
 </html>
