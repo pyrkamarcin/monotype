@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Stocks
  *
- * @ORM\Table(name="monotype_stocks")
+ * @ORM\Table(name="stocks")
  * @ORM\Entity(repositoryClass="Monotype\Bundle\BowmanBundle\Repository\StocksRepository")
  */
 class Stocks

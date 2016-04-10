@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Process
  *
- * @ORM\Table(name="monotype_process")
+ * @ORM\Table(name="process")
  * @ORM\Entity(repositoryClass="Monotype\Bundle\BowmanBundle\Repository\ProcessRepository")
  */
 class Process
