@@ -1,0 +1,14 @@
+{
+  "name": "MonotypeHAL",
+  "description": "Description",
+  "scripts": {
+  },
+  "env": {
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+
+  ]
+}
