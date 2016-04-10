@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Process
  *
- * @ORM\Table(name="Process")
+ * @ORM\Table(name="monotype_process")
  * @ORM\Entity(repositoryClass="Monotype\Bundle\BowmanBundle\Repository\ProcessRepository")
  */
 class Process
@@ -31,7 +31,7 @@ class Process
     /**
      * @var string
      *
-     * @ORM\Column(name="script", type="string", length=1024)
+     * @ORM\Column(name="script", type="string", length=2048)
      */
     private $script;
 

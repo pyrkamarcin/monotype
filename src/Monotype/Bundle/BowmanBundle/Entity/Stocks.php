@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Stocks
  *
- * @ORM\Table(name="stocks")
+ * @ORM\Table(name="monotype_stocks")
  * @ORM\Entity(repositoryClass="Monotype\Bundle\BowmanBundle\Repository\StocksRepository")
  */
 class Stocks
@@ -54,6 +54,16 @@ class Stocks
     }
 
     /**
+     * Get hash
+     *
+     * @return string
+     */
+    public function getHash()
+    {
+        return $this->hash;
+    }
+
+    /**
      * Set hash
      *
      * @param string $hash
@@ -68,13 +78,13 @@ class Stocks
     }
 
     /**
-     * Get hash
+     * Get file
      *
      * @return string
      */
-    public function getHash()
+    public function getFile()
     {
-        return $this->hash;
+        return $this->file;
     }
 
     /**
@@ -92,13 +102,13 @@ class Stocks
     }
 
     /**
-     * Get file
+     * Get datetime
      *
-     * @return string
+     * @return \DateTime
      */
-    public function getFile()
+    public function getDatetime()
     {
-        return $this->file;
+        return $this->datetime;
     }
 
     /**
@@ -113,16 +123,6 @@ class Stocks
         $this->datetime = $datetime;
 
         return $this;
-    }
-
-    /**
-     * Get datetime
-     *
-     * @return \DateTime
-     */
-    public function getDatetime()
-    {
-        return $this->datetime;
     }
 }
 

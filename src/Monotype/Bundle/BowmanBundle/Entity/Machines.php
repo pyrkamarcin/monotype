@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Machines
  *
- * @ORM\Table(name="machines")
+ * @ORM\Table(name="monotype_machines")
  * @ORM\Entity(repositoryClass="Monotype\Bundle\BowmanBundle\Repository\MachinesRepository")
  */
 class Machines
@@ -68,6 +68,16 @@ class Machines
     }
 
     /**
+     * Get command
+     *
+     * @return string
+     */
+    public function getCommand()
+    {
+        return $this->command;
+    }
+
+    /**
      * Set command
      *
      * @param string $command
@@ -82,13 +92,13 @@ class Machines
     }
 
     /**
-     * Get command
+     * Get protocol
      *
      * @return string
      */
-    public function getCommand()
+    public function getProtocol()
     {
-        return $this->command;
+        return $this->protocol;
     }
 
     /**
@@ -106,13 +116,13 @@ class Machines
     }
 
     /**
-     * Get protocol
+     * Get address
      *
      * @return string
      */
-    public function getProtocol()
+    public function getAddress()
     {
-        return $this->protocol;
+        return $this->address;
     }
 
     /**
@@ -130,13 +140,13 @@ class Machines
     }
 
     /**
-     * Get address
+     * Get port
      *
-     * @return string
+     * @return int
      */
-    public function getAddress()
+    public function getPort()
     {
-        return $this->address;
+        return $this->port;
     }
 
     /**
@@ -154,13 +164,13 @@ class Machines
     }
 
     /**
-     * Get port
+     * Get localtion
      *
-     * @return int
+     * @return string
      */
-    public function getPort()
+    public function getLocaltion()
     {
-        return $this->port;
+        return $this->localtion;
     }
 
     /**
@@ -175,16 +185,6 @@ class Machines
         $this->localtion = $localtion;
 
         return $this;
-    }
-
-    /**
-     * Get localtion
-     *
-     * @return string
-     */
-    public function getLocaltion()
-    {
-        return $this->localtion;
     }
 }
 
