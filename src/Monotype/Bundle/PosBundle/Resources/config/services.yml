@@ -1,4 +1,0 @@
-services:
-#    monotype_pos.example:
-#        class: Monotype\Bundle\PosBundle\Example
-#        arguments: ["@service_id", "plain_value", %parameter%]
