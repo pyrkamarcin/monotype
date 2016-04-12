@@ -1,17 +1,17 @@
 monotype_bowman_stocks:
-    resource: "@MonotypeBowmanBundle/Controller/StocksController.php"
+    resource: "@MonotypeDirectControllBundle/Controller/StocksController.php"
     type:     annotation
 
 monotype_bowman_machines:
-    resource: "@MonotypeBowmanBundle/Controller/MachinesController.php"
+    resource: "@MonotypeDirectControllBundle/Controller/MachinesController.php"
     type:     annotation
 
 monotype_bowman_process:
-    resource: "@MonotypeBowmanBundle/Controller/ProcessController.php"
+    resource: "@MonotypeDirectControllBundle/Controller/ProcessController.php"
     type:     annotation
 
 monotype_bowman_synchro:
-    resource: "@MonotypeBowmanBundle/Controller/SynchroController.php"
+    resource: "@MonotypeDirectControllBundle/Controller/SynchroController.php"
     type:     annotation
 
 monotype_pos:
