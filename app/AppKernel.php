@@ -23,7 +23,7 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new AppBundle\AppBundle(),
             new Monotype\Bundle\HalBundle\MonotypeHalBundle(),
-            new Monotype\Bundle\DirectControllBundle\MonotypeBowmanBundle(),
+            new Monotype\Bundle\DirectControllBundle\MonotypeDirectControllBundle(),
             new Monotype\Bundle\PosBundle\MonotypePosBundle(),
             new WhiteOctober\BreadcrumbsBundle\WhiteOctoberBreadcrumbsBundle(),
             new FOS\UserBundle\FOSUserBundle(),
