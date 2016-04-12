@@ -12,11 +12,6 @@
       "app/AppCache.php"
     ]
   },
-  "autoload-dev": {
-    "psr-4": {
-      "Tests\\": "tests/"
-    }
-  },
   "require": {
     "doctrine/doctrine-bundle": "1.6.*",
     "doctrine/doctrine-cache-bundle": "1.3.*",
