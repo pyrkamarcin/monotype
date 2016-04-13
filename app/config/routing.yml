@@ -1,19 +1,20 @@
-monotype_directcontroll_stocks:
+monotype_bowman_stocks:
     resource: "@MonotypeDirectControllBundle/Controller/StocksController.php"
     type:     annotation
 
-monotype_directcontroll_machines:
+monotype_bowman_machines:
     resource: "@MonotypeDirectControllBundle/Controller/MachinesController.php"
     type:     annotation
 
-monotype_directcontroll_process:
+monotype_bowman_process:
     resource: "@MonotypeDirectControllBundle/Controller/ProcessController.php"
     type:     annotation
 
-monotype_directcontroll_synchro:
+monotype_bowman_synchro:
     resource: "@MonotypeDirectControllBundle/Controller/SynchroController.php"
     type:     annotation
 
 monotype_pos:
     resource: "@MonotypePosBundle/Controller/"
     type:     annotation
+    prefix:   /
