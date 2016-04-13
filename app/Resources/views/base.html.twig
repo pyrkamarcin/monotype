@@ -1,55 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8"/>
-    <meta http-equiv="refresh" content="60; URL={{ path('terminal_lock') }}">
-
-    <title>{% block title %}Welcome!{% endblock %}</title>
-
-    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
-    <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.css') }}"/>
-    <link rel="stylesheet" href="{{ asset('styles/css/main.css') }}"/>
-
-    {% block stylesheets %}{% endblock %}
-
-</head>
-<body>
-<div class="container">
-    {% block navigation %}
-
-        <nav class="navbar navbar-dark bg-primary">
-            <a class="navbar-brand" href="{{ path('terminal_index') }}">HOME</a>
-            <ul class="nav navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="{{ path('process_index') }}">Process</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ path('machines_index') }}">Machines</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ path('stocks_index') }}">Stocks</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ path('synchro_index') }}">Sync</a>
-                </li>
-            </ul>
-            <form class="form-inline pull-xs-right">
-                <a class="nav-link btn btn-success" href="{{ path('terminal_lock') }}">Zabezpiecz
-                    terminal</a>
-                {#<input class="form-control" type="text" placeholder="Wprowadź dane...">#}
-                {#<button class="btn btn-warning" type="submit">Szukaj</button>#}
-            </form>
-        </nav>
-
-    {% endblock %}
-
-    {% block body %}{% endblock %}
-
-</div>
-
-<script src="{{ asset('jquery/jquery.js') }}"></script>
-<script src="{{ asset('bootstrap/js/bootstrap.js') }}"></script>
+{% block title %}{% endblock %}
+{% block stylesheets %}{% endblock %}
+{% block navigation %}{% endblock %}
+{% block body %}{% endblock %}
 {% block javascripts %}{% endblock %}
-
-</body>
-</html>
