@@ -39,7 +39,7 @@ class MachinesController extends Controller
      * Creates a new Machines entity.
      *
      * @Route("/new", name="machines_new")
-     * @Method("GET")
+     * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
     {
@@ -106,7 +106,7 @@ class MachinesController extends Controller
      * Displays a form to edit an existing Machines entity.
      *
      * @Route("/{id}/edit", name="machines_edit")
-     * @Method("GET")
+     * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Machines $machine)
     {
