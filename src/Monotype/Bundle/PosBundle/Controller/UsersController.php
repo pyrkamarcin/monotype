@@ -28,7 +28,7 @@ class UsersController extends Controller
 
         $users = $em->getRepository('MonotypePosBundle:Users')->findAll();
 
-        return $this->render('users/index.html.twig', array(
+        return $this->render('MonotypePosBundle:users:index.html.twig', array(
             'users' => $users,
         ));
     }
@@ -53,7 +53,7 @@ class UsersController extends Controller
             return $this->redirectToRoute('users_show', array('id' => $user->getId()));
         }
 
-        return $this->render('users/new.html.twig', array(
+        return $this->render('MonotypePosBundle:users:new.html.twig', array(
             'user' => $user,
             'form' => $form->createView(),
         ));
@@ -69,7 +69,7 @@ class UsersController extends Controller
     {
         $deleteForm = $this->createDeleteForm($user);
 
-        return $this->render('users/show.html.twig', array(
+        return $this->render('MonotypePosBundle:users:show.html.twig', array(
             'user' => $user,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -95,7 +95,7 @@ class UsersController extends Controller
             return $this->redirectToRoute('users_edit', array('id' => $user->getId()));
         }
 
-        return $this->render('users/edit.html.twig', array(
+        return $this->render('MonotypePosBundle:users:edit.html.twig', array(
             'user' => $user,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
