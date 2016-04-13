@@ -17,4 +17,3 @@ monotype_directcontroll_synchro:
 monotype_pos:
     resource: "@MonotypePosBundle/Controller/"
     type:     annotation
-    prefix:   /
