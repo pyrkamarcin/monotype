@@ -1,3 +1,7 @@
+monotype_pos_users:
+    resource: "@MonotypePosBundle/Controller/UsersController.php"
+    type:     annotation
+
 monotype_bowman_stocks:
     resource: "@MonotypeDirectControllBundle/Controller/StocksController.php"
     type:     annotation
