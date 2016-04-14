@@ -29,8 +29,7 @@
     "ramsey/uuid": "3.2.*",
     "ramsey/uuid-doctrine": "1.1.*",
     "ramsey/uuid-console": "1.1.*",
-    "moontoast/math": "1.1.*",
-    "gabrielrcouto/php-gui": "0.1.*"
+    "moontoast/math": "1.1.*"
   },
   "require-dev": {
     "sensio/generator-bundle": "3.0.*",
