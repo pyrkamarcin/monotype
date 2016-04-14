@@ -23,7 +23,6 @@
     "symfony/swiftmailer-bundle": "2.3.*",
     "symfony/symfony": "3.0.*",
     "gabrielrcouto/php-gui": "0.1.*"
-//    "jetalone/monotype": "dev-master"
   },
   "require-dev": {
     "sensio/generator-bundle": "3.0.*",
