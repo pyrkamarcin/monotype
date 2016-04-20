@@ -2,16 +2,23 @@
 
 namespace Monotype\Bundle\DirectControllBundle\Command;
 
-use Monotype\Domain\Hal\Sender;
 use Monotype\Domain\Hal\Machine;
+use Monotype\Domain\Hal\Sender;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
+/**
+ * Class DirectControllSendCommand
+ * @package Monotype\Bundle\DirectControllBundle\Command
+ */
 class DirectControllSendCommand extends ContainerAwareCommand
 {
+    /**
+     *
+     */
     protected function configure()
     {
         $this
