@@ -1,3 +1,7 @@
+app_user:
+    resource: "@AppBundle/Controller/UserController.php"
+    type:     annotation
+
 monotype_pos_users:
     resource: "@MonotypePosBundle/Controller/UsersController.php"
     type:     annotation
@@ -22,3 +26,14 @@ monotype_pos:
     resource: "@MonotypePosBundle/Controller/"
     type:     annotation
     prefix:   /
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+
+user_registration:
+    path:     /register
+    defaults: { _controller: AppBundle:Registration:register }
+
+logout:
+   path: /logout
