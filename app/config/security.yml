@@ -12,7 +12,7 @@ security:
     providers:
         our_db_provider:
             entity:
-                class: AppBundle:User
+                class: Monotype\Bundle\AppBundle:User
                 property: username
 
     firewalls:

@@ -33,7 +33,7 @@ app:
 
 user_registration:
     path:     /register
-    defaults: { _controller: AppBundle:Registration:register }
+    defaults: { _controller: Monotype\Bundle\AppBundle:Registration:register }
 
 logout:
    path: /logout
