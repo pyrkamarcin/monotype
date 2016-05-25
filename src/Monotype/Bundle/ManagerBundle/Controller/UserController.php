@@ -25,7 +25,7 @@ class UserController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $users = $em->getRepository('AppBundle:User')->findAll();
+        $users = $em->getRepository('MonotypeManagerBundle:User')->findAll();
 
         return $this->render('MonotypeManagerBundle:user:index.html.twig', array(
             'users' => $users,
@@ -41,7 +41,7 @@ class UserController extends Controller
     public function newAction(Request $request)
     {
         $user = new User();
-        $form = $this->createForm('Monotype\Bundle\AppBundle\Form\UserType', $user);
+        $form = $this->createForm('Monotype\Bundle\ManagerBundle\Form\UserType', $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

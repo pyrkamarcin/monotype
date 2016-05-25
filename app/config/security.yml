@@ -5,14 +5,14 @@ security:
     #
     #
     encoders:
-        MonotypeManagerBundle\Entity\User:
+        Monotype\Bundle\ManagerBundle\Entity\User:
             algorithm: bcrypt
 
     # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
     providers:
         our_db_provider:
             entity:
-                class: MonotypeManagerBundle:User
+                class: Monotype\Bundle\ManagerBundle\Entity\User
                 property: username
 
     firewalls:

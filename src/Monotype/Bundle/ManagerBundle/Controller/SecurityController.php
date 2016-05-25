@@ -1,6 +1,6 @@
 <?php
 
-namespace Monotype\Bundle\AppBundle\Controller;
+namespace Monotype\Bundle\ManagerBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * Class SecurityController
- * @package Monotype\Bundle\AppBundle\Controller
+ * @package Monotype\Bundle\ManagerBundle\Controller
  */
 class SecurityController extends Controller
 {
