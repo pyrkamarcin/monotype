@@ -2,13 +2,14 @@
 
 namespace Monotype\Bundle\PosBundle\Controller;
 
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 /**
  * Class TerminalController
  * @package Monotype\Bundle\PosBundle\Controller
+ *
+ * @Route("/terminal")
  */
 class TerminalController extends Controller
 {
