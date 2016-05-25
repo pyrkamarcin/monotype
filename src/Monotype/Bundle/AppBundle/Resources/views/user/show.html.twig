@@ -30,7 +30,15 @@
 
     <ul>
         <li>
-            <a href="{{ path('user_index') }}">Back to the list</a>
+            <a href="{{ path('manager_user_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('manager_user_edit', { 'id': user.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+            <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
         </li>
     </ul>
 {% endblock %}

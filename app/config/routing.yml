@@ -2,10 +2,6 @@ app_user:
     resource: "@AppBundle/Controller/UserController.php"
     type:     annotation
 
-monotype_pos_users:
-    resource: "@MonotypePosBundle/Controller/UsersController.php"
-    type:     annotation
-
 monotype_bowman_stocks:
     resource: "@MonotypeDirectControllBundle/Controller/StocksController.php"
     type:     annotation
@@ -31,9 +27,9 @@ app:
     resource: "@AppBundle/Controller/"
     type:     annotation
 
-user_registration:
-    path:     /register
-    defaults: { _controller: Monotype\Bundle\AppBundle:Registration:register }
+#user_registration:
+#    path:     /register
+#    defaults: { _controller: Monotype\Bundle\AppBundle:Registration:register }
 
 logout:
    path: /logout

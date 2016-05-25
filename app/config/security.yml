@@ -12,7 +12,7 @@ security:
     providers:
         our_db_provider:
             entity:
-                class: Monotype\Bundle\AppBundle:User
+                class: AppBundle:User
                 property: username
 
     firewalls:
@@ -42,7 +42,7 @@ security:
             # form_login: ~
             # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
     access_control:
-        - { path: ^/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/manager, roles: ROLE_USER }
+        - { path: ^/, roles: ROLE_USER }
         - { path: ^/admin, roles: ROLE_ADMIN }

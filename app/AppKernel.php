@@ -24,6 +24,7 @@ class AppKernel extends Kernel
             new Monotype\Bundle\AppBundle\AppBundle(),
             new Monotype\Bundle\DirectControllBundle\MonotypeDirectControllBundle(),
             new Monotype\Bundle\PosBundle\MonotypePosBundle(),
+            new Monotype\Bundle\ManagerBundle\MonotypeManagerBundle(),
 
         ];
 
