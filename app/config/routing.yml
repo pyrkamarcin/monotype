@@ -1,7 +1,3 @@
-app_user:
-    resource: "@AppBundle/Controller/UserController.php"
-    type:     annotation
-
 monotype_bowman_stocks:
     resource: "@MonotypeDirectControllBundle/Controller/StocksController.php"
     type:     annotation
@@ -23,9 +19,10 @@ monotype_pos:
     type:     annotation
     prefix:   /
 
-app:
-    resource: "@AppBundle/Controller/"
+monotype_manager_bundle:
+    resource: "@MonotypeManagerBundle/Controller/"
     type:     annotation
+    prefix:   /
 
 #user_registration:
 #    path:     /register

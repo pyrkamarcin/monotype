@@ -1,8 +1,8 @@
 <?php
 
-namespace Monotype\Bundle\AppBundle\Controller;
+namespace Monotype\Bundle\ManagerBundle\Controller;
 
-use Monotype\Bundle\AppBundle\Entity\User;
+use Monotype\Bundle\ManagerBundle\Entity\User;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -27,7 +27,7 @@ class UserController extends Controller
 
         $users = $em->getRepository('AppBundle:User')->findAll();
 
-        return $this->render('@App/user/index.html.twig', array(
+        return $this->render('MonotypeManagerBundle:user:index.html.twig', array(
             'users' => $users,
         ));
     }
@@ -52,7 +52,7 @@ class UserController extends Controller
             return $this->redirectToRoute('manager_user_show', array('id' => $user->getId()));
         }
 
-        return $this->render('@App/user/new.html.twig', array(
+        return $this->render('MonotypeManagerBundle:user:new.html.twig', array(
             'user' => $user,
             'form' => $form->createView(),
         ));
@@ -68,7 +68,7 @@ class UserController extends Controller
     {
         $deleteForm = $this->createDeleteForm($user);
 
-        return $this->render('@App/user/show.html.twig', array(
+        return $this->render('MonotypeManagerBundle:user:show.html.twig', array(
             'user' => $user,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -98,7 +98,7 @@ class UserController extends Controller
     public function editAction(Request $request, User $user)
     {
         $deleteForm = $this->createDeleteForm($user);
-        $editForm = $this->createForm('Monotype\Bundle\AppBundle\Form\UserType', $user);
+        $editForm = $this->createForm('Monotype\Bundle\MonotypeManagerBundle\Form\UserType', $user);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
@@ -109,7 +109,7 @@ class UserController extends Controller
             return $this->redirectToRoute('manager_user_edit', array('id' => $user->getId()));
         }
 
-        return $this->render('@App/user/edit.html.twig', array(
+        return $this->render('MonotypeManagerBundle:user:edit.html.twig', array(
             'user' => $user,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

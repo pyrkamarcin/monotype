@@ -1,13 +1,13 @@
 <?php
 
-namespace Monotype\Bundle\AppBundle\Entity;
+namespace Monotype\Bundle\ManagerBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\AdvancedUserInterface;
 
 /**
  * @ORM\Table(name="app_users")
- * @ORM\Entity(repositoryClass="Monotype\Bundle\AppBundle\Entity\UserRepository")
+ * @ORM\Entity(repositoryClass="Monotype\Bundle\ManagerBundle\Entity\UserRepository")
  */
 class User implements AdvancedUserInterface, \Serializable
 {

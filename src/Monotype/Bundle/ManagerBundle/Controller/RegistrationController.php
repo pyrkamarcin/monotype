@@ -1,16 +1,16 @@
 <?php
 
-namespace Monotype\Bundle\AppBundle\Controller;
+namespace Monotype\Bundle\ManagerBundle\Controller;
 
-use Monotype\Bundle\AppBundle\Entity\User;
-use Monotype\Bundle\AppBundle\Form\UserType;
+use Monotype\Bundle\ManagerBundle\Entity\User;
+use Monotype\Bundle\ManagerBundle\Form\UserType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Class RegistrationController
- * @package Monotype\Bundle\AppBundle\Controller
+ * @package Monotype\Bundle\ManagerBundle\Controller
  */
 class RegistrationController extends Controller
 {
@@ -36,7 +36,7 @@ class RegistrationController extends Controller
         }
 
         return $this->render(
-            '@App/registration/register.html.twig',
+            'MonotypeManagerBundle:registration:register.html.twig',
             array('form' => $form->createView())
         );
     }

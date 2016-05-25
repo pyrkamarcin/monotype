@@ -1,6 +1,6 @@
 <?php
 
-namespace Monotype\Bundle\AppBundle\Form;
+namespace Monotype\Bundle\ManagerBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
@@ -12,7 +12,7 @@ use Symfony\Component\Validator\Constraints\IsTrue;
 
 /**
  * Class UserType
- * @package Monotype\Bundle\AppBundle\Form
+ * @package Monotype\Bundle\ManagerBundle\Form
  */
 class UserType extends AbstractType
 {
@@ -43,7 +43,7 @@ class UserType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Monotype\Bundle\AppBundle\Entity\User'
+            'data_class' => 'Monotype\Bundle\ManagerBundle\Entity\User'
         ));
     }
 }
