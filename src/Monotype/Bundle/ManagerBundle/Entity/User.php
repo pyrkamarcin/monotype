@@ -1,13 +1,13 @@
 <?php
 
-namespace Monotype\Bundle\AppBundle\Entity;
+namespace Monotype\Bundle\ManagerBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\AdvancedUserInterface;
 
 /**
  * @ORM\Table(name="app_users")
- * @ORM\Entity(repositoryClass="Monotype\Bundle\AppBundle\Entity\UserRepository")
+ * @ORM\Entity(repositoryClass="Monotype\Bundle\ManagerBundle\Entity\UserRepository")
  */
 class User implements AdvancedUserInterface, \Serializable
 {
@@ -38,6 +38,9 @@ class User implements AdvancedUserInterface, \Serializable
      */
     private $isActive;
 
+    /**
+     * User constructor.
+     */
     public function __construct()
     {
         $this->isActive = true;
@@ -45,6 +48,9 @@ class User implements AdvancedUserInterface, \Serializable
         // $this->salt = md5(uniqid(null, true));
     }
 
+    /**
+     * @return mixed
+     */
     public function getUsername()
     {
         return $this->username;
@@ -64,6 +70,9 @@ class User implements AdvancedUserInterface, \Serializable
         return $this;
     }
 
+    /**
+     * @return null
+     */
     public function getSalt()
     {
         // you *may* need a real salt depending on your encoder
@@ -71,6 +80,9 @@ class User implements AdvancedUserInterface, \Serializable
         return null;
     }
 
+    /**
+     * @return mixed
+     */
     public function getPassword()
     {
         return $this->password;
@@ -90,20 +102,32 @@ class User implements AdvancedUserInterface, \Serializable
         return $this;
     }
 
+    /**
+     * @return array
+     */
     public function getRoles()
     {
         return array('ROLE_USER');
     }
 
+    /**
+     *
+     */
     public function eraseCredentials()
     {
     }
 
+    /**
+     * @return bool
+     */
     public function isAccountNonExpired()
     {
         return true;
     }
 
+    /**
+     * @return bool
+     */
     public function isAccountNonLocked()
     {
         return true;
@@ -111,16 +135,25 @@ class User implements AdvancedUserInterface, \Serializable
 
     // serialize and unserialize must be updated - see below
 
+    /**
+     * @return bool
+     */
     public function isCredentialsNonExpired()
     {
         return true;
     }
 
+    /**
+     * @return bool
+     */
     public function isEnabled()
     {
         return $this->isActive;
     }
 
+    /**
+     * @return string
+     */
     public function serialize()
     {
         return serialize(array(
@@ -131,6 +164,9 @@ class User implements AdvancedUserInterface, \Serializable
         ));
     }
 
+    /**
+     * @param string $serialized
+     */
     public function unserialize($serialized)
     {
         list (

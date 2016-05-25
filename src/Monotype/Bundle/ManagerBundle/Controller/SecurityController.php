@@ -1,6 +1,6 @@
 <?php
 
-namespace Monotype\Bundle\AppBundle\Controller;
+namespace Monotype\Bundle\ManagerBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * Class SecurityController
- * @package Monotype\Bundle\AppBundle\Controller
+ * @package Monotype\Bundle\ManagerBundle\Controller
  */
 class SecurityController extends Controller
 {
@@ -26,7 +26,7 @@ class SecurityController extends Controller
         $lastUsername = $authenticationUtils->getLastUsername();
 
         return $this->render(
-            '@App/security/login.html.twig',
+            'MonotypeManagerBundle:security:login.html.twig',
             array(
                 // last username entered by the user
                 'last_username' => $lastUsername,
