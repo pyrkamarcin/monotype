@@ -18,7 +18,8 @@ class ManagerController extends Controller
     {
         return $this->render(
             'MonotypeManagerBundle:manager:index.html.twig',
-            array()
+            array(// ...
+            )
         );
     }
 }
