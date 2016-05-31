@@ -2,16 +2,16 @@
 
 namespace Monotype\Bundle\DirectControllBundle\Controller;
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Monotype\Bundle\DirectControllBundle\Entity\Machines;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Monotype\Bundle\DirectControllBundle\Entity\Machines;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Machines controller.
  *
- * @Route("/machines")
+ * @Route("/manager/machines")
  */
 class MachinesController extends Controller
 {

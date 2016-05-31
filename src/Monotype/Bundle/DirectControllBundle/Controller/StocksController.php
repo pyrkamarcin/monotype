@@ -2,17 +2,17 @@
 
 namespace Monotype\Bundle\DirectControllBundle\Controller;
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Monotype\Bundle\DirectControllBundle\Entity\Stocks;
 use Monotype\Bundle\DirectControllBundle\Form\StocksType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Stocks controller.
  * @package Monotype\Bundle\DirectControllBundle\Controller
- * @Route("/stocks")
+ * @Route("/manager/stocks")
  */
 class StocksController extends Controller
 {

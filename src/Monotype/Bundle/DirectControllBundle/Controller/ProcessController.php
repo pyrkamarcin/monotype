@@ -2,16 +2,16 @@
 
 namespace Monotype\Bundle\DirectControllBundle\Controller;
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Monotype\Bundle\DirectControllBundle\Entity\Process;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Monotype\Bundle\DirectControllBundle\Entity\Process;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Process controller.
  *
- * @Route("/process")
+ * @Route("/manager/process")
  */
 class ProcessController extends Controller
 {
