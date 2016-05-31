@@ -16,17 +16,17 @@
         <tbody>
         {% for stock in stocks %}
             <tr>
-                <td><a href="{{ path('stocks_show', { 'id': stock.id }) }}">{{ stock.id }}</a></td>
+                <td><a href="{{ path('manager_stocks_show', { 'id': stock.id }) }}">{{ stock.id }}</a></td>
                 <td>{{ stock.hash }}</td>
                 <td>{{ stock.file }}</td>
                 <td>{% if stock.datetime %}{{ stock.datetime|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('stocks_show', { 'id': stock.id }) }}">show</a>
+                            <a href="{{ path('manager_stocks_show', { 'id': stock.id }) }}">show</a>
                         </li>
                         <li>
-                            <a href="{{ path('stocks_edit', { 'id': stock.id }) }}">edit</a>
+                            <a href="{{ path('manager_stocks_edit', { 'id': stock.id }) }}">edit</a>
                         </li>
                     </ul>
                 </td>
@@ -37,7 +37,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('stocks_new') }}">Create a new entry</a>
+            <a href="{{ path('manager_stocks_new') }}">Create a new entry</a>
         </li>
     </ul>
 {% endblock %}

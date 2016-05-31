@@ -26,10 +26,10 @@
 
     <ul>
         <li>
-            <a href="{{ path('stocks_index') }}">Back to the list</a>
+            <a href="{{ path('manager_stocks_index') }}">Back to the list</a>
         </li>
         <li>
-            <a href="{{ path('stocks_edit', { 'id': stock.id }) }}">Edit</a>
+            <a href="{{ path('manager_stocks_edit', { 'id': stock.id }) }}">Edit</a>
         </li>
         <li>
             {{ form_start(delete_form) }}

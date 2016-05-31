@@ -18,7 +18,7 @@
         <tbody>
         {% for machine in machines %}
             <tr>
-                <td><a href="{{ path('machines_show', { 'id': machine.id }) }}">{{ machine.id }}</a></td>
+                <td><a href="{{ path('manager_machines_show', { 'id': machine.id }) }}">{{ machine.id }}</a></td>
                 <td>{{ machine.command }}</td>
                 <td>{{ machine.protocol }}</td>
                 <td>{{ machine.address }}</td>
@@ -27,10 +27,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('machines_show', { 'id': machine.id }) }}">show</a>
+                            <a href="{{ path('manager_machines_show', { 'id': machine.id }) }}">show</a>
                         </li>
                         <li>
-                            <a href="{{ path('machines_edit', { 'id': machine.id }) }}">edit</a>
+                            <a href="{{ path('manager_machines_edit', { 'id': machine.id }) }}">edit</a>
                         </li>
                     </ul>
                 </td>
@@ -41,7 +41,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('machines_new') }}">Create a new entry</a>
+            <a href="{{ path('manager_machines_new') }}">Create a new entry</a>
         </li>
     </ul>
 {% endblock %}

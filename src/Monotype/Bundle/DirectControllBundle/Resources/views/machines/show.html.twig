@@ -34,10 +34,10 @@
 
     <ul>
         <li>
-            <a href="{{ path('machines_index') }}">Back to the list</a>
+            <a href="{{ path('manager_machines_index') }}">Back to the list</a>
         </li>
         <li>
-            <a href="{{ path('machines_edit', { 'id': machine.id }) }}">Edit</a>
+            <a href="{{ path('manager_machines_edit', { 'id': machine.id }) }}">Edit</a>
         </li>
         <li>
             {{ form_start(delete_form) }}

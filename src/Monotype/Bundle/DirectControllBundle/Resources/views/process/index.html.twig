@@ -16,17 +16,17 @@
         <tbody>
         {% for process in processes %}
             <tr>
-                <td><a href="{{ path('process_show', { 'id': process.id }) }}">{{ process.id }}</a></td>
+                <td><a href="{{ path('manager_process_show', { 'id': process.id }) }}">{{ process.id }}</a></td>
                 <td>{{ process.pid }}</td>
                 <td>{{ process.script }}</td>
                 <td>{{ process.uid }}</td>
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('process_show', { 'id': process.id }) }}">show</a>
+                            <a href="{{ path('manager_process_show', { 'id': process.id }) }}">show</a>
                         </li>
                         <li>
-                            <a href="{{ path('process_edit', { 'id': process.id }) }}">edit</a>
+                            <a href="{{ path('manager_process_edit', { 'id': process.id }) }}">edit</a>
                         </li>
                     </ul>
                 </td>
@@ -37,7 +37,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('process_new') }}">Create a new entry</a>
+            <a href="{{ path('manager_process_new') }}">Create a new entry</a>
         </li>
     </ul>
 {% endblock %}
