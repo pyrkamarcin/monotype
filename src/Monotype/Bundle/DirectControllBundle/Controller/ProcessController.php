@@ -18,7 +18,7 @@ class ProcessController extends Controller
     /**
      * Lists all Process entities.
      *
-     * @Route("/", name="process_index")
+     * @Route("/", name="manager_process_index")
      * @Method("GET")
      */
     public function indexAction()
@@ -38,7 +38,7 @@ class ProcessController extends Controller
      *
      * Creates a new Process entity.
      *
-     * @Route("/new", name="process_new")
+     * @Route("/new", name="manager_process_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
@@ -67,7 +67,7 @@ class ProcessController extends Controller
      *
      * Finds and displays a Process entity.
      *
-     * @Route("/{id}", name="process_show")
+     * @Route("/{id}", name="manager_process_show")
      * @Method("GET")
      */
     public function showAction(Process $process)
@@ -102,7 +102,7 @@ class ProcessController extends Controller
      *
      * Displays a form to edit an existing Process entity.
      *
-     * @Route("/{id}/edit", name="process_edit")
+     * @Route("/{id}/edit", name="manager_process_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Process $process)
@@ -133,7 +133,7 @@ class ProcessController extends Controller
      *
      * Deletes a Process entity.
      *
-     * @Route("/{id}", name="process_delete")
+     * @Route("/{id}", name="manager_process_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, Process $process)

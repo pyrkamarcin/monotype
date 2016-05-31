@@ -18,7 +18,7 @@ class MachinesController extends Controller
     /**
      * Lists all Machines entities.
      *
-     * @Route("/", name="machines_index")
+     * @Route("/", name="manager_machines_index")
      * @Method("GET")
      */
     public function indexAction()
@@ -38,7 +38,7 @@ class MachinesController extends Controller
      *
      * Creates a new Machines entity.
      *
-     * @Route("/new", name="machines_new")
+     * @Route("/new", name="manager_machines_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
@@ -67,7 +67,7 @@ class MachinesController extends Controller
      *
      * Finds and displays a Machines entity.
      *
-     * @Route("/{id}", name="machines_show")
+     * @Route("/{id}", name="manager_machines_show")
      * @Method("GET")
      */
     public function showAction(Machines $machine)
@@ -105,7 +105,7 @@ class MachinesController extends Controller
      *
      * Displays a form to edit an existing Machines entity.
      *
-     * @Route("/{id}/edit", name="machines_edit")
+     * @Route("/{id}/edit", name="manager_machines_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Machines $machine)
@@ -137,7 +137,7 @@ class MachinesController extends Controller
      *
      * Deletes a Machines entity.
      *
-     * @Route("/{id}", name="machines_delete")
+     * @Route("/{id}", name="manager_machines_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, Machines $machine)

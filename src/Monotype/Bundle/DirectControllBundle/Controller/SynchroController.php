@@ -18,7 +18,7 @@ class SynchroController extends Controller
     /**
      * Home page for SynchroController
      *
-     * @Route("/", name="synchro_index")
+     * @Route("/", name="manager_synchro_index")
      * @Method("GET")
      */
     public function indexAction()
@@ -29,7 +29,7 @@ class SynchroController extends Controller
     /**
      * Show all differences (db vs stock)
      *
-     * @Route("/showdiff", name="synchro_showdiff")
+     * @Route("/showdiff", name="manager_synchro_showdiff")
      * @Method("GET")
      */
     public function ShowDiffAction()

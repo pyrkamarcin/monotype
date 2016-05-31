@@ -19,7 +19,7 @@ class StocksController extends Controller
     /**
      * Lists all Stocks entities.
      *
-     * @Route("/", name="stocks_index")
+     * @Route("/", name="manager_stocks_index")
      * @Method("GET")
      */
     public function indexAction()
@@ -39,7 +39,7 @@ class StocksController extends Controller
      *
      * Creates a new Stocks entity.
      *
-     * @Route("/new", name="stocks_new")
+     * @Route("/new", name="manager_stocks_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
@@ -68,7 +68,7 @@ class StocksController extends Controller
      *
      * Finds and displays a Stocks entity.
      *
-     * @Route("/{id}", name="stocks_show")
+     * @Route("/{id}", name="manager_stocks_show")
      * @Method("GET")
      */
     public function showAction(Stocks $stock)
@@ -106,7 +106,7 @@ class StocksController extends Controller
      *
      * Displays a form to edit an existing Stocks entity.
      *
-     * @Route("/{id}/edit", name="stocks_edit")
+     * @Route("/{id}/edit", name="manager_stocks_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Stocks $stock)
@@ -137,7 +137,7 @@ class StocksController extends Controller
      *
      * Deletes a Stocks entity.
      *
-     * @Route("/{id}", name="stocks_delete")
+     * @Route("/{id}", name="manager_stocks_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, Stocks $stock)
