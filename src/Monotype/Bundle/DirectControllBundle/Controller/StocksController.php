@@ -53,7 +53,7 @@ class StocksController extends Controller
             $em->persist($stock);
             $em->flush();
 
-            return $this->redirectToRoute('stocks_show', array('id' => $stock->getId()));
+            return $this->redirectToRoute('manager_stocks_show', array('id' => $stock->getId()));
         }
 
         return $this->render('MonotypeDirectControllBundle:stocks:new.html.twig', array(
@@ -94,7 +94,7 @@ class StocksController extends Controller
     private function createDeleteForm(Stocks $stock)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('stocks_delete', array('id' => $stock->getId())))
+            ->setAction($this->generateUrl('manager_stocks_delete', array('id' => $stock->getId())))
             ->setMethod('DELETE')
             ->getForm();
     }
@@ -120,7 +120,7 @@ class StocksController extends Controller
             $em->persist($stock);
             $em->flush();
 
-            return $this->redirectToRoute('stocks_edit', array('id' => $stock->getId()));
+            return $this->redirectToRoute('manager_stocks_edit', array('id' => $stock->getId()));
         }
 
         return $this->render('MonotypeDirectControllBundle:stocks:edit.html.twig', array(

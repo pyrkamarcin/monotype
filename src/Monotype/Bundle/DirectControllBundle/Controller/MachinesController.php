@@ -119,7 +119,7 @@ class MachinesController extends Controller
             $em->persist($machine);
             $em->flush();
 
-            return $this->redirectToRoute('machines_edit', array('id' => $machine->getId()));
+            return $this->redirectToRoute('manager_machines_edit', array('id' => $machine->getId()));
         }
 
         return $this->render('MonotypeDirectControllBundle:machines:edit.html.twig', array(
@@ -151,6 +151,6 @@ class MachinesController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('machines_index');
+        return $this->redirectToRoute('manager_machines_index');
     }
 }

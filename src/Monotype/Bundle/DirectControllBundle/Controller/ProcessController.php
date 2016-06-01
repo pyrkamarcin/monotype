@@ -52,7 +52,7 @@ class ProcessController extends Controller
             $em->persist($process);
             $em->flush();
 
-            return $this->redirectToRoute('process_show', array('id' => $process->getId()));
+            return $this->redirectToRoute('manager_process_show', array('id' => $process->getId()));
         }
 
         return $this->render('MonotypeDirectControllBundle:process:new.html.twig', array(
@@ -90,7 +90,7 @@ class ProcessController extends Controller
     private function createDeleteForm(Process $process)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('process_delete', array('id' => $process->getId())))
+            ->setAction($this->generateUrl('manager_process_delete', array('id' => $process->getId())))
             ->setMethod('DELETE')
             ->getForm();
     }
@@ -116,7 +116,7 @@ class ProcessController extends Controller
             $em->persist($process);
             $em->flush();
 
-            return $this->redirectToRoute('process_edit', array('id' => $process->getId()));
+            return $this->redirectToRoute('manager_process_edit', array('id' => $process->getId()));
         }
 
         return $this->render('MonotypeDirectControllBundle:process:edit.html.twig', array(
@@ -147,6 +147,6 @@ class ProcessController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('process_index');
+        return $this->redirectToRoute('manager_process_index');
     }
 }
