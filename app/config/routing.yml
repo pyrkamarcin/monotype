@@ -19,6 +19,10 @@ monotype_pos:
     type:     annotation
     prefix:   /
 
+monotype_utility:
+    resource: "@MonotypeUtilityBundle/Controller/"
+    type:     annotation
+    prefix:
 monotype_manager_bundle:
     resource: "@MonotypeManagerBundle/Controller/"
     type:     annotation
