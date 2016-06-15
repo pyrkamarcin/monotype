@@ -13,6 +13,7 @@
 /var/temp/*
 !var/temp/.gitkeep
 !/var/temp/stock
+/var/temp/stock/*
 !/var/temp/stock/.gitkeep
 !/var/sessions
 /bower_components

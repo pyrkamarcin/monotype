@@ -83,6 +83,16 @@ class Machine
                     'location' => 'main'
                 );
                 break;
+            case '100':
+                $this->parametrs = array(
+                    'id' => '100',
+                    'name' => '100',
+                    'protocol' => 'tcp',
+                    'address' => '192.168.1.99',
+                    'port' => '3001',
+                    'location' => 'main'
+                );
+                break;
         }
     }
 
