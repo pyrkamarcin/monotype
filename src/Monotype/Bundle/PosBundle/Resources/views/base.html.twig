@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>{% block title %} {% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+    <style>
+        .first {
+            margin-top: 1em;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/semantic.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/components/site.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/components/container.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/components/divider.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/components/grid.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/components/form.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/components/header.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/components/transition.css') }}">
+
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+</head>
+<body>
+
+<div class="ui main container first">
+
+    {% block body %}{% endblock %}
+
+</div>
+
+<script src="{{ asset('assets/librays/jquery.min.js') }}"></script>
+<script src="{{ asset('assets/semantic.js') }}"></script>
+<script src="{{ asset('assets/components/form.js') }}"></script>
+<script src="{{ asset('assets/components/transition.js') }}"></script>
+{% block javascripts %}{% endblock %}
+</body>
+</html>

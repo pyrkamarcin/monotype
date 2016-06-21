@@ -18,7 +18,7 @@ class TerminalController extends Controller
      */
     public function indexAction()
     {
-        return $this->render('MonotypePosBundle:Terminal:index.html.twig', array(// ...
+        return $this->render('MonotypePosBundle:terminal:index.html.twig', array(// ...
         ));
     }
 
@@ -27,7 +27,7 @@ class TerminalController extends Controller
      */
     public function lockAction()
     {
-        return $this->render('MonotypePosBundle:Terminal:lock.html.twig', array(// ...
+        return $this->render('MonotypePosBundle:terminal:lock.html.twig', array(// ...
         ));
     }
 }
