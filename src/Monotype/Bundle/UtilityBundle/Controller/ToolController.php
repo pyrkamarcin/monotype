@@ -21,13 +21,4 @@ class ToolController extends Controller
         return $this->render('MonotypeUtilityBundle:Tool:index.html.twig', array(// ...
         ));
     }
-
-    /**
-     * @Route("/lock", name="tool_lock")
-     */
-    public function lockAction()
-    {
-        return $this->render('MonotypeUtilityBundle:Tool:lock.html.twig', array(// ...
-        ));
-    }
 }
