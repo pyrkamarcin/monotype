@@ -2,6 +2,12 @@
 <html>
 <head>
     <meta charset="UTF-8"/>
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
+    <meta name="viewport" content="width=device-width"/>
+
+    {#<meta http-equiv="Refresh" content="90; url={{ path('terminal_lock') }}">#}
+
     <title>{% block title %} {% endblock %}</title>
     {% block stylesheets %}{% endblock %}
     <style>
@@ -32,6 +38,32 @@
 <script src="{{ asset('assets/semantic.js') }}"></script>
 <script src="{{ asset('assets/components/form.js') }}"></script>
 <script src="{{ asset('assets/components/transition.js') }}"></script>
+
+<script type="text/javascript">
+    var idleTime = 0;
+    $(document).ready(function () {
+        //Increment the idle time counter every minute.
+        var idleInterval = setInterval(timerIncrement, 6000); // 1 minute
+
+        //Zero the idle timer on mouse movement.
+        $(this).mousemove(function (e) {
+            idleTime = 0;
+        });
+        $(this).keypress(function (e) {
+            idleTime = 0;
+        });
+
+        console.log("idleInterval: ", idleInterval);
+    });
+
+    function timerIncrement() {
+        idleTime = idleTime + 1;
+        if (idleTime > 1) { // 20 minutes
+            window.location.reload();
+        }
+    }
+</script>
+
 {% block javascripts %}{% endblock %}
 </body>
 </html>
