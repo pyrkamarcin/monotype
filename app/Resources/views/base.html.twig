@@ -36,6 +36,14 @@
             </div>
         </div>
 
+        <div class="ui simple dropdown item"> Narzędzia <i class="dropdown icon"></i>
+            <div class="menu">
+                <a class="item" href=""><i class="edit icon"></i>Karty pracy</a>
+                <a class="item" href=""><i class="edit icon"></i>Rozliczenia okresowe</a>
+                <a class="item" href=""><i class="edit icon"></i>Karty przewodnie</a>
+            </div>
+        </div>
+
         {% if is_granted("ROLE_USER") %}
             <div class="right menu">
                 <a class="right item" href="{{ url('logout') }}"> Wyloguj ({{ app.user.username }})</a>
