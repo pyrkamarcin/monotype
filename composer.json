@@ -13,16 +13,17 @@
     ]
   },
   "require": {
-    "doctrine/doctrine-bundle": "1.6.*",
-    "doctrine/doctrine-cache-bundle": "1.3.*",
-    "doctrine/orm": "2.5.*",
-    "incenteev/composer-parameter-handler": "2.1.*",
-    "sensio/distribution-bundle": "5.0.*",
-    "sensio/framework-extra-bundle": "3.0.*",
+    "doctrine/doctrine-bundle": "1.*",
+    "doctrine/doctrine-cache-bundle": "1.*",
+    "doctrine/orm": "2.*",
+    "incenteev/composer-parameter-handler": "2.*",
+    "sensio/distribution-bundle": "5.*",
+    "sensio/framework-extra-bundle": "3.*",
     "symfony/assetic-bundle": "dev-master",
-    "symfony/monolog-bundle": "2.9.*",
-    "symfony/swiftmailer-bundle": "2.3.*",
-    "symfony/symfony": "3.0.*",
+    "symfony/monolog-bundle": "2.*",
+    "symfony/swiftmailer-bundle": "2.*",
+    "symfony/symfony": "3.*",
+    "symfony/security-acl": "dev-master",
     "react/async": "1.0.*",
     "react/react": "0.4.*",
     "react/socket": "0.4.*",
@@ -33,8 +34,8 @@
     "moontoast/math": "1.1.*"
   },
   "require-dev": {
-    "sensio/generator-bundle": "3.0.*",
-    "symfony/phpunit-bridge": "3.0.*"
+    "sensio/generator-bundle": "3.*",
+    "symfony/phpunit-bridge": "3.*"
   },
   "scripts": {
     "post-install-cmd": [

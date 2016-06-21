@@ -7,17 +7,17 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/manager")
+ * @Route("/")
  */
-class ManagerController extends Controller
+class HomeController extends Controller
 {
     /**
-     * @Route("/", name="manager_index")
+     * @Route("/", name="home_index")
      */
     public function indexAction(Request $request)
     {
         return $this->render(
-            'MonotypeManagerBundle:manager:index.html.twig',
+            'MonotypeManagerBundle:home:index.html.twig',
             array(// ...
             )
         );
