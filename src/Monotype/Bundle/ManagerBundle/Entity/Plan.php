@@ -21,7 +21,6 @@ class Plan
      */
     private $id;
 
-
     /**
      * Get id
      *
