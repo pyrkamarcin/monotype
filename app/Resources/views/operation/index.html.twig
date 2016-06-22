@@ -7,6 +7,8 @@
         <thead>
         <tr>
             <th>Id</th>
+            <th>Name</th>
+            <th>Description</th>
             <th>Actions</th>
         </tr>
         </thead>
@@ -14,6 +16,8 @@
         {% for operation in operations %}
             <tr>
                 <td><a href="{{ path('manager_operation_show', { 'id': operation.id }) }}">{{ operation.id }}</a></td>
+                <td>{{ operation.name }}</td>
+                <td>{{ operation.description }}</td>
                 <td>
                     <ul>
                         <li>

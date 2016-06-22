@@ -37,6 +37,19 @@ class Customer
     private $description;
 
     /**
+     * @ORM\OneToMany(targetEntity="Monotype\Bundle\ManagerBundle\Entity\Assortment", mappedBy="customer")
+     */
+    private $assortment;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->assortment = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
      * Get id
      *
      * @return int
@@ -116,5 +129,39 @@ class Customer
         $this->description = $description;
 
         return $this;
+    }
+
+    /**
+     * Add assortment
+     *
+     * @param \Monotype\Bundle\ManagerBundle\Entity\Assortment $assortment
+     *
+     * @return Customer
+     */
+    public function addAssortment(\Monotype\Bundle\ManagerBundle\Entity\Assortment $assortment)
+    {
+        $this->assortment[] = $assortment;
+
+        return $this;
+    }
+
+    /**
+     * Remove assortment
+     *
+     * @param \Monotype\Bundle\ManagerBundle\Entity\Assortment $assortment
+     */
+    public function removeAssortment(\Monotype\Bundle\ManagerBundle\Entity\Assortment $assortment)
+    {
+        $this->assortment->removeElement($assortment);
+    }
+
+    /**
+     * Get assortment
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAssortment()
+    {
+        return $this->assortment;
     }
 }

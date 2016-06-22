@@ -21,6 +21,34 @@ class Assortment
      */
     private $id;
 
+    /**
+     * @ORM\Column(type="string", length=255, unique=true)
+     */
+    private $code;
+
+    /**
+     * @ORM\Column(type="string", length=255, unique=true)
+     */
+    private $name;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Monotype\Bundle\ManagerBundle\Entity\Customer", inversedBy="assortment")
+     * @ORM\JoinColumn(name="customer_id", referencedColumnName="id")
+     */
+    private $customer;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Monotype\Bundle\ManagerBundle\Entity\Rate", mappedBy="assortment")
+     */
+    private $rate;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->rate = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -31,5 +59,110 @@ class Assortment
     {
         return $this->id;
     }
-}
 
+    /**
+     * Get code
+     *
+     * @return string
+     */
+    public function getCode()
+    {
+        return $this->code;
+    }
+
+    /**
+     * Set code
+     *
+     * @param string $code
+     *
+     * @return Assortment
+     */
+    public function setCode($code)
+    {
+        $this->code = $code;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return Assortment
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get customer
+     *
+     * @return \Monotype\Bundle\ManagerBundle\Entity\Customer
+     */
+    public function getCustomer()
+    {
+        return $this->customer;
+    }
+
+    /**
+     * Set customer
+     *
+     * @param \Monotype\Bundle\ManagerBundle\Entity\Customer $customer
+     *
+     * @return Assortment
+     */
+    public function setCustomer(\Monotype\Bundle\ManagerBundle\Entity\Customer $customer = null)
+    {
+        $this->customer = $customer;
+
+        return $this;
+    }
+
+    /**
+     * Add rate
+     *
+     * @param \Monotype\Bundle\ManagerBundle\Entity\Rate $rate
+     *
+     * @return Assortment
+     */
+    public function addRate(\Monotype\Bundle\ManagerBundle\Entity\Rate $rate)
+    {
+        $this->rate[] = $rate;
+
+        return $this;
+    }
+
+    /**
+     * Remove rate
+     *
+     * @param \Monotype\Bundle\ManagerBundle\Entity\Rate $rate
+     */
+    public function removeRate(\Monotype\Bundle\ManagerBundle\Entity\Rate $rate)
+    {
+        $this->rate->removeElement($rate);
+    }
+
+    /**
+     * Get rate
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getRate()
+    {
+        return $this->rate;
+    }
+}

@@ -7,6 +7,8 @@
         <thead>
         <tr>
             <th>Id</th>
+            <th>Code</th>
+            <th>Name</th>
             <th>Actions</th>
         </tr>
         </thead>
@@ -15,6 +17,8 @@
             <tr>
                 <td><a href="{{ path('manager_assortment_show', { 'id': assortment.id }) }}">{{ assortment.id }}</a>
                 </td>
+                <td>{{ assortment.code }}</td>
+                <td>{{ assortment.name }}</td>
                 <td>
                     <ul>
                         <li>

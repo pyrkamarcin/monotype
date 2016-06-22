@@ -1,3 +1,23 @@
+monotype_manager_rate:
+    resource: "@MonotypeManagerBundle/Controller/RateController.php"
+    type:     annotation
+
+monotype_manager_operation:
+    resource: "@MonotypeManagerBundle/Controller/OperationController.php"
+    type:     annotation
+
+monotype_manager_rate:
+    resource: "@MonotypeManagerBundle/Controller/RateController.php"
+    type:     annotation
+
+monotype_manager_assortment:
+    resource: "@MonotypeManagerBundle/Controller/AssortmentController.php"
+    type:     annotation
+
+monotype_manager_customer:
+    resource: "@MonotypeManagerBundle/Controller/CustomerController.php"
+    type:     annotation
+
 monotype_manager_worker:
     resource: "@MonotypeManagerBundle/Controller/WorkerController.php"
     type:     annotation
