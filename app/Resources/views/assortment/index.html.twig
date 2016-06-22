@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Assortment list</h1>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for assortment in assortments %}
+            <tr>
+                <td><a href="{{ path('manager_assortment_show', { 'id': assortment.id }) }}">{{ assortment.id }}</a>
+                </td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('manager_assortment_show', { 'id': assortment.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('manager_assortment_edit', { 'id': assortment.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('manager_assortment_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}
