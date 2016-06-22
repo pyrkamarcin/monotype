@@ -5,6 +5,10 @@ namespace Monotype\Bundle\ManagerBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+/**
+ * Class PlanType
+ * @package Monotype\Bundle\ManagerBundle\Form
+ */
 class PlanType extends AbstractType
 {
 
