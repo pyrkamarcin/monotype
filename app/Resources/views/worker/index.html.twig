@@ -10,6 +10,7 @@
             <th>Fullname</th>
             <th>Birthdate</th>
             <th>Card</th>
+            <th>Pesel</th>
             <th>Actions</th>
         </tr>
         </thead>
@@ -20,6 +21,7 @@
                 <td>{{ worker.fullName }}</td>
                 <td>{% if worker.birthDate %}{{ worker.birthDate|date('Y-m-d') }}{% endif %}</td>
                 <td>{{ worker.card }}</td>
+                <td>{{ worker.pesel }}</td>
                 <td>
                     <ul>
                         <li>

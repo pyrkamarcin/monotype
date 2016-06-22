@@ -36,6 +36,10 @@ class Worker
      */
     private $card;
 
+    /**
+     * @ORM\Column(type="string", length=255, unique=true)
+     */
+    private $pesel;
 
     /**
      * Get id
@@ -115,6 +119,30 @@ class Worker
     public function setCard($card)
     {
         $this->card = $card;
+
+        return $this;
+    }
+
+    /**
+     * Get pesel
+     *
+     * @return string
+     */
+    public function getPesel()
+    {
+        return $this->pesel;
+    }
+
+    /**
+     * Set pesel
+     *
+     * @param string $pesel
+     *
+     * @return Worker
+     */
+    public function setPesel($pesel)
+    {
+        $this->pesel = $pesel;
 
         return $this;
     }

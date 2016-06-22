@@ -2,6 +2,10 @@ monotype_manager_worker:
     resource: "@MonotypeManagerBundle/Controller/WorkerController.php"
     type:     annotation
 
+monotype_manager_worker:
+    resource: "@MonotypeManagerBundle/Controller/WorkerController.php"
+    type:     annotation
+
 monotype_manager_rate:
     resource: "@MonotypeManagerBundle/Controller/RateController.php"
     type:     annotation
