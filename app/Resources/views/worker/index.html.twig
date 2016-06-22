@@ -9,6 +9,7 @@
             <th>Id</th>
             <th>Fullname</th>
             <th>Birthdate</th>
+            <th>Card</th>
             <th>Actions</th>
         </tr>
         </thead>
@@ -18,6 +19,7 @@
                 <td><a href="{{ path('manager_worker_show', { 'id': worker.id }) }}">{{ worker.id }}</a></td>
                 <td>{{ worker.fullName }}</td>
                 <td>{% if worker.birthDate %}{{ worker.birthDate|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ worker.card }}</td>
                 <td>
                     <ul>
                         <li>

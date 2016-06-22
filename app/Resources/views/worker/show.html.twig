@@ -17,6 +17,10 @@
             <th>Birthdate</th>
             <td>{% if worker.birthDate %}{{ worker.birthDate|date('Y-m-d') }}{% endif %}</td>
         </tr>
+        <tr>
+            <th>Card</th>
+            <td>{{ worker.card }}</td>
+        </tr>
         </tbody>
     </table>
 

@@ -31,6 +31,11 @@ class Worker
      */
     private $birthDate;
 
+    /**
+     * @ORM\Column(type="string", length=255, unique=true)
+     */
+    private $card;
+
 
     /**
      * Get id
@@ -86,6 +91,30 @@ class Worker
     public function setBirthDate($birthDate)
     {
         $this->birthDate = $birthDate;
+
+        return $this;
+    }
+
+    /**
+     * Get card
+     *
+     * @return string
+     */
+    public function getCard()
+    {
+        return $this->card;
+    }
+
+    /**
+     * Set card
+     *
+     * @param string $card
+     *
+     * @return Worker
+     */
+    public function setCard($card)
+    {
+        $this->card = $card;
 
         return $this;
     }

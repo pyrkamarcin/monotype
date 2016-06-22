@@ -16,7 +16,8 @@ class WorkerType extends AbstractType
     {
         $builder
             ->add('fullName')
-            ->add('birthDate', 'date');
+            ->add('birthDate', 'date')
+            ->add('card');
     }
 
     /**
