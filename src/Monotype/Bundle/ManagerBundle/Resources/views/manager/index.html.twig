@@ -3,14 +3,14 @@
     {% block body %}
         <p>Lista narzędzi:</p>
         <ul>
-            <li>Indeksy</li>
+            <li><a href="{{ path('manager_assortment_index') }}">Indeksy</a></li>
             <li>Indeksy - pomiary</li>
-            <li>Operacje</li>
-            <li>Akordy</li>
-            <li>Zamówienia</li>
+            <li><a href="{{ path('manager_operation_index') }}">Operacje</a></li>
+            <li><a href="{{ path('manager_rate_index') }}">Akordy</a></li>
+            <li><a href="{{ path('mamager_plan_index') }}">Zamówienia</a></li>
             <li><a href="{{ path('manager_customer_index') }}">Klienci</a></li>
-            <li>Maszyny</li>
-            <li>Pracownicy</li>
+            <li><a href="{{ path('manager_machines_index') }}">Maszyny</a></li>
+            <li><a href="{{ path('manager_worker_index') }}">Pracownicy</a></li>
             <li>Pracownicy - kategorie</li>
         </ul>
     {% endblock %}
