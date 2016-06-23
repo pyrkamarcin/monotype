@@ -43,6 +43,11 @@ class Assortment
     private $rate;
 
     /**
+     * @ORM\OneToMany(targetEntity="Monotype\Bundle\ManagerBundle\Entity\Plan", mappedBy="assortment")
+     */
+    private $plan;
+
+    /**
      * Constructor
      */
     public function __construct()
@@ -164,5 +169,39 @@ class Assortment
     public function getRate()
     {
         return $this->rate;
+    }
+
+    /**
+     * Add plan
+     *
+     * @param \Monotype\Bundle\ManagerBundle\Entity\Plan $plan
+     *
+     * @return Assortment
+     */
+    public function addPlan(\Monotype\Bundle\ManagerBundle\Entity\Plan $plan)
+    {
+        $this->plan[] = $plan;
+
+        return $this;
+    }
+
+    /**
+     * Remove plan
+     *
+     * @param \Monotype\Bundle\ManagerBundle\Entity\Plan $plan
+     */
+    public function removePlan(\Monotype\Bundle\ManagerBundle\Entity\Plan $plan)
+    {
+        $this->plan->removeElement($plan);
+    }
+
+    /**
+     * Get plan
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPlan()
+    {
+        return $this->plan;
     }
 }

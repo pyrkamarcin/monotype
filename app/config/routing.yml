@@ -1,3 +1,7 @@
+monotype_manager_plan:
+    resource: "@MonotypeManagerBundle/Controller/PlanController.php"
+    type:     annotation
+
 monotype_manager_rate:
     resource: "@MonotypeManagerBundle/Controller/RateController.php"
     type:     annotation

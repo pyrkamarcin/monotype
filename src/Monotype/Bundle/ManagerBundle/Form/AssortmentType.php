@@ -26,7 +26,7 @@ class AssortmentType extends AbstractType
             ->add('customer', EntityType::class, array(
                 'class' => 'Monotype\Bundle\ManagerBundle\Entity\Customer',
                 'choice_label' => 'name'
-            ));;
+            ));
     }
 
     /**

@@ -42,6 +42,11 @@ class Customer
     private $assortment;
 
     /**
+     * @ORM\OneToMany(targetEntity="Monotype\Bundle\ManagerBundle\Entity\Plan", mappedBy="customer")
+     */
+    private $plan;
+
+    /**
      * Constructor
      */
     public function __construct()
@@ -163,5 +168,39 @@ class Customer
     public function getAssortment()
     {
         return $this->assortment;
+    }
+
+    /**
+     * Add plan
+     *
+     * @param \Monotype\Bundle\ManagerBundle\Entity\Plan $plan
+     *
+     * @return Customer
+     */
+    public function addPlan(\Monotype\Bundle\ManagerBundle\Entity\Plan $plan)
+    {
+        $this->plan[] = $plan;
+
+        return $this;
+    }
+
+    /**
+     * Remove plan
+     *
+     * @param \Monotype\Bundle\ManagerBundle\Entity\Plan $plan
+     */
+    public function removePlan(\Monotype\Bundle\ManagerBundle\Entity\Plan $plan)
+    {
+        $this->plan->removeElement($plan);
+    }
+
+    /**
+     * Get plan
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPlan()
+    {
+        return $this->plan;
     }
 }

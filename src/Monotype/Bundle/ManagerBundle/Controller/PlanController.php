@@ -11,14 +11,14 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * Plan controller.
  *
- * @Route("/mamager/plan")
+ * @Route("/manager/plan")
  */
 class PlanController extends Controller
 {
     /**
      * Lists all Plan entities.
      *
-     * @Route("/", name="mamager_plan_index")
+     * @Route("/", name="manager_plan_index")
      * @Method("GET")
      */
     public function indexAction()
@@ -35,7 +35,7 @@ class PlanController extends Controller
     /**
      * Creates a new Plan entity.
      *
-     * @Route("/new", name="mamager_plan_new")
+     * @Route("/new", name="manager_plan_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
@@ -49,7 +49,7 @@ class PlanController extends Controller
             $em->persist($plan);
             $em->flush();
 
-            return $this->redirectToRoute('mamager_plan_show', array('id' => $plan->getId()));
+            return $this->redirectToRoute('manager_plan_show', array('id' => $plan->getId()));
         }
 
         return $this->render('plan/new.html.twig', array(
@@ -61,7 +61,7 @@ class PlanController extends Controller
     /**
      * Finds and displays a Plan entity.
      *
-     * @Route("/{id}", name="mamager_plan_show")
+     * @Route("/{id}", name="manager_plan_show")
      * @Method("GET")
      */
     public function showAction(Plan $plan)
@@ -84,7 +84,7 @@ class PlanController extends Controller
     private function createDeleteForm(Plan $plan)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('mamager_plan_delete', array('id' => $plan->getId())))
+            ->setAction($this->generateUrl('manager_plan_delete', array('id' => $plan->getId())))
             ->setMethod('DELETE')
             ->getForm();
     }
@@ -92,7 +92,7 @@ class PlanController extends Controller
     /**
      * Displays a form to edit an existing Plan entity.
      *
-     * @Route("/{id}/edit", name="mamager_plan_edit")
+     * @Route("/{id}/edit", name="manager_plan_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Plan $plan)
@@ -106,7 +106,7 @@ class PlanController extends Controller
             $em->persist($plan);
             $em->flush();
 
-            return $this->redirectToRoute('mamager_plan_edit', array('id' => $plan->getId()));
+            return $this->redirectToRoute('manager_plan_edit', array('id' => $plan->getId()));
         }
 
         return $this->render('plan/edit.html.twig', array(
@@ -119,7 +119,7 @@ class PlanController extends Controller
     /**
      * Deletes a Plan entity.
      *
-     * @Route("/{id}", name="mamager_plan_delete")
+     * @Route("/{id}", name="manager_plan_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, Plan $plan)
@@ -133,6 +133,6 @@ class PlanController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('mamager_plan_index');
+        return $this->redirectToRoute('manager_plan_index');
     }
 }

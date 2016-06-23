@@ -7,20 +7,22 @@
         <thead>
         <tr>
             <th>Id</th>
+            <th>Ordernumber</th>
             <th>Actions</th>
         </tr>
         </thead>
         <tbody>
         {% for plan in plans %}
             <tr>
-                <td><a href="{{ path('mamager_plan_show', { 'id': plan.id }) }}">{{ plan.id }}</a></td>
+                <td><a href="{{ path('manager_plan_show', { 'id': plan.id }) }}">{{ plan.id }}</a></td>
+                <td>{{ plan.orderNumber }}</td>
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('mamager_plan_show', { 'id': plan.id }) }}">show</a>
+                            <a href="{{ path('manager_plan_show', { 'id': plan.id }) }}">show</a>
                         </li>
                         <li>
-                            <a href="{{ path('mamager_plan_edit', { 'id': plan.id }) }}">edit</a>
+                            <a href="{{ path('manager_plan_edit', { 'id': plan.id }) }}">edit</a>
                         </li>
                     </ul>
                 </td>
@@ -31,7 +33,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('mamager_plan_new') }}">Create a new entry</a>
+            <a href="{{ path('manager_plan_new') }}">Create a new entry</a>
         </li>
     </ul>
 {% endblock %}
