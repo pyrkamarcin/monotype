@@ -78,7 +78,6 @@ class OperationController extends Controller
      * Creates a form to delete a Operation entity.
      *
      * @param Operation $operation The Operation entity
-     *
      * @return \Symfony\Component\Form\Form The form
      */
     private function createDeleteForm(Operation $operation)
@@ -90,6 +89,11 @@ class OperationController extends Controller
     }
 
     /**
+     * @param Request $request
+     * @param Operation $operation
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     *
+     *
      * Displays a form to edit an existing Operation entity.
      *
      * @Route("/{id}/edit", name="manager_operation_edit")
