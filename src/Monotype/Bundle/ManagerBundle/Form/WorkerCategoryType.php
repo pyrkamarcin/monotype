@@ -2,18 +2,16 @@
 
 namespace Monotype\Bundle\ManagerBundle\Form;
 
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
- * Class WorkerType
+ * Class WorkerCategoryType
  * @package Monotype\Bundle\ManagerBundle\Form
  */
-class WorkerType extends AbstractType
+class WorkerCategoryType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -23,13 +21,8 @@ class WorkerType extends AbstractType
     {
         $builder
             ->add('fullName', TextType::class)
-            ->add('birthDate', DateType::class)
-            ->add('card', TextType::class)
-            ->add('pesel', TextType::class)
-            ->add('workerCategory', EntityType::class, array(
-                'class' => 'Monotype\Bundle\ManagerBundle\Entity\WorkerCategory',
-                'choice_label' => 'name'
-            ));
+            ->add('name', TextType::class)
+            ->add('description', TextType::class);
     }
 
     /**
@@ -38,7 +31,7 @@ class WorkerType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Monotype\Bundle\ManagerBundle\Entity\Worker'
+            'data_class' => 'Monotype\Bundle\ManagerBundle\Entity\WorkerCategory'
         ));
     }
 }

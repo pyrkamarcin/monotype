@@ -42,9 +42,15 @@ class Worker
     private $pesel;
 
     /**
+     * @ORM\ManyToOne(targetEntity="Monotype\Bundle\ManagerBundle\Entity\WorkerCategory", inversedBy="worker")
+     * @ORM\JoinColumn(name="workerCategory_id", referencedColumnName="id")
+     */
+    private $workerCategory;
+
+    /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -143,6 +149,30 @@ class Worker
     public function setPesel($pesel)
     {
         $this->pesel = $pesel;
+
+        return $this;
+    }
+
+    /**
+     * Get workerCategory
+     *
+     * @return \Monotype\Bundle\ManagerBundle\Entity\WorkerCategory
+     */
+    public function getWorkerCategory()
+    {
+        return $this->workerCategory;
+    }
+
+    /**
+     * Set workerCategory
+     *
+     * @param \Monotype\Bundle\ManagerBundle\Entity\WorkerCategory $workerCategory
+     *
+     * @return Worker
+     */
+    public function setWorkerCategory(\Monotype\Bundle\ManagerBundle\Entity\WorkerCategory $workerCategory = null)
+    {
+        $this->workerCategory = $workerCategory;
 
         return $this;
     }

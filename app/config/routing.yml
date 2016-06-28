@@ -1,3 +1,7 @@
+monotype_manager_worker_category:
+    resource: "@MonotypeManagerBundle/Controller/WorkerCategoryController.php"
+    type:     annotation
+
 monotype_manager_rate:
     resource: "@MonotypeManagerBundle/Controller/RateController.php"
     type:     annotation
