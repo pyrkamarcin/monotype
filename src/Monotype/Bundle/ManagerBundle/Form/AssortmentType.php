@@ -23,6 +23,7 @@ class AssortmentType extends AbstractType
         $builder
             ->add('code', TextType::class)
             ->add('name', TextType::class)
+            ->add('description', TextType::class)
             ->add('customer', EntityType::class, array(
                 'class' => 'Monotype\Bundle\ManagerBundle\Entity\Customer',
                 'choice_label' => 'name'

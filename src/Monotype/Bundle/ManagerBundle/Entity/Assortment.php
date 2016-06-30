@@ -32,6 +32,11 @@ class Assortment
     private $name;
 
     /**
+     * @ORM\Column(type="string", length=1023)
+     */
+    private $description;
+
+    /**
      * @ORM\ManyToOne(targetEntity="Monotype\Bundle\ManagerBundle\Entity\Customer", inversedBy="assortment")
      * @ORM\JoinColumn(name="customer_id", referencedColumnName="id")
      */
@@ -203,5 +208,29 @@ class Assortment
     public function getPlan()
     {
         return $this->plan;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Assortment
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
     }
 }
