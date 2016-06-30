@@ -5,12 +5,12 @@ namespace Monotype\Bundle\ManagerBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Plan
+ * Guide
  *
- * @ORM\Table(name="plan")
- * @ORM\Entity(repositoryClass="Monotype\Bundle\ManagerBundle\Repository\PlanRepository")
+ * @ORM\Table(name="guide")
+ * @ORM\Entity(repositoryClass="Monotype\Bundle\ManagerBundle\Repository\GuideRepository")
  */
-class Plan
+class Guide
 {
     /**
      * @var int
@@ -22,19 +22,18 @@ class Plan
     private $id;
 
     /**
+     * @var string
+     *
      * @ORM\Column(type="string", length=255)
      */
-    private $orderPosition;
+    private $number;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @var integer
+     *
+     * @ORM\Column(type="integer")
      */
-    private $orderNumber;
-
-    /**
-     * @ORM\Column(type="string", length=1023)
-     */
-    private $description;
+    private $week;
 
     /**
      * @var \DateTime
@@ -51,13 +50,7 @@ class Plan
     private $dateMod;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Monotype\Bundle\ManagerBundle\Entity\Customer", inversedBy="plan")
-     * @ORM\JoinColumn(name="customer_id", referencedColumnName="id")
-     */
-    private $customer;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="Monotype\Bundle\ManagerBundle\Entity\Assortment", inversedBy="plan")
+     * @ORM\ManyToOne(targetEntity="Monotype\Bundle\ManagerBundle\Entity\Assortment", inversedBy="guide")
      * @ORM\JoinColumn(name="assortment_id", referencedColumnName="id")
      */
     private $assortment;
@@ -73,51 +66,51 @@ class Plan
     }
 
     /**
-     * Get orderNumber
+     * Get number
      *
      * @return string
      */
-    public function getOrderNumber()
+    public function getNumber()
     {
-        return $this->orderNumber;
+        return $this->number;
     }
 
     /**
-     * Set orderNumber
+     * Set number
      *
-     * @param string $orderNumber
+     * @param string $number
      *
-     * @return Plan
+     * @return Guide
      */
-    public function setOrderNumber($orderNumber)
+    public function setNumber($number)
     {
-        $this->orderNumber = $orderNumber;
+        $this->number = $number;
 
         return $this;
     }
 
     /**
-     * Get customer
+     * Set date
      *
-     * @return \Monotype\Bundle\ManagerBundle\Entity\Customer
+     * @param \DateTime $date
+     *
+     * @return Guide
      */
-    public function getCustomer()
+    public function setDate($date)
     {
-        return $this->customer;
+        $this->date = $date;
+
+        return $this;
     }
 
     /**
-     * Set customer
+     * Get date
      *
-     * @param \Monotype\Bundle\ManagerBundle\Entity\Customer $customer
-     *
-     * @return Plan
+     * @return \DateTime
      */
-    public function setCustomer(\Monotype\Bundle\ManagerBundle\Entity\Customer $customer = null)
+    public function getDate()
     {
-        $this->customer = $customer;
-
-        return $this;
+        return $this->date;
     }
 
     /**
@@ -135,7 +128,7 @@ class Plan
      *
      * @param \Monotype\Bundle\ManagerBundle\Entity\Assortment $assortment
      *
-     * @return Plan
+     * @return Guide
      */
     public function setAssortment(\Monotype\Bundle\ManagerBundle\Entity\Assortment $assortment = null)
     {
@@ -145,49 +138,25 @@ class Plan
     }
 
     /**
-     * Get orderPosition
+     * Get week
      *
-     * @return string
+     * @return integer
      */
-    public function getOrderPosition()
+    public function getWeek()
     {
-        return $this->orderPosition;
+        return $this->week;
     }
 
     /**
-     * Set orderPosition
+     * Set week
      *
-     * @param string $orderPosition
+     * @param integer $week
      *
-     * @return Plan
+     * @return Guide
      */
-    public function setOrderPosition($orderPosition)
+    public function setWeek($week)
     {
-        $this->orderPosition = $orderPosition;
-
-        return $this;
-    }
-
-    /**
-     * Get description
-     *
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
-    /**
-     * Set description
-     *
-     * @param string $description
-     *
-     * @return Plan
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
+        $this->week = $week;
 
         return $this;
     }
@@ -207,7 +176,7 @@ class Plan
      *
      * @param \DateTime $dateAdd
      *
-     * @return Plan
+     * @return Guide
      */
     public function setDateAdd($dateAdd)
     {
@@ -231,7 +200,7 @@ class Plan
      *
      * @param \DateTime $dateMod
      *
-     * @return Plan
+     * @return Guide
      */
     public function setDateMod($dateMod)
     {

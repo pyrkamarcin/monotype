@@ -37,6 +37,20 @@ class Assortment
     private $description;
 
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(type="datetime")
+     */
+    private $dateAdd;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(type="datetime")
+     */
+    private $dateMod;
+
+    /**
      * @ORM\ManyToOne(targetEntity="Monotype\Bundle\ManagerBundle\Entity\Customer", inversedBy="assortment")
      * @ORM\JoinColumn(name="customer_id", referencedColumnName="id")
      */
@@ -56,6 +70,11 @@ class Assortment
      * @ORM\OneToMany(targetEntity="Monotype\Bundle\ManagerBundle\Entity\Dimension", mappedBy="assortment")
      */
     private $dimension;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Monotype\Bundle\ManagerBundle\Entity\Guide", mappedBy="assortment")
+     */
+    private $guide;
 
     /**
      * Constructor
@@ -271,5 +290,87 @@ class Assortment
     public function getDimension()
     {
         return $this->dimension;
+    }
+
+    /**
+     * Add guide
+     *
+     * @param \Monotype\Bundle\ManagerBundle\Entity\Guide $guide
+     *
+     * @return Assortment
+     */
+    public function addGuide(\Monotype\Bundle\ManagerBundle\Entity\Guide $guide)
+    {
+        $this->guide[] = $guide;
+
+        return $this;
+    }
+
+    /**
+     * Remove guide
+     *
+     * @param \Monotype\Bundle\ManagerBundle\Entity\Guide $guide
+     */
+    public function removeGuide(\Monotype\Bundle\ManagerBundle\Entity\Guide $guide)
+    {
+        $this->guide->removeElement($guide);
+    }
+
+    /**
+     * Get guide
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getGuide()
+    {
+        return $this->guide;
+    }
+
+    /**
+     * Get dateAdd
+     *
+     * @return \DateTime
+     */
+    public function getDateAdd()
+    {
+        return $this->dateAdd;
+    }
+
+    /**
+     * Set dateAdd
+     *
+     * @param \DateTime $dateAdd
+     *
+     * @return Assortment
+     */
+    public function setDateAdd($dateAdd)
+    {
+        $this->dateAdd = $dateAdd;
+
+        return $this;
+    }
+
+    /**
+     * Get dateMod
+     *
+     * @return \DateTime
+     */
+    public function getDateMod()
+    {
+        return $this->dateMod;
+    }
+
+    /**
+     * Set dateMod
+     *
+     * @param \DateTime $dateMod
+     *
+     * @return Assortment
+     */
+    public function setDateMod($dateMod)
+    {
+        $this->dateMod = $dateMod;
+
+        return $this;
     }
 }

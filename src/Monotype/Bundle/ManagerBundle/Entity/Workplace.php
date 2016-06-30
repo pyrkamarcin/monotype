@@ -21,6 +21,19 @@ class Workplace
      */
     private $id;
 
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(type="datetime")
+     */
+    private $dateAdd;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(type="datetime")
+     */
+    private $dateMod;
 
     /**
      * Get id
@@ -30,5 +43,53 @@ class Workplace
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Get dateAdd
+     *
+     * @return \DateTime
+     */
+    public function getDateAdd()
+    {
+        return $this->dateAdd;
+    }
+
+    /**
+     * Set dateAdd
+     *
+     * @param \DateTime $dateAdd
+     *
+     * @return Workplace
+     */
+    public function setDateAdd($dateAdd)
+    {
+        $this->dateAdd = $dateAdd;
+
+        return $this;
+    }
+
+    /**
+     * Get dateMod
+     *
+     * @return \DateTime
+     */
+    public function getDateMod()
+    {
+        return $this->dateMod;
+    }
+
+    /**
+     * Set dateMod
+     *
+     * @param \DateTime $dateMod
+     *
+     * @return Workplace
+     */
+    public function setDateMod($dateMod)
+    {
+        $this->dateMod = $dateMod;
+
+        return $this;
     }
 }

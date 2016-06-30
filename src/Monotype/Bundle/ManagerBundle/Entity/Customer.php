@@ -37,6 +37,20 @@ class Customer
     private $description;
 
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(type="datetime")
+     */
+    private $dateAdd;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(type="datetime")
+     */
+    private $dateMod;
+
+    /**
      * @ORM\OneToMany(targetEntity="Monotype\Bundle\ManagerBundle\Entity\Assortment", mappedBy="customer")
      */
     private $assortment;
@@ -202,5 +216,53 @@ class Customer
     public function getPlan()
     {
         return $this->plan;
+    }
+
+    /**
+     * Get dateAdd
+     *
+     * @return \DateTime
+     */
+    public function getDateAdd()
+    {
+        return $this->dateAdd;
+    }
+
+    /**
+     * Set dateAdd
+     *
+     * @param \DateTime $dateAdd
+     *
+     * @return Customer
+     */
+    public function setDateAdd($dateAdd)
+    {
+        $this->dateAdd = $dateAdd;
+
+        return $this;
+    }
+
+    /**
+     * Get dateMod
+     *
+     * @return \DateTime
+     */
+    public function getDateMod()
+    {
+        return $this->dateMod;
+    }
+
+    /**
+     * Set dateMod
+     *
+     * @param \DateTime $dateMod
+     *
+     * @return Customer
+     */
+    public function setDateMod($dateMod)
+    {
+        $this->dateMod = $dateMod;
+
+        return $this;
     }
 }

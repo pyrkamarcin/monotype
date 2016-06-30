@@ -32,6 +32,20 @@ class Operation
     private $description;
 
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(type="datetime")
+     */
+    private $dateAdd;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(type="datetime")
+     */
+    private $dateMod;
+
+    /**
      * @ORM\OneToMany(targetEntity="Monotype\Bundle\ManagerBundle\Entity\Rate", mappedBy="operation")
      */
     private $rate;
@@ -134,5 +148,53 @@ class Operation
     public function getRate()
     {
         return $this->rate;
+    }
+
+    /**
+     * Get dateAdd
+     *
+     * @return \DateTime
+     */
+    public function getDateAdd()
+    {
+        return $this->dateAdd;
+    }
+
+    /**
+     * Set dateAdd
+     *
+     * @param \DateTime $dateAdd
+     *
+     * @return Operation
+     */
+    public function setDateAdd($dateAdd)
+    {
+        $this->dateAdd = $dateAdd;
+
+        return $this;
+    }
+
+    /**
+     * Get dateMod
+     *
+     * @return \DateTime
+     */
+    public function getDateMod()
+    {
+        return $this->dateMod;
+    }
+
+    /**
+     * Set dateMod
+     *
+     * @param \DateTime $dateMod
+     *
+     * @return Operation
+     */
+    public function setDateMod($dateMod)
+    {
+        $this->dateMod = $dateMod;
+
+        return $this;
     }
 }

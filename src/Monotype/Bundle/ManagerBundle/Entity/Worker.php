@@ -42,6 +42,20 @@ class Worker
     private $pesel;
 
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(type="datetime")
+     */
+    private $dateAdd;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(type="datetime")
+     */
+    private $dateMod;
+
+    /**
      * @ORM\ManyToOne(targetEntity="Monotype\Bundle\ManagerBundle\Entity\WorkerCategory", inversedBy="worker")
      * @ORM\JoinColumn(name="workerCategory_id", referencedColumnName="id")
      */
@@ -173,6 +187,54 @@ class Worker
     public function setWorkerCategory(\Monotype\Bundle\ManagerBundle\Entity\WorkerCategory $workerCategory = null)
     {
         $this->workerCategory = $workerCategory;
+
+        return $this;
+    }
+
+    /**
+     * Get dateAdd
+     *
+     * @return \DateTime
+     */
+    public function getDateAdd()
+    {
+        return $this->dateAdd;
+    }
+
+    /**
+     * Set dateAdd
+     *
+     * @param \DateTime $dateAdd
+     *
+     * @return Worker
+     */
+    public function setDateAdd($dateAdd)
+    {
+        $this->dateAdd = $dateAdd;
+
+        return $this;
+    }
+
+    /**
+     * Get dateMod
+     *
+     * @return \DateTime
+     */
+    public function getDateMod()
+    {
+        return $this->dateMod;
+    }
+
+    /**
+     * Set dateMod
+     *
+     * @param \DateTime $dateMod
+     *
+     * @return Worker
+     */
+    public function setDateMod($dateMod)
+    {
+        $this->dateMod = $dateMod;
 
         return $this;
     }
