@@ -27,7 +27,7 @@ class AssortmentController extends Controller
 
         $assortments = $em->getRepository('MonotypeManagerBundle:Assortment')->findAll();
 
-        return $this->render('assortment/index.html.twig', array(
+        return $this->render('MonotypeManagerBundle:assortment:index.html.twig', array(
             'assortments' => $assortments,
         ));
     }
@@ -56,7 +56,7 @@ class AssortmentController extends Controller
             return $this->redirectToRoute('manager_assortment_show', array('id' => $assortment->getId()));
         }
 
-        return $this->render('assortment/new.html.twig', array(
+        return $this->render('MonotypeManagerBundle:assortment:new.html.twig', array(
             'assortment' => $assortment,
             'form' => $form->createView(),
         ));
@@ -72,7 +72,7 @@ class AssortmentController extends Controller
     {
         $deleteForm = $this->createDeleteForm($assortment);
 
-        return $this->render('assortment/show.html.twig', array(
+        return $this->render('MonotypeManagerBundle:assortment:show.html.twig', array(
             'assortment' => $assortment,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -116,7 +116,7 @@ class AssortmentController extends Controller
             return $this->redirectToRoute('manager_assortment_edit', array('id' => $assortment->getId()));
         }
 
-        return $this->render('assortment/edit.html.twig', array(
+        return $this->render('MonotypeManagerBundle:assortment:edit.html.twig', array(
             'assortment' => $assortment,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

@@ -27,7 +27,7 @@ class GuideController extends Controller
 
         $guides = $em->getRepository('MonotypeManagerBundle:Guide')->findAll();
 
-        return $this->render('guide/index.html.twig', array(
+        return $this->render('MonotypeManagerBundle:guide:index.html.twig', array(
             'guides' => $guides,
         ));
     }
@@ -56,7 +56,7 @@ class GuideController extends Controller
             return $this->redirectToRoute('manager_guide_show', array('id' => $guide->getId()));
         }
 
-        return $this->render('guide/new.html.twig', array(
+        return $this->render('MonotypeManagerBundle:guide:new.html.twig', array(
             'guide' => $guide,
             'form' => $form->createView(),
         ));
@@ -72,7 +72,7 @@ class GuideController extends Controller
     {
         $deleteForm = $this->createDeleteForm($guide);
 
-        return $this->render('guide/show.html.twig', array(
+        return $this->render('MonotypeManagerBundle:guide:show.html.twig', array(
             'guide' => $guide,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -116,7 +116,7 @@ class GuideController extends Controller
             return $this->redirectToRoute('manager_guide_edit', array('id' => $guide->getId()));
         }
 
-        return $this->render('guide/edit.html.twig', array(
+        return $this->render('MonotypeManagerBundle:guide:edit.html.twig', array(
             'guide' => $guide,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

@@ -27,7 +27,7 @@ class WorkerCategoryController extends Controller
 
         $workerCategories = $em->getRepository('MonotypeManagerBundle:WorkerCategory')->findAll();
 
-        return $this->render('workercategory/index.html.twig', array(
+        return $this->render('MonotypeManagerBundle:workercategory:index.html.twig', array(
             'workerCategories' => $workerCategories,
         ));
     }
@@ -56,7 +56,7 @@ class WorkerCategoryController extends Controller
             return $this->redirectToRoute('manager_workercategory_show', array('id' => $workerCategory->getId()));
         }
 
-        return $this->render('workercategory/new.html.twig', array(
+        return $this->render('MonotypeManagerBundle:workercategory:new.html.twig', array(
             'workerCategory' => $workerCategory,
             'form' => $form->createView(),
         ));
@@ -72,7 +72,7 @@ class WorkerCategoryController extends Controller
     {
         $deleteForm = $this->createDeleteForm($workerCategory);
 
-        return $this->render('workercategory/show.html.twig', array(
+        return $this->render('MonotypeManagerBundle:workercategory:show.html.twig', array(
             'workerCategory' => $workerCategory,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -116,7 +116,7 @@ class WorkerCategoryController extends Controller
             return $this->redirectToRoute('manager_workercategory_edit', array('id' => $workerCategory->getId()));
         }
 
-        return $this->render('workercategory/edit.html.twig', array(
+        return $this->render('MonotypeManagerBundle:workercategory:edit.html.twig', array(
             'workerCategory' => $workerCategory,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

@@ -27,7 +27,7 @@ class PlanController extends Controller
 
         $plans = $em->getRepository('MonotypeManagerBundle:Plan')->findAll();
 
-        return $this->render('plan/index.html.twig', array(
+        return $this->render('MonotypeManagerBundle:plan:index.html.twig', array(
             'plans' => $plans,
         ));
     }
@@ -56,7 +56,7 @@ class PlanController extends Controller
             return $this->redirectToRoute('manager_plan_show', array('id' => $plan->getId()));
         }
 
-        return $this->render('plan/new.html.twig', array(
+        return $this->render('MonotypeManagerBundle:plan:new.html.twig', array(
             'plan' => $plan,
             'form' => $form->createView(),
         ));
@@ -72,7 +72,7 @@ class PlanController extends Controller
     {
         $deleteForm = $this->createDeleteForm($plan);
 
-        return $this->render('plan/show.html.twig', array(
+        return $this->render('MonotypeManagerBundle:plan:show.html.twig', array(
             'plan' => $plan,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -116,7 +116,7 @@ class PlanController extends Controller
             return $this->redirectToRoute('manager_plan_edit', array('id' => $plan->getId()));
         }
 
-        return $this->render('plan/edit.html.twig', array(
+        return $this->render('MonotypeManagerBundle:plan:edit.html.twig', array(
             'plan' => $plan,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

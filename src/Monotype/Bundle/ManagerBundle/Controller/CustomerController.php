@@ -27,7 +27,7 @@ class CustomerController extends Controller
 
         $customers = $em->getRepository('MonotypeManagerBundle:Customer')->findAll();
 
-        return $this->render('customer/index.html.twig', array(
+        return $this->render('MonotypeManagerBundle:customer:index.html.twig', array(
             'customers' => $customers,
         ));
     }
@@ -56,7 +56,7 @@ class CustomerController extends Controller
             return $this->redirectToRoute('manager_customer_show', array('id' => $customer->getId()));
         }
 
-        return $this->render('customer/new.html.twig', array(
+        return $this->render('MonotypeManagerBundle:customer:new.html.twig', array(
             'customer' => $customer,
             'form' => $form->createView(),
         ));
@@ -72,7 +72,7 @@ class CustomerController extends Controller
     {
         $deleteForm = $this->createDeleteForm($customer);
 
-        return $this->render('customer/show.html.twig', array(
+        return $this->render('MonotypeManagerBundle:customer:show.html.twig', array(
             'customer' => $customer,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -116,7 +116,7 @@ class CustomerController extends Controller
             return $this->redirectToRoute('manager_customer_edit', array('id' => $customer->getId()));
         }
 
-        return $this->render('customer/edit.html.twig', array(
+        return $this->render('MonotypeManagerBundle:customer:edit.html.twig', array(
             'customer' => $customer,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

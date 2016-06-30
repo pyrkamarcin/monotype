@@ -27,7 +27,7 @@ class RateController extends Controller
 
         $rates = $em->getRepository('MonotypeManagerBundle:Rate')->findAll();
 
-        return $this->render('rate/index.html.twig', array(
+        return $this->render('MonotypeManagerBundle:rate:index.html.twig', array(
             'rates' => $rates,
         ));
     }
@@ -56,7 +56,7 @@ class RateController extends Controller
             return $this->redirectToRoute('manager_rate_show', array('id' => $rate->getId()));
         }
 
-        return $this->render('rate/new.html.twig', array(
+        return $this->render('MonotypeManagerBundle:rate:new.html.twig', array(
             'rate' => $rate,
             'form' => $form->createView(),
         ));
@@ -72,7 +72,7 @@ class RateController extends Controller
     {
         $deleteForm = $this->createDeleteForm($rate);
 
-        return $this->render('rate/show.html.twig', array(
+        return $this->render('MonotypeManagerBundle:rate:show.html.twig', array(
             'rate' => $rate,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -116,7 +116,7 @@ class RateController extends Controller
             return $this->redirectToRoute('manager_rate_edit', array('id' => $rate->getId()));
         }
 
-        return $this->render('rate/edit.html.twig', array(
+        return $this->render('MonotypeManagerBundle:rate:edit.html.twig', array(
             'rate' => $rate,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

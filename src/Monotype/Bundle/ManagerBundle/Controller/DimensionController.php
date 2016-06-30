@@ -27,7 +27,7 @@ class DimensionController extends Controller
 
         $dimensions = $em->getRepository('MonotypeManagerBundle:Dimension')->findAll();
 
-        return $this->render('dimension/index.html.twig', array(
+        return $this->render('MonotypeManagerBundle:dimension:index.html.twig', array(
             'dimensions' => $dimensions,
         ));
     }
@@ -56,7 +56,7 @@ class DimensionController extends Controller
             return $this->redirectToRoute('manager_dimension_show', array('id' => $dimension->getId()));
         }
 
-        return $this->render('dimension/new.html.twig', array(
+        return $this->render('MonotypeManagerBundle:dimension:new.html.twig', array(
             'dimension' => $dimension,
             'form' => $form->createView(),
         ));
@@ -72,7 +72,7 @@ class DimensionController extends Controller
     {
         $deleteForm = $this->createDeleteForm($dimension);
 
-        return $this->render('dimension/show.html.twig', array(
+        return $this->render('MonotypeManagerBundle:dimension:show.html.twig', array(
             'dimension' => $dimension,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -116,7 +116,7 @@ class DimensionController extends Controller
             return $this->redirectToRoute('manager_dimension_edit', array('id' => $dimension->getId()));
         }
 
-        return $this->render('dimension/edit.html.twig', array(
+        return $this->render('MonotypeManagerBundle:dimension:edit.html.twig', array(
             'dimension' => $dimension,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

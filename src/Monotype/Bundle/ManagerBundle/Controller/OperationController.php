@@ -27,7 +27,7 @@ class OperationController extends Controller
 
         $operations = $em->getRepository('MonotypeManagerBundle:Operation')->findAll();
 
-        return $this->render('operation/index.html.twig', array(
+        return $this->render('MonotypeManagerBundle:operation:index.html.twig', array(
             'operations' => $operations,
         ));
     }
@@ -56,7 +56,7 @@ class OperationController extends Controller
             return $this->redirectToRoute('manager_operation_show', array('id' => $operation->getId()));
         }
 
-        return $this->render('operation/new.html.twig', array(
+        return $this->render('MonotypeManagerBundle:operation:new.html.twig', array(
             'operation' => $operation,
             'form' => $form->createView(),
         ));
@@ -72,7 +72,7 @@ class OperationController extends Controller
     {
         $deleteForm = $this->createDeleteForm($operation);
 
-        return $this->render('operation/show.html.twig', array(
+        return $this->render('MonotypeManagerBundle:operation:show.html.twig', array(
             'operation' => $operation,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -120,7 +120,7 @@ class OperationController extends Controller
             return $this->redirectToRoute('manager_operation_edit', array('id' => $operation->getId()));
         }
 
-        return $this->render('operation/edit.html.twig', array(
+        return $this->render('MonotypeManagerBundle:operation:edit.html.twig', array(
             'operation' => $operation,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

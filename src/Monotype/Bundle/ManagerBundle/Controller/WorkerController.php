@@ -27,7 +27,7 @@ class WorkerController extends Controller
 
         $workers = $em->getRepository('MonotypeManagerBundle:Worker')->findAll();
 
-        return $this->render('worker/index.html.twig', array(
+        return $this->render('MonotypeManagerBundle:worker:index.html.twig', array(
             'workers' => $workers,
         ));
     }
@@ -56,7 +56,7 @@ class WorkerController extends Controller
             return $this->redirectToRoute('manager_worker_show', array('id' => $worker->getId()));
         }
 
-        return $this->render('worker/new.html.twig', array(
+        return $this->render('MonotypeManagerBundle:worker:new.html.twig', array(
             'worker' => $worker,
             'form' => $form->createView(),
         ));
@@ -72,7 +72,7 @@ class WorkerController extends Controller
     {
         $deleteForm = $this->createDeleteForm($worker);
 
-        return $this->render('worker/show.html.twig', array(
+        return $this->render('MonotypeManagerBundle:worker:show.html.twig', array(
             'worker' => $worker,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -116,7 +116,7 @@ class WorkerController extends Controller
             return $this->redirectToRoute('manager_worker_edit', array('id' => $worker->getId()));
         }
 
-        return $this->render('worker/edit.html.twig', array(
+        return $this->render('MonotypeManagerBundle:worker:edit.html.twig', array(
             'worker' => $worker,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
