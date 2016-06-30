@@ -53,6 +53,11 @@ class Assortment
     private $plan;
 
     /**
+     * @ORM\OneToMany(targetEntity="Monotype\Bundle\ManagerBundle\Entity\Dimension", mappedBy="assortment")
+     */
+    private $dimension;
+
+    /**
      * Constructor
      */
     public function __construct()
@@ -232,5 +237,39 @@ class Assortment
         $this->description = $description;
 
         return $this;
+    }
+
+    /**
+     * Add dimension
+     *
+     * @param \Monotype\Bundle\ManagerBundle\Entity\Dimension $dimension
+     *
+     * @return Assortment
+     */
+    public function addDimension(\Monotype\Bundle\ManagerBundle\Entity\Dimension $dimension)
+    {
+        $this->dimension[] = $dimension;
+
+        return $this;
+    }
+
+    /**
+     * Remove dimension
+     *
+     * @param \Monotype\Bundle\ManagerBundle\Entity\Dimension $dimension
+     */
+    public function removeDimension(\Monotype\Bundle\ManagerBundle\Entity\Dimension $dimension)
+    {
+        $this->dimension->removeElement($dimension);
+    }
+
+    /**
+     * Get dimension
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getDimension()
+    {
+        return $this->dimension;
     }
 }

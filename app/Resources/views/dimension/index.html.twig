@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Dimension list</h1>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Value</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for dimension in dimensions %}
+            <tr>
+                <td><a href="{{ path('manager_dimension_show', { 'id': dimension.id }) }}">{{ dimension.id }}</a></td>
+                <td>{{ dimension.value }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('manager_dimension_show', { 'id': dimension.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('manager_dimension_edit', { 'id': dimension.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('manager_dimension_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

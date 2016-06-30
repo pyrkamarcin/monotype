@@ -32,4 +32,3 @@ class Workplace
         return $this->id;
     }
 }
-

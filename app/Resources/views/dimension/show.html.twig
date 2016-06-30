@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Dimension</h1>
+
+    <table>
+        <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ dimension.id }}</td>
+        </tr>
+        <tr>
+            <th>Value</th>
+            <td>{{ dimension.value }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('manager_dimension_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('manager_dimension_edit', { 'id': dimension.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+            <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
