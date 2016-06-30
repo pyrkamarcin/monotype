@@ -32,6 +32,11 @@ class Plan
     private $orderNumber;
 
     /**
+     * @ORM\Column(type="string", length=1023)
+     */
+    private $description;
+
+    /**
      * @ORM\ManyToOne(targetEntity="Monotype\Bundle\ManagerBundle\Entity\Customer", inversedBy="plan")
      * @ORM\JoinColumn(name="customer_id", referencedColumnName="id")
      */
@@ -145,6 +150,30 @@ class Plan
     public function setOrderPosition($orderPosition)
     {
         $this->orderPosition = $orderPosition;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Plan
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
 
         return $this;
     }

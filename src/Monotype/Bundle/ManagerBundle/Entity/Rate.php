@@ -38,6 +38,11 @@ class Rate
      */
     private $operation;
 
+    /**
+     * @ORM\Column(type="string", length=1023)
+     */
+    private $description;
+
 
     /**
      * Get id
@@ -117,6 +122,30 @@ class Rate
     public function setOperation(\Monotype\Bundle\ManagerBundle\Entity\Operation $operation = null)
     {
         $this->operation = $operation;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Rate
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
 
         return $this;
     }

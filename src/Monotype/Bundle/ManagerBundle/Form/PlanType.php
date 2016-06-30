@@ -23,6 +23,7 @@ class PlanType extends AbstractType
         $builder
             ->add('orderNumber', TextType::class)
             ->add('orderPosition', TextType::class)
+            ->add('description', TextType::class)
             ->add('customer', EntityType::class, array(
                 'class' => 'Monotype\Bundle\ManagerBundle\Entity\Customer',
                 'choice_label' => 'name'
