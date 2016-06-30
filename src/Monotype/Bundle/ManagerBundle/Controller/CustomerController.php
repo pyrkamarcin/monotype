@@ -106,6 +106,9 @@ class CustomerController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+
+            $customer->setDateMod(new \DateTime("now"));
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($customer);
             $em->flush();

@@ -106,6 +106,9 @@ class DimensionController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+
+            $dimension->setDateMod(new \DateTime("now"));
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($dimension);
             $em->flush();

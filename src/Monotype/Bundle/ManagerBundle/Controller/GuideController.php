@@ -106,6 +106,9 @@ class GuideController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+
+            $guide->setDateMod(new \DateTime("now"));
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($guide);
             $em->flush();

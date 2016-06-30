@@ -106,6 +106,9 @@ class WorkerController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+
+            $worker->setDateMod(new \DateTime("now"));
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($worker);
             $em->flush();

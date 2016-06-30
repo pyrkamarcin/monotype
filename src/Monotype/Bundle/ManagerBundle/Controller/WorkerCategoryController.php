@@ -106,6 +106,9 @@ class WorkerCategoryController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+
+            $workerCategory->setDateMod(new \DateTime("now"));
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($workerCategory);
             $em->flush();
