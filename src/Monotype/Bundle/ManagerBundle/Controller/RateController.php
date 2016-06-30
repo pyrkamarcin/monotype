@@ -45,6 +45,10 @@ class RateController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $rate->setDateAdd(new \DateTime("now"));
+            $rate->setDateMod(new \DateTime("now"));
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($rate);
             $em->flush();

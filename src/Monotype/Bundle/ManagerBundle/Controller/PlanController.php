@@ -45,6 +45,10 @@ class PlanController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $plan->setDateAdd(new \DateTime("now"));
+            $plan->setDateMod(new \DateTime("now"));
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($plan);
             $em->flush();

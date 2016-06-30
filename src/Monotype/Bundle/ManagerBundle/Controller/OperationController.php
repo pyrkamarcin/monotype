@@ -45,6 +45,10 @@ class OperationController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $operation->setDateAdd(new \DateTime("now"));
+            $operation->setDateMod(new \DateTime("now"));
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($operation);
             $em->flush();

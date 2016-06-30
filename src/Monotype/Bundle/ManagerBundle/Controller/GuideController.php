@@ -45,8 +45,11 @@ class GuideController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $guide->setDateAdd(new \DateTime("now"));
+            $guide->setDateMod(new \DateTime("now"));
+
             $em = $this->getDoctrine()->getManager();
-            $guide->setDate(new \DateTime("now"));
             $em->persist($guide);
             $em->flush();
 

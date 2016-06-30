@@ -45,6 +45,10 @@ class AssortmentController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $assortment->setDateAdd(new \DateTime("now"));
+            $assortment->setDateMod(new \DateTime("now"));
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($assortment);
             $em->flush();

@@ -1,6 +1,6 @@
 <?php
 
-namespace Monotype\Bundle\ManagerBundle\Entity;
+namespace Monotype\Bundle\ManagerBundle\Repository;
 
 /**
  * UserRepository

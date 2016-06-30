@@ -45,6 +45,10 @@ class WorkerController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $worker->setDateAdd(new \DateTime("now"));
+            $worker->setDateMod(new \DateTime("now"));
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($worker);
             $em->flush();

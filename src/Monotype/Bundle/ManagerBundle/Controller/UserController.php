@@ -47,7 +47,10 @@ class UserController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
 
             $password = $this->get('security.password_encoder')->encodePassword($user, $user->getPassword());
+
             $user->setPassword($password);
+            $user->setDateAdd(new \DateTime("now"));
+            $user->setDateMod(new \DateTime("now"));
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);

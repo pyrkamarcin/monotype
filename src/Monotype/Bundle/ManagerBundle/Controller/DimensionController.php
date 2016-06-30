@@ -45,6 +45,10 @@ class DimensionController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $dimension->setDateAdd(new \DateTime("now"));
+            $dimension->setDateMod(new \DateTime("now"));
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($dimension);
             $em->flush();
