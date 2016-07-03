@@ -17,6 +17,14 @@
             <th>Name</th>
             <td>{{ assortment.name }}</td>
         </tr>
+        <tr>
+            <th>dateAdd</th>
+            <td>{{ assortment.dateAdd|date('Y-m-d H:i:s') }}</td>
+        </tr>
+        <tr>
+            <th>dateMod</th>
+            <td>{{ assortment.dateMod|date('Y-m-d H:i:s') }}</td>
+        </tr>
         </tbody>
     </table>
 
