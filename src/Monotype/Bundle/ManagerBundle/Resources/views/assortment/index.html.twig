@@ -3,7 +3,7 @@
 {% block body %}
     <h1>Assortment list</h1>
 
-    <table>
+    <table class="ui celled table">
         <thead>
         <tr>
             <th>Id</th>
@@ -32,11 +32,13 @@
             </tr>
         {% endfor %}
         </tbody>
+        <tfoot class="full-width">
+        <tr>
+            <th colspan="4">
+                <a href="{{ path('manager_assortment_new') }}" class="ui right floated labeled primary icon button">
+                    <i class="add icon"></i> Dodaj ...</a>
+            </th>
+        </tr>
+        </tfoot>
     </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('manager_assortment_new') }}">Create a new entry</a>
-        </li>
-    </ul>
 {% endblock %}
