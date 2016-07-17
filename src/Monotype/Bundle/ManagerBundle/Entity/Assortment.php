@@ -51,6 +51,13 @@ class Assortment
     private $dateMod;
 
     /**
+     * @var int
+     *
+     * @ORM\Column(type="integer")
+     */
+    private $defaultPcsInBox;
+
+    /**
      * @ORM\ManyToOne(targetEntity="Monotype\Bundle\ManagerBundle\Entity\Customer", inversedBy="assortment")
      * @ORM\JoinColumn(name="customer_id", referencedColumnName="id")
      */
@@ -370,6 +377,30 @@ class Assortment
     public function setDateMod($dateMod)
     {
         $this->dateMod = $dateMod;
+
+        return $this;
+    }
+
+    /**
+     * Get defaultPcsInBox
+     *
+     * @return integer
+     */
+    public function getDefaultPcsInBox()
+    {
+        return $this->defaultPcsInBox;
+    }
+
+    /**
+     * Set defaultPcsInBox
+     *
+     * @param integer $defaultPcsInBox
+     *
+     * @return Assortment
+     */
+    public function setDefaultPcsInBox($defaultPcsInBox)
+    {
+        $this->defaultPcsInBox = $defaultPcsInBox;
 
         return $this;
     }

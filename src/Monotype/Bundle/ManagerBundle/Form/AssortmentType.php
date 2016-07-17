@@ -4,6 +4,7 @@ namespace Monotype\Bundle\ManagerBundle\Form;
 
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -24,6 +25,7 @@ class AssortmentType extends AbstractType
             ->add('code', TextType::class)
             ->add('name', TextType::class)
             ->add('description', TextType::class)
+            ->add('defaultPcsInBox', IntegerType::class)
             ->add('customer', EntityType::class, array(
                 'class' => 'Monotype\Bundle\ManagerBundle\Entity\Customer',
                 'choice_label' => 'name'
