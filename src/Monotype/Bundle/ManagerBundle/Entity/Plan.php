@@ -32,9 +32,16 @@ class Plan
     private $orderNumber;
 
     /**
-     * @ORM\Column(type="string", length=1023)
+     * @ORM\Column(type="string", length=1023, nullable=true)
      */
     private $description;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(type="integer")
+     */
+    private $pc;
 
     /**
      * @var \DateTime
@@ -236,6 +243,30 @@ class Plan
     public function setDateMod($dateMod)
     {
         $this->dateMod = $dateMod;
+
+        return $this;
+    }
+
+    /**
+     * Get pc
+     *
+     * @return integer
+     */
+    public function getPc()
+    {
+        return $this->pc;
+    }
+
+    /**
+     * Set pc
+     *
+     * @param integer $pc
+     *
+     * @return Plan
+     */
+    public function setPc($pc)
+    {
+        $this->pc = $pc;
 
         return $this;
     }

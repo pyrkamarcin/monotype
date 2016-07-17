@@ -4,6 +4,7 @@ namespace Monotype\Bundle\ManagerBundle\Form;
 
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -23,7 +24,10 @@ class PlanType extends AbstractType
         $builder
             ->add('orderNumber', TextType::class)
             ->add('orderPosition', TextType::class)
-            ->add('description', TextType::class)
+            ->add('description', TextType::class, array(
+                'required' => false
+            ))
+            ->add('pc', NumberType::class)
             ->add('customer', EntityType::class, array(
                 'class' => 'Monotype\Bundle\ManagerBundle\Entity\Customer',
                 'choice_label' => 'name'
