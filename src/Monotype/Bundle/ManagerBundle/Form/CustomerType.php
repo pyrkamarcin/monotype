@@ -3,6 +3,7 @@
 namespace Monotype\Bundle\ManagerBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -22,7 +23,30 @@ class CustomerType extends AbstractType
         $builder
             ->add('name', TextType::class)
             ->add('shortName', TextType::class)
-            ->add('description', TextType::class);
+            ->add('description', TextType::class, array(
+                'required' => false
+            ))
+            ->add('address', TextType::class, array(
+                'required' => false
+            ))
+            ->add('city', TextType::class, array(
+                'required' => false
+            ))
+            ->add('country', TextType::class, array(
+                'required' => false
+            ))
+            ->add('phone', TextType::class, array(
+                'required' => false
+            ))
+            ->add('fax', TextType::class, array(
+                'required' => false
+            ))
+            ->add('email', EmailType::class, array(
+                'required' => false
+            ))
+            ->add('web', TextType::class, array(
+                'required' => false
+            ));
     }
 
     /**

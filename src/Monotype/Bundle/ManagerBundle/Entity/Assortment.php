@@ -457,40 +457,6 @@ class Assortment
     }
 
     /**
-     * Add bOM
-     *
-     * @param \Monotype\Bundle\ManagerBundle\Entity\BOM $bOM
-     *
-     * @return Assortment
-     */
-    public function addBOM(\Monotype\Bundle\ManagerBundle\Entity\BOM $bOM)
-    {
-        $this->BOM[] = $bOM;
-
-        return $this;
-    }
-
-    /**
-     * Remove bOM
-     *
-     * @param \Monotype\Bundle\ManagerBundle\Entity\BOM $bOM
-     */
-    public function removeBOM(\Monotype\Bundle\ManagerBundle\Entity\BOM $bOM)
-    {
-        $this->BOM->removeElement($bOM);
-    }
-
-    /**
-     * Get bOM
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getBOM()
-    {
-        return $this->BOM;
-    }
-
-    /**
      * Add child
      *
      * @param \Monotype\Bundle\ManagerBundle\Entity\Assortment $child
