@@ -1,3 +1,7 @@
+monotype_manager_technology:
+    resource: "@MonotypeManagerBundle/Controller/TechnologyController.php"
+    type:     annotation
+
 monotype_manager_guide:
     resource: "@MonotypeManagerBundle/Controller/GuideController.php"
     type:     annotation

@@ -69,6 +69,11 @@ class Assortment
     private $rate;
 
     /**
+     * @ORM\OneToMany(targetEntity="Monotype\Bundle\ManagerBundle\Entity\Technology", mappedBy="assortment")
+     */
+    private $technology;
+
+    /**
      * @ORM\OneToMany(targetEntity="Monotype\Bundle\ManagerBundle\Entity\Plan", mappedBy="assortment")
      */
     private $plan;
@@ -403,5 +408,39 @@ class Assortment
         $this->defaultPcsInBox = $defaultPcsInBox;
 
         return $this;
+    }
+
+    /**
+     * Add technology
+     *
+     * @param \Monotype\Bundle\ManagerBundle\Entity\Technology $technology
+     *
+     * @return Assortment
+     */
+    public function addTechnology(\Monotype\Bundle\ManagerBundle\Entity\Technology $technology)
+    {
+        $this->technology[] = $technology;
+
+        return $this;
+    }
+
+    /**
+     * Remove technology
+     *
+     * @param \Monotype\Bundle\ManagerBundle\Entity\Technology $technology
+     */
+    public function removeTechnology(\Monotype\Bundle\ManagerBundle\Entity\Technology $technology)
+    {
+        $this->technology->removeElement($technology);
+    }
+
+    /**
+     * Get technology
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTechnology()
+    {
+        return $this->technology;
     }
 }
