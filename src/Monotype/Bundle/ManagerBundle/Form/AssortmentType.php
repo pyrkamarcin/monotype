@@ -26,6 +26,11 @@ class AssortmentType extends AbstractType
             ->add('name', TextType::class)
             ->add('description', TextType::class)
             ->add('defaultPcsInBox', IntegerType::class)
+            ->add('parent', EntityType::class, array(
+                'class' => 'Monotype\Bundle\ManagerBundle\Entity\Assortment',
+                'required' => false,
+                'choice_label' => 'name'
+            ))
             ->add('customer', EntityType::class, array(
                 'class' => 'Monotype\Bundle\ManagerBundle\Entity\Customer',
                 'choice_label' => 'name'

@@ -88,6 +88,18 @@ class Assortment
      */
     private $guide;
 
+
+    /**
+     * @ORM\OneToMany(targetEntity="Monotype\Bundle\ManagerBundle\Entity\Assortment", mappedBy="parent")
+     */
+    private $children;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Monotype\Bundle\ManagerBundle\Entity\Assortment", inversedBy="children")
+     * @ORM\JoinColumn(name="parent_id", referencedColumnName="id")
+     */
+    private $parent;
+
     /**
      * Constructor
      */
@@ -442,5 +454,97 @@ class Assortment
     public function getTechnology()
     {
         return $this->technology;
+    }
+
+    /**
+     * Add bOM
+     *
+     * @param \Monotype\Bundle\ManagerBundle\Entity\BOM $bOM
+     *
+     * @return Assortment
+     */
+    public function addBOM(\Monotype\Bundle\ManagerBundle\Entity\BOM $bOM)
+    {
+        $this->BOM[] = $bOM;
+
+        return $this;
+    }
+
+    /**
+     * Remove bOM
+     *
+     * @param \Monotype\Bundle\ManagerBundle\Entity\BOM $bOM
+     */
+    public function removeBOM(\Monotype\Bundle\ManagerBundle\Entity\BOM $bOM)
+    {
+        $this->BOM->removeElement($bOM);
+    }
+
+    /**
+     * Get bOM
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getBOM()
+    {
+        return $this->BOM;
+    }
+
+    /**
+     * Add child
+     *
+     * @param \Monotype\Bundle\ManagerBundle\Entity\Assortment $child
+     *
+     * @return Assortment
+     */
+    public function addChild(\Monotype\Bundle\ManagerBundle\Entity\Assortment $child)
+    {
+        $this->children[] = $child;
+
+        return $this;
+    }
+
+    /**
+     * Remove child
+     *
+     * @param \Monotype\Bundle\ManagerBundle\Entity\Assortment $child
+     */
+    public function removeChild(\Monotype\Bundle\ManagerBundle\Entity\Assortment $child)
+    {
+        $this->children->removeElement($child);
+    }
+
+    /**
+     * Get children
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getChildren()
+    {
+        return $this->children;
+    }
+
+    /**
+     * Get parent
+     *
+     * @return \Monotype\Bundle\ManagerBundle\Entity\Assortment
+     */
+    public function getParent()
+    {
+        return $this->parent;
+    }
+
+    /**
+     * Set parent
+     *
+     * @param \Monotype\Bundle\ManagerBundle\Entity\Assortment $parent
+     *
+     * @return Assortment
+     */
+    public function setParent(\Monotype\Bundle\ManagerBundle\Entity\Assortment $parent = null)
+    {
+        $this->parent = $parent;
+
+        return $this;
     }
 }
