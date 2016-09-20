@@ -13,6 +13,7 @@
     ]
   },
   "require": {
+    "jetalone/monotype": "dev-master",
     "doctrine/doctrine-bundle": "1.*",
     "doctrine/doctrine-cache-bundle": "1.*",
     "doctrine/orm": "2.*",
