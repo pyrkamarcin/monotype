@@ -1,1 +1,1 @@
-php bin/console gui:test
+php bin/console gui:start
