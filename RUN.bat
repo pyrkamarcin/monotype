@@ -1,1 +1,1 @@
-run php bin/console gui:test
+run php bin/console gui:start
