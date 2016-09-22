@@ -24,8 +24,8 @@ class AppKernel extends Kernel
             new Monotype\Bundle\DirectControllBundle\MonotypeDirectControllBundle(),
             new Monotype\Bundle\PosBundle\MonotypePosBundle(),
             new Monotype\Bundle\ManagerBundle\MonotypeManagerBundle(),
-            new Monotype\Bundle\UtilityBundle\MonotypeUtilityBundle()
-
+            new Monotype\Bundle\UtilityBundle\MonotypeUtilityBundle(),
+            new Monotype\Bundle\GUIBundle\MonotypeGUIBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

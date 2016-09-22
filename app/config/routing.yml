@@ -1,3 +1,8 @@
+monotype_gui:
+    resource: "@MonotypeGUIBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 monotype_manager_technology:
     resource: "@MonotypeManagerBundle/Controller/TechnologyController.php"
     type:     annotation
