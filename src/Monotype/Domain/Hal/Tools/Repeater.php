@@ -59,6 +59,8 @@ class Repeater
                 echo "Client $newc has connected\n";
                 $this->clients[] = $newc;
 
+//                print_r($this->socket->read(1));
+
             }
         }
     }
