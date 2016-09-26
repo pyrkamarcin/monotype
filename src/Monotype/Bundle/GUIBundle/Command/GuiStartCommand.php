@@ -40,19 +40,20 @@ class GuiStartCommand extends ContainerAwareCommand
         $application->on('start', function () use ($application) {
 
 
-
             $button = (new Button())
                 ->setLeft(40)
                 ->setTop(100)
                 ->setWidth(200)
                 ->setValue('RUN');
 
-            $button->on('click', function () use ($button) {
+            $field = (new TextArea())
+                ->setLeft(40)
+                ->setTop(200)
+                ->setWidth(500)
+                ->setVisible(false);
 
-              $field = (new TextArea())
-                  ->setLeft(40)
-                  ->setTop(200)
-                  ->setWidth(500);
+            $button->on('click', function () use ($button, $field) {
+
 
 //                $machine = new Machine(1);
 //                $socket = new Connector\Socket($machine->getProtocol(), $machine->getAddress(), $machine->getPort());
@@ -64,7 +65,8 @@ class GuiStartCommand extends ContainerAwareCommand
 //                  //  echo $contents;
 //                }
 
-                $field->setValue($field->getValue() . rand(0, 10));
+                $field->setVisible(true);
+                $field->setValue($field->getValue() . mt_rand(0, 10));
 
             });
 
