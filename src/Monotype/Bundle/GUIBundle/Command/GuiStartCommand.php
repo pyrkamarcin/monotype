@@ -61,6 +61,7 @@ class GuiStartCommand extends ContainerAwareCommand
                 while (!feof($socket->socket)) {
                     $contents = $socket->read(1);
                     $field->setValue($contents);
+                  //  echo $contents;
                 }
 
             });
