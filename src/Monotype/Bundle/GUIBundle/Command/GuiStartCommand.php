@@ -9,6 +9,10 @@ use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+/**
+ * Class GuiStartCommand
+ * @package Monotype\Bundle\GUIBundle\Command
+ */
 class GuiStartCommand extends ContainerAwareCommand
 {
     /**
@@ -28,7 +32,6 @@ class GuiStartCommand extends ContainerAwareCommand
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-
         $application = new Application([
             'title' => 'My PHP Desktop Application',
             'left' => 248,
@@ -38,7 +41,6 @@ class GuiStartCommand extends ContainerAwareCommand
         ]);
 
         $application->on('start', function () use ($application) {
-
 
             $button = (new Button())
                 ->setLeft(40)
@@ -53,17 +55,6 @@ class GuiStartCommand extends ContainerAwareCommand
                 ->setVisible(false);
 
             $button->on('click', function () use ($button, $field) {
-
-
-//                $machine = new Machine(1);
-//                $socket = new Connector\Socket($machine->getProtocol(), $machine->getAddress(), $machine->getPort());
-//                $socket->openStream();
-//
-//                while (!feof($socket->socket)) {
-//                    $contents = $socket->read(1);
-//                    $field->setValue($contents);
-//                  //  echo $contents;
-//                }
 
                 $field->setVisible(true);
                 $field->setValue($field->getValue() . mt_rand(0, 10));
