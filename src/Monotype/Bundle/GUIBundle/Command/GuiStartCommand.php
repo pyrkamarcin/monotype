@@ -54,13 +54,13 @@ class GuiStartCommand extends ContainerAwareCommand
 
             $button->on('click', function () use ($button, $field) {
 
-                $machine = new Machine(3);
+                $machine = new Machine(1);
                 $socket = new Connector\Socket($machine->getProtocol(), $machine->getAddress(), $machine->getPort());
                 $socket->openStream();
 
                 while (!feof($socket->socket)) {
-                    $contents = $socket->read(2);
-                    $field::setValue($contents);
+                    $contents = $socket->read(1);
+                    $field->setValue($contents);
                 }
 
             });
