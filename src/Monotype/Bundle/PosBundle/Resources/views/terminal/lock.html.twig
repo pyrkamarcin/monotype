@@ -1,0 +1,94 @@
+{% extends "MonotypePosBundle::base.html.twig" %}
+
+{% block title %}Terminal{% endblock %}
+
+{% block stylesheets %}
+    <link href="{{ asset('styles/css/keyboard.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    {% block navigation %}{% endblock %}
+
+    <div class="ui container">
+        <h1 class="">Ekran blokady</h1>
+    </div>
+    <div class="ui container">
+        <div class="">
+            <h4 class="">Aby rozpocząć pracę, wprowadź kod pracownika:</h4>
+            <p class="card-text text-xs-center text-muted">Możesz wprowadzić kod za pomocą skanera lub ręcznie.</p>
+            <form class="ui form" action="{{ path('terminal_lock') }}" method="post">
+                <div class="field">
+                    <input id="write" type="text" class="" name="code1" placeholder="wprowadź kod..." autocomplete="off"
+                           autofocus>
+                </div>
+                <div class="field">
+                    <div id="keyboard" class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                        <div class="ui basic buttons teal">
+                            <li type="button" class="ui button">1</li>
+                            <li type="button" class="ui button">2</li>
+                            <li type="button" class="ui button">3</li>
+                            <li type="button" class="ui button">4</li>
+                            <li type="button" class="ui button">5</li>
+                            <li type="button" class="ui button">6</li>
+                            <li type="button" class="ui button">7</li>
+                            <li type="button" class="ui button">8</li>
+                            <li type="button" class="ui button">9</li>
+                            <li type="button" class="ui button">0</li>
+                        </div>
+                        <div class="ui basic buttons red" role="group" aria-label=""
+                             title="Użyj, aby skasować ostatni znak">
+                            <li type="button" class="delete ui button">Kasuj</li>
+                        </div>
+                        <div class="ui basic buttons green" role="group" aria-label="" title="Odblokuj terminal">
+                            <button type="submit" class="ui button ">Wprowadź</button>
+                        </div>
+                    </div>
+
+                </div>
+                {#<div class="row">#}
+                {#<li class="tab">tab</li>#}
+                {#<li class="letter">q</li>#}
+                {#<li class="letter">w</li>#}
+                {#<li class="letter">e</li>#}
+                {#<li class="letter">r</li>#}
+                {#<li class="letter">t</li>#}
+                {#<li class="letter">y</li>#}
+                {#<li class="letter">u</li>#}
+                {#<li class="letter">i</li>#}
+                {#<li class="letter">o</li>#}
+                {#<li class="letter">p</li>#}
+                {#<li class="capslock">caps</li>#}
+                {#<li class="letter">a</li>#}
+                {#<li class="letter">s</li>#}
+                {#<li class="letter">d</li>#}
+                {#<li class="letter">f</li>#}
+                {#<li class="letter">g</li>#}
+                {#<li class="letter">h</li>#}
+                {#<li class="letter">j</li>#}
+                {#<li class="letter">k</li>#}
+                {#<li class="letter">l</li>#}
+                {#<li class="return">return</li>#}
+                {#<li class="left-shift">shift</li>#}
+                {#<li class="letter">z</li>#}
+                {#<li class="letter">x</li>#}
+                {#<li class="letter">c</li>#}
+                {#<li class="letter">v</li>#}
+                {#<li class="letter">b</li>#}
+                {#<li class="letter">n</li>#}
+                {#<li class="letter">m</li>#}
+                {#<li class="symbol"><span class="off">,</span><span class="on">&lt;</span></li>#}
+                {#<li class="symbol"><span class="off">.</span><span class="on">&gt;</span></li>#}
+                {#<li class="symbol"><span class="off">/</span><span class="on">?</span></li>#}
+                {#<li class="right-shift">shift</li>#}
+                {#<li class="space ">&nbsp;</li>#}
+                {#</div>#}
+
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('styles/js/keyboard.js') }}"></script>
+{% endblock %}

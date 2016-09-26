@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>WorkerCategory list</h1>
+
+    <table class="ui celled table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Fullname</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for workerCategory in workerCategories %}
+            <tr>
+                <td>
+                    <a href="{{ path('manager_workercategory_show', { 'id': workerCategory.id }) }}">{{ workerCategory.id }}</a>
+                </td>
+                <td>{{ workerCategory.fullName }}</td>
+                <td>{{ workerCategory.name }}</td>
+                <td>{{ workerCategory.description }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('manager_workercategory_show', { 'id': workerCategory.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('manager_workercategory_edit', { 'id': workerCategory.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('manager_workercategory_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

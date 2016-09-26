@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Plan list</h1>
+
+    <table class="ui celled table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Ordernumber</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for plan in plans %}
+            <tr>
+                <td><a href="{{ path('manager_plan_show', { 'id': plan.id }) }}">{{ plan.id }}</a></td>
+                <td>{{ plan.orderNumber }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('manager_plan_show', { 'id': plan.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('manager_plan_edit', { 'id': plan.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('manager_plan_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}
