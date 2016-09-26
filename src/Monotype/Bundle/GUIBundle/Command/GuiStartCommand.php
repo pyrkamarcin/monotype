@@ -5,8 +5,6 @@ namespace Monotype\Bundle\GUIBundle\Command;
 use Gui\Application;
 use Gui\Components\Button;
 use Gui\Components\TextArea;
-use Monotype\Domain\Hal\Connector;
-use Monotype\Domain\Hal\Machine;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -54,15 +52,17 @@ class GuiStartCommand extends ContainerAwareCommand
 
             $button->on('click', function () use ($button, $field) {
 
-                $machine = new Machine(1);
-                $socket = new Connector\Socket($machine->getProtocol(), $machine->getAddress(), $machine->getPort());
-                $socket->openStream();
+//                $machine = new Machine(1);
+//                $socket = new Connector\Socket($machine->getProtocol(), $machine->getAddress(), $machine->getPort());
+//                $socket->openStream();
+//
+//                while (!feof($socket->socket)) {
+//                    $contents = $socket->read(1);
+//                    $field->setValue($contents);
+//                  //  echo $contents;
+//                }
 
-                while (!feof($socket->socket)) {
-                    $contents = $socket->read(1);
-                    $field->setValue($contents);
-                  //  echo $contents;
-                }
+                $field->setValue($field->getValue() . rand(0, 10));
 
             });
 
