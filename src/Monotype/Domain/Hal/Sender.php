@@ -40,4 +40,19 @@ class Sender
             fclose($fp);
         }
     }
+
+    public function sendAsReact($data)
+    {
+
+        $loop = \React\EventLoop\Factory::create();
+
+        $tcpConnector = new \React\SocketClient\TcpConnector($loop);
+
+        $tcpConnector->create('127.0.0.1', 4001)->then(function (\React\Stream\Stream $stream) use ($data) {
+            $stream->write($data);
+            $stream->end();
+        });
+
+        $loop->run();
+    }
 }

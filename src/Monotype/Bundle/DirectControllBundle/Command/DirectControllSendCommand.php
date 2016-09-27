@@ -46,6 +46,8 @@ class DirectControllSendCommand extends ContainerAwareCommand
 
         $reactor = new Sender(new Machine($input->getArgument('machine')));
         $reactor->send($data);
+        // lub
+        // $reactor->sendAsReact($data);
 
         return true;
     }

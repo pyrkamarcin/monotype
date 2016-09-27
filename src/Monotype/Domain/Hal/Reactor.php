@@ -86,7 +86,7 @@ class Reactor
             }
 
             if (strpos($buffer->getCache(), PHP_EOL) !== false) {
-                //
+                echo $data;
             }
 
             $stock->stockize($buffer->getCache());
