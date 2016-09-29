@@ -105,6 +105,10 @@ class Socket
      */
     public function write($message, $length)
     {
+
+        /**
+         * @TODO: czemu fputs a nie fwrite? Uprawnienia dostępu czy co?
+         */
         fputs($this->socket, $message, $length);
 //        fwrite($this->socket, $message, $length);
     }

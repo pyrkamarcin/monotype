@@ -39,6 +39,5 @@ class DirectControllServerCommand extends ContainerAwareCommand
         $socket->listen(4001);
 
         $loop->run();
-
     }
 }

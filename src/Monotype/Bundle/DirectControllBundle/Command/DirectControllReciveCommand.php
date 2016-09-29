@@ -39,6 +39,10 @@ class DirectControllReciveCommand extends ContainerAwareCommand
             //
         }
 
+        /**
+         * @TODO: Wyłączyłem zapis w bazie o dodawaniu czegoś przez stocks. Całe trzeba wyrzucić i loger z prawdziwego zdarzenia zrobić.
+         */
+
 //        $entityManager = $this->getContainer()->get('doctrine.orm.entity_manager');
 //        $stocks = new Stocks();
 //

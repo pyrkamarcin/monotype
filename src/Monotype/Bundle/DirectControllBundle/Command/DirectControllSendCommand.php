@@ -45,6 +45,10 @@ class DirectControllSendCommand extends ContainerAwareCommand
         $output->writeln('Connection start...');
 
         $reactor = new Sender(new Machine($input->getArgument('machine')));
+
+        /**
+         * @TODO: są dwie opcje (react lub przez socket) sprawdzić i wybrać
+         */
         $reactor->send($data);
         // lub
         // $reactor->sendAsReact($data);
