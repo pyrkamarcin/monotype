@@ -2,6 +2,7 @@
 
 namespace Monotype\Domain\Hal\Dumper;
 
+use Monotype\Domain\Hal\Path;
 use Ramsey\Uuid\Uuid;
 
 /**
@@ -27,11 +28,12 @@ class Stock implements StockInterface
     /**
      * Stock constructor.
      */
-    public function __construct()
+    public function __construct(Path $path)
     {
         $this->setUniqId(Uuid::uuid1());
         $this->setHash(Uuid::uuid1());
-        $this->setPath('var' . DIRECTORY_SEPARATOR . 'temp' . DIRECTORY_SEPARATOR . 'stock' . DIRECTORY_SEPARATOR . $this->uniqId);
+//        $this->setPath('var' . DIRECTORY_SEPARATOR . 'temp' . DIRECTORY_SEPARATOR . 'stock' . DIRECTORY_SEPARATOR . $this->uniqId);
+        $this->setPath($path->getPath());
 
 //        mkdir($this->getPath());
     }

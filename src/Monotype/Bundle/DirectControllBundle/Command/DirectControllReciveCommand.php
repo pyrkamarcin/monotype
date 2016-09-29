@@ -2,8 +2,8 @@
 
 namespace Monotype\Bundle\DirectControllBundle\Command;
 
-use Monotype\Bundle\DirectControllBundle\Entity\Stocks;
 use Monotype\Domain\Hal\Machine;
+use Monotype\Domain\Hal\Path;
 use Monotype\Domain\Hal\Reactor;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
@@ -24,6 +24,7 @@ class DirectControllReciveCommand extends ContainerAwareCommand
             ->setName('dc:recive')
             ->setDescription('...')
             ->addArgument('machine', InputArgument::REQUIRED, 'Machine ID')
+            ->addArgument('path', InputArgument::REQUIRED, 'File path')
             ->addOption('option', null, InputOption::VALUE_NONE, 'Option description');
     }
 
@@ -38,21 +39,21 @@ class DirectControllReciveCommand extends ContainerAwareCommand
             //
         }
 
-        $entityManager = $this->getContainer()->get('doctrine.orm.entity_manager');
-
-        $machine = new Machine($input->getArgument('machine'));
-        $reactor = new Reactor($machine);
+//        $entityManager = $this->getContainer()->get('doctrine.orm.entity_manager');
+//        $stocks = new Stocks();
+//
+//        $stocks->setHash($reactor->stock->stock->getUniqId());
+//        $stocks->setFile($reactor->stock->stock->getPath());
+//        $stocks->setDatetime(new \DateTime('now'));
+//
+//        $entityManager->persist($stocks);
+//        $entityManager->flush();
 
         $output->writeln('Connection start...');
 
-        $stocks = new Stocks();
-
-        $stocks->setHash($reactor->stock->stock->getUniqId());
-        $stocks->setFile($reactor->stock->stock->getPath());
-        $stocks->setDatetime(new \DateTime('now'));
-
-        $entityManager->persist($stocks);
-        $entityManager->flush();
+        $reactor = new Reactor(
+            new Machine($input->getArgument('machine')),
+            new Path($input->getArgument('path')));
 
         $reactor->on();
         $reactor->run();

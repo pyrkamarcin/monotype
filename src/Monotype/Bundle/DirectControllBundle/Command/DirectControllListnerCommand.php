@@ -44,7 +44,7 @@ class DirectControllListnerCommand extends ContainerAwareCommand
         $socket->openStream();
 
         while (!feof($socket->socket)) {
-            $contents = $socket->read(16);
+            $contents = $socket->read(1);
             echo $contents;
         }
 
