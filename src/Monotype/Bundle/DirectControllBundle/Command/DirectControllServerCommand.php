@@ -18,11 +18,6 @@ class DirectControllServerCommand extends ContainerAwareCommand
             ->setDescription('Run loopback socket 127.0.0.1:4001 test server with multiple connection');
     }
 
-    /**
-     * @param InputInterface $input
-     * @param OutputInterface $output
-     * @return Repeater
-     */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $output->writeln('Start socket server');
@@ -31,9 +26,12 @@ class DirectControllServerCommand extends ContainerAwareCommand
         $socket = new \React\Socket\Server($loop);
 
         $socket->on('connection', function ($conn) {
-            echo 'New client !';
+            echo 'New client !' . "\n";
+            $conn->write("Hello there!\n");
+            $conn->write("Welcome to this server!\n");
 
             $conn->on('data', function ($data) use ($conn) {
+                echo $data . "\n";
                 $conn->write($data);
             });
         });
@@ -41,6 +39,5 @@ class DirectControllServerCommand extends ContainerAwareCommand
         $socket->listen(4001);
 
         $loop->run();
-
     }
 }

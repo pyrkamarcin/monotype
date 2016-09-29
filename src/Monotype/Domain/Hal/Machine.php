@@ -30,7 +30,7 @@ class Machine
                     'id' => '0',
                     'name' => 'repeater',
                     'protocol' => 'tcp',
-                    'address' => '192.168.0.56',
+                    'address' => '192.168.100.15',
                     'port' => '4001',
                     'location' => 'none'
                 );
@@ -40,7 +40,7 @@ class Machine
                     'id' => '0',
                     'name' => 'loopback',
                     'protocol' => 'tcp',
-                    'address' => 'localhost',
+                    'address' => '127.0.0.1',
                     'port' => '4001',
                     'location' => 'none'
                 );

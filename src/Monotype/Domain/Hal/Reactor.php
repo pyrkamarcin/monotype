@@ -42,14 +42,16 @@ class Reactor
      */
     protected $port;
 
+
     /**
      * Reactor constructor.
      * @param Machine $machine
+     * @param Path $path
      */
-    public function __construct(Machine $machine)
+    public function __construct(Machine $machine, Path $path)
     {
         $this->buffer = new Buffer();
-        $this->stock = new Dumper(new Stock());
+        $this->stock = new Dumper(new Stock($path));
 
         $this->loop = Factory::create();
 
@@ -86,7 +88,7 @@ class Reactor
             }
 
             if (strpos($buffer->getCache(), PHP_EOL) !== false) {
-                //
+                echo $data;
             }
 
             $stock->stockize($buffer->getCache());
