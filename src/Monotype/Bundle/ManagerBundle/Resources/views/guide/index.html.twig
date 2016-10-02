@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Guide list</h1>
+
+    <table class="ui celled table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Number</th>
+            <th>Date</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for guide in guides %}
+            <tr>
+                <td><a href="{{ path('manager_guide_show', { 'id': guide.id }) }}">{{ guide.id }}</a></td>
+                <td>{{ guide.number }}</td>
+                <td>{% if guide.date %}{{ guide.date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('manager_guide_show', { 'id': guide.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('manager_guide_edit', { 'id': guide.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('manager_guide_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

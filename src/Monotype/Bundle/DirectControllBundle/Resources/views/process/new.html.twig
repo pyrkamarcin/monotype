@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+{% form_theme form 'form/fields.html.twig' %}
+
+{% block body %}
+    <h1>Process creation</h1>
+    {{ form_start(form) }}
+
+    <div>
+        {{ form_label(form.pid) }}
+        {{ form_widget(form.pid) }}
+    </div>
+    <div>
+        {{ form_label(form.script) }}
+        {{ form_widget(form.script) }}
+    </div>
+    <div>
+        {{ form_label(form.uid) }}
+        {{ form_widget(form.uid) }}
+    </div>
+
+    <input type="submit" value="Create"/>
+    {{ form_end(form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('manager_process_index') }}">Back to the list</a>
+        </li>
+    </ul>
+{% endblock %}

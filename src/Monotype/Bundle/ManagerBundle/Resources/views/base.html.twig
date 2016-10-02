@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>{% block title %} {% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+    <style>
+        .first {
+            margin-top: 1em;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/semantic.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/components/site.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/components/container.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/components/divider.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/components/grid.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/components/form.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/components/header.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/components/transition.css') }}">
+
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+</head>
+<body>
+
+<div class="ui attached stackable menu">
+    <div class="ui container">
+        <a class="item" href="{{ path('manager_index') }}"> <i class="home icon"></i> Start </a>
+        <div class="ui simple dropdown item"> Manager <i class="dropdown icon"></i>
+            <div class="menu">
+                <a class="item" href="{{ path('manager_user_index') }}"><i class="edit icon"></i>Użytkownicy</a>
+                <a class="item" href="{{ path('manager_machines_index') }}"><i class="edit icon"></i>Maszyny</a>
+                <a class="item" href="{{ path('manager_process_index') }}"><i class="edit icon"></i>Procesy</a>
+                <a class="item" href="{{ path('manager_stocks_index') }}"><i class="edit icon"></i>Skład</a>
+                <a class="item" href="{{ path('manager_synchro_index') }}"><i class="edit icon"></i>Synchronizacja</a>
+                <a class="item"><i class="settings icon"></i> Ustawienia </a>
+            </div>
+        </div>
+
+        <div class="ui simple dropdown item"> Narzędzia <i class="dropdown icon"></i>
+            <div class="menu">
+                <a class="item" href=""><i class="edit icon"></i>Karty pracy</a>
+                <a class="item" href=""><i class="edit icon"></i>Rozliczenia okresowe</a>
+                <a class="item" href=""><i class="edit icon"></i>Karty przewodnie</a>
+            </div>
+        </div>
+
+        {% if is_granted("ROLE_USER") %}
+            <div class="right menu">
+                <a class="right item" href="{{ url('logout') }}"> Wyloguj ({{ app.user.username }})</a>
+            </div>
+        {% else %}
+            <div class="right menu">
+                <a class="item" href="{{ url('user_registration') }}">Zarejestruj się</a>
+                <a class="item" href="{{ url('login') }}">Zaloguj się</a>
+            </div>
+        {% endif %}
+
+    </div>
+</div>
+
+<div class="ui main container first">
+
+    {% block body %}{% endblock %}
+
+</div>
+
+<script src="{{ asset('assets/librays/jquery.min.js') }}"></script>
+<script src="{{ asset('assets/semantic.js') }}"></script>
+<script src="{{ asset('assets/components/form.js') }}"></script>
+<script src="{{ asset('assets/components/transition.js') }}"></script>
+{% block javascripts %}{% endblock %}
+</body>
+</html>
