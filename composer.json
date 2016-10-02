@@ -33,7 +33,8 @@
     "ramsey/uuid-console": "1.*",
     "moontoast/math": "1.*",
     "gabrielrcouto/php-gui": "0.1.*",
-    "malenki/ansi": "^1.2"
+    "malenki/ansi": "^1.2",
+    "mtype/monotype": "dev-master"
   },
   "require-dev": {
     "sensio/generator-bundle": "3.*",
