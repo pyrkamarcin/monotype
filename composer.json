@@ -26,16 +26,14 @@
     "symfony/security-acl": "3.*",
     "react/async": "1.*",
     "react/react": "0.*",
-    "react/socket": "0.4.*",
     "react/socket-client": "0.5.*",
+    "react/socket": "0.4.*",
     "ramsey/uuid": "3.*",
     "ramsey/uuid-doctrine": "1.*",
     "ramsey/uuid-console": "1.*",
     "moontoast/math": "1.*",
     "gabrielrcouto/php-gui": "0.1.*",
-    "malenki/ansi": "^1.2",
-    "mtype/monotype": "dev-master",
-    "mtype/monotypegui": "dev-master"
+    "malenki/ansi": "^1.2"
   },
   "require-dev": {
     "sensio/generator-bundle": "3.*",
