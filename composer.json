@@ -34,7 +34,8 @@
     "moontoast/math": "1.*",
     "gabrielrcouto/php-gui": "0.1.*",
     "malenki/ansi": "^1.2",
-    "mtype/monotype": "dev-master"
+    "mtype/monotype": "dev-master",
+    "mtype/monotypegui": "dev-master"
   },
   "require-dev": {
     "sensio/generator-bundle": "3.*",
