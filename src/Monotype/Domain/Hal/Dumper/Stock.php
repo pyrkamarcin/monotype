@@ -25,23 +25,25 @@ class Stock implements StockInterface
      */
     private $hash;
 
+
     /**
      * Stock constructor.
+     * @param Path $path
      */
     public function __construct(Path $path)
     {
-
-        /**
-         * @TODO: sprawdzić czy uuid'y są jeszcze potrzebne!
-         */
-        $this->setUniqId(Uuid::uuid1());
-        $this->setHash(Uuid::uuid1());
-        $this->setPath($path->getPath());
-
-        /**
-         * @TODO: mkdir? Po co?
-         */
-//        mkdir($this->getPath());
+//
+//        /**
+//         * @TODO: sprawdzić czy uuid'y są jeszcze potrzebne!
+//         */
+//        $this->setUniqId(Uuid::uuid1());
+//        $this->setHash(Uuid::uuid1());
+//        $this->setPath($path->getPath());
+//
+//        /**
+//         * @TODO: mkdir? Po co?
+//         */
+////        mkdir($this->getPath());
     }
 
     /**
@@ -66,9 +68,9 @@ class Stock implements StockInterface
      */
     public function push($data = null)
     {
-        /**
-         * @TODO: chyba nie są... ?
-         */
+//        /**
+//         * @TODO: chyba nie są... ?
+//         */
 //        $this->setHash(Uuid::uuid1() . "_" . Uuid::uuid5(Uuid::NAMESPACE_DNS, $data));
 //        $this->setHash(Uuid::uuid1());
         file_put_contents($this->getPath(), $data, FILE_APPEND);
