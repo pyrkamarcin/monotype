@@ -1,10 +1,10 @@
 <?php
 
-namespace Monotype\Domain\Hal\Dumper;
+namespace Monotype\Domain\Dumper;
 
 /**
  * Interface StockInterface
- * @package Monotype\Domain\Hal\Dumper
+ * @package Monotype\Domain\Dumper
  */
 interface StockInterface
 {

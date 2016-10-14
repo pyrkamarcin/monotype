@@ -1,10 +1,10 @@
 <?php
 
-namespace Monotype\Domain\Hal\Tools;
+namespace Monotype\Domain\Tools;
 
 /**
  * Class Repeater
- * @package Monotype\Domain\Hal
+ * @package Monotype\Domain
  */
 class Repeater
 {

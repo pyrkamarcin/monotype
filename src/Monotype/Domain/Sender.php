@@ -1,10 +1,10 @@
 <?php
 
-namespace Monotype\Domain\Hal;
+namespace Monotype\Domain;
 
 /**
  * Class Cannon
- * @package Monotype\Domain\Hal
+ * @package Monotype\Domain
  */
 class Sender
 {

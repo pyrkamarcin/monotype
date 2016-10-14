@@ -1,10 +1,10 @@
 <?php
 
-namespace Monotype\Domain\Hal;
+namespace Monotype\Domain;
 
 /**
  * Class Machine
- * @package Monotype\Domain\Hal
+ * @package Monotype\Domain
  */
 class Machine
 {

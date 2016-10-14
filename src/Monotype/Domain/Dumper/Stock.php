@@ -1,12 +1,12 @@
 <?php
 
-namespace Monotype\Domain\Hal\Dumper;
+namespace Monotype\Domain\Dumper;
 
-use Monotype\Domain\Hal\Path;
+use Monotype\Domain\Path;
 
 /**
  * Class Stock
- * @package Monotype\Domain\Hal\Dumper
+ * @package Monotype\Domain\Dumper
  */
 class Stock implements StockInterface
 {

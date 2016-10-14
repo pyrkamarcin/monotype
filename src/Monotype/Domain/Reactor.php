@@ -1,20 +1,20 @@
 <?php
 
-namespace Monotype\Domain\Hal;
+namespace Monotype\Domain;
 
-use Monotype\Domain\Hal\Connector\Buffer;
-use Monotype\Domain\Hal\Dumper\Stock;
+use Monotype\Domain\Connector\Buffer;
+use Monotype\Domain\Dumper\Stock;
 use React\EventLoop\Factory;
 use React\Stream\Stream;
 
 /**
  * Class Reactor
- * @package Monotype\Domain\Hal
+ * @package Monotype\Domain
  */
 class Reactor
 {
     /**
-     * @var \Monotype\Domain\Hal\Connector\Buffer
+     * @var \Monotype\Domain\Connector\Buffer
      */
     public $buffer;
 
@@ -29,7 +29,7 @@ class Reactor
     public $socket;
 
     /**
-     * @var \Monotype\Domain\Hal\Dumper
+     * @var \Monotype\Domain\Dumper
      */
     public $stock;
 

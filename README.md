@@ -1,1 +1,1 @@
-# MonotypeInstaller
+# Monotype

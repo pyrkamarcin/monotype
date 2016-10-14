@@ -2,9 +2,9 @@
 
 namespace Monotype\Bundle\DirectControllBundle\Command;
 
-use Monotype\Domain\Hal\Machine;
-use Monotype\Domain\Hal\Path;
-use Monotype\Domain\Hal\Reactor;
+use Monotype\Domain\Machine;
+use Monotype\Domain\Path;
+use Monotype\Domain\Reactor;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;

@@ -1,12 +1,12 @@
 <?php
 
-namespace Monotype\Domain\Hal;
+namespace Monotype\Domain;
 
-use Monotype\Domain\Hal\Dumper\Stock;
+use Monotype\Domain\Dumper\Stock;
 
 /**
  * Class Dumper
- * @package Monotype\Domain\Hal
+ * @package Monotype\Domain
  */
 class Dumper
 {

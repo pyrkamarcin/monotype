@@ -1,10 +1,10 @@
 <?php
 
-namespace Monotype\Domain\Hal\Connector;
+namespace Monotype\Domain\Connector;
 
 /**
  * Class Socket
- * @package Monotype\Bundle\HalBundle\Utils
+ * @package Monotype\BundleBundle\Utils
  */
 class Socket
 {

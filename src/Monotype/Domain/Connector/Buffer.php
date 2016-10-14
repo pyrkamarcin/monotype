@@ -1,10 +1,10 @@
 <?php
 
-namespace Monotype\Domain\Hal\Connector;
+namespace Monotype\Domain\Connector;
 
 /**
  * Class Buffer
- * @package Monotype\Domain\Hal\Connector
+ * @package Monotype\Domain\Connector
  */
 class Buffer
 {

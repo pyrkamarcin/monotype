@@ -2,8 +2,8 @@
 
 namespace Monotype\Bundle\DirectControllBundle\Command;
 
-use Monotype\Domain\Hal\Connector;
-use Monotype\Domain\Hal\Machine;
+use Monotype\Domain\Connector;
+use Monotype\Domain\Machine;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
