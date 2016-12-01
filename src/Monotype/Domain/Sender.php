@@ -2,6 +2,10 @@
 
 namespace Monotype\Domain;
 
+use React\EventLoop\Factory;
+use React\SocketClient\TcpConnector;
+use React\Stream\Stream;
+
 /**
  * Class Cannon
  * @package Monotype\Domain
@@ -44,11 +48,11 @@ class Sender
     public function sendAsReact($data)
     {
 
-        $loop = \React\EventLoop\Factory::create();
+        $loop = Factory::create();
 
-        $tcpConnector = new \React\SocketClient\TcpConnector($loop);
+        $tcpConnector = new TcpConnector($loop);
 
-        $tcpConnector->create('127.0.0.1', 4001)->then(function (\React\Stream\Stream $stream) use ($data) {
+        $tcpConnector->create('127.0.0.1', 4001)->then(function (Stream $stream) use ($data) {
             $stream->write($data);
             $stream->end();
         });

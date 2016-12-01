@@ -109,7 +109,10 @@ class Socket
         /**
          * @TODO: czemu fputs a nie fwrite? Uprawnienia dostępu czy co?
          */
-        fputs($this->socket, $message, $length);
+        if (isset($this->socket)) {
+
+            fputs($this->socket, $message, $length);
+        }
 //        fwrite($this->socket, $message, $length);
     }
 
@@ -119,7 +122,10 @@ class Socket
      */
     public function read($buffor)
     {
-        return fread($this->socket, $buffor);
+        if (isset($this->socket)) {
+
+            return fread($this->socket, $buffor);
+        }
     }
 
     /**
@@ -128,6 +134,7 @@ class Socket
     public function openStream()
     {
         $socket = stream_socket_client($this->socket, $errno, $errstr);
+
         if (!$socket) {
             throw new \Exception("Can't open socket.");
         } else {
@@ -141,7 +148,10 @@ class Socket
     public function closeStream()
     {
         if ($this->socket) {
-            fclose($this->socket);
+
+            if (isset($this->socket)) {
+                fclose($this->socket);
+            }
         } else {
             throw new \Exception("Can't closed socket. There have been opened.");
         }

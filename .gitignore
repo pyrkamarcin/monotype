@@ -23,3 +23,5 @@
 .idea
 /web/bundles
 /app/data.db3
+/Vagrantfile
+/.vagrant/
