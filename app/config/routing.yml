@@ -1,8 +1,3 @@
-monotype_gui:
-    resource: "@MonotypeGUIBundle/Controller/"
-    type:     annotation
-    prefix:   /
-
 monotype_manager_technology:
     resource: "@MonotypeManagerBundle/Controller/TechnologyController.php"
     type:     annotation
@@ -58,16 +53,6 @@ monotype_bowman_process:
 monotype_bowman_synchro:
     resource: "@MonotypeDirectControllBundle/Controller/SynchroController.php"
     type:     annotation
-
-monotype_pos:
-    resource: "@MonotypePosBundle/Controller/"
-    type:     annotation
-    prefix:   /
-
-monotype_utility:
-    resource: "@MonotypeUtilityBundle/Controller/"
-    type:     annotation
-    prefix:
 
 monotype_manager_bundle:
     resource: "@MonotypeManagerBundle/Controller/"
