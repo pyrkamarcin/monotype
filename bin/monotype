@@ -1,0 +1,19 @@
+#!/usr/bin/env php
+<?php
+
+$loader = require __DIR__ . '/../app/autoload.php';
+
+use Symfony\Component\Console\Application;
+
+$application = new Application();
+
+$application->add(new \Monotype\Bundle\DirectControllBundle\Command\DirectControllListnerCommand());
+$application->add(new \Monotype\Bundle\DirectControllBundle\Command\DirectControllReciveCommand());
+$application->add(new \Monotype\Bundle\DirectControllBundle\Command\DirectControllRepeaterRunCommand());
+$application->add(new \Monotype\Bundle\DirectControllBundle\Command\DirectControllSendCommand());
+$application->add(new \Monotype\Bundle\DirectControllBundle\Command\DirectControllServerCommand());
+$application->add(new \Monotype\Bundle\DirectControllBundle\Command\ProcessKillCommand());
+$application->add(new \Monotype\Bundle\DirectControllBundle\Command\ProcessStartCommand());
+$application->add(new \Monotype\Bundle\DirectControllBundle\Command\ProcessTestCommand());
+
+$application->run();

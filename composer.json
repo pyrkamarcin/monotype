@@ -4,6 +4,9 @@
   "type": "project",
   "description": "",
   "autoload": {
+    "psr-4": {
+      "Monotype\\": "src/Monotype"
+    },
     "classmap": [
       "app/AppKernel.php",
       "app/AppCache.php"
