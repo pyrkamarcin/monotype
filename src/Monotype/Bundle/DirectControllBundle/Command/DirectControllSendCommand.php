@@ -2,7 +2,7 @@
 
 namespace Monotype\Bundle\DirectControllBundle\Command;
 
-use Monotype\Domain\Machine;
+use Monotype\Domain\Model\Machine;
 use Monotype\Domain\Sender;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
@@ -46,13 +46,15 @@ class DirectControllSendCommand extends ContainerAwareCommand
 
         $output->writeln('Connection start...');
 
-        $reactor = new Sender(new Machine($input->getArgument('machine')));
+        $reactor = new Sender(new Machine([
+            'id' => $input->getArgument('machine'),
+            'name' => 'test',
+            'protocol' => 'tcp',
+            'address' => '127.0.0.1',
+            'port' => '4001',
+            'location' => 'main'
+        ]));
 
-        /**
-         * @TODO: są dwie opcje (react lub przez socket) sprawdzić i wybrać
-         */
-        $reactor->send($data);
-        // lub
         $reactor->sendAsReact($data);
 
         return true;

@@ -2,38 +2,23 @@
 
 namespace Monotype\Domain;
 
+use Monotype\Domain\Model\Machine;
 use React\EventLoop\Factory;
 use React\SocketClient\TcpConnector;
 use React\Stream\Stream;
 
-/**
- * Class Cannon
- * @package Monotype\Domain
- */
 class Sender
 {
-    /**
-     * @var mixed
-     */
     public $address;
-    /**
-     * @var mixed
-     */
+
     public $port;
 
-    /**
-     * Cannon constructor.
-     * @param Machine $machine
-     */
     public function __construct(Machine $machine)
     {
         $this->address = $machine->getAddress();
         $this->port = $machine->getPort();
     }
 
-    /**
-     * @param $data
-     */
     public function send($data)
     {
         $fp = stream_socket_client($this->address . ":" . $this->port, $errno, $errstr, $this->port);
@@ -50,7 +35,7 @@ class Sender
 
         $loop = Factory::create();
 
-        $tcpConnector = new TcpConnector($loop);
+        $tcpConnector = new TcpConnector($loop, [$data]);
 
         $tcpConnector->create('127.0.0.1', 4001)->then(function (Stream $stream) use ($data) {
             $stream->write($data);

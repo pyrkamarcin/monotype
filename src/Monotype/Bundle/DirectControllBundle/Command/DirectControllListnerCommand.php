@@ -41,8 +41,7 @@ class DirectControllListnerCommand extends ContainerAwareCommand
             'protocol' => 'tcp',
             'address' => '192.168.100.100',
             'port' => '4001',
-            'location' => 'main',
-
+            'location' => 'main'
         ]);
 
         $socket = new Socket($machine->getProtocol(), $machine->getAddress(), $machine->getPort());
