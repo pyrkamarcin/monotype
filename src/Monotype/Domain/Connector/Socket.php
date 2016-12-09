@@ -70,7 +70,7 @@ class Socket
     /**
      * @return string
      */
-    private function composeSocket()
+    private function composeSocket(): string
     {
         return $this->getProtocol() . '://' . $this->getAddress() . ':' . $this->getPort();
     }
@@ -105,10 +105,6 @@ class Socket
      */
     public function write($message, $length)
     {
-
-        /**
-         * @TODO: czemu fputs a nie fwrite? Uprawnienia dostępu czy co?
-         */
         if (isset($this->socket)) {
 
             fwrite($this->socket, $message, $length);
