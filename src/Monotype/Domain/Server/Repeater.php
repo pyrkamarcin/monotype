@@ -38,10 +38,7 @@ class Repeater
         $this->port = $port;
     }
 
-    /**
-     * @throws \Exception
-     */
-    function run()
+    public function run()
     {
 
         $this->socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
