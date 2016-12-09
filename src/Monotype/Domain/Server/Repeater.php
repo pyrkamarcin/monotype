@@ -38,6 +38,9 @@ class Repeater
         $this->port = $port;
     }
 
+    /**
+     * @throws \Exception
+     */
     function run()
     {
 

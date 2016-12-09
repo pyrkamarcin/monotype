@@ -4,6 +4,8 @@ namespace Monotype\Domain;
 
 use Monotype\Domain\Connector\Buffer;
 use Monotype\Domain\Dumper\Stock;
+use Monotype\Domain\Model\Machine;
+use Monotype\Domain\Model\Path;
 use React\EventLoop\Factory;
 use React\Stream\Stream;
 
@@ -41,7 +43,6 @@ class Reactor
      * @var mixed
      */
     protected $port;
-
 
     /**
      * Reactor constructor.
