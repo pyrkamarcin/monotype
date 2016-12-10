@@ -29,7 +29,7 @@ class DirectControllServerCommand extends ContainerAwareCommand
 
         $http->on('request', function ($request, $response) {
 
-            dump($request);
+            var_dump($request);
             $response->writeHead(200, array('Content-Type' => 'text/plain'));
             $response->end("Hello World\n");
         });
