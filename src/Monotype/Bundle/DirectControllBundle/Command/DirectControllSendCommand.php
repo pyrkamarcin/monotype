@@ -25,7 +25,6 @@ class DirectControllSendCommand extends ContainerAwareCommand
         $this
             ->setName('dc:send')
             ->setDescription('...')
-            ->addArgument('machine', InputArgument::OPTIONAL, 'Machine ID')
             ->addArgument('data', InputArgument::OPTIONAL, 'Data')
             ->addOption('file', null, InputOption::VALUE_NONE, 'Option description');
     }
@@ -47,7 +46,7 @@ class DirectControllSendCommand extends ContainerAwareCommand
         $output->writeln('Connection start...');
 
         $reactor = new Sender(new Machine([
-            'id' => $input->getArgument('machine'),
+            'id' => '1',
             'name' => 'test',
             'protocol' => 'tcp',
             'address' => '192.168.0.58',
