@@ -9,7 +9,7 @@ $application = new Application();
 
 $application->add(new \Monotype\Bundle\DirectControllBundle\Command\DirectControllListnerCommand());
 $application->add(new \Monotype\Bundle\DirectControllBundle\Command\DirectControllReciveCommand());
-$application->add(new \Monotype\Bundle\DirectControllBundle\Command\DirectControllRepeaterRunCommand());
+$application->add(new \Monotype\Bundle\DirectControllBundle\Command\DirectControllRepeaterCommand());
 $application->add(new \Monotype\Bundle\DirectControllBundle\Command\DirectControllSendCommand());
 $application->add(new \Monotype\Bundle\DirectControllBundle\Command\DirectControllServerCommand());
 $application->add(new \Monotype\Bundle\DirectControllBundle\Command\ProcessKillCommand());

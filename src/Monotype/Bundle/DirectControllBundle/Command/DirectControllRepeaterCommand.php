@@ -8,10 +8,10 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
- * Class DirectControllRepeaterRunCommand
+ * Class DirectControllRepeaterCommand
  * @package Monotype\Bundle\DirectControllBundle\Command
  */
-class DirectControllRepeaterRunCommand extends ContainerAwareCommand
+class DirectControllRepeaterCommand extends ContainerAwareCommand
 {
     /**
      *
@@ -20,7 +20,7 @@ class DirectControllRepeaterRunCommand extends ContainerAwareCommand
     protected function configure()
     {
         $this
-            ->setName('dc:repeater:run')
+            ->setName('dc:repeater')
             ->setDescription('Run loopback socket 0.0.0.0:4001 test server with multiple connection');
     }
 
