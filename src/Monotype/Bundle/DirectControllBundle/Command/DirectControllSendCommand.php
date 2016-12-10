@@ -3,7 +3,7 @@
 namespace Monotype\Bundle\DirectControllBundle\Command;
 
 use Monotype\Domain\Model\Machine;
-use Monotype\Domain\Sender;
+use Monotype\Domain\Server\Sender;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -25,7 +25,7 @@ class DirectControllSendCommand extends ContainerAwareCommand
         $this
             ->setName('dc:send')
             ->setDescription('...')
-            ->addArgument('machine', InputArgument::REQUIRED, 'Machine ID')
+            ->addArgument('machine', InputArgument::OPTIONAL, 'Machine ID')
             ->addArgument('data', InputArgument::OPTIONAL, 'Data')
             ->addOption('file', null, InputOption::VALUE_NONE, 'Option description');
     }
@@ -50,7 +50,7 @@ class DirectControllSendCommand extends ContainerAwareCommand
             'id' => $input->getArgument('machine'),
             'name' => 'test',
             'protocol' => 'tcp',
-            'address' => '127.0.0.1',
+            'address' => '192.168.0.58',
             'port' => '4001',
             'location' => 'main'
         ]));
