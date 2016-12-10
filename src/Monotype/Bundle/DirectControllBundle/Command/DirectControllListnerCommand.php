@@ -5,7 +5,6 @@ namespace Monotype\Bundle\DirectControllBundle\Command;
 use Monotype\Domain\Connector\Socket;
 use Monotype\Domain\Model\Machine;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -23,7 +22,6 @@ class DirectControllListnerCommand extends ContainerAwareCommand
         $this
             ->setName('dc:listner')
             ->setDescription('...')
-            ->addArgument('machine', InputArgument::REQUIRED, 'Machine ID')
             ->addOption('option', null, InputOption::VALUE_NONE, 'Option description');
     }
 
@@ -36,10 +34,10 @@ class DirectControllListnerCommand extends ContainerAwareCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $machine = new Machine([
-            'id' => $input->getArgument('machine'),
+            'id' => '1',
             'name' => 'test',
             'protocol' => 'tcp',
-            'address' => '192.168.100.100',
+            'address' => '192.168.0.58',
             'port' => '4001',
             'location' => 'main'
         ]);

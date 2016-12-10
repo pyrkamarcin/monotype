@@ -2,8 +2,8 @@
 
 namespace Monotype\Bundle\DirectControllBundle\Command;
 
-use Monotype\Domain\Machine;
-use Monotype\Domain\Path;
+use Monotype\Domain\Model\Machine;
+use Monotype\Domain\Model\Path;
 use Monotype\Domain\Reactor;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
@@ -53,8 +53,13 @@ class DirectControllReciveCommand extends ContainerAwareCommand
         $output->writeln('Connection start...');
 
         $reactor = new Reactor(
-            new Machine($input->getArgument('machine')),
-            new Path($input->getArgument('path')));
+            new Machine(['id' => '1',
+                'name' => 'test',
+                'protocol' => 'tcp',
+                'address' => '192.168.0.58',
+                'port' => '4001',
+                'location' => 'main']),
+            new Path(['location' => $input->getArgument('path')]));
 
         $reactor->on();
         $reactor->run();
