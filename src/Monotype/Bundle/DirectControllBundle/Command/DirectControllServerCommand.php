@@ -28,6 +28,8 @@ class DirectControllServerCommand extends ContainerAwareCommand
 //        $http = new \React\Http\Server($socket, $loop);
 
         $socket->on('request', function ($request, $response) {
+
+            echo $request;
             $response->writeHead(200, array('Content-Type' => 'text/plain'));
             $response->end("Hello World\n");
         });
