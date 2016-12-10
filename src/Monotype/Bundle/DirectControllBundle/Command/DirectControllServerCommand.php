@@ -26,19 +26,20 @@ class DirectControllServerCommand extends ContainerAwareCommand
         $loop = \React\EventLoop\Factory::create();
         $socket = new \React\Socket\Server($loop);
 
-        $socket->on('connection', function ($conn) {
-            echo 'New client !' . "\n";
-            $conn->write("Hello there!\n");
-            $conn->write("Welcome to this server!\n");
 
-            $conn->on('data', function ($data) use ($conn) {
-                echo $data . "\n";
-                $conn->write($data);
-            });
-        });
+        $app = function ($request, $response) {
+            $response->writeHead(200, array('Content-Type' => 'text/plain'));
+            $response->end("Hello World\n");
+        };
+
+        $loop = \React\EventLoop\Factory::create();
+        $socket = new \React\Socket\Server($loop);
+        $http = new \React\Http\Server($socket, $loop);
+
+        $http->on('request', $app);
+        echo "Server running at http://127.0.0.1:4001\n";
 
         $socket->listen(4001);
-
         $loop->run();
     }
 }
