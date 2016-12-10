@@ -25,14 +25,14 @@
     "symfony/symfony": "3.*",
     "symfony/security-acl": "3.*",
     "react/socket-client": "dev-master",
-    "react/http": "0.4.*",
+    "react/http": "dev-master",
+    "react/stream": "dev-master",
     "ramsey/uuid": "3.*",
     "ramsey/uuid-doctrine": "1.*",
     "ramsey/uuid-console": "1.*",
     "moontoast/math": "1.*",
     "mockery/mockery": "^0.9",
     "phpunit/phpunit": "^5.7",
-    "symfony/var-dumper": "3.2.*",
     "roave/security-advisories": "dev-master"
   },
   "require-dev": {
