@@ -69,8 +69,6 @@ class Repeater
                 $this->clients[] = $newc;
 
             }
-            socket_write($this->socket, 'test', strlen(4));
-
         }
     }
 
