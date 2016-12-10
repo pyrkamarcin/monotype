@@ -56,7 +56,7 @@ class DirectControllReciveCommand extends ContainerAwareCommand
             new Machine(['id' => '1',
                 'name' => 'test',
                 'protocol' => 'tcp',
-                'address' => '192.168.0.58',
+                'address' => '0.0.0.0',
                 'port' => '4001',
                 'location' => 'main']),
             new Path(['location' => $input->getArgument('path')]));
