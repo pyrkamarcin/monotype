@@ -39,7 +39,7 @@ class DirectControllServerCommand extends ContainerAwareCommand
         $http->on('request', $app);
         echo "Server running at http://127.0.0.1:4001\n";
 
-        $socket->listen(4001);
+        $socket->listen(4001, '0.0.0.0');
         $loop->run();
     }
 }
