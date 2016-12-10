@@ -25,9 +25,9 @@ class DirectControllServerCommand extends ContainerAwareCommand
 
         $loop = \React\EventLoop\Factory::create();
         $socket = new \React\Socket\Server($loop);
-//        $http = new \React\Http\Server($socket, $loop);
+        $http = new \React\Http\Server($socket, $loop);
 
-        $socket->on('request', function ($request, $response) {
+        $http->on('request', function ($request, $response) {
 
             echo $request;
             $response->writeHead(200, array('Content-Type' => 'text/plain'));
