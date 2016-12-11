@@ -5,7 +5,7 @@ $loader = require __DIR__ . '/../app/autoload.php';
 
 use Symfony\Component\Console\Application;
 
-$application = new Application();
+$application = new Application('Monotype data transfer system', 'dev-master');
 
 $application->add(new \Monotype\Bundle\DirectControllBundle\Command\DirectControllListnerCommand());
 $application->add(new \Monotype\Bundle\DirectControllBundle\Command\DirectControllReciveCommand());
