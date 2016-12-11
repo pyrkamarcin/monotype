@@ -49,7 +49,7 @@ class SendCommand extends ContainerAwareCommand
             'id' => '1',
             'name' => 'test',
             'protocol' => 'tcp',
-            'address' => '192.168.100.114',
+            'address' => '192.168.0.114',
             'port' => '4001',
             'location' => 'main'
         ]));
