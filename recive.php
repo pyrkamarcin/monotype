@@ -17,6 +17,7 @@ $socket->on('connection', function (\React\Socket\Connection $conn) use ($dnsRes
         if (strpos($buffer, PHP_EOL) !== false) {
             $hostnames = explode(PHP_EOL, $buffer);
             $buffer = array_pop($hostnames);
+            echo $data;
             foreach ($hostnames as $hostname) {
                 $hostname = trim($hostname);
                 $dnsResolver->resolve($hostname)->then(function ($ip) use ($conn, $hostname) {
