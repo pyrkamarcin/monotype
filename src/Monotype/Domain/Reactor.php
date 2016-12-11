@@ -81,6 +81,8 @@ class Reactor
         $conn = new Stream($client, $this->loop);
         $conn->on('data', function ($data) use ($conn, $buffer, $stock) {
 
+            echo $data;
+
             $buffer->setCache($data);
 
             if (strspn($buffer->getCache(), 'close')) {

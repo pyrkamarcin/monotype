@@ -27,8 +27,8 @@ class ReciveCommand extends ContainerAwareCommand
         $this
             ->setName('recive')
             ->setDescription('...')
-            ->addArgument('machine', InputArgument::REQUIRED, 'Machine ID')
-            ->addArgument('path', InputArgument::REQUIRED, 'File path')
+            ->addArgument('machine', InputArgument::OPTIONAL, 'Machine ID')
+            ->addArgument('path', InputArgument::OPTIONAL, 'File path')
             ->addOption('option', null, InputOption::VALUE_NONE, 'Option description');
     }
 
@@ -40,30 +40,16 @@ class ReciveCommand extends ContainerAwareCommand
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        /**
-         * @TODO: Wyłączyłem zapis w bazie o dodawaniu czegoś przez stocks. Całe trzeba wyrzucić i loger z prawdziwego zdarzenia zrobić.
-         */
-
-//        $entityManager = $this->getContainer()->get('doctrine.orm.entity_manager');
-//        $stocks = new Stocks();
-//
-//        $stocks->setHash($reactor->stock->stock->getUniqId());
-//        $stocks->setFile($reactor->stock->stock->getPath());
-//        $stocks->setDatetime(new \DateTime('now'));
-//
-//        $entityManager->persist($stocks);
-//        $entityManager->flush();
-
         $output->writeln('Connection start...');
 
         $reactor = new Reactor(
             new Machine(['id' => '1',
                 'name' => 'test',
                 'protocol' => 'tcp',
-                'address' => '0.0.0.0',
+                'address' => '192.168.100.113',
                 'port' => '4001',
                 'location' => 'main']),
-            new Path(['location' => $input->getArgument('path')]));
+            new Path(['location' => __DIR__ . '/tmp.txt']));
 
         $reactor->on();
         $reactor->run();

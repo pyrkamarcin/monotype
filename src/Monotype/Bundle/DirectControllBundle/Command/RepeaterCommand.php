@@ -2,6 +2,7 @@
 
 namespace Monotype\Bundle\DirectControllBundle\Command;
 
+use Monotype\Domain\Server\Repeater;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -32,12 +33,7 @@ class RepeaterCommand extends ContainerAwareCommand
     {
         $output->writeln('Start socket server');
 
-        $loop = \React\EventLoop\Factory::create();
-        $source = new \React\Stream\Stream(fsockopen('omg.txt', 'r'), $loop);
-        $dest = new \React\Stream\Stream(fopen('wtf.txt', 'w'), $loop);
-
-        $source->pipe($dest);
-
-        $loop->run();
+        $repeater = new Repeater('192.168.100.113', 4001);
+        $repeater->run();
     }
 }

@@ -44,7 +44,7 @@ class ListnerCommand extends ContainerAwareCommand
             'id' => '1',
             'name' => 'test',
             'protocol' => 'tcp',
-            'address' => '192.168.0.58',
+            'address' => '192.168.100.113',
             'port' => '4001',
             'location' => 'main'
         ]);
