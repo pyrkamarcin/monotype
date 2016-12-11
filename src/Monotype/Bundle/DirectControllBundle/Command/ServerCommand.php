@@ -6,7 +6,11 @@ use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class DirectControllServerCommand extends ContainerAwareCommand
+/**
+ * Class ServerCommand
+ * @package Monotype\Bundle\DirectControllBundle\Command
+ */
+class ServerCommand extends ContainerAwareCommand
 {
     /**
      *
@@ -15,10 +19,15 @@ class DirectControllServerCommand extends ContainerAwareCommand
     protected function configure()
     {
         $this
-            ->setName('dc:server')
+            ->setName('server')
             ->setDescription('Run loopback socket 127.0.0.1:4001 test server with multiple connection');
     }
 
+    /**
+     * @param InputInterface $input
+     * @param OutputInterface $output
+     * @return int|null|void
+     */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $output->writeln('Start socket server');

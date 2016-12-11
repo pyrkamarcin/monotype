@@ -2,20 +2,24 @@
 
 namespace Monotype\Bundle\DirectControllBundle\Command;
 
+use Monotype\Domain\Connector\Socket;
 use Monotype\Domain\Model\Machine;
-use Monotype\Domain\Server\Sender;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
- * Class DirectControllSendCommand
+ * Class ListnerCommand
  * @package Monotype\Bundle\DirectControllBundle\Command
  */
-class DirectControllSendCommand extends ContainerAwareCommand
+class ListnerCommand extends ContainerAwareCommand
 {
+    /**
+     * @var
+     */
+    protected $em;
+
     /**
      *
      * @throws \Symfony\Component\Console\Exception\InvalidArgumentException
@@ -23,39 +27,34 @@ class DirectControllSendCommand extends ContainerAwareCommand
     protected function configure()
     {
         $this
-            ->setName('dc:send')
+            ->setName('listner')
             ->setDescription('...')
-            ->addArgument('data', InputArgument::OPTIONAL, 'Data')
-            ->addOption('file', null, InputOption::VALUE_NONE, 'Option description');
+            ->addOption('option', null, InputOption::VALUE_NONE, 'Option description');
     }
 
     /**
      * @param InputInterface $input
      * @param OutputInterface $output
-     * @return boolean
-     * @throws \Symfony\Component\Console\Exception\InvalidArgumentException
+     * @return int|null|void
+     * @throws \Exception
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        if ($input->getOption('file')) {
-            $data = file_get_contents($input->getArgument('data'));
-        } else {
-            $data = $input->getArgument('data');
-        }
-
-        $output->writeln('Connection start...');
-
-        $reactor = new Sender(new Machine([
+        $machine = new Machine([
             'id' => '1',
             'name' => 'test',
             'protocol' => 'tcp',
             'address' => '192.168.0.58',
             'port' => '4001',
             'location' => 'main'
-        ]));
+        ]);
 
-        $reactor->sendAsReact($data);
+        $socket = new Socket($machine->getProtocol(), $machine->getAddress(), $machine->getPort());
+        $socket->openStream();
 
-        return true;
+        while (!feof($socket->socket)) {
+            $contents = $socket->read(1);
+            echo $contents;
+        }
     }
 }

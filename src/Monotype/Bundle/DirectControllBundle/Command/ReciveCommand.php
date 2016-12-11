@@ -12,16 +12,20 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
- * Class DirectControllReciveCommand
+ * Class ReciveCommand
  * @package Monotype\Bundle\DirectControllBundle\Command
  */
-class DirectControllReciveCommand extends ContainerAwareCommand
+class ReciveCommand extends ContainerAwareCommand
 {
 
+    /**
+     *
+     * @throws \Symfony\Component\Console\Exception\InvalidArgumentException
+     */
     protected function configure()
     {
         $this
-            ->setName('dc:recive')
+            ->setName('recive')
             ->setDescription('...')
             ->addArgument('machine', InputArgument::REQUIRED, 'Machine ID')
             ->addArgument('path', InputArgument::REQUIRED, 'File path')
@@ -31,7 +35,7 @@ class DirectControllReciveCommand extends ContainerAwareCommand
     /**
      * @param InputInterface $input
      * @param OutputInterface $output
-     * @return boolean
+     * @return int|null|void
      * @throws \Symfony\Component\Console\Exception\InvalidArgumentException
      */
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -63,7 +67,5 @@ class DirectControllReciveCommand extends ContainerAwareCommand
 
         $reactor->on();
         $reactor->run();
-
-        return true;
     }
 }

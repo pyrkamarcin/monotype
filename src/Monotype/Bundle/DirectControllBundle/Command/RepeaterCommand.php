@@ -5,13 +5,12 @@ namespace Monotype\Bundle\DirectControllBundle\Command;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Process\Process;
 
 /**
- * Class ProcessTestCommand
+ * Class RepeaterCommand
  * @package Monotype\Bundle\DirectControllBundle\Command
  */
-class ProcessTestCommand extends ContainerAwareCommand
+class RepeaterCommand extends ContainerAwareCommand
 {
     /**
      *
@@ -20,27 +19,25 @@ class ProcessTestCommand extends ContainerAwareCommand
     protected function configure()
     {
         $this
-            ->setName('process:test')
-            ->setDescription('Run test bash process');
+            ->setName('repeater')
+            ->setDescription('Run loopback socket 0.0.0.0:4001 test server with multiple connection');
     }
 
     /**
      * @param InputInterface $input
      * @param OutputInterface $output
-     * @return bool
-     * @throws \Symfony\Component\Process\Exception\LogicException
-     * @throws \Symfony\Component\Process\Exception\RuntimeException
+     * @return int|null|void
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $process = new Process('watch df -h');
-        $process->start();
+        $output->writeln('Start socket server');
 
-        $pid = $process->getPid();
+        $loop = \React\EventLoop\Factory::create();
+        $source = new \React\Stream\Stream(fsockopen('omg.txt', 'r'), $loop);
+        $dest = new \React\Stream\Stream(fopen('wtf.txt', 'w'), $loop);
 
-        $output->writeln('Command result:');
-        $output->writeln('PID: ' . $pid . PHP_EOL);
+        $source->pipe($dest);
 
-        return true;
+        $loop->run();
     }
 }
