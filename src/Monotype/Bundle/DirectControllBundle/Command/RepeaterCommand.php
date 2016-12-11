@@ -33,7 +33,7 @@ class RepeaterCommand extends ContainerAwareCommand
     {
         $output->writeln('Start socket server');
 
-        $repeater = new Repeater('192.168.100.113', 4001);
+        $repeater = new Repeater('0.0.0.0', 4001);
         $repeater->run();
     }
 }

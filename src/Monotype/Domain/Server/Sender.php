@@ -54,7 +54,7 @@ class Sender
     {
         $loop = Factory::create();
 
-        $tcpConnector = new TcpConnector($loop, [$data]);
+        $tcpConnector = new TcpConnector($loop);
 
         $tcpConnector->create($this->address, $this->port)->then(function (Stream $stream) use ($data) {
             $stream->write($data);

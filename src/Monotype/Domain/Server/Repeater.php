@@ -67,7 +67,6 @@ class Repeater
             if (($newc = socket_accept($this->socket)) !== false) {
                 echo "Client $newc has connected\n";
                 $this->clients[] = $newc;
-
             }
         }
     }
