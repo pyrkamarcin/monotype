@@ -30,11 +30,10 @@ class ServerListening
         $this->factory = new \React\Datagram\Factory($this->loop);
 
         $this->factory->createServer($host . ':' . $port)->then(function (\React\Datagram\Socket $client) {
-            $client->send('first');
-
             $client->on('message', function ($message, $serverAddress, $client) {
                 echo 'received "' . $message . '" from ' . $serverAddress . PHP_EOL;
             });
+            $client->send('response test');
         });
     }
 
