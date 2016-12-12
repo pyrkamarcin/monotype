@@ -36,7 +36,7 @@ class ServerListening
 
         $this->factory->createServer($host . ':' . 4001)->then(function (\React\Datagram\Socket $client) {
             $client->on('message', function ($message, $serverAddress, $client) {
-                echo 'received message "' . $message . '" from ' . $serverAddress . PHP_EOL;
+                echo 'received message (' . strlen($message) . ') "' . $message . '" from ' . $serverAddress . PHP_EOL;
             });
         });
     }
