@@ -1,0 +1,5 @@
+monotype_transport_layer:
+    resource: "@MonotypeTransportLayerBundle/Controller/"
+    type:     annotation
+    prefix:   /
+

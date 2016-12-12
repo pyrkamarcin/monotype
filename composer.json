@@ -27,6 +27,7 @@
     "react/socket-client": "dev-master",
     "react/http": "0.4.*",
     "react/stream": "0.4.*",
+    "react/datagram": "1.1.*",
     "ramsey/uuid": "3.*",
     "ramsey/uuid-doctrine": "1.*",
     "ramsey/uuid-console": "1.*",
