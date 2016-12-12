@@ -11,6 +11,6 @@ $application->add(new \Monotype\Bundle\DirectControllBundle\Command\ListnerComma
 $application->add(new \Monotype\Bundle\DirectControllBundle\Command\ReciveCommand());
 $application->add(new \Monotype\Bundle\DirectControllBundle\Command\RepeaterCommand());
 $application->add(new \Monotype\Bundle\DirectControllBundle\Command\SendCommand());
-$application->add(new \Monotype\Bundle\DirectControllBundle\Command\ServerCommand());
+$application->add(new \Monotype\Bundle\TransportLayerBundle\Command\ServerRunCommand());
 
 $application->run();
