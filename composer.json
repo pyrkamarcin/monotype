@@ -34,7 +34,7 @@
     "mockery/mockery": "^0.9",
     "phpunit/phpunit": "^5.7",
     "clue/socket-raw": "1.2.*",
-    "symfony/var-dumper": "3.2.*",
+    "adduc/phpmodbus": "0.4.*",
     "roave/security-advisories": "dev-master"
   },
   "require-dev": {
