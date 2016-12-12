@@ -33,7 +33,7 @@ class ServerListening
             $client->send('first');
 
             $client->on('message', function ($message, $serverAddress, $client) {
-                echo 'received "' . $message . '" from ' . $serverAddress . '(' . $client . ')' . PHP_EOL;
+                echo 'received "' . $message . '" from ' . $serverAddress . PHP_EOL;
             });
         });
     }
