@@ -37,7 +37,7 @@ class ServerRunCommand extends ContainerAwareCommand
     {
         $output->writeln('UDP Server starting...');
 
-        $server = new ServerListening('0.0.0.0', 4001);
+        $server = new ServerListening('0.0.0.0');
         $server->run();
     }
 }
