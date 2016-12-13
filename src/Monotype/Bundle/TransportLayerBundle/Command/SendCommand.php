@@ -1,6 +1,6 @@
 <?php
 
-namespace Monotype\Bundle\DirectControllBundle\Command;
+namespace Monotype\Bundle\TransportLayerBundle\Command;
 
 use Monotype\Domain\RandomString;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
@@ -11,7 +11,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 /**
  * Class SendCommand
- * @package Monotype\Bundle\DirectControllBundle\Command
+ * @package Monotype\Bundle\TransportLayerBundle\Command
  */
 class SendCommand extends ContainerAwareCommand
 {
