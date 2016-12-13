@@ -31,11 +31,7 @@ class ServerListening
         $this->factory->createServer($host . ':' . 4000)->then(function (\React\Datagram\Socket $client) {
             $client->on('message', function ($message, $serverAddress, $client) use ($client) {
                 echo 'received command "' . $message . '" from ' . $serverAddress . PHP_EOL;
-                if ((string)$message === 'close') {
-                    $client->close();
-                    $client->end();
-                    die();
-                }
+                return new Command($client, $message);
             });
         });
 
