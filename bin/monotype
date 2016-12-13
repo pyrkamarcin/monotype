@@ -7,10 +7,7 @@ use Symfony\Component\Console\Application;
 
 $application = new Application('Monotype data transfer system', 'dev-master');
 
-$application->add(new \Monotype\Bundle\DirectControllBundle\Command\ListnerCommand());
-$application->add(new \Monotype\Bundle\DirectControllBundle\Command\ReciveCommand());
-$application->add(new \Monotype\Bundle\DirectControllBundle\Command\RepeaterCommand());
-$application->add(new \Monotype\Bundle\TransportLayerBundle\Command\SendCommand());
+$application->add(new \Monotype\Bundle\TransportLayerBundle\Command\ServerSendCommand());
 $application->add(new \Monotype\Bundle\TransportLayerBundle\Command\ServerRunCommand());
 $application->add(new \Monotype\Bundle\TransportLayerBundle\Command\ServerCommandCommand());
 

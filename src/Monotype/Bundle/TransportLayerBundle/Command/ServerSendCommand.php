@@ -10,10 +10,10 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
- * Class SendCommand
+ * Class ServerSendCommand
  * @package Monotype\Bundle\TransportLayerBundle\Command
  */
-class SendCommand extends ContainerAwareCommand
+class ServerSendCommand extends ContainerAwareCommand
 {
     /**
      *
@@ -22,7 +22,7 @@ class SendCommand extends ContainerAwareCommand
     protected function configure()
     {
         $this
-            ->setName('send')
+            ->setName('server:send')
             ->setDescription('...')
             ->addArgument('address', InputArgument::REQUIRED, 'address')
             ->addArgument('port', InputArgument::REQUIRED, 'port')
