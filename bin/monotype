@@ -12,5 +12,6 @@ $application->add(new \Monotype\Bundle\DirectControllBundle\Command\ReciveComman
 $application->add(new \Monotype\Bundle\DirectControllBundle\Command\RepeaterCommand());
 $application->add(new \Monotype\Bundle\DirectControllBundle\Command\SendCommand());
 $application->add(new \Monotype\Bundle\TransportLayerBundle\Command\ServerRunCommand());
+$application->add(new \Monotype\Bundle\TransportLayerBundle\Command\ServerCommandCommand());
 
 $application->run();
