@@ -8,6 +8,7 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Style\SymfonyStyle;
 
 /**
  * Class ServerRunCommand
@@ -35,9 +36,12 @@ class ServerRunCommand extends ContainerAwareCommand
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $output->writeln('UDP Server starting...');
+        $io = new SymfonyStyle($input, $output);
 
-        $server = new ServerListening('0.0.0.0');
+        $io->title('Monotype (UDP DNC Server)');
+        $io->section('Server started...');
+
+        $server = new ServerListening($io, '0.0.0.0');
         $server->run();
     }
 }
