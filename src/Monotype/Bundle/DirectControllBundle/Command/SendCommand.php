@@ -24,7 +24,8 @@ class SendCommand extends ContainerAwareCommand
         $this
             ->setName('send')
             ->setDescription('...')
-            ->addArgument('port', InputArgument::OPTIONAL, 'port')
+            ->addArgument('address', InputArgument::REQUIRED, 'address')
+            ->addArgument('port', InputArgument::REQUIRED, 'port')
             ->addArgument('length', InputArgument::OPTIONAL, 'length')
             ->addOption('file', null, InputOption::VALUE_NONE, 'Option description');
     }
@@ -37,6 +38,7 @@ class SendCommand extends ContainerAwareCommand
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        $address = $input->getArgument('address');
         $port = $input->getArgument('port');
         $length = $input->getArgument('length');
 
@@ -46,7 +48,7 @@ class SendCommand extends ContainerAwareCommand
         $resolver = $factory->createCached('8.8.8.8', $loop);
         $factory = new \React\Datagram\Factory($loop, $resolver);
 
-        $factory->createClient('localhost:' . $port)->then(function (\React\Datagram\Socket $client) use ($loop, $length) {
+        $factory->createClient($address . ':' . $port)->then(function (\React\Datagram\Socket $client) use ($loop, $length) {
             $client->send(RandomString::generate($length));
             $client->end();
         }, function ($error) {
