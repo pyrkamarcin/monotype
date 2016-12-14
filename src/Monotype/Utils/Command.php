@@ -2,6 +2,9 @@
 
 namespace Monotype\Utils;
 
+use React\Datagram\Socket;
+use Symfony\Component\Console\Style\SymfonyStyle;
+
 /**
  * Class Command
  * @package Monotype\Utils
@@ -10,10 +13,11 @@ class Command
 {
     /**
      * Command constructor.
-     * @param $client
-     * @param $command
+     * @param SymfonyStyle $io
+     * @param Socket $client
+     * @param string $command
      */
-    public function __construct($client, $command)
+    public function __construct(SymfonyStyle $io, Socket $client, string $command)
     {
         if (method_exists($this, $command)) {
             $this->{$command}($client);

@@ -2,7 +2,8 @@
 
 namespace Monotype\Utils;
 
-use Symfony\Component\Console\Output\OutputInterface;
+use React\Datagram;
+use React\EventLoop;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
 /**
@@ -23,25 +24,26 @@ class ServerListening
 
     /**
      * ServerListening constructor.
-     * @param OutputInterface $output
+     * @param SymfonyStyle $io
      * @param string $host
      */
     public function __construct(SymfonyStyle $io, $host = 'localhost')
     {
-        $this->loop = \React\EventLoop\Factory::create();
+        $this->loop = EventLoop\Factory::create();
 
-        $this->factory = new \React\Datagram\Factory($this->loop);
+        $this->factory = new Datagram\Factory($this->loop);
 
-        $this->factory->createServer($host . ':' . 4000)->then(function (\React\Datagram\Socket $client) use ($io) {
-            $client->on('message', function ($message, $serverAddress, $client) use ($client, $io) {
+        $this->factory->createServer($host . ':' . 4000)->then(function (Datagram\Socket $client) use ($io) {
+            $client->on('message', function ($message, $serverAddress, Datagram\Socket $client) use ($client, $io) {
                 $io->text('received command "' . $message . '" from ' . $serverAddress);
-                $command = new ServerCommand($client, $message);
+                $command = new ServerCommand($io, $client, $message);
             });
         });
 
-        $this->factory->createServer($host . ':' . 4001)->then(function (\React\Datagram\Socket $client) use ($io) {
-            $client->on('message', function ($message, $serverAddress, $client) use ($client, $io) {
-                $io->text('received message (' . strlen($message) . ') "' . $message . '" from ' . $serverAddress);
+        $this->factory->createServer($host . ':' . 4001)->then(function (Datagram\Socket $client) use ($io) {
+            $client->on('message', function ($message, $serverAddress, Datagram\Socket $client) use ($client, $io) {
+                $handler = new BasicHandler($io, $client, $message, $serverAddress);
+                $handler->dumpMessage();
             });
         });
     }
