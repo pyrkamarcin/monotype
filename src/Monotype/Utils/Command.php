@@ -11,8 +11,17 @@ use Symfony\Component\Console\Style\SymfonyStyle;
  */
 class Command
 {
+    /**
+     * @var
+     */
     public $io;
+    /**
+     * @var
+     */
     public $client;
+    /**
+     * @var
+     */
     public $command;
 
     /**
@@ -28,5 +37,14 @@ class Command
         } else {
             $io->warning('nie znaleziono funkcji');
         }
+        $this->summary();
+    }
+
+    /**
+     * @return bool
+     */
+    private function summary()
+    {
+        return true;
     }
 }

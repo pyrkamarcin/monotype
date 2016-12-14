@@ -27,21 +27,21 @@ class ServerListening
      * @param SymfonyStyle $io
      * @param string $host
      */
-    public function __construct(SymfonyStyle $io, $host = 'localhost')
+    public function __construct(SymfonyStyle $io, string $host = 'localhost')
     {
         $this->loop = EventLoop\Factory::create();
 
         $this->factory = new Datagram\Factory($this->loop);
 
         $this->factory->createServer($host . ':' . 4000)->then(function (Datagram\Socket $client) use ($io) {
-            $client->on('message', function ($message, $serverAddress, Datagram\Socket $client) use ($client, $io) {
+            $client->on('message', function ($message, $serverAddress, Datagram\Socket $client) use ($io) {
                 $io->text('received command "' . $message . '" from ' . $serverAddress);
-                $command = new ServerCommand($io, $client, $message);
+                return new ServerCommand($io, $client, $message);
             });
         });
 
         $this->factory->createServer($host . ':' . 4001)->then(function (Datagram\Socket $client) use ($io) {
-            $client->on('message', function ($message, $serverAddress, Datagram\Socket $client) use ($client, $io) {
+            $client->on('message', function ($message, $serverAddress, Datagram\Socket $client) use ($io) {
                 $handler = new BasicHandler($io, $client, $message, $serverAddress);
                 $handler->dumpMessage();
             });

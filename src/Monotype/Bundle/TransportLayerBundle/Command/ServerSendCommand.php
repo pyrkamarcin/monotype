@@ -3,11 +3,16 @@
 namespace Monotype\Bundle\TransportLayerBundle\Command;
 
 use Monotype\Domain\RandomString;
+use React\Datagram;
+use React\Dns\Resolver;
+use React\EventLoop;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Style\SymfonyStyle;
+
 
 /**
  * Class ServerSendCommand
@@ -38,21 +43,23 @@ class ServerSendCommand extends ContainerAwareCommand
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        $io = new SymfonyStyle($input, $output);
+
         $address = $input->getArgument('address');
         $port = $input->getArgument('port');
         $length = $input->getArgument('length');
 
-        $loop = \React\EventLoop\Factory::create();
-        $factory = new \React\Dns\Resolver\Factory();
+        $loop = EventLoop\Factory::create();
+        $factory = new Resolver\Factory();
 
         $resolver = $factory->createCached('8.8.8.8', $loop);
-        $factory = new \React\Datagram\Factory($loop, $resolver);
+        $factory = new Datagram\Factory($loop, $resolver);
 
-        $factory->createClient($address . ':' . $port)->then(function (\React\Datagram\Socket $client) use ($loop, $length) {
+        $factory->createClient($address . ':' . $port)->then(function (Datagram\Socket $client) use ($loop, $length, $io) {
             $client->send(RandomString::generate($length));
             $client->end();
-        }, function ($error) {
-            echo 'ERROR: ' . $error->getMessage() . PHP_EOL;
+        }, function ($error) use ($io) {
+            $io->error('ERROR: ' . $error->getMessage());
         });
 
         $loop->run();

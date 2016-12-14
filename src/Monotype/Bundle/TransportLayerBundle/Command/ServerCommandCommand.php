@@ -7,6 +7,7 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Style\SymfonyStyle;
 
 /**
  * Class ServerCommandCommand
@@ -34,6 +35,7 @@ class ServerCommandCommand extends ContainerAwareCommand
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        $io = new SymfonyStyle($input, $output);
 
         $argument = $input->getArgument('argument');
 
@@ -43,14 +45,13 @@ class ServerCommandCommand extends ContainerAwareCommand
         $resolver = $factory->createCached('8.8.8.8', $loop);
         $factory = new \React\Datagram\Factory($loop, $resolver);
 
-        $factory->createClient('0.0.0.0:4000')->then(function (\React\Datagram\Socket $client) use ($argument) {
+        $factory->createClient('127.0.0.1:4000')->then(function (\React\Datagram\Socket $client) use ($argument) {
             $client->send($argument);
             $client->end();
-        }, function ($error) {
-            echo 'ERROR: ' . $error->getMessage() . PHP_EOL;
+        }, function ($error) use ($io) {
+            $io->error('ERROR: ' . $error->getMessage());
         });
 
         $loop->run();
     }
-
 }
