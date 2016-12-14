@@ -2,20 +2,24 @@
 
 namespace Monotype\Utils;
 
+use React\Datagram\Socket;
+use Symfony\Component\Console\Style\SymfonyStyle;
+
 /**
  * Class ServerCommand
  * @package Monotype\Utils
  */
 class ServerCommand extends Command
 {
-    public function close($client)
+    public function close(SymfonyStyle $io, Socket $client)
     {
+        $io->warning('Server stopped.');
         $client->close();
         die();
     }
 
-    public function test()
+    public function test(SymfonyStyle $io)
     {
-        echo 'this is only simple test' . PHP_EOL;
+        $io->caution('This is only simple test.');
     }
 }

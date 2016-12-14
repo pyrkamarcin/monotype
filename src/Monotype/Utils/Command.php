@@ -11,6 +11,10 @@ use Symfony\Component\Console\Style\SymfonyStyle;
  */
 class Command
 {
+    public $io;
+    public $client;
+    public $command;
+
     /**
      * Command constructor.
      * @param SymfonyStyle $io
@@ -20,9 +24,9 @@ class Command
     public function __construct(SymfonyStyle $io, Socket $client, string $command)
     {
         if (method_exists($this, $command)) {
-            $this->{$command}($client);
+            $this->{$command}($io, $client);
         } else {
-            echo 'nie znaleziono funkcji' . PHP_EOL;
+            $io->warning('nie znaleziono funkcji');
         }
     }
 }
