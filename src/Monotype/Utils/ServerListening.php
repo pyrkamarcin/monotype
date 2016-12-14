@@ -43,7 +43,7 @@ class ServerListening
         $this->factory->createServer($host . ':' . 4001)->then(function (Datagram\Socket $client) use ($io) {
             $client->on('message', function ($message, $serverAddress, Datagram\Socket $client) use ($io) {
                 $handler = new BasicHandler($io, $client, $message, $serverAddress);
-                $handler->dumpMessage();
+                $handler->createFile();
             });
         });
     }
