@@ -41,7 +41,7 @@ class ServerRunCommand extends ContainerAwareCommand
         $io->title('Monotype (UDP DNC Server)');
         $io->section('Server started...');
 
-        $server = new Server($io, '127.0.0.1');
+        $server = new Server($io, '0.0.0.0');
         $server->run();
     }
 }
