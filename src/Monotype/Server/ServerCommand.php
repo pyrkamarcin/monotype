@@ -1,6 +1,6 @@
 <?php
 
-namespace Monotype\Utils;
+namespace Monotype\Server;
 
 use React\Datagram\Socket;
 use Symfony\Component\Console\Style\SymfonyStyle;

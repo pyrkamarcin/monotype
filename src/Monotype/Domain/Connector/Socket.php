@@ -4,7 +4,7 @@ namespace Monotype\Domain\Connector;
 
 /**
  * Class Socket
- * @package Monotype\BundleBundle\Utils
+ * @package Monotype\BundleBundle\Server
  */
 class Socket
 {

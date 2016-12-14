@@ -2,7 +2,7 @@
 
 namespace Monotype\Bundle\TransportLayerBundle\Command;
 
-use Monotype\Utils\ServerListening;
+use Monotype\Server\ServerListening;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;

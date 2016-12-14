@@ -1,6 +1,6 @@
 <?php
 
-namespace Monotype\Utils;
+namespace Monotype\Server;
 
 use React\Datagram;
 use React\EventLoop;
@@ -8,7 +8,7 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 
 /**
  * Class ServerListening
- * @package Monotype\Utils
+ * @package Monotype\Server
  */
 class ServerListening
 {

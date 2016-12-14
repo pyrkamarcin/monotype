@@ -1,12 +1,12 @@
 <?php
 
-namespace Monotype\Utils;
+namespace Monotype\Server;
 
 use Symfony\Component\HttpFoundation\Session\Session;
 
 /**
  * Class BasicHandler
- * @package Monotype\Utils
+ * @package Monotype\Server
  */
 class BasicHandler extends Handler
 {
