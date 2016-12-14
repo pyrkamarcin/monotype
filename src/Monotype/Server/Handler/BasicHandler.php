@@ -30,7 +30,7 @@ class BasicHandler extends Handler
         $path = new Path(['location' => __DIR__ . '/../../../../var/temp/stock']);
 
         if ($actualTimestamp - $session->get('timestamp') >= 0.75) {
-            $name = tempnam($path->getLocation(), '_');
+            $name = tempnam($path->getLocation(), sha1($this->serverAddress) . '_');
             $session->set('tempname', $name);
             file_put_contents($name, $this->message, FILE_APPEND);
             $session->set('timestamp', $actualTimestamp);
