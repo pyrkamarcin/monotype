@@ -2,15 +2,13 @@
 
 namespace Monotype\Server;
 
+use Monotype\Server\Command\ServerCommand;
+use Monotype\Server\Handler\BasicHandler;
 use React\Datagram;
 use React\EventLoop;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
-/**
- * Class ServerListening
- * @package Monotype\Server
- */
-class ServerListening
+class Server
 {
     /**
      * @var \React\EventLoop\ExtEventLoop|\React\EventLoop\LibEventLoop|\React\EventLoop\LibEvLoop|\React\EventLoop\StreamSelectLoop

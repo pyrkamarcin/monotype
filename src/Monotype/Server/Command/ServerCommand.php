@@ -1,13 +1,14 @@
 <?php
 
-namespace Monotype\Server;
+namespace Monotype\Server\Command;
 
+use Monotype\Server\Command;
 use React\Datagram\Socket;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
 /**
  * Class ServerCommand
- * @package Monotype\Utils
+ * @package Monotype\Server\Command
  */
 class ServerCommand extends Command
 {

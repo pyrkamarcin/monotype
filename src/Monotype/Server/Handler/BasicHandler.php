@@ -1,12 +1,14 @@
 <?php
 
-namespace Monotype\Server;
+namespace Monotype\Server\Handler;
 
+use Monotype\Domain\Model\Path;
+use Monotype\Server\Handler;
 use Symfony\Component\HttpFoundation\Session\Session;
 
 /**
  * Class BasicHandler
- * @package Monotype\Server
+ * @package Monotype\Server\Handler
  */
 class BasicHandler extends Handler
 {
@@ -18,14 +20,17 @@ class BasicHandler extends Handler
         $this->io->text('received message (' . strlen($this->message) . ') "' . $this->message . '" from ' . $this->serverAddress);
     }
 
+    /**
+     *
+     */
     public function createFile()
     {
         $session = new Session();
         $actualTimestamp = microtime($get_as_float = true);
-        $path = __DIR__ . '/../../../var/temp/stock';
+        $path = new Path(['location' => __DIR__ . '/../../../../var/temp/stock']);
 
         if ($actualTimestamp - $session->get('timestamp') >= 0.75) {
-            $name = tempnam($path, '_');
+            $name = tempnam($path->getLocation(), '_');
             $session->set('tempname', $name);
             file_put_contents($name, $this->message, FILE_APPEND);
             $session->set('timestamp', $actualTimestamp);

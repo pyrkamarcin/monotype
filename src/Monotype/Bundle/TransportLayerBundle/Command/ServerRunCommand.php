@@ -2,7 +2,7 @@
 
 namespace Monotype\Bundle\TransportLayerBundle\Command;
 
-use Monotype\Server\ServerListening;
+use Monotype\Server\Server;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -41,7 +41,7 @@ class ServerRunCommand extends ContainerAwareCommand
         $io->title('Monotype (UDP DNC Server)');
         $io->section('Server started...');
 
-        $server = new ServerListening($io, '127.0.0.1');
+        $server = new Server($io, '127.0.0.1');
         $server->run();
     }
 }
