@@ -21,7 +21,6 @@ class AppKernel extends Kernel
             new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
-            new Monotype\Bundle\DirectControllBundle\MonotypeDirectControllBundle(),
             new Monotype\Bundle\TransportLayerBundle\MonotypeTransportLayerBundle(),
         ];
 
@@ -53,6 +52,7 @@ class AppKernel extends Kernel
 
     /**
      * @param LoaderInterface $loader
+     * @throws \Exception
      */
     public function registerContainerConfiguration(LoaderInterface $loader)
     {

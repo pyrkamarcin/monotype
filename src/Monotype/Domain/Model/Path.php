@@ -2,6 +2,8 @@
 
 namespace Monotype\Domain\Model;
 
+use Monotype\Domain\Model;
+
 /**
  * Class Path
  * @package Monotype\Domain\Model

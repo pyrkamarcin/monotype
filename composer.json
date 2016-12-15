@@ -3,7 +3,7 @@
   "version": "0.3.0",
   "license": "proprietary",
   "type": "project",
-  "description": "",
+  "description": "DNC Server using Reach Socket, UDP, cooperating with Moxa (or other) Serial to Ethernet converters.",
   "autoload": {
     "psr-4": {
       "Monotype\\": "src/Monotype"

@@ -2,11 +2,13 @@
 
 namespace Monotype\Domain\Connector;
 
+use Monotype\Domain\Connector;
+
 /**
  * Class Buffer
  * @package Monotype\Domain\Connector
  */
-class Buffer
+class Buffer extends Connector
 {
     /**
      * @var
@@ -28,5 +30,4 @@ class Buffer
     {
         $this->cache = $cache;
     }
-
 }

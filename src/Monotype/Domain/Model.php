@@ -1,6 +1,6 @@
 <?php
 
-namespace Monotype\Domain\Model;
+namespace Monotype\Domain;
 
 /**
  * Class Model
