@@ -35,7 +35,7 @@ class ServerCommandCommand extends ContainerAwareCommand
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $io = new SymfonyStyle($input, $output);
+        $inputOutput = new SymfonyStyle($input, $output);
 
         $argument = $input->getArgument('argument');
 
@@ -48,8 +48,8 @@ class ServerCommandCommand extends ContainerAwareCommand
         $factory->createClient('127.0.0.1:4000')->then(function (\React\Datagram\Socket $client) use ($argument) {
             $client->send($argument);
             $client->end();
-        }, function ($error) use ($io) {
-            $io->error('ERROR: ' . $error->getMessage());
+        }, function ($error) use ($inputOutput) {
+            $inputOutput->error('ERROR: ' . $error->getMessage());
         });
 
         $loop->run();

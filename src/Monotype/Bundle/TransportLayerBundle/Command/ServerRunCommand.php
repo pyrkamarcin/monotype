@@ -36,12 +36,12 @@ class ServerRunCommand extends ContainerAwareCommand
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $io = new SymfonyStyle($input, $output);
+        $inputOutput = new SymfonyStyle($input, $output);
 
-        $io->title('Monotype (UDP DNC Server)');
-        $io->section('Server started...');
+        $inputOutput->title('Monotype (UDP DNC Server)');
+        $inputOutput->section('Server started...');
 
-        $server = new Server($io, '0.0.0.0');
+        $server = new Server($inputOutput, '0.0.0.0');
         $server->run();
     }
 }

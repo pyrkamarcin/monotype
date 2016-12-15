@@ -13,21 +13,21 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 class ServerCommand extends Command
 {
     /**
-     * @param SymfonyStyle $io
+     * @param SymfonyStyle $inputOutput
      * @param Socket $client
      */
-    public function close(SymfonyStyle $io, Socket $client)
+    public function close(SymfonyStyle $inputOutput, Socket $client)
     {
-        $io->warning('Server stopped.');
+        $inputOutput->warning('Server stopped.');
         $client->close();
         die();
     }
 
     /**
-     * @param SymfonyStyle $io
+     * @param SymfonyStyle $inputOutput
      */
-    public function test(SymfonyStyle $io)
+    public function test(SymfonyStyle $inputOutput)
     {
-        $io->caution('This is only simple test.');
+        $inputOutput->caution('This is only simple test.');
     }
 }

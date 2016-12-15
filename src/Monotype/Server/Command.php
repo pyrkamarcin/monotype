@@ -14,7 +14,7 @@ class Command
     /**
      * @var
      */
-    public $io;
+    public $inputOutput;
     /**
      * @var
      */
@@ -26,16 +26,16 @@ class Command
 
     /**
      * Command constructor.
-     * @param SymfonyStyle $io
+     * @param SymfonyStyle $inputOutput
      * @param Socket $client
      * @param string $command
      */
-    public function __construct(SymfonyStyle $io, Socket $client, string $command)
+    public function __construct(SymfonyStyle $inputOutput, Socket $client, string $command)
     {
         if (method_exists($this, $command)) {
-            $this->{$command}($io, $client);
+            $this->{$command}($inputOutput, $client);
         } else {
-            $io->warning('nie znaleziono funkcji');
+            $inputOutput->warning('nie znaleziono funkcji');
         }
         $this->summary();
     }

@@ -14,7 +14,7 @@ class Handler
     /**
      * @var SymfonyStyle
      */
-    public $io;
+    public $inputOutput;
     /**
      * @var
      */
@@ -30,14 +30,14 @@ class Handler
 
     /**
      * Handler constructor.
-     * @param SymfonyStyle $io
+     * @param SymfonyStyle $inputOutput
      * @param Socket $client
      * @param string $message
      * @param string $serverAddress
      */
-    public function __construct(SymfonyStyle $io, Socket $client, string $message, string $serverAddress)
+    public function __construct(SymfonyStyle $inputOutput, Socket $client, string $message, string $serverAddress)
     {
-        $this->io = $io;
+        $this->io = $inputOutput;
         $this->client = $client;
         $this->message = $message;
         $this->serverAddress = $serverAddress;
