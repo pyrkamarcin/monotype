@@ -29,7 +29,7 @@ class BasicHandler extends Handler
         $actualTimestamp = microtime($get_as_float = true);
         $path = new Path(['location' => __DIR__ . '/../../../../var/temp/stock']);
 
-        if ($actualTimestamp - $session->get('timestamp') >= 0.75) {
+        if ($actualTimestamp - $session->get('timestamp') >= 0.85) {
             $name = tempnam($path->getLocation(), sha1($this->serverAddress) . '_');
             $session->set('tempname', $name);
             file_put_contents($name, $this->message, FILE_APPEND);
