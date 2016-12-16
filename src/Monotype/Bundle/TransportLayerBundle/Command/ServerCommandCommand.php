@@ -26,7 +26,7 @@ class ServerCommandCommand extends ContainerAwareCommand
     {
         $this
             ->setName('server:command')
-            ->setDescription('...')
+            ->setDescription('Send command to local server')
             ->addArgument('argument', InputArgument::OPTIONAL, 'Argument description')
             ->addOption('option', null, InputOption::VALUE_NONE, 'Option description');
     }

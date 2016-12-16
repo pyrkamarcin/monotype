@@ -28,7 +28,7 @@ class ServerSendCommand extends ContainerAwareCommand
     {
         $this
             ->setName('server:send')
-            ->setDescription('...')
+            ->setDescription('Send test data to server or devices')
             ->addArgument('address', InputArgument::REQUIRED, 'address')
             ->addArgument('port', InputArgument::REQUIRED, 'port')
             ->addArgument('length', InputArgument::OPTIONAL, 'length')
