@@ -18,7 +18,7 @@ Recommended are any changes to isolate the project from a particular production 
 Monotype requires PHP version ^7.0.
 
 ### Composer 
-It is possible to install the project by the composer.
+It is possible to install the project by the composer (new Composer User? See https://getcomposer.org/doc/00-intro.md)
 
 `composer create-project pyrkamarcin/monotype dev-master`
 
