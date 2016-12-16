@@ -56,6 +56,7 @@ class ServerSendCommand extends ContainerAwareCommand
 
         $factory->createClient($address . ':' . $port)->then(function (Datagram\Socket $client) use ($loop, $name, $inputOutput) {
             $client->send(file_get_contents(__DIR__ . '/../../../../../var/temp/stock/' . $name . '.tmp'));
+            $inputOutput->success('Send.');
             $client->end();
         }, function ($error) use ($inputOutput) {
             $inputOutput->error('ERROR: ' . $error->getMessage());
