@@ -2,6 +2,9 @@
 
 namespace Monotype\Bundle\TransportLayerBundle\Command;
 
+use React\Datagram;
+use React\Dns\Resolver;
+use React\EventLoop;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -32,24 +35,25 @@ class ServerCommandCommand extends ContainerAwareCommand
      * @param InputInterface $input
      * @param OutputInterface $output
      * @return int|null|void
+     * @throws \Symfony\Component\Console\Exception\InvalidArgumentException
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $io = new SymfonyStyle($input, $output);
+        $inputOutput = new SymfonyStyle($input, $output);
 
         $argument = $input->getArgument('argument');
 
-        $loop = \React\EventLoop\Factory::create();
-        $factory = new \React\Dns\Resolver\Factory();
+        $loop = EventLoop\Factory::create();
+        $factory = new Resolver\Factory();
 
         $resolver = $factory->createCached('8.8.8.8', $loop);
-        $factory = new \React\Datagram\Factory($loop, $resolver);
+        $factory = new Datagram\Factory($loop, $resolver);
 
-        $factory->createClient('127.0.0.1:4000')->then(function (\React\Datagram\Socket $client) use ($argument) {
+        $factory->createClient('127.0.0.1:4000')->then(function (Datagram\Socket $client) use ($argument) {
             $client->send($argument);
             $client->end();
-        }, function ($error) use ($io) {
-            $io->error('ERROR: ' . $error->getMessage());
+        }, function ($error) use ($inputOutput) {
+            $inputOutput->error('ERROR: ' . $error->getMessage());
         });
 
         $loop->run();

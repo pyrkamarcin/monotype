@@ -2,6 +2,8 @@
 
 namespace Monotype\Domain\Model;
 
+use Monotype\Domain\Model;
+
 /**
  * Class Machine
  * @package Monotype\Domain\Model

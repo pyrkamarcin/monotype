@@ -43,7 +43,7 @@ class ServerSendCommand extends ContainerAwareCommand
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $io = new SymfonyStyle($input, $output);
+        $inputOutput = new SymfonyStyle($input, $output);
 
         $address = $input->getArgument('address');
         $port = $input->getArgument('port');
@@ -55,11 +55,11 @@ class ServerSendCommand extends ContainerAwareCommand
         $resolver = $factory->createCached('8.8.8.8', $loop);
         $factory = new Datagram\Factory($loop, $resolver);
 
-        $factory->createClient($address . ':' . $port)->then(function (Datagram\Socket $client) use ($loop, $length, $io) {
+        $factory->createClient($address . ':' . $port)->then(function (Datagram\Socket $client) use ($loop, $length, $inputOutput) {
             $client->send(RandomString::generate($length));
             $client->end();
-        }, function ($error) use ($io) {
-            $io->error('ERROR: ' . $error->getMessage());
+        }, function ($error) use ($inputOutput) {
+            $inputOutput->error('ERROR: ' . $error->getMessage());
         });
 
         $loop->run();

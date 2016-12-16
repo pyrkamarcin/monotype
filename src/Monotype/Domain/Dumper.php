@@ -26,10 +26,9 @@ class Dumper
 
     /**
      * @param $data
-     * @return bool
      */
     public function stockize($data)
     {
-        return $this->stock->push($data);
+        $this->stock->push($data);
     }
 }

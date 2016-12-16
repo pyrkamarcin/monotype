@@ -8,7 +8,7 @@ use Monotype\Domain\Model\Path;
  * Class Stock
  * @package Monotype\Domain\Dumper
  */
-class Stock implements StockInterface
+class Stock
 {
     /**
      * @var
