@@ -2,7 +2,6 @@
 
 namespace Monotype\Bundle\TransportLayerBundle\Command;
 
-use Monotype\Domain\RandomString;
 use React\Datagram;
 use React\Dns\Resolver;
 use React\EventLoop;
@@ -31,7 +30,7 @@ class ServerSendCommand extends ContainerAwareCommand
             ->setDescription('Send test data to server or devices')
             ->addArgument('address', InputArgument::REQUIRED, 'address')
             ->addArgument('port', InputArgument::REQUIRED, 'port')
-            ->addArgument('length', InputArgument::OPTIONAL, 'length')
+            ->addArgument('name', InputArgument::OPTIONAL, 'name')
             ->addOption('file', null, InputOption::VALUE_NONE, 'Option description');
     }
 
@@ -47,7 +46,7 @@ class ServerSendCommand extends ContainerAwareCommand
 
         $address = $input->getArgument('address');
         $port = $input->getArgument('port');
-        $length = $input->getArgument('length');
+        $name = $input->getArgument('name');
 
         $loop = EventLoop\Factory::create();
         $factory = new Resolver\Factory();
@@ -55,8 +54,8 @@ class ServerSendCommand extends ContainerAwareCommand
         $resolver = $factory->createCached('8.8.8.8', $loop);
         $factory = new Datagram\Factory($loop, $resolver);
 
-        $factory->createClient($address . ':' . $port)->then(function (Datagram\Socket $client) use ($loop, $length, $inputOutput) {
-            $client->send(RandomString::generate($length));
+        $factory->createClient($address . ':' . $port)->then(function (Datagram\Socket $client) use ($loop, $name, $inputOutput) {
+            $client->send(file_get_contents(__DIR__ . '/../../../../../var/temp/stock/' . $name . '.tmp'));
             $client->end();
         }, function ($error) use ($inputOutput) {
             $inputOutput->error('ERROR: ' . $error->getMessage());
