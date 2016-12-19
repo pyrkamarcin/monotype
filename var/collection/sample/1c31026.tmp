@@ -1,0 +1,24 @@
+%_N_DH_MPF
+;$PATH=/_N_WKS_DIR/_N_MARCIN_WPD
+N5 F_HEAD(350224383,15.75,0.,9.,-70.,19.,2.,8.5,-150.,114.8228,388.5065,1.,3000.,0.,71,1,799,0,-70.,-50.,7,0,6,20.,38.73,20.,1);*RO*
+N10 F_CON("ZEW1",2,"E_LAB_A_ZEW1","E_LAB_E_ZEW1");*RO*
+N15 F_MI_CON("FREZ_2mm","",1,0.04,2,3200.,1,100002,33,0.,90,-1.2,90,0.5,0.,0.,1,2.,41,0,2.,0.004,0,0.,0.,0.,-7.875);*RO*
+F_END(0,1,5);*RO*
+M30 ;#SM;*RO*
+E_LAB_A_ZEW1: ;#SM Z:1
+;#7__DlgK contour definition begin - Don't change!;*GP*;*RO*;*HD*
+G17 G90 DIAMOF ;*GP*
+G0 X0 Y-7.875 ;*GP*
+G1 X13.63 ;*GP*
+X0 Y15.75 ;*GP*
+X-13.63 Y-7.875 ;*GP*
+X0 ;*GP*
+RET ;*GP*
+;CON,0,0.0000,4,4,MST:0,0,AX:X,Y,I,J;*GP*;*RO*;*HD*
+;S,EX:0,EY:-7.875;*GP*;*RO*;*HD*
+;LR,EX:13.63;*GP*;*RO*;*HD*
+;LA,EX:0,EY:15.75;*GP*;*RO*;*HD*
+;LA,EX:-13.63,EY:-7.875;*GP*;*RO*;*HD*
+;LR,EX:0;*GP*;*RO*;*HD*
+;#End contour definition end - Don't change!;*GP*;*RO*;*HD*
+E_LAB_E_ZEW1:

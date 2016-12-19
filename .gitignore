@@ -2,7 +2,6 @@
 /app/config/parameters.yml
 /composer.phar
 /composer.lock
-/var/*
 !/var/cache
 /var/cache/*
 !var/cache/.gitkeep
@@ -25,3 +24,5 @@
 /app/data.db3
 /Vagrantfile
 /.vagrant/
+/var/bootstrap.php.cache
+/var/SymfonyRequirements.php

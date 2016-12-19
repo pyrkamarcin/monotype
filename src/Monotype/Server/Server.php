@@ -56,6 +56,10 @@ class Server
             $client->on('message', function ($message, $serverAddress, Datagram\Socket $client) use ($inputOutput) {
                 $handler = new BasicHandler($inputOutput, $client, $message, $serverAddress);
                 $handler->createFile();
+                $lines = $handler->getTwoFirstLines();
+                if ($lines) {
+                    echo $handler->getFileName($lines[0]);
+                }
             });
         });
     }

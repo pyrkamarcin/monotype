@@ -1,0 +1,29 @@
+%_N_SZ1_MPF
+;$PATH=/_N_WKS_DIR/_N_DTT_WPD
+N5 F_HEAD(349175807,40.,0.,35.,-20.,2.,2.,30.,-150.,101.7915,479.3166,1.,1100.,0.,71,1,799,0,-20.,-50.,7,0,6,20.,38.73,20.,1);*RO*
+N35 F_ROT_C(-35.,0);*RO*
+N25 F_CON("RE",2,"E_LAB_A_RE","E_LAB_E_RE");*RO*
+N30 F_MI_CON("FREZ13","",1,0.015,2,2200.,1,100002,41,0.,90,-11.,90,15.,0.,0.,1,2.,42,0,2.,0.004,0,0.,0.,0.,65.);*RO*
+F_END(0,1,5);*RO*
+M30 ;#SM;*RO*
+E_LAB_A_RE: ;#SM Z:2
+;#7__DlgK contour definition begin - Don't change!;*GP*;*RO*;*HD*
+G17 G90 DIAMOF ;*GP*
+G0 X0 Y65 ;*GP*
+G1 X14 ;*GP*
+Y0 ;*GP*
+G2 X0 Y-14 I=AC(0) J=AC(0) ;*GP*
+X-14 Y0 I=AC(0) J=AC(0) ;*GP*
+G1 Y65 ;*GP*
+X0 ;*GP*
+RET ;*GP*
+;CON,0,0.0000,5,5,MST:0,0,AX:X,Y,I,J;*GP*;*RO*;*HD*
+;S,EX:0,EY:65;*GP*;*RO*;*HD*
+;LR,EX:14;*GP*;*RO*;*HD*
+;LD,EY:0;*GP*;*RO*;*HD*
+;ACW,DIA:207/0,EX:0,CX:0,RAD:14;*GP*;*RO*;*HD*
+;ACW,EX:-14,AT:0,RAD:14;*GP*;*RO*;*HD*
+;LU,EY:65;*GP*;*RO*;*HD*
+;LR,EX:0;*GP*;*RO*;*HD*
+;#End contour definition end - Don't change!;*GP*;*RO*;*HD*
+E_LAB_E_RE:

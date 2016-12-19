@@ -41,4 +41,52 @@ class BasicHandler extends Handler
             $this->io->block('added to the existing');
         }
     }
+
+    /**
+     * @return array|bool
+     */
+    public function getTwoFirstLines()
+    {
+        $array = explode("\n", $this->message);
+        if (count($array) >= 2) {
+            return [0 => $array[0], 1 => $array[1]];
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * @param string $line
+     * @return bool|mixed
+     */
+    public function getFileName(string $line)
+    {
+        if (strpos($line, '%_N_')) {
+
+            $data = explode('%_N_', $line);
+
+            if (is_array($data)) {
+                return $this->str_lreplace('_', '.', $data[1]);
+            }
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * @param $search
+     * @param $replace
+     * @param $subject
+     * @return mixed
+     */
+    private function str_lreplace($search, $replace, $subject)
+    {
+        $pos = strrpos($subject, $search);
+
+        if ($pos !== false) {
+            $subject = substr_replace($subject, $replace, $pos, strlen($search));
+        }
+
+        return $subject;
+    }
 }
