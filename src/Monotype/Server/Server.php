@@ -64,9 +64,6 @@ class Server
         });
     }
 
-    /**
-     *
-     */
     public function run()
     {
         $this->loop->run();
