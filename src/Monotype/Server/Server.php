@@ -8,6 +8,10 @@ use React\Datagram;
 use React\EventLoop;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
+/**
+ * Class Server
+ * @package Monotype\Server
+ */
 class Server
 {
     /**
@@ -21,6 +25,16 @@ class Server
     protected $factory;
 
     /**
+     * @var int
+     */
+    private $commandPort = 4000;
+
+    /**
+     * @var int
+     */
+    private $dataPort = 4001;
+
+    /**
      * ServerListening constructor.
      * @param SymfonyStyle $inputOutput
      * @param string $host
@@ -31,14 +45,14 @@ class Server
 
         $this->factory = new Datagram\Factory($this->loop);
 
-        $this->factory->createServer($host . ':' . 4000)->then(function (Datagram\Socket $client) use ($inputOutput) {
+        $this->factory->createServer($host . ':' . $this->commandPort)->then(function (Datagram\Socket $client) use ($inputOutput) {
             $client->on('message', function ($message, $serverAddress, Datagram\Socket $client) use ($inputOutput) {
                 $inputOutput->text('received command "' . $message . '" from ' . $serverAddress);
                 return new ServerCommand($inputOutput, $client, $message);
             });
         });
 
-        $this->factory->createServer($host . ':' . 4001)->then(function (Datagram\Socket $client) use ($inputOutput) {
+        $this->factory->createServer($host . ':' . $this->dataPort)->then(function (Datagram\Socket $client) use ($inputOutput) {
             $client->on('message', function ($message, $serverAddress, Datagram\Socket $client) use ($inputOutput) {
                 $handler = new BasicHandler($inputOutput, $client, $message, $serverAddress);
                 $handler->createFile();
