@@ -28,4 +28,10 @@ M30 ;#SM;*RO*');
 
         $this->assertTrue(2 === count($output) and is_array($output));
     }
+
+    public function testGetPath()
+    {
+        $output = StringOperators::getPath(';$PATH=/_N_WKS_DIR/_N_FORMY_WPD');
+        $this->assertEquals('/WKS.DIR/FORMY.WPD', $output);
+    }
 }

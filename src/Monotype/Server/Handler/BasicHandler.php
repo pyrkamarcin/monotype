@@ -15,14 +15,6 @@ class BasicHandler extends Handler
     /**
      *
      */
-    public function dumpMessage()
-    {
-        $this->io->text('received message (' . strlen($this->message) . ') "' . $this->message . '" from ' . $this->serverAddress);
-    }
-
-    /**
-     *
-     */
     public function createHandler()
     {
         $session = new Session();
@@ -35,16 +27,17 @@ class BasicHandler extends Handler
             file_put_contents($name, $this->message, FILE_APPEND);
             $session->set('timestamp', $actualTimestamp);
 
-
             $this->io->block('');
             $this->io->writeln('Get data from: ' . $this->serverAddress);
-
 
             $header = StringOperators::getTwoFirstLines($this->message);
 
             if ($header) {
                 $fileName = StringOperators::getFileName($header[0]);
                 $this->io->writeln('Find filename: ' . $fileName);
+
+                $pathName = StringOperators::getPath($header[1]);
+                $this->io->writeln('Find path: ' . $pathName);
             }
             $this->io->write('Create file: .');
 

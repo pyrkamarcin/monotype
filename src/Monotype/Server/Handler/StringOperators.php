@@ -30,4 +30,9 @@ class StringOperators
             return false;
         }
     }
+
+    public static function getPath(string $line)
+    {
+        return str_replace('_', '.', str_replace(['_N_', ';$PATH='], '', $line));
+    }
 }
