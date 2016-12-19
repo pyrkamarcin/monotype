@@ -23,7 +23,7 @@ class BasicHandler extends Handler
     /**
      *
      */
-    public function createFile()
+    public function createHandler()
     {
         $session = new Session();
         $actualTimestamp = microtime($get_as_float = true);
@@ -34,59 +34,24 @@ class BasicHandler extends Handler
             $session->set('tempname', $name);
             file_put_contents($name, $this->message, FILE_APPEND);
             $session->set('timestamp', $actualTimestamp);
-            $this->io->block('create file');
+
+
+            $this->io->block('');
+            $this->io->writeln('Get data from: ' . $this->serverAddress);
+
+
+            $header = StringOperators::getTwoFirstLines($this->message);
+
+            if ($header) {
+                $fileName = StringOperators::getFileName($header[0]);
+                $this->io->writeln('Find filename: ' . $fileName);
+            }
+            $this->io->write('Create file: .');
+
         } else {
             $session->set('timestamp', $actualTimestamp);
             file_put_contents($session->get('tempname'), $this->message, FILE_APPEND);
-            $this->io->block('added to the existing');
+            $this->io->write('.');
         }
-    }
-
-    /**
-     * @return array|bool
-     */
-    public function getTwoFirstLines()
-    {
-        $array = explode("\n", $this->message);
-        if (count($array) >= 2) {
-            return [0 => $array[0], 1 => $array[1]];
-        } else {
-            return false;
-        }
-    }
-
-    /**
-     * @param string $line
-     * @return bool|mixed
-     */
-    public function getFileName(string $line)
-    {
-        if (strpos($line, '%_N_')) {
-
-            $data = explode('%_N_', $line);
-
-            if (is_array($data)) {
-                return $this->str_lreplace('_', '.', $data[1]);
-            }
-        } else {
-            return false;
-        }
-    }
-
-    /**
-     * @param $search
-     * @param $replace
-     * @param $subject
-     * @return mixed
-     */
-    private function str_lreplace($search, $replace, $subject)
-    {
-        $pos = strrpos($subject, $search);
-
-        if ($pos !== false) {
-            $subject = substr_replace($subject, $replace, $pos, strlen($search));
-        }
-
-        return $subject;
     }
 }

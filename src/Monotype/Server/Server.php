@@ -55,11 +55,7 @@ class Server
         $this->factory->createServer($host . ':' . $this->dataPort)->then(function (Datagram\Socket $client) use ($inputOutput) {
             $client->on('message', function ($message, $serverAddress, Datagram\Socket $client) use ($inputOutput) {
                 $handler = new BasicHandler($inputOutput, $client, $message, $serverAddress);
-                $handler->createFile();
-                $lines = $handler->getTwoFirstLines();
-                if ($lines) {
-                    echo $handler->getFileName($lines[0]);
-                }
+                $handler->createHandler();
             });
         });
     }
