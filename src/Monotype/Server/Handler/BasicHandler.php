@@ -34,14 +34,14 @@ class BasicHandler extends Handler
 
             if ($header) {
                 $fileName = StringOperators::getFileName($header[0]);
-                $this->io->writeln('Find filename: ' . $fileName);
-
                 $session->set('fileName', $fileName);
 
-                $pathName = StringOperators::getPath($header[1]);
-                $this->io->writeln('Find path: ' . $pathName);
+                $this->io->writeln('Find filename: ' . $fileName);
 
+                $pathName = StringOperators::getPath($header[1]);
                 $session->set('pathName', $pathName);
+
+                $this->io->writeln('Find path: ' . $pathName);
             }
             $this->io->write('Create file: .');
 
@@ -56,7 +56,6 @@ class BasicHandler extends Handler
 
             $session->remove('fileName');
             $session->remove('pathName');
-
         } else {
             $session->set('timestamp', $actualTimestamp);
             file_put_contents($session->get('tempname'), $this->message, FILE_APPEND);
