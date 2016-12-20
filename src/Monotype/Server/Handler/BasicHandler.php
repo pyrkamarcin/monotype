@@ -45,7 +45,7 @@ class BasicHandler extends Handler
             }
             $this->io->write('Create file: .');
 
-        } elseif ($actualTimestamp - $session->get('timestamp') > 0.70 & $actualTimestamp - $session->get('timestamp') <= 2.00) {
+        } elseif ($actualTimestamp - $session->get('timestamp') > 0.7 & $actualTimestamp - $session->get('timestamp') <= 2) {
             $session->set('timestamp', $actualTimestamp);
             file_put_contents($session->get('tempname'), $this->message, FILE_APPEND);
             $this->io->writeln('. (end)');
