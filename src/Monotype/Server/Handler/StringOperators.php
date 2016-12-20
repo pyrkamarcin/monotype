@@ -2,14 +2,28 @@
 
 namespace Monotype\Server\Handler;
 
+/**
+ * Class StringOperators
+ * @package Monotype\Server\Handler
+ */
 class StringOperators
 {
 
+    /**
+     * @param string $line
+     * @return mixed
+     */
     public static function getFileName(string $line)
     {
         return self::leftReplace('_', '.', str_replace('%_N_', '', $line));
     }
 
+    /**
+     * @param $search
+     * @param $replace
+     * @param $subject
+     * @return mixed
+     */
     public static function leftReplace($search, $replace, $subject)
     {
         $pos = strrpos($subject, $search);
@@ -21,6 +35,10 @@ class StringOperators
         return $subject;
     }
 
+    /**
+     * @param string $message
+     * @return array|bool
+     */
     public static function getTwoFirstLines(string $message)
     {
         $array = explode("\n", $message);
@@ -31,6 +49,10 @@ class StringOperators
         }
     }
 
+    /**
+     * @param string $line
+     * @return mixed
+     */
     public static function getPath(string $line)
     {
         return str_replace('_', '.', str_replace(['_N_', ';$PATH='], '', $line));
