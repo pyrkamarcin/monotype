@@ -22,6 +22,7 @@ class BasicHandler extends Handler
         $path = new Path(['location' => __DIR__ . '/../../../../var/temp/stock']);
 
         if ($actualTimestamp - $session->get('timestamp') > 2) {
+
             $name = tempnam($path->getLocation(), sha1($this->serverAddress) . '_');
             $session->set('tempname', $name);
             file_put_contents($name, $this->message, FILE_APPEND);
@@ -29,6 +30,9 @@ class BasicHandler extends Handler
 
             $this->io->block('');
             $this->io->writeln('Get data from: ' . $this->serverAddress);
+
+            $dateTime = new \DateTime('now');
+            $this->io->writeln('Date: ' . $dateTime->format('d/m/Y H:i:s'));
 
             $header = StringOperators::getTwoFirstLines($this->message);
 
