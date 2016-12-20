@@ -31,7 +31,7 @@ M30 ;#SM;*RO*');
 
     public function testGetPath()
     {
-        $output = StringOperators::getPath(';$PATH=/_N_WKS_DIR/_N_FORMY_WPD');
-        $this->assertEquals('/WKS.DIR/FORMY.WPD', $output);
+        $output = StringOperators::getPath(';$PATH=/_N_WKS_DIR/_N_ROLMECH_WPD');
+        $this->assertEquals('/WKS.DIR/ROLMECH.WPD', $output);
     }
 }

@@ -21,7 +21,7 @@ class BasicHandler extends Handler
         $actualTimestamp = microtime($get_as_float = true);
         $path = new Path(['location' => __DIR__ . '/../../../../var/temp/stock']);
 
-        if ($actualTimestamp - $session->get('timestamp') >= 0.85) {
+        if ($actualTimestamp - $session->get('timestamp') > 2) {
             $name = tempnam($path->getLocation(), sha1($this->serverAddress) . '_');
             $session->set('tempname', $name);
             file_put_contents($name, $this->message, FILE_APPEND);
@@ -36,10 +36,26 @@ class BasicHandler extends Handler
                 $fileName = StringOperators::getFileName($header[0]);
                 $this->io->writeln('Find filename: ' . $fileName);
 
+                $session->set('fileName', $fileName);
+
                 $pathName = StringOperators::getPath($header[1]);
                 $this->io->writeln('Find path: ' . $pathName);
+
+                $session->set('pathName', $pathName);
             }
             $this->io->write('Create file: .');
+
+        } elseif ($actualTimestamp - $session->get('timestamp') > 0.70 & $actualTimestamp - $session->get('timestamp') <= 2.00) {
+            $session->set('timestamp', $actualTimestamp);
+            file_put_contents($session->get('tempname'), $this->message, FILE_APPEND);
+            $this->io->writeln('. (end)');
+
+            $this->io->writeln('Path: ' . $session->get('pathName'));
+
+            $this->io->writeln('File: ' . $session->get('fileName'));
+
+            $session->remove('fileName');
+            $session->remove('pathName');
 
         } else {
             $session->set('timestamp', $actualTimestamp);
