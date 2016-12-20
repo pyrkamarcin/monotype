@@ -50,8 +50,8 @@ class BasicHandler extends Handler
             file_put_contents($session->get('tempname'), $this->message, FILE_APPEND);
             $this->io->writeln('. (end)');
 
+            $this->io->writeln('Temp: ' . $session->get('tempname'));
             $this->io->writeln('Path: ' . $session->get('pathName'));
-
             $this->io->writeln('File: ' . $session->get('fileName'));
 
             $session->remove('fileName');
