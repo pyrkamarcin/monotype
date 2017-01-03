@@ -1,0 +1,40 @@
+%_N_ST_MPF
+;$PATH=/_N_WKS_DIR/_N_MARCIN_WPD
+N5 F_HEAD(344457215,30.,0.5,18.5,-60.,2.,2.,1.,-150.,151.5594,458.6772,1.,1800.,0.,71,1,783,0,-60.,-50.,7,0,6,20.,38.73,20.,1);*RO*
+N10 F_CON("MAT",4,"E_LAB_A_MAT","E_LAB_E_MAT");*RO*
+N15 F_CON("ZEW",4,"E_LAB_A_ZEW","E_LAB_E_ZEW");*RO*
+N20 F_ROU_Z("Rab","",1,0.12,3,220.,2,0,0,"ZEW",,,"2016033122095706","MAT",,,"",313211,0.07,0.,0.,0.4,3,0.25,0.1,0.05,0,0.05,0,3,1.6,91,0.3,91,120,0.,0.,0.,0.,17.,1.865,0.,0.,1,0.,"43867087881252929000","20462098451608307200",0.,1,30.3081,-39.2929);*RO*
+F_END(0,1,5);*RO*
+M30 ;#SM;*RO*
+E_LAB_A_MAT: ;#SM Z:1
+;#7__DlgK contour definition begin - Don't change!;*GP*;*RO*;*HD*
+G18 G90 DIAM90 ;*GP*
+G0 Z0 X0 ;*GP*
+G1 X60 ;*GP*
+Z-60 ;*GP*
+X0 ;*GP*
+Z0 ;*GP*
+RET ;*GP*
+;CON,2,0.0000,4,4,MST:3,2,AX:Z,X,K,I;*GP*;*RO*;*HD*
+;S,EX:0,EY:0;*GP*;*RO*;*HD*
+;LU,EY:60;*GP*;*RO*;*HD*
+;LL,EX:-60;*GP*;*RO*;*HD*
+;LD,EY:0;*GP*;*RO*;*HD*
+;LR,EX:0;*GP*;*RO*;*HD*
+;#End contour definition end - Don't change!;*GP*;*RO*;*HD*
+E_LAB_E_MAT:
+E_LAB_A_ZEW: ;#SM Z:4
+;#7__DlgK contour definition begin - Don't change!;*GP*;*RO*;*HD*
+G18 G90 DIAM90 ;*GP*
+G0 Z0 X36 ;*GP*
+G1 X38 RND=1 ;*GP*
+Z-40 ;*GP*
+X60 ;*GP*
+RET ;*GP*
+;CON,V64,2,0.0000,0,0,MST:3,2,AX:Z,X,K,I;*GP*;*RO*;*HD*
+;S,EX:0,EY:38,ASE:90;*GP*;*RO*;*HD*
+;R,RROUND:1;*GP*;*RO*;*HD*
+;LL,EX:-40;*GP*;*RO*;*HD*
+;LU,EY:60;*GP*;*RO*;*HD*
+;#End contour definition end - Don't change!;*GP*;*RO*;*HD*
+E_LAB_E_ZEW:

@@ -24,7 +24,7 @@ class ServerRunCommand extends ContainerAwareCommand
     {
         $this
             ->setName('server:run')
-            ->setDescription('...')
+            ->setDescription('Start local server')
             ->addArgument('argument', InputArgument::OPTIONAL, 'Argument description')
             ->addOption('option', null, InputOption::VALUE_NONE, 'Option description');
     }

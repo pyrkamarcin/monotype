@@ -14,7 +14,7 @@ class RandomString
      */
     public static function generate(int $length = 10)
     {
-        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $characters = '0123456789abcdef';
         $charactersLength = strlen($characters);
         $randomString = '';
 
