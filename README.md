@@ -20,17 +20,11 @@ Monotype requires PHP version ^7.0.
 ### Composer 
 It is possible to install the project by the composer (new Composer User? See https://getcomposer.org/doc/00-intro.md)
 
-`
+```
 composer create-project pyrkamarcin/monotype dev-master
-`
-
-`
 cd monotype
-`
-
-`
 composer install
-`
+```
 
 ## Run
 
@@ -38,15 +32,15 @@ composer install
 
 To start server, enter:
 
-`
+```
 php bin/monotype server:run
-`
+```
 
 To sending test data, enter:
 
-`
+```
 php bin/monotype server:send 127.0.0.1 4001 1x213C3
-`
+```
 
 Where:
 
