@@ -1,13 +1,18 @@
 <?php
 
-namespace Monotype\Domain\Model;
+namespace Monotype\Bundle\ServerBundle\Domain\Model;
+
+use PHPUnit_Framework_TestCase;
 
 /**
  * Class MachineTest
  * @package Monotype\Domain\Model
  */
-class MachineTest extends \PHPUnit_Framework_TestCase
+class MachineTest extends PHPUnit_Framework_TestCase
 {
+    /**
+     *
+     */
     public function testMachineConstructor()
     {
         $machine = new Machine([

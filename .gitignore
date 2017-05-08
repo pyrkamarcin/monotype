@@ -26,3 +26,7 @@
 /.vagrant/
 /var/bootstrap.php.cache
 /var/SymfonyRequirements.php
+/bin/*
+!/bin/console
+!/bin/monotype
+/phpmd.phar

@@ -2,20 +2,33 @@
 
 namespace Monotype\Server\Handler;
 
+/**
+ * Class StringOperatorsTest
+ * @package Monotype\Server\Handler
+ */
 class StringOperatorsTest extends \PHPUnit_Framework_TestCase
 {
+    /**
+     *
+     */
     public function testLeftReplace()
     {
         $output = StringOperators::leftReplace('_', '.', '603779NA_RAZ_MPF');
         $this->assertEquals('603779NA_RAZ.MPF', $output);
     }
 
+    /**
+     *
+     */
     public function testGetFileName()
     {
         $output = StringOperators::getFileName('%_N_603779NA_L83_5_MPF');
         $this->assertEquals('603779NA_L83_5.MPF', $output);
     }
 
+    /**
+     *
+     */
     public function testGetTwoFirstLines()
     {
         $output = StringOperators::getTwoFirstLines('%_N_BP_100_S1_MPF
@@ -29,6 +42,9 @@ M30 ;#SM;*RO*');
         $this->assertTrue(2 === count($output) and is_array($output));
     }
 
+    /**
+     *
+     */
     public function testGetPath()
     {
         $output = StringOperators::getPath(';$PATH=/_N_WKS_DIR/_N_ROLMECH_WPD');

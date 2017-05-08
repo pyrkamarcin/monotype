@@ -1,12 +1,12 @@
 <?php
 
-namespace Monotype\Domain\Model;
+namespace Monotype\Bundle\ServerBundle\Domain\Model;
 
-use Monotype\Domain\Model;
+use Monotype\Bundle\ServerBundle\Domain\Model;
 
 /**
  * Class Path
- * @package Monotype\Domain\Model
+ * @package Monotype\Bundle\ServerBundle\Domain\Model
  */
 class Path extends Model
 {
