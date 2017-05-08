@@ -1,6 +1,6 @@
 <?php
 
-namespace Monotype\ServerBundle;
+namespace Monotype\Bundle\ServerBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
