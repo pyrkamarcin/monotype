@@ -13,36 +13,41 @@
       "app/AppCache.php"
     ]
   },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  },
   "require": {
-    "doctrine/doctrine-bundle": "1.*",
-    "doctrine/doctrine-cache-bundle": "1.*",
-    "doctrine/orm": "2.*",
-    "incenteev/composer-parameter-handler": "2.*",
-    "sensio/distribution-bundle": "5.*",
-    "sensio/framework-extra-bundle": "3.*",
-    "symfony/assetic-bundle": "2.*",
-    "symfony/monolog-bundle": "3.*",
-    "symfony/swiftmailer-bundle": "2.*",
-    "symfony/symfony": "3.*",
-    "symfony/security-acl": "3.*",
+    "doctrine/doctrine-bundle": "^1.6.7",
+    "doctrine/doctrine-cache-bundle": "^1.3.0",
+    "doctrine/orm": "^2.5.6",
+    "incenteev/composer-parameter-handler": "^2.1",
+    "sensio/distribution-bundle": "^5.0.19",
+    "sensio/framework-extra-bundle": "^3.0.25",
+    "symfony/assetic-bundle": "^2.8.1",
+    "symfony/monolog-bundle": "^3.1.0",
+    "symfony/swiftmailer-bundle": "^2.5.4",
+    "symfony/symfony": "^3.2.8",
+    "symfony/security-acl": "^3.0.0",
     "react/socket-client": "0.5.*",
     "react/http": "0.4.*",
     "react/stream": "0.4.*",
     "react/datagram": "1.*",
-    "ramsey/uuid": "3.*",
-    "ramsey/uuid-doctrine": "1.*",
-    "ramsey/uuid-console": "1.*",
+    "ramsey/uuid": "^3.6.1",
+    "ramsey/uuid-doctrine": "^1.3.0",
+    "ramsey/uuid-console": "^1.1.1",
     "mockery/mockery": "^0.9",
     "phpunit/phpunit": "^5.7",
-    "phpspec/php-diff": "1.1.*",
+    "phpspec/php-diff": "^1.1.0",
     "roave/security-advisories": "dev-master"
   },
   "require-dev": {
-    "sensio/generator-bundle": "3.*",
-    "symfony/phpunit-bridge": "3.*"
+    "sensio/generator-bundle": "^3.1.4",
+    "symfony/phpunit-bridge": "^3.2.8"
   },
   "scripts": {
-    "post-install-cmd": [
+    "symfony-scripts": [
       "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
       "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
       "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
@@ -50,16 +55,15 @@
       "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
       "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
     ],
+    "post-install-cmd": [
+      "@symfony-scripts"
+    ],
     "post-update-cmd": [
-      "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
-      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
-      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
-      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
-      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
-      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
+      "@symfony-scripts"
     ]
   },
   "config": {
+    "bin-dir": "bin",
     "platform": {
       "php": "7.0"
     }
@@ -70,6 +74,7 @@
     "symfony-var-dir": "var",
     "incenteev-parameters": {
       "file": "app/config/parameters.yml"
-    }
+    },
+    "branch-alias": null
   }
 }
