@@ -1,3 +1,8 @@
+monotype_server:
+    resource: "@MonotypeServerBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 monotype_repository:
     resource: "@RepositoryBundle/Controller/"
     type:     annotation
