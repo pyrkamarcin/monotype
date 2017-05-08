@@ -29,3 +29,4 @@
 /bin/*
 !/bin/console
 !/bin/monotype
+/phpmd.phar

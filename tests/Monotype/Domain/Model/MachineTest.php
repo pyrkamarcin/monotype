@@ -8,6 +8,9 @@ namespace Monotype\Domain\Model;
  */
 class MachineTest extends \PHPUnit_Framework_TestCase
 {
+    /**
+     *
+     */
     public function testMachineConstructor()
     {
         $machine = new Machine([
