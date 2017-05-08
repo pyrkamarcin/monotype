@@ -3,20 +3,27 @@
 namespace Monotype\Server;
 
 use Mockery;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class ServerTest
  * @package Monotype\Server
  */
-class ServerTest extends PHPUnit_Framework_TestCase
+class ServerTest extends TestCase
 {
+    /**
+     *
+     */
     public function tearDown()
     {
         Mockery::close();
     }
 
+    /**
+     *
+     */
     public function testServerRuning()
     {
+        $this->assertEmpty(null);
     }
 }

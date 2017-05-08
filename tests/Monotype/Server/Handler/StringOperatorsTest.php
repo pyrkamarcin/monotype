@@ -2,11 +2,13 @@
 
 namespace Monotype\Server\Handler;
 
+use PHPUnit\Framework\TestCase;
+
 /**
  * Class StringOperatorsTest
  * @package Monotype\Server\Handler
  */
-class StringOperatorsTest extends \PHPUnit_Framework_TestCase
+class StringOperatorsTest extends TestCase
 {
     /**
      *
