@@ -22,7 +22,7 @@ class ServerTest extends TestCase
     /**
      *
      */
-    public function testServerRuning()
+    public function testServerRunning()
     {
         $this->assertEmpty(null);
     }
