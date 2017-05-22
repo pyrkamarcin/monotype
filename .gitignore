@@ -30,3 +30,4 @@
 !/bin/console
 !/bin/monotype
 /phpmd.phar
+/coverage-dir/
