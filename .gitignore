@@ -31,3 +31,4 @@
 !/bin/monotype
 /phpmd.phar
 /tests/coverage/
+/coverage-dir
