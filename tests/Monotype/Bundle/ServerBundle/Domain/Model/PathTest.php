@@ -1,9 +1,18 @@
 <?php
 
-namespace Monotype\Domain\Model;
+namespace Monotype\Bundle\ServerBundle\Domain\Model;
 
-class PathTest extends \PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+/**
+ * Class PathTest
+ * @package Monotype\Domain\Model
+ */
+class PathTest extends TestCase
 {
+    /**
+     *
+     */
     public function testPathConstructor()
     {
         $path = new Path([

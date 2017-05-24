@@ -2,7 +2,7 @@
 
 namespace Monotype\Server\Handler;
 
-use Monotype\Domain\Model\Path;
+use Monotype\Bundle\ServerBundle\Domain\Model\Path;
 use Monotype\Server\Handler;
 use Symfony\Component\HttpFoundation\Session\Session;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Monotype\Bundle\RepositoryBundle\DependencyInjection;
+namespace Monotype\Bundle\ServerBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -12,11 +12,10 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
  *
  * @link http://symfony.com/doc/current/cookbook/bundles/extension.html
  */
-class MonotypeRepositoryExtension extends Extension
+class MonotypeServerExtension extends Extension
 {
     /**
      * {@inheritdoc}
-     * @throws \Exception
      */
     public function load(array $configs, ContainerBuilder $container)
     {

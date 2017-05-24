@@ -1,10 +1,10 @@
 <?php
 
-namespace Monotype\Domain;
+namespace Monotype\Bundle\ServerBundle\Domain;
 
 /**
  * Class RandomString
- * @package Monotype\Domain
+ * @package Monotype\Bundle\ServerBundle\Domain
  */
 class RandomString
 {

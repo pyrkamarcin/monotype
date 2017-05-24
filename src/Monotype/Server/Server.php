@@ -27,12 +27,12 @@ class Server
     /**
      * @var int
      */
-    private $commandPort = 4000;
+    private $commandPort = 4001;
 
     /**
      * @var int
      */
-    private $dataPort = 4001;
+    private $dataPort = 4000;
 
     /**
      * ServerListening constructor.

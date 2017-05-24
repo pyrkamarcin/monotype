@@ -1,12 +1,12 @@
 <?php
 
-namespace Monotype\Domain\Dumper;
+namespace Monotype\Bundle\ServerBundle\Domain\Dumper;
 
-use Monotype\Domain\Model\Path;
+use Monotype\Bundle\ServerBundle\Domain\Model\Path;
 
 /**
  * Class Stock
- * @package Monotype\Domain\Dumper
+ * @package Monotype\Bundle\ServerBundle\Domain\Dumper
  */
 class Stock
 {

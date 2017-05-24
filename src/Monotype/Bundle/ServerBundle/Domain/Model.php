@@ -1,10 +1,10 @@
 <?php
 
-namespace Monotype\Domain;
+namespace Monotype\Bundle\ServerBundle\Domain;
 
 /**
  * Class Model
- * @package Monotype\Domain\Model
+ * @package Monotype\Bundle\ServerBundle\Domain\Model
  */
 class Model
 {
