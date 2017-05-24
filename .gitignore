@@ -33,3 +33,4 @@
 /tests/coverage/
 /coverage-dir
 /php-cs-fixer-v2.phar
+/pid
