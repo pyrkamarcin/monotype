@@ -29,42 +29,33 @@ class AppKernel extends Kernel
             $bundles[] = new Symfony\Bundle\DebugBundle\DebugBundle();
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
-            $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
+
+            if ('dev' === $this->getEnvironment()) {
+                $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
+                $bundles[] = new Symfony\Bundle\WebServerBundle\WebServerBundle();
+            }
         }
 
         return $bundles;
     }
 
-    /**
-     * @return string
-     */
+    public function getRootDir()
+    {
+        return __DIR__;
+    }
+
     public function getCacheDir()
     {
         return dirname(__DIR__) . '/var/cache/' . $this->getEnvironment();
     }
 
-    /**
-     * @return string
-     */
     public function getLogDir()
     {
         return dirname(__DIR__) . '/var/logs';
     }
 
-    /**
-     * @param LoaderInterface $loader
-     * @throws \Exception
-     */
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
         $loader->load($this->getRootDir() . '/config/config_' . $this->getEnvironment() . '.yml');
-    }
-
-    /**
-     * @return string
-     */
-    public function getRootDir()
-    {
-        return __DIR__;
     }
 }
