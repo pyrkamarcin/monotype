@@ -4,14 +4,13 @@
 $loader = require __DIR__ . '/../app/autoload.php';
 
 use Symfony\Component\Console\Application;
-use Symfony\Component\Debug\Debug;
 use Symfony\Component\Console\Input\ArgvInput;
+use Symfony\Component\Debug\Debug;
 
 $application = new Application('Monotype data transfer system', 'dev-master');
 
-$application->add(new \Monotype\Bundle\TransportLayerBundle\Command\ServerSendCommand());
-$application->add(new \Monotype\Bundle\TransportLayerBundle\Command\ServerRunCommand());
-$application->add(new \Monotype\Bundle\TransportLayerBundle\Command\ServerCommandCommand());
+$application->add(new \Monotype\Bundle\ServerBundle\Command\ServerSendCommand());
+$application->add(new \Monotype\Bundle\ServerBundle\Command\ServerRunCommand());
 
 $input = new ArgvInput();
 $env = $input->getParameterOption(['--env', '-e'], getenv('SYMFONY_ENV') ?: 'dev');

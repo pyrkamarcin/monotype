@@ -2,7 +2,6 @@
 
 namespace Monotype\Server;
 
-use Monotype\Server\Command\ServerCommand;
 use Monotype\Server\Handler\BasicHandler;
 use React\Datagram;
 use React\EventLoop;
@@ -27,11 +26,6 @@ class Server
     /**
      * @var int
      */
-    private $commandPort = 4001;
-
-    /**
-     * @var int
-     */
     private $dataPort = 4000;
 
     /**
@@ -44,13 +38,6 @@ class Server
         $this->loop = EventLoop\Factory::create();
 
         $this->factory = new Datagram\Factory($this->loop);
-
-        $this->factory->createServer($host . ':' . $this->commandPort)->then(function (Datagram\Socket $client) use ($inputOutput) {
-            $client->on('message', function ($message, $serverAddress, Datagram\Socket $client) use ($inputOutput) {
-                $inputOutput->text('received command "' . $message . '" from ' . $serverAddress);
-                return new ServerCommand($inputOutput, $client, $message);
-            });
-        });
 
         $this->factory->createServer($host . ':' . $this->dataPort)->then(function (Datagram\Socket $client) use ($inputOutput) {
             $client->on('message', function ($message, $serverAddress, Datagram\Socket $client) use ($inputOutput) {

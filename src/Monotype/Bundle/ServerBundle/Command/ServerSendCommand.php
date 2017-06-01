@@ -1,6 +1,6 @@
 <?php
 
-namespace Monotype\Bundle\TransportLayerBundle\Command;
+namespace Monotype\Bundle\ServerBundle\Command;
 
 use React\Datagram;
 use React\Dns\Resolver;
@@ -13,10 +13,10 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
 /**
- * Class ServerCommandCommand
- * @package Monotype\Bundle\TransportLayerBundle\Command
+ * Class ServerSendCommand
+ * @package Monotype\Bundle\ServerBundle\Command
  */
-class ServerCommandCommand extends ContainerAwareCommand
+class ServerSendCommand extends ContainerAwareCommand
 {
     /**
      *
@@ -25,10 +25,12 @@ class ServerCommandCommand extends ContainerAwareCommand
     protected function configure()
     {
         $this
-            ->setName('server:command')
-            ->setDescription('Send command to local server')
-            ->addArgument('argument', InputArgument::OPTIONAL, 'Argument description')
-            ->addOption('option', null, InputOption::VALUE_NONE, 'Option description');
+            ->setName('server:send')
+            ->setDescription('Send test data to server or devices')
+            ->addArgument('address', InputArgument::REQUIRED, 'address')
+            ->addArgument('port', InputArgument::REQUIRED, 'port')
+            ->addArgument('name', InputArgument::OPTIONAL, 'name')
+            ->addOption('file', null, InputOption::VALUE_NONE, 'Option description');
     }
 
     /**
@@ -41,7 +43,9 @@ class ServerCommandCommand extends ContainerAwareCommand
     {
         $inputOutput = new SymfonyStyle($input, $output);
 
-        $argument = $input->getArgument('argument');
+        $address = $input->getArgument('address');
+        $port = $input->getArgument('port');
+        $name = $input->getArgument('name');
 
         $loop = EventLoop\Factory::create();
         $factory = new Resolver\Factory();
@@ -49,8 +53,9 @@ class ServerCommandCommand extends ContainerAwareCommand
         $resolver = $factory->createCached('8.8.8.8', $loop);
         $factory = new Datagram\Factory($loop, $resolver);
 
-        $factory->createClient('127.0.0.1:4000')->then(function (Datagram\Socket $client) use ($argument) {
-            $client->send($argument);
+        $factory->createClient($address . ':' . $port)->then(function (Datagram\Socket $client) use ($loop, $name, $inputOutput) {
+            $client->send($name);
+            $inputOutput->success('Send.');
             $client->end();
         }, function ($error) use ($inputOutput) {
             $inputOutput->error('ERROR: ' . $error->getMessage());

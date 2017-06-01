@@ -1,6 +1,6 @@
 <?php
 
-namespace Monotype\Bundle\TransportLayerBundle\Command;
+namespace Monotype\Bundle\ServerBundle\Command;
 
 use Monotype\Server\Server;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
@@ -12,7 +12,7 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 
 /**
  * Class ServerRunCommand
- * @package Monotype\Bundle\TransportLayerBundle\Command
+ * @package Monotype\Bundle\ServerBundle\Command
  */
 class ServerRunCommand extends ContainerAwareCommand
 {
