@@ -59,10 +59,10 @@ class BasicHandler extends Handler
 
             $session->remove('fileName');
             $session->remove('pathName');
-        } else {
-            $session->set('timestamp', $actualTimestamp);
-            file_put_contents($session->get('tempname'), $this->message, FILE_APPEND);
-            $this->io->write('.');
         }
+
+        $session->set('timestamp', $actualTimestamp);
+        file_put_contents($session->get('tempname'), $this->message, FILE_APPEND);
+        $this->io->write('.');
     }
 }
