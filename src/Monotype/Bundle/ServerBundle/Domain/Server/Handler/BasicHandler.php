@@ -3,6 +3,7 @@
 namespace Monotype\Bundle\ServerBundle\Domain\Server\Handler;
 
 use Monotype\Bundle\ServerBundle\Domain\Model\Path;
+use Monotype\Bundle\ServerBundle\Domain\Server\Handler;
 use Symfony\Component\HttpFoundation\Session\Session;
 
 /**
@@ -17,7 +18,7 @@ class BasicHandler extends Handler
     public function createHandler()
     {
         $session = new Session();
-        $actualTimestamp = microtime($get_as_float = true);
+        $actualTimestamp = microtime(true);
         $path = new Path(['location' => __DIR__ . '/../../../../var/temp/stock']);
 
         if ($actualTimestamp - $session->get('timestamp') > 2) {
@@ -33,15 +34,17 @@ class BasicHandler extends Handler
             $dateTime = new \DateTime('now');
             $this->io->writeln('Date: ' . $dateTime->format('d/m/Y H:i:s'));
 
-            $header = StringOperators::getTwoFirstLines($this->message);
+            $stringOperators = new StringOperators();
+
+            $header = $stringOperators->getTwoFirstLines($this->message);
 
             if ($header) {
-                $fileName = StringOperators::getFileName($header[0]);
+                $fileName = $stringOperators->getFileName($header[0]);
                 $session->set('fileName', $fileName);
 
                 $this->io->writeln('Find filename: ' . $fileName);
 
-                $pathName = StringOperators::getPath($header[1]);
+                $pathName = $stringOperators->getPath($header[1]);
                 $session->set('pathName', $pathName);
 
                 $this->io->writeln('Find path: ' . $pathName);

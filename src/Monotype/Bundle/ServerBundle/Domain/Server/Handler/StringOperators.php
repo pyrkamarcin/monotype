@@ -4,18 +4,23 @@ namespace Monotype\Bundle\ServerBundle\Domain\Server\Handler;
 
 /**
  * Class StringOperators
- * @package Monotype\Server\Handler
+ * @package Monotype\Bundle\ServerBundle\Domain\Server\Handler
  */
 class StringOperators
 {
+
+    public function __construct()
+    {
+
+    }
 
     /**
      * @param string $line
      * @return mixed
      */
-    public static function getFileName(string $line)
+    public function getFileName(string $line)
     {
-        return self::leftReplace('_', '.', str_replace('%_N_', '', $line));
+        return $this->leftReplace('_', '.', str_replace('%_N_', '', $line));
     }
 
     /**
@@ -24,7 +29,7 @@ class StringOperators
      * @param $subject
      * @return mixed
      */
-    public static function leftReplace($search, $replace, $subject)
+    public function leftReplace($search, $replace, $subject)
     {
         $pos = strrpos($subject, $search);
 
@@ -39,7 +44,7 @@ class StringOperators
      * @param string $message
      * @return array|bool
      */
-    public static function getTwoFirstLines(string $message)
+    public function getTwoFirstLines(string $message)
     {
         $array = explode("\n", $message);
         if (count($array) >= 2) {
@@ -53,7 +58,7 @@ class StringOperators
      * @param string $line
      * @return mixed
      */
-    public static function getPath(string $line)
+    public function getPath(string $line)
     {
         return str_replace('_', '.', str_replace(['_N_', ';$PATH='], '', $line));
     }
