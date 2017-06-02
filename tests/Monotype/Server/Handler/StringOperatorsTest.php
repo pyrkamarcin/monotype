@@ -16,7 +16,8 @@ class StringOperatorsTest extends TestCase
      */
     public function testLeftReplace()
     {
-        $output = StringOperators::leftReplace('_', '.', '603779NA_RAZ_MPF');
+        $stringOperators = new StringOperators();
+        $output = $stringOperators->leftReplace('_', '.', '603779NA_RAZ_MPF');
         $this->assertEquals('603779NA_RAZ.MPF', $output);
     }
 
@@ -25,7 +26,8 @@ class StringOperatorsTest extends TestCase
      */
     public function testGetFileName()
     {
-        $output = StringOperators::getFileName('%_N_603779NA_L83_5_MPF');
+        $stringOperators = new StringOperators();
+        $output = $stringOperators->getFileName('%_N_603779NA_L83_5_MPF');
         $this->assertEquals('603779NA_L83_5.MPF', $output);
     }
 
@@ -34,7 +36,8 @@ class StringOperatorsTest extends TestCase
      */
     public function testGetTwoFirstLines()
     {
-        $output = StringOperators::getTwoFirstLines('%_N_BP_100_S1_MPF
+        $stringOperators = new StringOperators();
+        $output = $stringOperators->getTwoFirstLines('%_N_BP_100_S1_MPF
 ;$PATH=/_N_WKS_DIR/_N_FORMY_WPD
 N5 F_HEAD(365690879,56.425,0.,14.3,-22.,1.,1.,6.5,-150.,154.801,408.3665,1.,2500.,0.,71,1,799,0,-14.,-50.,7,1,6,20.,38.73,20.,1);*RO*
 N20 F_CON("KKKKKKKK",4,"E_LAB_A_KKKKKKKK","E_LAB_E_KKKKKKKK");*RO*
@@ -50,7 +53,8 @@ M30 ;#SM;*RO*');
      */
     public function testGetPath()
     {
-        $output = StringOperators::getPath(';$PATH=/_N_WKS_DIR/_N_ROLMECH_WPD');
+        $stringOperators = new StringOperators();
+        $output = $stringOperators->getPath(';$PATH=/_N_WKS_DIR/_N_ROLMECH_WPD');
         $this->assertEquals('/WKS.DIR/ROLMECH.WPD', $output);
     }
 }

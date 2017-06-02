@@ -12,9 +12,6 @@ use Symfony\Component\HttpFoundation\Session\Session;
  */
 class BasicHandler extends Handler
 {
-    /**
-     *
-     */
     public function createHandler()
     {
         $session = new Session();
