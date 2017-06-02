@@ -26,7 +26,12 @@ class Server
     /**
      * @var int
      */
-    private $dataPort = 4000;
+    private $port = 4000;
+
+    /**
+     * @var int
+     */
+    private $host;
 
     /**
      * ServerListening constructor.
@@ -36,12 +41,14 @@ class Server
     public function __construct(SymfonyStyle $inputOutput, string $host = 'localhost')
     {
         $this->loop = EventLoop\Factory::create();
+        $this->host = $host;
 
         $this->factory = new Datagram\Factory($this->loop);
 
-        $this->factory->createServer($host . ':' . $this->dataPort)->then(function (Datagram\Socket $client) use ($inputOutput) {
+        $this->factory->createServer($this->host . ':' . $this->port)->then(function (Datagram\Socket $client) use ($inputOutput) {
             $client->on('message', function ($message, $serverAddress, Datagram\Socket $client) use ($inputOutput) {
                 $handler = new BasicHandler($inputOutput, $client, $message, $serverAddress);
+                $handler->setHost($this->host, $this->port);
                 $handler->createHandler();
             });
         });
