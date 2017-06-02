@@ -1,9 +1,8 @@
 <?php
 
-namespace Monotype\Server\Handler;
+namespace Monotype\Bundle\ServerBundle\Domain\Server\Handler;
 
 use Monotype\Bundle\ServerBundle\Domain\Model\Path;
-use Monotype\Server\Handler;
 use Symfony\Component\HttpFoundation\Session\Session;
 
 /**

@@ -1,6 +1,6 @@
 <?php
 
-namespace Monotype\Server\Handler;
+namespace Monotype\Bundle\ServerBundle\Domain\Server\Handler;
 
 /**
  * Class StringOperators

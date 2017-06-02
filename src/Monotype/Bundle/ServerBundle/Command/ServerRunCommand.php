@@ -2,7 +2,7 @@
 
 namespace Monotype\Bundle\ServerBundle\Command;
 
-use Monotype\Server\Server;
+use Monotype\Bundle\ServerBundle\Domain\Server\Server;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;

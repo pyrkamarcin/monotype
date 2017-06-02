@@ -1,6 +1,6 @@
 <?php
 
-namespace Monotype\Server;
+namespace Monotype\Bundle\ServerBundle\Domain\Server;
 
 use Monotype\Server\Handler\BasicHandler;
 use React\Datagram;
