@@ -8,7 +8,6 @@ use React\EventLoop;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
@@ -30,7 +29,7 @@ class ServerSendCommand extends ContainerAwareCommand
             ->addArgument('address', InputArgument::REQUIRED, 'address')
             ->addArgument('port', InputArgument::REQUIRED, 'port')
             ->addArgument('name', InputArgument::OPTIONAL, 'name')
-            ->addOption('file', null, InputOption::VALUE_NONE, 'Option description');
+            ->addArgument('file', null, InputArgument::OPTIONAL, 'Option description');
     }
 
     /**
@@ -46,6 +45,7 @@ class ServerSendCommand extends ContainerAwareCommand
         $address = $input->getArgument('address');
         $port = $input->getArgument('port');
         $name = $input->getArgument('name');
+        $file = $input->getArgument('file');
 
         $loop = EventLoop\Factory::create();
         $factory = new Resolver\Factory();
@@ -53,8 +53,15 @@ class ServerSendCommand extends ContainerAwareCommand
         $resolver = $factory->createCached('8.8.8.8', $loop);
         $factory = new Datagram\Factory($loop, $resolver);
 
-        $factory->createClient($address . ':' . $port)->then(function (Datagram\Socket $client) use ($loop, $name, $inputOutput) {
-            $client->send($name);
+        $factory->createClient($address . ':' . $port)->then(function (Datagram\Socket $client) use ($loop, $name, $file, $inputOutput) {
+
+            $inputOutput->note(__DIR__);
+
+            if ($file) {
+                $client->send(file_get_contents(__DIR__ . '/../../../../../' . $file));
+            } else {
+                $client->send($name);
+            }
             $inputOutput->success('Send.');
             $client->end();
         }, function ($error) use ($inputOutput) {
