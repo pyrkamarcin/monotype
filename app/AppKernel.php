@@ -11,7 +11,7 @@ class AppKernel extends Kernel
     /**
      * @return array
      */
-    public function registerBundles()
+    public function registerBundles(): array
     {
         $bundles = [
             new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
@@ -31,7 +31,6 @@ class AppKernel extends Kernel
 
             if ('dev' === $this->getEnvironment()) {
                 $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
-                $bundles[] = new Symfony\Bundle\WebServerBundle\WebServerBundle();
             }
         }
 
