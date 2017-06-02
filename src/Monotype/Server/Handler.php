@@ -44,7 +44,7 @@ class Handler
     /**
      * @var
      */
-    private $io;
+    public $io;
 
     /**
      * Handler constructor.
