@@ -69,7 +69,9 @@
       "@symfony-scripts"
     ],
     "post-update-cmd": [
-      "@symfony-scripts"
+      "@symfony-scripts",
+      "bin\\phpunit ",
+      "bin\\codacycoverage phpunit ./tests/coverage/xml "
     ]
   },
   "config": {
@@ -87,7 +89,6 @@
     "symfony-assets-install": "relative",
     "incenteev-parameters": {
       "file": "app/config/parameters.yml"
-    },
-    "branch-alias": null
+    }
   }
 }
