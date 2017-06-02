@@ -39,11 +39,10 @@ php bin/monotype server:run
 To sending test data, enter:
 
 ```
-php bin/monotype server:send 127.0.0.1 4001 1x213C3
+php bin/monotype server:send 127.0.0.1 4001 sample+data+string
 ```
 
 Where:
 
 - 127.0.0.1 is active server / client IP
-- 4001 is number of the listening server port
-- 1x213C3 is a name of files in temp/stock dir (only the production stage)
+- 4000 is number of the listening server port (default 4000)
