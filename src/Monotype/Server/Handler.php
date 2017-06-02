@@ -31,8 +31,20 @@ class Handler
      */
     public $serverAddress;
 
+    /**
+     * @var
+     */
     private $address;
+
+    /**
+     * @var
+     */
     private $port;
+
+    /**
+     * @var
+     */
+    private $io;
 
     /**
      * Handler constructor.
@@ -57,13 +69,5 @@ class Handler
     {
         $this->address = $address;
         $this->port = $port;
-    }
-
-    /**
-     *
-     */
-    public function dumpMessage()
-    {
-        $this->io->text('received message (' . strlen($this->message) . ') "' . $this->message . '" from ' . $this->serverAddress);
     }
 }
