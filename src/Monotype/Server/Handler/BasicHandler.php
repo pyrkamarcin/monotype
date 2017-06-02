@@ -49,7 +49,7 @@ class BasicHandler extends Handler
             }
             $this->io->write('Create file: .');
 
-        } elseif (strlen($this->message) < 128 || ($actualTimestamp - $session->get('timestamp') > 0.7 & $actualTimestamp - $session->get('timestamp') <= 2)) {
+        } elseif (strlen($this->message) < 16 || ($actualTimestamp - $session->get('timestamp') > 0.7 & $actualTimestamp - $session->get('timestamp') <= 2)) {
             $session->set('timestamp', $actualTimestamp);
             file_put_contents($session->get('tempname'), $this->message, FILE_APPEND);
             $this->io->writeln('. (end)');
