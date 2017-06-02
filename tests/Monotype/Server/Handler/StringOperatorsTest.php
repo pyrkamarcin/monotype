@@ -2,6 +2,7 @@
 
 namespace Monotype\Server\Handler;
 
+use Monotype\Bundle\ServerBundle\Domain\Server\Handler\StringOperators;
 use PHPUnit\Framework\TestCase;
 
 /**
