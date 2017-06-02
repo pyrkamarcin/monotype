@@ -3,6 +3,8 @@
 [![Code Climate](https://codeclimate.com/github/pyrkamarcin/monotype/badges/gpa.svg)](https://codeclimate.com/github/pyrkamarcin/monotype)
 [![Build Status](https://travis-ci.org/pyrkamarcin/monotype.svg?branch=master)](https://travis-ci.org/pyrkamarcin/monotype)
 [![Dependency Status](https://www.versioneye.com/user/projects/584e631ca83e27003c0e505a/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/584e631ca83e27003c0e505a)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/0784fe50aefc4df693615c64c423414a)](https://www.codacy.com/app/pyrkamarcin/monotype?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=pyrkamarcin/monotype&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/0784fe50aefc4df693615c64c423414a)](https://www.codacy.com/app/pyrkamarcin/monotype?utm_source=github.com&utm_medium=referral&utm_content=pyrkamarcin/monotype&utm_campaign=Badge_Coverage)
 
 DNC Server using Reach Socket, UDP, cooperating with Moxa's (or other) Serial to Ethernet converters.
 
