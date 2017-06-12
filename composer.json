@@ -70,8 +70,8 @@
     ],
     "post-update-cmd": [
       "@symfony-scripts",
-      "bin\\phpunit ",
-      "bin\\codacycoverage phpunit ./tests/coverage/xml "
+      "bin/phpunit ",
+      "bin/codacycoverage phpunit ./tests/coverage/xml "
     ]
   },
   "config": {
