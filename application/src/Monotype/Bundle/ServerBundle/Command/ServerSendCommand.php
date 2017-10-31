@@ -58,7 +58,7 @@ class ServerSendCommand extends ContainerAwareCommand
             $inputOutput->note(__DIR__);
 
             if ($file) {
-                $client->send(file_get_contents(__DIR__ . '/../../../../../' . $file));
+                $client->send(file_get_contents(__DIR__ . '/../../../../monotype/' . $file));
             } else {
                 $client->send($name);
             }
