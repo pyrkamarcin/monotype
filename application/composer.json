@@ -39,7 +39,6 @@
     "react/http": "0.4.*",
     "react/stream": "0.4.*",
     "react/datagram": "1.*",
-    "roave/security-advisories": "dev-master",
     "gabrielrcouto/php-gui": "^0.1.0",
     "cocur/background-process": "^0.7.0",
     "symfony/process": "^3.3.0",
@@ -48,8 +47,6 @@
     "ramsey/uuid-console": "^1.1.1"
   },
   "require-dev": {
-    "codacy/coverage": "^1.1",
-    "codeclimate/php-test-reporter": "^0.4.1",
     "mockery/mockery": "^0.9.9",
     "phpmd/phpmd": "^2.6.0",
     "phpspec/php-diff": "^1.1.0",

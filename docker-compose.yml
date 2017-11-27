@@ -1,11 +1,11 @@
 version: '3'
 services:
     application:
-        container_name: application
         build: ./etc/application
-        ports:
-            - 9999:9000
+        expose:
+            - "8000"
         restart: always
         volumes:
             - ./etc/application/php.ini:/usr/local/etc/php/conf.d/php.ini
             - ${APP_PATH}:/var/www/html
+        command: "php bin/monotype server:run"

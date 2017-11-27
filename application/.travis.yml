@@ -2,10 +2,10 @@ language: php
 php:
   - '7.0'
   - '7.1'
+  - '7.2'
 
 before_script:
   - composer install
-  - export CODACY_PROJECT_TOKEN=8d0866717ec94db498b59cfc6762093f
 
 script:
   - php vendor/bin/phpunit

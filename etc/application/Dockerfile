@@ -18,6 +18,7 @@ RUN apt-get update && apt-get install -y \
 RUN docker-php-ext-install -j$(nproc) iconv mcrypt
 RUN docker-php-ext-install intl
 RUN docker-php-ext-install gd
+RUN docker-php-ext-install bcmath
 RUN docker-php-ext-install mysqli pdo pdo_mysql
 RUN docker-php-ext-install zip
 
